@@ -11,4 +11,6 @@
 This project was contributed by the following people:
 
 - Rafael Corchuelo (corchu@us.es)
-- Pablo Delfin Lopez Benitez (pablopben@alum.us.es)
+- Pablo Delfín López (pablopben@alum.us.es)
+- Alejandro Carrasco (alecarnun@alum.us.es)
+- Andrés Durán (andresdt@pm.me)
