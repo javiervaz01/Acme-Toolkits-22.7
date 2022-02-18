@@ -11,8 +11,9 @@
 This project was contributed by the following people:
 
 - Rafael Corchuelo (corchu@us.es)
-- Pablo Núñez (pabnunmor@alum.us.es)
-- Pablo José Robledo (pabrobcam@alum.us.es)
-- Pablo Delfín López (pablopben@alum.us.es)
-- Alejandro Carrasco (alecarnun@alum.us.es)
-- Andrés Durán (anddurter@alum.us.es)
+- Francisco Javier Vázquez Monge (fravazmon@alum.us.es)
+- Pablo Núñez Moreno (pabnunmor@alum.us.es)
+- Pablo José Robledo Campa (pabrobcam@alum.us.es)
+- Pablo Delfín López Benítez(pablopben@alum.us.es)
+- Alejandro Carrasco Núñez (alecarnun@alum.us.es)
+- Andrés Durán Terrero (anddurter@alum.us.es)
