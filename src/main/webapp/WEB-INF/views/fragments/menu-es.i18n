@@ -8,7 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-﻿# master.menu #################################################################
+# master.menu #################################################################
 
 master.menu.home = Inicio
 master.menu.sign-up = Registrarse
@@ -22,6 +22,7 @@ master.menu.anonymous.andres-duran.favourite-link = 49137589K: Durán Terrero, A
 master.menu.anonymous.javier-vazquez.favourite-link = 21152327D: Vázquez monge, Francisco Javier
 master.menu.anonymous.pablo-delfin-lopez.favourite-link = 49193407H: López Benítez, Pablo Delfín
 master.menu.anonymous.alejandro-carrasco.favourite-link = 77820579X: Carrasco Núñez, Alejandro
+master.menu.anonymous.pablo-robledo.favourite-link= 77850051L: Robledo Campa, Pablo Jose
 
 # master.menu.administrator ###################################################
 
