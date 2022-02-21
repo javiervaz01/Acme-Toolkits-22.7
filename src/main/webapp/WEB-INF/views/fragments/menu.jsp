@@ -20,7 +20,10 @@
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.andres-duran.favourite-link" action="https://distill.pub/"/>
-			<acme:menu-suboption code="master.menu.anonymous.pablo-robledo.favourite-link" action="https://www.reddit.com/r/cremposting/"/>
+			<acme:menu-suboption code="master.menu.anonymous.javier-vazquez.favourite-link" action="https://www.chollometro.com/"/>
+      <acme:menu-suboption code="master.menu.anonymous.pablo-delfin-lopez.favourite-link" action="https://www.discogs.com/"/>
+			<acme:menu-suboption code="master.menu.anonymous.alejandro-carrasco.favourite-link" action="https://www.visitarsevilla.com/"/>
+      <acme:menu-suboption code="master.menu.anonymous.pablo-robledo.favourite-link" action="https://www.learnweb3.io/"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
@@ -56,4 +59,3 @@
 		<acme:menu-option code="master.menu.sign-out" action="/master/sign-out" access="isAuthenticated()"/>
 	</acme:menu-right>
 </acme:menu-bar>
-
