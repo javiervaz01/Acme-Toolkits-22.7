@@ -20,6 +20,7 @@
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.andres-duran.favourite-link" action="https://distill.pub/"/>
+			<acme:menu-suboption code="master.menu.anonymous.pablo-nunez.favourite-link" action="https://www.windy.com/"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
