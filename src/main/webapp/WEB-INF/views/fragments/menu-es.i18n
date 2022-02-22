@@ -18,6 +18,7 @@ master.menu.sign-out = Salir
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anónimo
+master.menu.anonymous.favourite-link = Enlace favorito
 master.menu.anonymous.andres-duran.favourite-link = 49137589K: Durán Terrero, Andrés
 master.menu.anonymous.javier-vazquez.favourite-link = 21152327D: Vázquez monge, Francisco Javier
 master.menu.anonymous.pablo-delfin-lopez.favourite-link = 49193407H: López Benítez, Pablo Delfín

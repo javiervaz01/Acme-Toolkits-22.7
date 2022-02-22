@@ -19,6 +19,7 @@
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
+			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.andres-duran.favourite-link" action="https://distill.pub/"/>
 			<acme:menu-suboption code="master.menu.anonymous.javier-vazquez.favourite-link" action="https://www.chollometro.com/"/>
       <acme:menu-suboption code="master.menu.anonymous.pablo-delfin-lopez.favourite-link" action="https://www.discogs.com/"/>
