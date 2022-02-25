@@ -29,3 +29,5 @@ nbdist/
 mvnw
 
 mvnw\.cmd
+/.apt_generated_tests/
+logs/
