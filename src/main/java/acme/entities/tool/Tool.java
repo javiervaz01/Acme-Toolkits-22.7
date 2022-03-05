@@ -3,6 +3,7 @@ package acme.entities.tool;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.PositiveOrZero;
 
@@ -27,6 +28,7 @@ public class Tool extends AbstractEntity{
 		@Length(max=101)
 		protected String name;
 		
+		@NotNull
 		@Column(unique=true)
 		@Pattern(regexp="^[A-Z]{3}-[0-9]{3}(-[A-Z])?$",message = "default.error.conversion")
 		protected String code;
@@ -39,6 +41,7 @@ public class Tool extends AbstractEntity{
 		@Length(max=256)
 		protected String description;
 		
+		@NotNull
 		@PositiveOrZero
 		protected Integer retailPrice;
 		
