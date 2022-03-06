@@ -1,4 +1,4 @@
-package acme.components;
+package acme.entities.components;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
