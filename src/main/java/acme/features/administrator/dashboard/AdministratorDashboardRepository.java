@@ -12,10 +12,10 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	@Query("select count(i) from Item i where i.itemType = COMPONENT")
 	Integer numberOfComponents();
 	
-	/*@Query("select avg(select i.retailPrice.amount from Item i where i.itemType = COMPONENT) from Item i group by i.technology")
+	@Query("select avg(select i.retailPrice.amount from Item i where i.itemType = COMPONENT) from Item i group by i.technology")
 	Double averageRetailPriceOfComponentsPerTechnology();
-	@Query("select stddev(select i.retailPrice.amount from Item i where i.itemType = COMPONENT) from Item i group by i.technology")
-	Double deviationRetailPriceOfComponentsPerTechnology();
+	/*@Query("select stddev(select i.retailPrice.amount from Item i where i.itemType = COMPONENT) from Item i group by i.technology")
+	Double deviationRetailPriceOfComponentsPerTechnology();*/
 	@Query("select min(select i.retailPrice.amount from Item i where i.itemType = COMPONENT) from Item i group by i.technology")
 	Double minumumRetailPriceOfComponentsPerTechnology();
 	@Query("select max(select i.retailPrice.amount from Item i where i.itemType = COMPONENT) from Item i group by i.technology")
@@ -23,12 +23,12 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	
 	@Query("select avg(select i.retailPrice.amount from Item i where i.itemType = COMPONENT) from Item i group by i.retailPrice.currency")
 	Double averageRetailPriceOfComponentsPerCurrency();
-	@Query("select stddev(select i.retailPrice.amount from Item i where i.itemType = COMPONENT) from Item i group by i.retailPrice.currency")
-	Double deviationRetailPriceOfComponentsPerCurrency();
+	/*@Query("select stddev(select i.retailPrice.amount from Item i where i.itemType = COMPONENT) from Item i group by i.retailPrice.currency")
+	Double deviationRetailPriceOfComponentsPerCurrency();*/
 	@Query("select min(select i.retailPrice.amount from Item i where i.itemType = COMPONENT) from Item i group by i.retailPrice.currency")
 	Double minumumRetailPriceOfComponentsPerCurrency();
 	@Query("select max(select i.retailPrice.amount from Item i where i.itemType = COMPONENT) from Item i group by i.retailPrice.currency")
-	Double maximumRetailPriceOfComponentsPerCurrency();*/
+	Double maximumRetailPriceOfComponentsPerCurrency();
 	
 	
 	@Query("select count(i) from Item i where i.itemType = TOOL")

@@ -1,6 +1,7 @@
 package acme.entities.item;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.validation.constraints.NotBlank;
@@ -13,8 +14,13 @@ import org.hibernate.validator.constraints.URL;
 
 import acme.framework.datatypes.Money;
 import acme.framework.entities.AbstractEntity;
+import lombok.Getter;
+import lombok.Setter;
 
-public class Item extends AbstractEntity{
+@Entity
+@Getter
+@Setter
+public class Item extends AbstractEntity {
 	
 	// Serialisation identifier -----------------------------------------------
 
