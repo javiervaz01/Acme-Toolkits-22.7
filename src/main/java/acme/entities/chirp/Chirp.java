@@ -1,8 +1,10 @@
 package acme.entities.chirp;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
@@ -24,7 +26,8 @@ public class Chirp extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	protected LocalDateTime creationMoment;
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date creationMoment;
 	
 	@NotBlank
 	@Length(max=101)
