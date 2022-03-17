@@ -1,4 +1,4 @@
-package acme.entities.quantity;
+package acme.entities.quantities;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -6,7 +6,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
-import acme.entities.item.Item;
+import acme.entities.items.Item;
 import acme.entities.toolkits.Toolkits;
 import lombok.Getter;
 import lombok.Setter;

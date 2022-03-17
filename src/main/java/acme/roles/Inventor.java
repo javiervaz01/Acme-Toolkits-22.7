@@ -20,7 +20,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.entities.announcements.Announcement;
-import acme.entities.chirp.Chirp;
+import acme.entities.chirps.Chirp;
 import acme.framework.roles.UserRole;
 import lombok.Getter;
 import lombok.Setter;
