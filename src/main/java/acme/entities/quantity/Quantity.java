@@ -28,6 +28,10 @@ public class Quantity {
 		
 	// Derived attributes ----------------------------------------------------
 	
+	
+
+	// Relationships ----------------------------------------------------
+	
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
@@ -37,10 +41,6 @@ public class Quantity {
 	@Valid
 	@ManyToOne(optional = false)
 	protected Toolkits toolkits;
-
-	// Relationships ----------------------------------------------------
-	
-	
 	
 	
 }
