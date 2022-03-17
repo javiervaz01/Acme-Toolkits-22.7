@@ -5,11 +5,11 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.framework.entities.AbstractEntity;
@@ -33,15 +33,14 @@ public class Announcement extends AbstractEntity {
 	protected Date					moment;
 	
 	@NotBlank
-	@Max(101)
+	@Length(max=100)
 	protected String				title;
 
 	@NotBlank
-	@Max(101)
+	@Length(max=100)
 	protected String				body;
 
-	@NotNull
-	protected Boolean				isCritical;
+	protected boolean				isCritical;
 	
 	@URL
 	protected String				info;
