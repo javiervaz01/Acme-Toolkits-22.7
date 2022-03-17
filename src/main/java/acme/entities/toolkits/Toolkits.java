@@ -53,7 +53,7 @@ public class Toolkits extends AbstractEntity {
 	protected String assemblyNotes;
 	
 	@URL
-	protected String optionalLink;
+	protected String link;
 
 	// Derived attributes -----------------------------------------------------
 

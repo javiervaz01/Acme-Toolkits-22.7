@@ -28,7 +28,7 @@ public class PatronageReport extends AbstractEntity{
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@Pattern(regexp = "<^[A-Z]{3}-[0-9]{3}(-[A-Z])?$>:<[0-9]{4}")
+	@Pattern(regexp = "^[A-Z]{3}-[0-9]{3}(-[A-Z])?:[0-9]{4}$")
 	protected String sequenceNumber;
 	
 	@Past

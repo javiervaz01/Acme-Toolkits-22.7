@@ -4,7 +4,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>648</x>
+      <x>780</x>
       <y>132</y>
       <w>60</w>
       <h>36</h>
@@ -19,7 +19,7 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>516</x>
+      <x>648</x>
       <y>132</y>
       <w>60</w>
       <h>36</h>
@@ -34,7 +34,7 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>582</x>
+      <x>714</x>
       <y>132</y>
       <w>60</w>
       <h>36</h>
@@ -49,7 +49,7 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>540</x>
+      <x>672</x>
       <y>162</y>
       <w>84</w>
       <h>60</h>
@@ -60,7 +60,7 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>606</x>
+      <x>738</x>
       <y>162</y>
       <w>84</w>
       <h>60</h>
@@ -71,7 +71,7 @@ bg=yellow</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>606</x>
+      <x>738</x>
       <y>162</y>
       <w>18</w>
       <h>60</h>
@@ -82,7 +82,7 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>540</x>
+      <x>672</x>
       <y>210</y>
       <w>144</w>
       <h>36</h>
@@ -96,7 +96,7 @@ bg=yellow</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>222</x>
+      <x>354</x>
       <y>192</y>
       <w>192</w>
       <h>54</h>
@@ -112,7 +112,7 @@ Inventor
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>300</x>
+      <x>432</x>
       <y>222</y>
       <w>252</w>
       <h>84</h>
@@ -123,7 +123,7 @@ Inventor
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>210</x>
+      <x>342</x>
       <y>330</y>
       <w>192</w>
       <h>60</h>
@@ -139,7 +139,7 @@ Patron
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>300</x>
+      <x>432</x>
       <y>222</y>
       <w>252</w>
       <h>120</h>
@@ -150,7 +150,7 @@ Patron
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>804</x>
+      <x>936</x>
       <y>180</y>
       <w>54</w>
       <h>48</h>
@@ -165,7 +165,7 @@ ItemType
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>804</x>
+      <x>936</x>
       <y>108</y>
       <w>54</w>
       <h>60</h>
@@ -181,7 +181,7 @@ Status
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>654</x>
+      <x>786</x>
       <y>330</y>
       <w>252</w>
       <h>78</h>
@@ -199,7 +199,7 @@ Announcement
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>198</x>
+      <x>330</x>
       <y>444</y>
       <w>270</w>
       <h>108</h>
@@ -220,7 +220,7 @@ Patronage
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>60</x>
+      <x>192</x>
       <y>0</y>
       <w>234</w>
       <h>96</h>
@@ -240,7 +240,7 @@ Item
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>0</x>
+      <x>132</x>
       <y>240</y>
       <w>162</w>
       <h>90</h>
@@ -259,7 +259,7 @@ SystemConfiguration
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>414</x>
+      <x>546</x>
       <y>330</y>
       <w>228</w>
       <h>78</h>
@@ -277,7 +277,7 @@ Chrip
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>516</x>
+      <x>648</x>
       <y>456</y>
       <w>342</w>
       <h>66</h>
@@ -294,7 +294,7 @@ PatronageReport
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>552</x>
+      <x>684</x>
       <y>12</y>
       <w>234</w>
       <h>78</h>
@@ -312,7 +312,7 @@ ToolKits
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>462</x>
+      <x>594</x>
       <y>480</y>
       <w>66</w>
       <h>30</h>
@@ -326,7 +326,7 @@ has</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>378</x>
+      <x>510</x>
       <y>30</y>
       <w>120</w>
       <h>42</h>
@@ -334,13 +334,13 @@ has</panel_attributes>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 Quantity
 --
-+ number: int {Length(min=1)}</panel_attributes>
++ number: int {Min(1)}</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>288</x>
+      <x>420</x>
       <y>36</y>
       <w>102</w>
       <h>30</h>
@@ -354,7 +354,7 @@ m1=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>492</x>
+      <x>624</x>
       <y>36</y>
       <w>72</w>
       <h>30</h>
@@ -368,7 +368,7 @@ m1=1
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>168</x>
+      <x>300</x>
       <y>90</y>
       <w>66</w>
       <h>150</h>
@@ -382,7 +382,7 @@ creates</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>546</x>
+      <x>678</x>
       <y>240</y>
       <w>42</w>
       <h>102</h>
@@ -396,7 +396,7 @@ creates</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>324</x>
+      <x>456</x>
       <y>384</y>
       <w>48</w>
       <h>72</h>
@@ -410,7 +410,7 @@ provides</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>168</x>
+      <x>300</x>
       <y>228</y>
       <w>72</w>
       <h>282</h>
@@ -434,7 +434,7 @@ is accepted by</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>678</x>
+      <x>810</x>
       <y>216</y>
       <w>102</w>
       <h>126</h>
@@ -444,5 +444,30 @@ m2=*
 m1=1
 creates</panel_attributes>
     <additional_attributes>10.0;20.0;150.0;20.0;150.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>0</x>
+      <y>168</y>
+      <w>108</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>The system configuration
+terms are separeted
+by a comma
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>48</x>
+      <y>204</y>
+      <w>96</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>lt=..</panel_attributes>
+    <additional_attributes>10.0;10.0;140.0;90.0</additional_attributes>
   </element>
 </diagram>
