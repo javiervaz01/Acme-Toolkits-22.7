@@ -7,11 +7,11 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.datatypes.SequenceNumber;
 import acme.framework.entities.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -28,14 +28,15 @@ public class PatronageReport extends AbstractEntity{
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	protected SequenceNumber sequenceNumber;
+	@Pattern(regexp = "<^[A-Z]{3}-[0-9]{3}(-[A-Z])?$>:<[0-9]{4}")
+	protected String sequenceNumber;
 	
 	@Past
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date creationTime;
 	
 	@NotBlank
-	@Length(max=256)
+	@Length(max=255)
 	protected String memorandum;
 	
 	@URL
