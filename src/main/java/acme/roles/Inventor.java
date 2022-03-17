@@ -13,11 +13,14 @@
 package acme.roles;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
+import acme.entities.announcements.Announcement;
+import acme.entities.chirp.Chirp;
 import acme.framework.roles.UserRole;
 import lombok.Getter;
 import lombok.Setter;
@@ -48,4 +51,9 @@ public class Inventor extends UserRole {
 
 	// Relationships ----------------------------------------------------------
 
+	@OneToMany
+	protected Chirp chirp;
+	
+	@OneToMany
+	protected Announcement announcement;
 }
