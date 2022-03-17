@@ -3,9 +3,8 @@ package acme.entities.quantity;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-
-import org.hibernate.validator.constraints.Length;
 
 import acme.entities.item.Item;
 import acme.entities.toolkits.Toolkits;
@@ -23,7 +22,7 @@ public class Quantity {
 
 	// Attributes -------------------------------------------------------------
 
-	@Length(min=1)
+	@Min(1)
 	protected int number;
 		
 	// Derived attributes ----------------------------------------------------
