@@ -9,13 +9,13 @@ import acme.framework.repositories.AbstractRepository;
 public interface PatronDashboardRepository extends AbstractRepository{
 	
 	@Query("select count(p) from Patronage p where p.status = PROPOSED")
-	Integer						numberOfProposedPatronages();
+	Double						numberOfProposedPatronages();
 	
 	@Query("select count(p) from Patronage p where p.status = ACCEPTED")
-	Integer						numberOfAcceptedPatronages();
+	Double						numberOfAcceptedPatronages();
 	
 	@Query("select count(p) from Patronage p where p.status = DENIED")
-	Integer						numberOfDeniedPatronages();
+	Double						numberOfDeniedPatronages();
 	
 	@Query("select avg(p.budget.amount) from Patronage p where p.status = PROPOSED")
 	Double						averageBudgetofProposedPatronages();

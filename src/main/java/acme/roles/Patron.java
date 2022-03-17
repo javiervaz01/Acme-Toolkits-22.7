@@ -12,6 +12,8 @@
 
 package acme.roles;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
@@ -53,8 +55,8 @@ public class Patron extends UserRole {
 
 	
 	@OneToMany
-	protected Chirp chirp;
+	protected List<Chirp> chirp;
 	
 	@OneToMany
-	protected Announcement announcement;
+	protected List<Announcement> announcement;
 }

@@ -19,7 +19,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class PatronageReport extends AbstractEntity{
+public class PatronageReport extends AbstractEntity {
 	
 	// Serialisation identifier -----------------------------------------------
 

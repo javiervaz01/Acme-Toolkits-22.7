@@ -1,6 +1,7 @@
 package acme.entities.patronages;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -73,7 +74,7 @@ public class Patronage  extends AbstractEntity{
 	// Relationships ----------------------------------------------------------
 	
 	@OneToMany
-	protected PatronageReport report;
+	protected List<PatronageReport> report;
 	
 	@ManyToOne
 	protected Inventor inventor;

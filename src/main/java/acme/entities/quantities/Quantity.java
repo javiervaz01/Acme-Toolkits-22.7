@@ -8,13 +8,14 @@ import javax.validation.constraints.NotNull;
 
 import acme.entities.items.Item;
 import acme.entities.toolkits.Toolkits;
+import acme.framework.entities.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-public class Quantity {
+public class Quantity extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
