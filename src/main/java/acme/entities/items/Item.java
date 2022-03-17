@@ -1,4 +1,4 @@
-package acme.entities.item;
+package acme.entities.items;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -29,7 +29,7 @@ public class Item extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@Length(max=101)
+	@Length(max=100)
 	protected String name;
 				
 	@NotNull
@@ -38,11 +38,11 @@ public class Item extends AbstractEntity {
 	protected String code;
 				
 	@NotBlank
-	@Length(max=101)
+	@Length(max=100)
 	protected String technology;
 				
 	@NotBlank
-	@Length(max=256)
+	@Length(max=255)
 	protected String description;
 				
 	@NotNull
@@ -53,7 +53,7 @@ public class Item extends AbstractEntity {
 	protected String info;
 	
 	@Enumerated(EnumType.STRING)
-	protected ItemType itemType;
+	protected ItemType type;
 
 	// Derived attributes ----------------------------------------------------
 

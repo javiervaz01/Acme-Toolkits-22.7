@@ -26,7 +26,7 @@ public class AdministratorDashboard implements Serializable {
 
 	// Attributes -------------------------------------------------------------
 
-	Integer numberOfComponents;
+	Double numberOfComponents;
 	
 	Double averageRetailPriceOfComponentsPerTechnology;
 	Double deviationRetailPriceOfComponentsPerTechnology;
@@ -39,7 +39,7 @@ public class AdministratorDashboard implements Serializable {
 	Double maximumRetailPriceOfComponentsPerCurrency;
 	
 	
-	Integer numberOfTools;
+	Double numberOfTools;
 	
 	Double averageRetailPriceOfToolsPerCurrency;
 	Double deviationRetailPriceOfToolsPerCurrency;
@@ -47,9 +47,9 @@ public class AdministratorDashboard implements Serializable {
 	Double maximumRetailPriceOfToolsPerCurrency;
 	
 	
-	Integer numberOfProposedPatronages;
-	Integer numberOfAcceptedPatronages;
-	Integer numberOfDeniedPatronages;
+	Double numberOfProposedPatronages;
+	Double numberOfAcceptedPatronages;
+	Double numberOfDeniedPatronages;
 	
 	
 	Double averageBudgetOfProposedPatronages;

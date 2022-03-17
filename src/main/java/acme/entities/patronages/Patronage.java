@@ -1,6 +1,7 @@
 package acme.entities.patronages;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,7 +18,7 @@ import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.entities.patronageReport.PatronageReport;
+import acme.entities.patronagereports.PatronageReport;
 import acme.framework.datatypes.Money;
 import acme.framework.entities.AbstractEntity;
 import acme.roles.Inventor;
@@ -64,7 +65,6 @@ public class Patronage  extends AbstractEntity{
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date						endDate;
 	
-	
 	@URL
 	protected String					info;
 
@@ -74,7 +74,7 @@ public class Patronage  extends AbstractEntity{
 	// Relationships ----------------------------------------------------------
 	
 	@OneToMany
-	protected PatronageReport report;
+	protected List<PatronageReport> report;
 	
 	@ManyToOne
 	protected Inventor inventor;

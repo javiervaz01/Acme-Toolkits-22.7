@@ -12,6 +12,8 @@
 
 package acme.roles;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
@@ -20,7 +22,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
 import acme.entities.announcements.Announcement;
-import acme.entities.chirp.Chirp;
+import acme.entities.chirps.Chirp;
 import acme.framework.roles.UserRole;
 import lombok.Getter;
 import lombok.Setter;
@@ -37,11 +39,11 @@ public class Inventor extends UserRole {
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@Length(max=101)
+	@Length(max=100)
 	protected String			company;
 
 	@NotBlank
-	@Length(max=256)
+	@Length(max=255)
 	protected String			statement;
 	
 	@URL
@@ -52,8 +54,8 @@ public class Inventor extends UserRole {
 	// Relationships ----------------------------------------------------------
 
 	@OneToMany
-	protected Chirp chirp;
+	protected List<Chirp> chirp;
 	
 	@OneToMany
-	protected Announcement announcement;
+	protected List<Announcement> announcement;
 }

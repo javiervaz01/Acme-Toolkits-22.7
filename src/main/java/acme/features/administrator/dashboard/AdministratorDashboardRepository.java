@@ -9,48 +9,48 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface AdministratorDashboardRepository extends AbstractRepository {
 	
-	@Query("select count(i) from Item i where i.itemType = COMPONENT")
-	Integer numberOfComponents();
+	@Query("select count(i) from Item i where i.type = COMPONENT")
+	Double numberOfComponents();
 	
-	@Query("select avg(i.retailPrice.amount) from Item i where i.itemType = COMPONENT group by i.technology")
+	@Query("select avg(i.retailPrice.amount) from Item i where i.type = COMPONENT group by i.technology")
 	Double averageRetailPriceOfComponentsPerTechnology();
-	@Query("select stddev(i.retailPrice.amount) from Item i where i.itemType = COMPONENT group by i.technology")
+	@Query("select stddev(i.retailPrice.amount) from Item i where i.type = COMPONENT group by i.technology")
 	Double deviationRetailPriceOfComponentsPerTechnology();
-	@Query("select min(i.retailPrice.amount) from Item i where i.itemType = COMPONENT group by i.technology")
+	@Query("select min(i.retailPrice.amount) from Item i where i.type = COMPONENT group by i.technology")
 	Double minumumRetailPriceOfComponentsPerTechnology();
-	@Query("select max(i.retailPrice.amount) from Item i where i.itemType = COMPONENT group by i.technology")
+	@Query("select max(i.retailPrice.amount) from Item i where i.type = COMPONENT group by i.technology")
 	Double maximumRetailPriceOfComponentsPerTechnology();
 	
-	@Query("select avg(i.retailPrice.amount) from Item i where i.itemType = COMPONENT group by i.retailPrice.currency")
+	@Query("select avg(i.retailPrice.amount) from Item i where i.type = COMPONENT group by i.retailPrice.currency")
 	Double averageRetailPriceOfComponentsPerCurrency();
-	@Query("select stddev(i.retailPrice.amount) from Item i where i.itemType = COMPONENT group by i.retailPrice.currency")
+	@Query("select stddev(i.retailPrice.amount) from Item i where i.type = COMPONENT group by i.retailPrice.currency")
 	Double deviationRetailPriceOfComponentsPerCurrency();
-	@Query("select min(i.retailPrice.amount) from Item i where i.itemType = COMPONENT group by i.retailPrice.currency")
+	@Query("select min(i.retailPrice.amount) from Item i where i.type = COMPONENT group by i.retailPrice.currency")
 	Double minumumRetailPriceOfComponentsPerCurrency();
-	@Query("select max(i.retailPrice.amount) from Item i where i.itemType = COMPONENT group by i.retailPrice.currency")
+	@Query("select max(i.retailPrice.amount) from Item i where i.type = COMPONENT group by i.retailPrice.currency")
 	Double maximumRetailPriceOfComponentsPerCurrency();
 	
 	
-	@Query("select count(i) from Item i where i.itemType = TOOL")
-	Integer numberOfTools();
+	@Query("select count(i) from Item i where i.type = TOOL")
+	Double numberOfTools();
 	
-	@Query("select avg(i.retailPrice.amount) from Item i where i.itemType = TOOL group by i.retailPrice.currency")
+	@Query("select avg(i.retailPrice.amount) from Item i where i.type = TOOL group by i.retailPrice.currency")
 	Double averageRetailPriceOfToolsPerCurrency();
-	@Query("select stddev(i.retailPrice.amount) from Item i where i.itemType = TOOL group by i.retailPrice.currency")
+	@Query("select stddev(i.retailPrice.amount) from Item i where i.type = TOOL group by i.retailPrice.currency")
 	Double deviationRetailPriceOfToolsPerCurrency();
-	@Query("select min(i.retailPrice.amount) from Item i where i.itemType = TOOL group by i.retailPrice.currency")
+	@Query("select min(i.retailPrice.amount) from Item i where i.type = TOOL group by i.retailPrice.currency")
 	Double minumumRetailPriceOfToolsPerCurrency();
-	@Query("select max(i.retailPrice.amount) from Item i where i.itemType = TOOL group by i.retailPrice.currency")
+	@Query("select max(i.retailPrice.amount) from Item i where i.type = TOOL group by i.retailPrice.currency")
 	Double maximumRetailPriceOfToolsPerCurrency();
 	
 	
 	
 	@Query("select count(p) from Patronage p where p.status = PROPOSED")
-	Integer numberOfProposedPatronages();
+	Double numberOfProposedPatronages();
 	@Query("select count(p) from Patronage p where p.status = ACCEPTED")
-	Integer numberOfAcceptedPatronages();
+	Double numberOfAcceptedPatronages();
 	@Query("select count(p) from Patronage p where p.status = DENIED")
-	Integer numberOfDeniedPatronages();
+	Double numberOfDeniedPatronages();
 	
 	
 	@Query("select avg(p.budget.amount) from Patronage p where p.status = PROPOSED")
