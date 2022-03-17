@@ -4,7 +4,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.URL;
@@ -35,21 +34,21 @@ public class Toolkits extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 	
-	@NotNull
+	@NotBlank /////////////NotNull?
 	@Column(unique = true)
 	@Pattern(regexp = "^[A-Z]{3}-[0-9]{3}(-[A-Z])?$", message = "default.error.conversion")
 	protected String code;
 	
 	@NotBlank
-	@Max(101)
+	@Max(100)
 	protected String title;
 	
 	@NotBlank
-	@Max(256)
+	@Max(255)
 	protected String description;
 	
 	@NotBlank
-	@Max(256)
+	@Max(255)
 	protected String assemblyNotes;
 	
 	@URL
