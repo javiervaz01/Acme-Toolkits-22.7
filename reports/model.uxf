@@ -192,7 +192,7 @@ Announcement
 + moment: Date {Temporal(Temporal.TimeStamp), Past, NotNull}
 +title: String {NotBlank, Length(max=100)}
 +body: String {NotBlank, Length(max=100)}
-+ isCritical: Boolean {NotNull}
++ isCritical: boolean
 - info: String {URL}</panel_attributes>
     <additional_attributes/>
   </element>
