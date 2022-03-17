@@ -30,15 +30,15 @@ public class Chirp extends AbstractEntity {
 	protected Date creationMoment;
 	
 	@NotBlank
-	@Length(max=101)
+	@Length(max=100)
 	protected String title;
 	
 	@NotBlank
-	@Length(max=101)
+	@Length(max=100)
 	protected String author;
 	
 	@NotBlank
-	@Length(max=256)
+	@Length(max=255)
 	protected String body;
 	
 	@Email
