@@ -6,17 +6,22 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.validation.constraints.Max;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Positive;
 
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.datatypes.TimePeriod;
+import acme.entities.patronageReport.PatronageReport;
 import acme.framework.datatypes.Money;
 import acme.framework.entities.AbstractEntity;
+import acme.roles.Inventor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -42,7 +47,7 @@ public class Patronage  extends AbstractEntity{
 	protected String					code;
 	
 	@NotBlank
-	@Max(256)
+	@Length(max = 255)
 	protected String 					legalStuff;
 	
 	@NotNull
@@ -50,10 +55,17 @@ public class Patronage  extends AbstractEntity{
 	protected Money						budget;
 	
 	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
 	protected Date						creationDate;
 	
 	@NotNull
-	protected TimePeriod				period;
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date						startDate;
+	
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
+	protected Date						endDate;
+	
 	
 	@URL
 	protected String					info;
@@ -62,6 +74,11 @@ public class Patronage  extends AbstractEntity{
 	
 
 	// Relationships ----------------------------------------------------------
-
+	
+	@OneToMany
+	protected PatronageReport report;
+	
+	@ManyToOne
+	protected Inventor inventor;
 
 }
