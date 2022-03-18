@@ -7,6 +7,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 
 import org.hibernate.validator.constraints.Length;
 
@@ -26,22 +28,29 @@ public class Chirp extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
+	@NotNull
+	@Past
 	@Temporal(TemporalType.TIMESTAMP)
-	protected Date creationMoment;
+	protected Date			creationMoment;
 	
 	@NotBlank
 	@Length(max=100)
-	protected String title;
+	protected String		title;
 	
 	@NotBlank
 	@Length(max=100)
-	protected String author;
+	protected String		author;
 	
 	@NotBlank
 	@Length(max=255)
-	protected String body;
+	protected String		body;
 	
 	@Email
-	protected String email;
+	protected String		email;
 	
+	// Relationships ----------------------------------------------------------
+	
+	// Again, we don't need to provide navigability
+	// to Inventor because we don't have to store
+	// that information. Chirp is a simple entity.
 }

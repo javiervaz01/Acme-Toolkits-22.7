@@ -1,7 +1,8 @@
 package acme.entities.systemconfigurations;
 
 import javax.persistence.Entity;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 import acme.framework.entities.AbstractEntity;
 import lombok.Getter;
@@ -18,23 +19,27 @@ public class SystemConfiguration extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	@NotNull
+	// TODO add regular expression (3 uppercase letters)
+	@NotBlank
+	@Pattern(regexp = "^[A-Z]{3}$")
 	protected String				currency;
 	
-	@NotNull
-	protected String 				acceptedCurrencies;
+	@NotBlank
+	@Pattern(regexp = "^([A-Z]{3},)*[A-Z]{3}$")
+	protected String 				acceptedCurrencies; // Comma separated groups of three letters
 
-	@NotNull
+	
+	@NotBlank
+	@Pattern(regexp = "^([A-Za-z.;'\"\\s]*,)*[A-Za-z.;'\"\\s]+$")
 	protected String				strongSpamTerms;
 
-	@NotNull
-	protected Double				strongSpamThreshold;
+	protected double				strongSpamThreshold;
 	
-	@NotNull
+	@NotBlank
+	@Pattern(regexp = "^([A-Za-z.;'\"\\s]*,)*[A-Za-z.;'\"\\s]+$")
 	protected String				weakSpamTerms;
 	
-	@NotNull
-	protected Double				weakSpamThreshold;
+	protected double				weakSpamThreshold;
 
 	// Derived attributes -----------------------------------------------------
 

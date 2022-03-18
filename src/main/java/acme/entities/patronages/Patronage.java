@@ -1,24 +1,21 @@
 package acme.entities.patronages;
 
 import java.util.Date;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.entities.patronagereports.PatronageReport;
 import acme.framework.datatypes.Money;
 import acme.framework.entities.AbstractEntity;
 import acme.roles.Inventor;
@@ -28,7 +25,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Patronage  extends AbstractEntity{
+public class Patronage  extends AbstractEntity {
 	
 
 	// Serialisation identifier -----------------------------------------------
@@ -38,12 +35,11 @@ public class Patronage  extends AbstractEntity{
 	// Attributes -------------------------------------------------------------
 
 	@NotNull
-	@Enumerated(EnumType.STRING)
 	protected Status					status;
 	
 	@NotNull
 	@Pattern(regexp = "^[A-Z]{3}-[0-9]{3}(-[A-Z])?$")
-	@Column(unique=true)
+	@Column(unique = true)
 	protected String					code;
 	
 	@NotBlank
@@ -54,6 +50,7 @@ public class Patronage  extends AbstractEntity{
 	protected Money						budget;
 	
 	@NotNull
+	@Past
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date						creationDate;
 	
@@ -73,10 +70,12 @@ public class Patronage  extends AbstractEntity{
 
 	// Relationships ----------------------------------------------------------
 	
-	@OneToMany
-	protected List<PatronageReport> report;
-	
-	@ManyToOne
+	@ManyToOne(optional = false)
+	@Valid
+	@NotNull
+	// If we don't use this notNull, the error will get
+	// to the database, panic and throw an exception.
 	protected Inventor inventor;
-
+	
+	// TODO do we have to store the patron who offers the patronage?
 }

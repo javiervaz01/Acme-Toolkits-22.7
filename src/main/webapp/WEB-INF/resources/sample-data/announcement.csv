@@ -21,10 +21,9 @@ announcement-19,2022/03/14 15:09,This is an example announcement,¸„.-•~¹°
 announcement-20,2022/03/14 15:09,This is an example announcement,This is a text with 100 characters. Lorem Ipsum is simply dummy text of the printing and typesetting,false,http://www.example.com
 announcement-21,2022/03/14 15:09,This is an example announcement,This is an example body,false,http://www.example.com
 announcement-22,2022/03/14 15:09,This is an example announcement,This is an example body,true,http://www.example.com
-announcement-23,2022/03/14 15:09,This is an example announcement,This is an example body,null,http://www.example.com
-announcement-24,2022/03/14 15:09,This is an example announcement,This is an example body,true,null
-announcement-25,2022/03/14 15:09,This is an example announcement,This is an example body,true,http://www.acme.com/a?b
-announcement-26,2022/03/14 15:09,This is an example announcement,This is an example body,true,https://www.acme.com/a/b
-announcement-27,2022/03/14 15:09,This is an example announcement,This is an example body,true,rcp://server.local/?a=1&b=2
-announcement-28,2022/03/14 15:09,This is an example announcement,This is an example body,true,ftp://user:pass@acme.org
-announcement-29,2022/03/14 15:09,This is an example announcement,This is an example body,true,p://a.b/c?d&e
+announcement-23,2022/03/14 15:09,This is an example announcement,This is an example body,true,null
+announcement-24,2022/03/14 15:09,This is an example announcement,This is an example body,true,http://www.acme.com/a?b
+announcement-25,2022/03/14 15:09,This is an example announcement,This is an example body,true,https://www.acme.com/a/b
+announcement-26,2022/03/14 15:09,This is an example announcement,This is an example body,true,rcp://server.local/?a=1&b=2
+announcement-27,2022/03/14 15:09,This is an example announcement,This is an example body,true,ftp://user:pass@acme.org
+announcement-28,2022/03/14 15:09,This is an example announcement,This is an example body,true,p://a.b/c?d&e
