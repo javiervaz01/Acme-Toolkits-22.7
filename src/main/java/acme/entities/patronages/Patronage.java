@@ -27,60 +27,59 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Patronage extends AbstractEntity {
-	
+
 	// Serialisation identifier -----------------------------------------------
 
-	protected static final long		serialVersionUID	= 1L;
+	protected static final long serialVersionUID = 1L;
 
 	// Attributes -------------------------------------------------------------
 
 	@NotNull
-	protected Status					status;
-	
+	protected Status status;
+
 	@NotNull
 	@Pattern(regexp = "^[A-Z]{3}-[0-9]{3}(-[A-Z])?$")
 	@Column(unique = true)
-	protected String					code;
-	
+	protected String code;
+
 	@NotBlank
 	@Length(max = 255)
-	protected String 					legalStuff;
-	
+	protected String legalStuff;
+
 	@NotNull
-	protected Money						budget;
-	
+	protected Money budget;
+
 	@NotNull
 	@Past
 	@Temporal(TemporalType.TIMESTAMP)
-	protected Date						creationDate;
-	
+	protected Date creationDate;
+
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	protected Date						startDate;
-	
+	protected Date startDate;
+
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	protected Date						endDate;
-	
+	protected Date endDate;
+
 	@URL
-	protected String					info;
+	protected String info;
 
 	// Derived attributes -----------------------------------------------------
-	
+
 
 	// Relationships ----------------------------------------------------------
-	
+
 	@ManyToOne(optional = false)
 	@Valid
 	@NotNull
 	// If we don't use this notNull, the error will get
 	// to the database, panic and throw an exception.
 	protected Inventor inventor;
-	
+
 	@ManyToOne(optional = false)
 	@Valid
 	@NotNull
 	protected Patron patron;
-	
-	// the patron who offers the patronage?
+
 }

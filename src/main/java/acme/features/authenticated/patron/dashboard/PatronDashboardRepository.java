@@ -6,51 +6,51 @@ import org.springframework.stereotype.Repository;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
-public interface PatronDashboardRepository extends AbstractRepository{
-	
+public interface PatronDashboardRepository extends AbstractRepository {
+
 	@Query("select count(p) from Patronage p where p.status = PROPOSED")
-	Double						numberOfProposedPatronages();
-	
+	Double numberOfProposedPatronages();
+
 	@Query("select count(p) from Patronage p where p.status = ACCEPTED")
-	Double						numberOfAcceptedPatronages();
-	
+	Double numberOfAcceptedPatronages();
+
 	@Query("select count(p) from Patronage p where p.status = DENIED")
-	Double						numberOfDeniedPatronages();
-	
+	Double numberOfDeniedPatronages();
+
 	@Query("select avg(p.budget.amount) from Patronage p where p.status = PROPOSED")
-	Double						averageBudgetofProposedPatronages();
-	
+	Double averageBudgetofProposedPatronages();
+
 	@Query("select stddev(p.budget.amount) from Patronage p where p.status = PROPOSED")
-	Double						deviationBudgetofProposedPatronages();
-	
+	Double deviationBudgetofProposedPatronages();
+
 	@Query("select max(p.budget.amount) from Patronage p where p.status = PROPOSED")
-	Double						maximumBudgetofProposedPatronages();
-	
+	Double maximumBudgetofProposedPatronages();
+
 	@Query("select min(p.budget.amount) from Patronage p where p.status = PROPOSED")
-	Double						minimumBudgetofProposedPatronages();
-	
+	Double minimumBudgetofProposedPatronages();
+
 	@Query("select avg(p.budget.amount) from Patronage p where p.status = ACCEPTED")
-	Double						averageBudgetofAcceptedPatronages();
-	
+	Double averageBudgetofAcceptedPatronages();
+
 	@Query("select stddev(p.budget.amount) from Patronage p where p.status = ACCEPTED")
-	Double						deviationBudgetofAcceptedPatronages();
-	
+	Double deviationBudgetofAcceptedPatronages();
+
 	@Query("select max(p.budget.amount) from Patronage p where p.status = ACCEPTED")
-	Double						maximumBudgetofAccepetdPatronages();
-	
+	Double maximumBudgetofAccepetdPatronages();
+
 	@Query("select min(p.budget.amount) from Patronage p where p.status = ACCEPTED")
-	Double						minimumBudgetofAcceptedPatronages();
-	
+	Double minimumBudgetofAcceptedPatronages();
+
 	@Query("select avg(p.budget.amount) from Patronage p where p.status = DENIED")
-	Double						averageBudgetofDeniedPatronages();
-	
+	Double averageBudgetofDeniedPatronages();
+
 	@Query("select stddev(p.budget.amount) from Patronage p where p.status = DENIED")
-	Double						deviationBudgetofDeniedPatronages();
-	
+	Double deviationBudgetofDeniedPatronages();
+
 	@Query("select max(p.budget.amount) from Patronage p where p.status = DENIED")
-	Double						maximumBudgetofDeniedPatronages();
-	
+	Double maximumBudgetofDeniedPatronages();
+
 	@Query("select min(p.budget.amount) from Patronage p where p.status = DENIED")
-	Double						minimumBudgetofDeniedPatronages();
+	Double minimumBudgetofDeniedPatronages();
 
 }

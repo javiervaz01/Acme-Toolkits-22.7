@@ -1,0 +1,33 @@
+key,status,code,legal-stuff,budget,creation-date,start-date,end-date,info,key:inventor,key:patron
+patronage-01,ACCEPTED,FYD-000-A,This is an example,"EUR 250,362.00",2022/03/19 12:30,2022/04/25 18:46,2022/05/30 03:22,null,inventor-01,patron-01
+patronage-02,PROPOSED,FYD-000-B,This is an example,"EUR 250,362.00",2022/03/19 12:30,2022/04/25 18:46,2022/05/30 03:22,null,inventor-01,patron-01
+patronage-03,DENIED,FYD-000-Z,This is an example,"EUR 250,362.00",2022/03/19 12:30,2022/04/25 18:46,2022/05/30 03:22,null,inventor-01,patron-01
+patronage-04,ACCEPTED,AAA-000,This is an example,"EUR 250,362.00",2022/03/19 12:30,2022/04/25 18:46,2022/05/30 03:22,null,inventor-01,patron-01
+patronage-05,ACCEPTED,JFL-000,This is an example,"EUR 250,362.00",2022/03/19 12:30,2022/04/25 18:46,2022/05/30 03:22,null,inventor-01,patron-01
+patronage-06,ACCEPTED,FYD-025-D,This is an example,"EUR 250,362.00",2022/03/19 12:30,2022/04/25 18:46,2022/05/30 03:22,null,inventor-01,patron-01
+patronage-07,ACCEPTED,XYZ-100-A,This is an example,"EUR 250,362.00",2022/03/19 12:30,2022/04/25 18:46,2022/05/30 03:22,null,inventor-01,patron-01
+patronage-08,ACCEPTED,KFI-154,This is an example,"EUR 250,362.00",2022/03/19 12:30,2022/04/25 18:46,2022/05/30 03:22,null,inventor-01,patron-01
+patronage-09,ACCEPTED,UDH-987-Z,This is an example,"EUR 250,362.00",2022/03/19 12:30,2022/04/25 18:46,2022/05/30 03:22,null,inventor-01,patron-01
+patronage-10,ACCEPTED,JFJ-335,This is an example,"EUR 250,362.00",2022/03/19 12:30,2022/04/25 18:46,2022/05/30 03:22,null,inventor-01,patron-01
+patronage-11,ACCEPTED,FYD-001-D,ｲんﾉ丂 ﾉ丂 ﾑ刀 乇ﾒﾑﾶｱﾚ乇,"EUR 250,362.00",2022/03/19 12:30,2022/04/25 18:46,2022/05/30 03:22,null,inventor-01,patron-01
+patronage-12,ACCEPTED,FYD-002-D,This is an example,"EUR 250,362.00",2022/03/19 12:30,2022/04/25 18:46,2022/05/30 03:22,null,inventor-01,patron-01
+patronage-13,ACCEPTED,FYD-003-D,𝕋𝕙𝕚𝕤 𝕚𝕤 𝕒𝕟 𝕖𝕩𝕒𝕞𝕡𝕝𝕖,"EUR 250,362.00",2022/03/19 12:30,2022/04/25 18:46,2022/05/30 03:22,null,inventor-01,patron-01
+patronage-14,ACCEPTED,FYD-004-D,Tԋιʂ ιʂ αɳ ҽxαɱρʅҽ,"EUR 250,362.00",2022/03/19 12:30,2022/04/25 18:46,2022/05/30 03:22,null,inventor-01,patron-01
+patronage-15,ACCEPTED,FYD-005-D,𝓣𝓱𝓲𝓼 𝓲𝓼 𝓪𝓷 𝓮𝔁𝓪𝓶𝓹𝓵𝓮,"EUR 250,362.00",2022/03/19 12:30,2022/04/25 18:46,2022/05/30 03:22,null,inventor-01,patron-01
+patronage-16,ACCEPTED,FYD-006-D,This is a text with 255 characters. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to mak,"EUR 250,362.00",2022/03/19 12:30,2022/04/25 18:46,2022/05/30 03:22,null,inventor-01,patron-01
+patronage-17,ACCEPTED,FYD-007-D,This is an example,"USD 00.00",2022/03/19 12:30,2022/04/25 18:46,2022/05/30 03:22,null,inventor-01,patron-01
+patronage-18,ACCEPTED,FYD-008-D,This is an example,"EUR 00.01",2022/03/19 12:30,2022/04/25 18:46,2022/05/30 03:22,null,inventor-01,patron-01
+patronage-19,ACCEPTED,FYD-009-D,This is an example,"USD 989,865.85",2022/03/19 12:30,2022/04/25 18:46,2022/05/30 03:22,null,inventor-01,patron-01
+patronage-20,ACCEPTED,FYD-010-D,This is an example,"EUR 87,692.00",2022/03/19 12:30,2022/04/25 18:46,2022/05/30 03:22,null,inventor-01,patron-01
+patronage-21,ACCEPTED,FYD-011-D,This is an example,"GBP 82.00",2022/03/19 12:30,2022/04/25 18:46,2022/05/30 03:22,null,inventor-01,patron-01
+patronage-22,ACCEPTED,FYD-012-D,This is an example,"GBP 979,654.00",2022/03/19 12:30,2022/04/25 18:46,2022/05/30 03:22,null,inventor-01,patron-01
+patronage-23,ACCEPTED,FYD-013-D,This is an example,"EUR 250,362.00",2022/03/19 00:00,2022/04/19 00:00,2022/05/19 00:00,null,inventor-01,patron-01
+patronage-24,ACCEPTED,FYD-014-D,This is an example,"EUR 250,362.00",2021/12/31 00:00,2022/04/25 18:46,2022/05/25 18:46,null,inventor-01,patron-01
+patronage-25,ACCEPTED,FYD-015-D,This is an example,"EUR 250,362.00",2022/01/01 00:00,2022/01/01 00:00,2022/03/01 0:00,null,inventor-01,patron-01
+patronage-26,ACCEPTED,FYD-016-D,This is an example,"EUR 250,362.00",2021/12/31 23:59,2023/01/30 00:00,2023/02/28 00:00,null,inventor-01,patron-01
+patronage-27,ACCEPTED,FYD-017-D,This is an example,"EUR 250,362.00",2022/02/13 23:59,2022/03/13 23:59,2022/04/13 23:59,null,inventor-01,patron-01
+patronage-28,ACCEPTED,FYD-018-D,This is an example,"EUR 250,362.00",2022/03/19 12:30,2022/04/25 18:46,2022/05/30 03:22,http://www.example.com,inventor-01,patron-01
+patronage-29,ACCEPTED,FYD-019-D,This is an example,"EUR 250,362.00",2022/03/19 12:30,2022/04/25 18:46,2022/05/30 03:22,http://www.acme.com/a?b,inventor-01,patron-01
+patronage-30,ACCEPTED,FYD-020-D,This is an example,"EUR 250,362.00",2022/03/19 12:30,2022/04/25 18:46,2022/05/30 03:22,https://www.acme.com/a/b,inventor-01,patron-01
+patronage-31,ACCEPTED,FYD-021-D,This is an example,"EUR 250,362.00",2022/03/19 12:30,2022/04/25 18:46,2022/05/30 03:22,http://a.b/c?d&e,inventor-01,patron-01
+patronage-32,ACCEPTED,FYD-022-D,This is an example,"EUR 250,362.00",2022/03/19 12:30,2022/04/25 18:46,2022/05/30 03:22,ftp://user:pass@acme.org,inventor-01,patron-01

@@ -24,33 +24,34 @@ import lombok.Setter;
 @Getter
 @Setter
 public class PatronageReport extends AbstractEntity {
-	
+
 	// Serialisation identifier -----------------------------------------------
 
-	protected static final long	serialVersionUID	= 1L;
+	protected static final long serialVersionUID = 1L;
 
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
 	@Pattern(regexp = "^[A-Z]{3}-[0-9]{3}(-[A-Z])?:[0-9]{4}$")
 	protected String sequenceNumber;
-	
+
 	@NotNull
 	@Past
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date creationTime;
-	
+
 	@NotBlank
-	@Length(max=255)
+	@Length(max = 255)
 	protected String memorandum;
-	
+
 	@URL
 	protected String info;
-	
+
 	// Relationships ----------------------------------------------------------
-	
+
 	@ManyToOne(optional = false)
 	@Valid
 	@NotNull
 	protected Patronage patronage;
+
 }
