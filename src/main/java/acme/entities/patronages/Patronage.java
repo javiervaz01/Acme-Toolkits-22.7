@@ -26,9 +26,8 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Patronage  extends AbstractEntity {
+public class Patronage extends AbstractEntity {
 	
-
 	// Serialisation identifier -----------------------------------------------
 
 	protected static final long		serialVersionUID	= 1L;
@@ -71,8 +70,9 @@ public class Patronage  extends AbstractEntity {
 
 	// Relationships ----------------------------------------------------------
 	
-	@ManyToOne(optional = true)
+	@ManyToOne(optional = false)
 	@Valid
+	@NotNull
 	// If we don't use this notNull, the error will get
 	// to the database, panic and throw an exception.
 	protected Inventor inventor;

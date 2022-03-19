@@ -40,6 +40,4 @@ public class Quantity extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	protected Toolkit toolkit;
-	
-	
 }
