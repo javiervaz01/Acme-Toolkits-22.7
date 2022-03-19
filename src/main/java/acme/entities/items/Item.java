@@ -2,12 +2,9 @@ package acme.entities.items;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.PositiveOrZero;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
@@ -32,9 +29,9 @@ public class Item extends AbstractEntity {
 	@Length(max=100)
 	protected String name;
 				
-	@NotNull
+	@NotBlank
 	@Column(unique=true)
-	@Pattern(regexp="^[A-Z]{3}-[0-9]{3}(-[A-Z])?$",message = "default.error.conversion")
+	@Pattern(regexp="^[A-Z]{3}-[0-9]{3}(-[A-Z])?$")
 	protected String code;
 				
 	@NotBlank
@@ -44,20 +41,25 @@ public class Item extends AbstractEntity {
 	@NotBlank
 	@Length(max=255)
 	protected String description;
-				
+			
+	// TODO add the "positive or zero" constraint.
+	// The annotation @PositiveOrZero does not apply
+	// here since we have a single data type. We will
+	// learn how to implement a custom restriction.
+	
 	@NotNull
-	@PositiveOrZero
 	protected Money retailPrice;
 				
 	@URL
 	protected String info;
 	
-	@Enumerated(EnumType.STRING)
+	@NotNull
 	protected ItemType type;
 
 	// Derived attributes ----------------------------------------------------
 
-
+	
 	// Relationships ----------------------------------------------------
-
+	
+	// TODO ManyToOne inventor? Do they ask us for that?
 }

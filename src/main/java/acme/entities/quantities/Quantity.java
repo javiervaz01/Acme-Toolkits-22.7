@@ -7,7 +7,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 import acme.entities.items.Item;
-import acme.entities.toolkits.Toolkits;
+import acme.entities.toolkits.Toolkit;
 import acme.framework.entities.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -28,7 +28,6 @@ public class Quantity extends AbstractEntity {
 		
 	// Derived attributes ----------------------------------------------------
 	
-	
 
 	// Relationships ----------------------------------------------------
 	
@@ -40,7 +39,7 @@ public class Quantity extends AbstractEntity {
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)
-	protected Toolkits toolkits;
+	protected Toolkit toolkit;
 	
 	
 }

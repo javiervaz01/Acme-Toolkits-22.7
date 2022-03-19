@@ -10,75 +10,75 @@ import acme.framework.repositories.AbstractRepository;
 public interface AdministratorDashboardRepository extends AbstractRepository {
 	
 	@Query("select count(i) from Item i where i.type = COMPONENT")
-	Double numberOfComponents();
+	int numberOfComponents();
 	
 	@Query("select avg(i.retailPrice.amount) from Item i where i.type = COMPONENT group by i.technology")
-	Double averageRetailPriceOfComponentsPerTechnology();
+	double averageRetailPriceOfComponentsPerTechnology();
 	@Query("select stddev(i.retailPrice.amount) from Item i where i.type = COMPONENT group by i.technology")
-	Double deviationRetailPriceOfComponentsPerTechnology();
+	double deviationRetailPriceOfComponentsPerTechnology();
 	@Query("select min(i.retailPrice.amount) from Item i where i.type = COMPONENT group by i.technology")
-	Double minumumRetailPriceOfComponentsPerTechnology();
+	double minumumRetailPriceOfComponentsPerTechnology();
 	@Query("select max(i.retailPrice.amount) from Item i where i.type = COMPONENT group by i.technology")
-	Double maximumRetailPriceOfComponentsPerTechnology();
+	double maximumRetailPriceOfComponentsPerTechnology();
 	
 	@Query("select avg(i.retailPrice.amount) from Item i where i.type = COMPONENT group by i.retailPrice.currency")
-	Double averageRetailPriceOfComponentsPerCurrency();
+	double averageRetailPriceOfComponentsPerCurrency();
 	@Query("select stddev(i.retailPrice.amount) from Item i where i.type = COMPONENT group by i.retailPrice.currency")
-	Double deviationRetailPriceOfComponentsPerCurrency();
+	double deviationRetailPriceOfComponentsPerCurrency();
 	@Query("select min(i.retailPrice.amount) from Item i where i.type = COMPONENT group by i.retailPrice.currency")
-	Double minumumRetailPriceOfComponentsPerCurrency();
+	double minumumRetailPriceOfComponentsPerCurrency();
 	@Query("select max(i.retailPrice.amount) from Item i where i.type = COMPONENT group by i.retailPrice.currency")
-	Double maximumRetailPriceOfComponentsPerCurrency();
+	double maximumRetailPriceOfComponentsPerCurrency();
 	
 	
 	@Query("select count(i) from Item i where i.type = TOOL")
-	Double numberOfTools();
+	int numberOfTools();
 	
 	@Query("select avg(i.retailPrice.amount) from Item i where i.type = TOOL group by i.retailPrice.currency")
-	Double averageRetailPriceOfToolsPerCurrency();
+	double averageRetailPriceOfToolsPerCurrency();
 	@Query("select stddev(i.retailPrice.amount) from Item i where i.type = TOOL group by i.retailPrice.currency")
-	Double deviationRetailPriceOfToolsPerCurrency();
+	double deviationRetailPriceOfToolsPerCurrency();
 	@Query("select min(i.retailPrice.amount) from Item i where i.type = TOOL group by i.retailPrice.currency")
-	Double minumumRetailPriceOfToolsPerCurrency();
+	double minumumRetailPriceOfToolsPerCurrency();
 	@Query("select max(i.retailPrice.amount) from Item i where i.type = TOOL group by i.retailPrice.currency")
-	Double maximumRetailPriceOfToolsPerCurrency();
+	double maximumRetailPriceOfToolsPerCurrency();
 	
 	
 	
 	@Query("select count(p) from Patronage p where p.status = PROPOSED")
-	Double numberOfProposedPatronages();
+	int numberOfProposedPatronages();
 	@Query("select count(p) from Patronage p where p.status = ACCEPTED")
-	Double numberOfAcceptedPatronages();
+	int numberOfAcceptedPatronages();
 	@Query("select count(p) from Patronage p where p.status = DENIED")
-	Double numberOfDeniedPatronages();
+	int numberOfDeniedPatronages();
 	
 	
 	@Query("select avg(p.budget.amount) from Patronage p where p.status = PROPOSED")
-	Double averageBudgetOfProposedPatronages();
+	double averageBudgetOfProposedPatronages();
 	@Query("select stddev(p.budget.amount) from Patronage p where p.status = PROPOSED")
-	Double deviationBudgetOfProposedPatronages();
+	double deviationBudgetOfProposedPatronages();
 	@Query("select min(p.budget.amount) from Patronage p where p.status = PROPOSED")
-	Double minumumBudgetOfProposedPatronages();
+	double minumumBudgetOfProposedPatronages();
 	@Query("select max(p.budget.amount) from Patronage p where p.status = PROPOSED")
-	Double maximumBudgetOfProposedPatronages();
+	double maximumBudgetOfProposedPatronages();
 	
 	@Query("select avg(p.budget.amount) from Patronage p where p.status = ACCEPTED")
-	Double averageBudgetOfAcceptedPatronages();
+	double averageBudgetOfAcceptedPatronages();
 	@Query("select stddev(p.budget.amount) from Patronage p where p.status = ACCEPTED")
-	Double deviationBudgetOfAcceptedPatronages();
+	double deviationBudgetOfAcceptedPatronages();
 	@Query("select min(p.budget.amount) from Patronage p where p.status = ACCEPTED")
-	Double minumumBudgetOfAcceptedPatronages();
+	double minumumBudgetOfAcceptedPatronages();
 	@Query("select max(p.budget.amount) from Patronage p where p.status = ACCEPTED")
-	Double maximumBudgetOfAcceptedPatronages();
+	double maximumBudgetOfAcceptedPatronages();
 	
 	@Query("select avg(p.budget.amount) from Patronage p where p.status = DENIED")
-	Double averageBudgetOfDeniedPatronages();
+	double averageBudgetOfDeniedPatronages();
 	@Query("select stddev(p.budget.amount) from Patronage p where p.status = DENIED")
-	Double deviationBudgetOfDeniedPatronages();
+	double deviationBudgetOfDeniedPatronages();
 	@Query("select min(p.budget.amount) from Patronage p where p.status = DENIED")
-	Double minumumBudgetOfDeniedPatronages();
+	double minumumBudgetOfDeniedPatronages();
 	@Query("select max(p.budget.amount) from Patronage p where p.status = DENIED")
-	Double maximumBudgetOfDeniedPatronages();
+	double maximumBudgetOfDeniedPatronages();
 	
 
 }

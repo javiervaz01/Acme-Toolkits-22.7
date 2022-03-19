@@ -49,4 +49,7 @@ public class Announcement extends AbstractEntity {
 
 	// Relationships ----------------------------------------------------------
 
+	// We don't need to have a @ManyToOne Announcement because we don't need to
+	// keep track of who was the administrator who created the announcement.
+	
 }

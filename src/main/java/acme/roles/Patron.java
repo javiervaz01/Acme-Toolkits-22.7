@@ -12,17 +12,12 @@
 
 package acme.roles;
 
-import java.util.List;
-
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
 
-import acme.entities.announcements.Announcement;
-import acme.entities.chirps.Chirp;
 import acme.framework.roles.UserRole;
 import lombok.Getter;
 import lombok.Setter;
@@ -52,11 +47,4 @@ public class Patron extends UserRole {
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
-
-	
-	@OneToMany
-	protected List<Chirp> chirp;
-	
-	@OneToMany
-	protected List<Announcement> announcement;
 }
