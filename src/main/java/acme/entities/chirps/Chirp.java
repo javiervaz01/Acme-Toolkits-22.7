@@ -21,36 +21,37 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Chirp extends AbstractEntity {
-	
+
 	// Serialisation identifier -----------------------------------------------
 
-	protected static final long		serialVersionUID	= 1L;
+	protected static final long serialVersionUID = 1L;
 
 	// Attributes -------------------------------------------------------------
 
 	@NotNull
 	@Past
 	@Temporal(TemporalType.TIMESTAMP)
-	protected Date			creationMoment;
-	
+	protected Date creationMoment;
+
 	@NotBlank
-	@Length(max=100)
-	protected String		title;
-	
+	@Length(max = 100)
+	protected String title;
+
 	@NotBlank
-	@Length(max=100)
-	protected String		author;
-	
+	@Length(max = 100)
+	protected String author;
+
 	@NotBlank
-	@Length(max=255)
-	protected String		body;
-	
+	@Length(max = 255)
+	protected String body;
+
 	@Email
-	protected String		email;
-	
+	protected String email;
+
 	// Relationships ----------------------------------------------------------
-	
+
 	// Again, we don't need to provide navigability
 	// to Inventor because we don't have to store
 	// that information. Chirp is a simple entity.
+
 }

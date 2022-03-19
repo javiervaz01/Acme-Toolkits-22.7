@@ -12,6 +12,7 @@
 package acme.forms;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Map;
 
 import lombok.Getter;
@@ -26,84 +27,42 @@ public class AdministratorDashboard implements Serializable {
 	protected static final long	serialVersionUID	= 1L;
 
 	// Attributes -------------------------------------------------------------
-
-	/* TODO: group average, deviation, minimum, maximum in
-	 * a single attribute in each case, so
-	 * we have 1 attribute instead of four.
-	 * */
-	
 	int numberOfComponents;
-	// We could also do it the other way around. 
-	// Group by technology (key), whose value is
-	// a Map for which I have the average of each currency.
-
-	// POSSIBILITIES:
 	
-	// Map<String, Map<String,Double>>
-	// {"Java":{"THB":1000.00,"CAD":247.09,"AUS":302.00},"Python:{"THB":76.00,"AUS":12.00}}
+	// [
+	//	{"Java":{"THB":1000.00,"CAD":247.09,"AUS":302.00},"Python":{"THB":76.00,"AUS":12.00}}, ---> Average
+	//	{"Java":{"THB":1000.00,"CAD":247.09,"AUS":302.00},"Python":{"THB":76.00,"AUS":12.00}}, ---> Deviation
+	//	{"Java":{"THB":1000.00,"CAD":247.09,"AUS":302.00},"Python":{"THB":76.00,"AUS":12.00}}, ---> Min
+	//	{"Java":{"THB":1000.00,"CAD":247.09,"AUS":302.00},"Python":{"THB":76.00,"AUS":12.00}}  ---> Max
+	// ]
 	
-	// Map<Pair<String, String>, Double>
-	// {(Java, THB):1000.00, (Python, AUS):12.00, (Java, AUS):302.00} 
-	// We would have to use an OrderedMap in that case, so the data is always displayed
-	// the same way to the final user in the view
-	
-	Map<String, Map<String,Double>> averageRetailPriceOfComponentsPerTechnology;
-	Map<String, Map<String,Double>> deviationRetailPriceOfComponentsPerTechnology;
-	Map<String, Map<String,Double>> minumumRetailPriceOfComponentsPerTechnology;
-	Map<String, Map<String,Double>> maximumRetailPriceOfComponentsPerTechnology;
-	
-	// Map<String, Map<String,List<Double>>> statsOfComponentsPerTechnology;
-
-	// IDEA:
-		//		Map<String, Double>
-		//      {"EUR": 28.39, "GBP: 102.00", "USD":0.01}
-	// We have to round to 2 decimal places.
-	
-	Map<String,Double> averageRetailPriceOfComponentsPerCurrency;
-	Map<String,Double> deviationRetailPriceOfComponentsPerCurrency;
-	Map<String,Double> minumumRetailPriceOfComponentsPerCurrency;
-	Map<String,Double> maximumRetailPriceOfComponentsPerCurrency;
+	List<Map<String, Map<String,Double>>> statsRetailPriceOfComponentsPerTechnology;
 	
 	int numberOfTools;
 	
-	// Same as averageRetailPriceOfComponentsPerTechnology and such, but grouping by money.currency
-	Map<String, Map<String,Double>> averageRetailPriceOfToolsPerCurrency;
-	Map<String, Map<String,Double>> deviationRetailPriceOfToolsPerCurrency;
-	Map<String, Map<String,Double>> minumumRetailPriceOfToolsPerCurrency;
-	Map<String, Map<String,Double>> maximumRetailPriceOfToolsPerCurrency;
+	// [
+	//	{"Hammer":{"THB":1000.00,"CAD":247.09,"AUS":302.00},"Saw":{"THB":76.00,"AUS":12.00}}, ---> Average
+	//	{"Hammer":{"THB":1000.00,"CAD":247.09,"AUS":302.00},"Saw":{"THB":76.00,"AUS":12.00}}, ---> Deviation
+	//	{"Hammer":{"THB":1000.00,"CAD":247.09,"AUS":302.00},"Saw":{"THB":76.00,"AUS":12.00}}, ---> Min
+	//	{"Hammer":{"THB":1000.00,"CAD":247.09,"AUS":302.00},"Saw":{"THB":76.00,"AUS":12.00}}  ---> Max
+	// ]
 	
+	List<Map<String, Map<String,Double>>> statsRetailPriceOfToolsPerCurrency;
 	
 	int numberOfProposedPatronages;
 	int numberOfAcceptedPatronages;
 	int numberOfDeniedPatronages;
-	
-	// TODO: this is all grouped by currency I think he said.
-	// we can't mix currencies in the statistics so we need to
-	// group by EUR, USD, THB...
-	
-	// TODO: maybe use ...groupBy category instead of having three
-	// attributes which are exactly the same? So we could debloat this
-	// class when we have to use it
-	
-	// IDEA:
-	//		Map<String, Double>
-	//      {"EUR": 28.39, "GBP: 102.00", "USD":0.01}
+		
+	// [
+	//	{"WhatsApp 2":{"THB":1000.00,"CAD":247.09,"AUS":302.00},"Awesome Computer":{"THB":76.00,"AUS":12.00}}, ---> Average
+	//	{"WhatsApp 2":{"THB":1000.00,"CAD":247.09,"AUS":302.00},"Awesome Computer":{"THB":76.00,"AUS":12.00}}, ---> Deviation
+	//	{"WhatsApp 2":{"THB":1000.00,"CAD":247.09,"AUS":302.00},"Awesome Computer":{"THB":76.00,"AUS":12.00}}, ---> Min
+	//	{"WhatsApp 2":{"THB":1000.00,"CAD":247.09,"AUS":302.00},"Awesome Computer":{"THB":76.00,"AUS":12.00}}  ---> Max
+	// ]
 	// We have to round to 2 decimal places.
-	
-	Map<String, Double> averageBudgetOfProposedPatronages;
-	Map<String, Double> deviationBudgetOfProposedPatronages;
-	Map<String, Double> minumumBudgetOfProposedPatronages;
-	Map<String, Double> maximumBudgetOfProposedPatronages;
-	
-	Map<String, Double> averageBudgetOfAcceptedPatronages;
-	Map<String, Double> deviationBudgetOfAcceptedPatronages;
-	Map<String, Double> minumumBudgetOfAcceptedPatronages;
-	Map<String, Double> maximumBudgetOfAcceptedPatronages;
-	
-	Map<String, Double> averageBudgetOfDeniedPatronages;
-	Map<String, Double> deviationBudgetOfDeniedPatronages;
-	Map<String, Double> minumumBudgetOfDeniedPatronages;
-	Map<String, Double> maximumBudgetOfDeniedPatronages;
+	List<Map<String, Double>> budgetOfProposedPatronages;
+	List<Map<String, Double>> budgetOfAcceptedPatronages;
+	List<Map<String, Double>> budgetOfDeniedPatronages;
 
 	// Derived attributes -----------------------------------------------------
 

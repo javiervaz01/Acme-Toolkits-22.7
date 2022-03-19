@@ -1,14 +1,14 @@
 key,moment,title,body,is-critical,info
-announcement-01,2022/03/14 00:00,This is an example announcement,This is an example boday,false,http://www.example.com
+announcement-01,2022/03/14 00:00,This is an example announcement,This is an example body,false,http://www.example.com
 announcement-02,2022/01/01 00:00,This is an example announcement,This is an example body,false,http://www.example.com
 announcement-03,2022/03/14 12:00,This is an example announcement,This is an example body,false,http://www.example.com
-announcement-04,2022/12/31 23:59,This is an example announcement,This is an example body,false,http://www.example.com
+announcement-04,2021/12/31 23:59,This is an example announcement,This is an example body,false,http://www.example.com
 announcement-05,2022/02/13 23:59,This is an example announcement,This is an example body,false,http://www.example.com
-announcement-06,2022/12/31 00:00,This is an example announcement,This is an example body,false,http://www.example.com
+announcement-06,2021/12/31 00:00,This is an example announcement,This is an example body,false,http://www.example.com
 announcement-07,2022/03/14 15:09,𝕿𝖍𝖎𝖘 𝖎𝖘 𝖆𝖓 𝖊𝖝𝖆𝖒𝖕𝖑𝖊 𝖆𝖓𝖓𝖔𝖚𝖓𝖈𝖊𝖒𝖊𝖓𝖙,This is an example body,false,http://www.example.com
 announcement-08,2022/03/14 15:09,•°¯`••   🎀  𝒯𝒽𝒾𝓈 𝒾𝓈 𝒶𝓃 𝑒𝓍𝒶𝓂𝓅𝓁𝑒 𝒶𝓃𝓃❤𝓊𝓃𝒸𝑒𝓂𝑒𝓃𝓉  🎀   ••`¯°•,This is an example body,false,http://www.example.com
 announcement-09,2022/03/14 15:09,ƬΉIƧ IƧ ΛП ΣXΛMPᄂΣ ΛППӨЦПᄃΣMΣПƬ,This is an example body,false,http://www.example.com
-announcement-10,2022/03/14 15:09,'Thís ís.án;"éxamplë":ánnóunç3"€nt',This is an example body,false,http://www.example.com
+announcement-10,2022/03/14 15:09,Thís ís.án;éxamplë:ánnóunç3'€nt,This is an example body,false,http://www.example.com
 announcement-11,2022/03/14 15:09,エ偉ナ延無,This is an example body,false,http://www.example.com
 announcement-12,2022/03/14 15:09,ㄒ卄丨丂 丨丂 卂几 乇乂卂爪卩ㄥ乇 卂几几ㄖㄩ几匚乇爪乇几ㄒ,This is an example body,false,http://www.example.com
 announcement-13,2022/03/14 15:09,This is a text with 100 characters. Lorem Ipsum is simply dummy text of the printing and typesetting,This is an example body,false,http://www.example.com
@@ -19,11 +19,10 @@ announcement-17,2022/03/14 15:09,This is an example announcement,[̲̅T][̲̅h][
 announcement-18,2022/03/14 15:09,This is an example announcement,T҉h҉i҉s҉ ҉i҉s҉ ҉a҉n҉ ҉e҉x҉a҉m҉p҉l҉e҉ ҉b҉o҉d҉y҉,false,http://www.example.com
 announcement-19,2022/03/14 15:09,This is an example announcement,¸„.-•~¹°”ˆ˜¨ ⓣⒽ𝐢ⓢ ιร 𝕒𝓃 єЖΔᗰ𝕡ℓẸ 𝐁𝔬ᗪ𝐘 ¨˜ˆ”°¹~•-.„¸,false,http://www.example.com
 announcement-20,2022/03/14 15:09,This is an example announcement,This is a text with 100 characters. Lorem Ipsum is simply dummy text of the printing and typesetting,false,http://www.example.com
-announcement-21,2022/03/14 15:09,This is an example announcement,This is an example body,false,http://www.example.com
-announcement-22,2022/03/14 15:09,This is an example announcement,This is an example body,true,http://www.example.com
-announcement-23,2022/03/14 15:09,This is an example announcement,This is an example body,true,null
-announcement-24,2022/03/14 15:09,This is an example announcement,This is an example body,true,http://www.acme.com/a?b
-announcement-25,2022/03/14 15:09,This is an example announcement,This is an example body,true,https://www.acme.com/a/b
-announcement-26,2022/03/14 15:09,This is an example announcement,This is an example body,true,rcp://server.local/?a=1&b=2
-announcement-27,2022/03/14 15:09,This is an example announcement,This is an example body,true,ftp://user:pass@acme.org
-announcement-28,2022/03/14 15:09,This is an example announcement,This is an example body,true,p://a.b/c?d&e
+announcement-21,2022/03/14 15:09,This is an example announcement,This is an example body,true,http://www.example.com
+announcement-22,2022/03/14 15:09,This is an example announcement,This is an example body,false,http://www.example.com
+announcement-23,2022/03/14 15:09,This is an example announcement,This is an example body,false,null
+announcement-24,2022/03/14 15:09,This is an example announcement,This is an example body,false,http://www.acme.com/a?b
+announcement-25,2022/03/14 15:09,This is an example announcement,This is an example body,false,https://www.acme.com/a/b
+announcement-26,2022/03/14 15:09,This is an example announcement,This is an example body,false,ftp://user:pass@acme.org
+announcement-27,2022/03/14 15:09,This is an example announcement,This is an example body,false,http://a.b/c?d&e

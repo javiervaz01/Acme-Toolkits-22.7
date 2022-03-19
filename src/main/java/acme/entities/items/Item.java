@@ -21,52 +21,51 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Item extends AbstractEntity {
-	
+
 	// Serialisation identifier -----------------------------------------------
 
-	protected static final long	serialVersionUID	= 1L;
+	protected static final long serialVersionUID = 1L;
 
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@Length(max=100)
+	@Length(max = 100)
 	protected String name;
-				
+
 	@NotBlank
-	@Column(unique=true)
-	@Pattern(regexp="^[A-Z]{3}-[0-9]{3}(-[A-Z])?$")
+	@Column(unique = true)
+	@Pattern(regexp = "^[A-Z]{3}-[0-9]{3}(-[A-Z])?$")
 	protected String code;
-				
+
 	@NotBlank
-	@Length(max=100)
+	@Length(max = 100)
 	protected String technology;
-				
+
 	@NotBlank
-	@Length(max=255)
+	@Length(max = 255)
 	protected String description;
-			
 
 	// The annotation @PositiveOrZero does not apply
 	// here since we have a single data type. We will
 	// learn how to implement a custom restriction.
-	
+
 	@NotNull
 	protected Money retailPrice;
-				
+
 	@URL
 	protected String info;
-	
+
 	@NotNull
 	protected ItemType type;
 
 	// Derived attributes ----------------------------------------------------
 
-	
+
 	// Relationships ----------------------------------------------------
-	
+
 	@NotNull
 	@Valid
-	@ManyToOne(optional=false)
+	@ManyToOne(optional = false)
 	protected Inventor inventor;
-	
+
 }

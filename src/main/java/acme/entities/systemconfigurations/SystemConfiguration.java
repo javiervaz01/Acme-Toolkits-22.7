@@ -15,31 +15,31 @@ public class SystemConfiguration extends AbstractEntity {
 
 	// Serialisation identifier -----------------------------------------------
 
-	protected static final long		serialVersionUID	= 1L;
+	protected static final long serialVersionUID = 1L;
 
 	// Attributes -------------------------------------------------------------
 
 	// TODO add regular expression (3 uppercase letters)
 	@NotBlank
 	@Pattern(regexp = "^[A-Z]{3}$")
-	protected String				currency;
-	
+	protected String currency;
+
 	@NotBlank
 	@Pattern(regexp = "^([A-Z]{3},)*[A-Z]{3}$")
-	protected String 				acceptedCurrencies; // Comma separated groups of three letters
+	protected String acceptedCurrencies; // Comma separated groups of three letters
 
-	
+
 	@NotBlank
 	@Pattern(regexp = "^([A-Za-z.;'\"\\s]*,)*[A-Za-z.;'\"\\s]+$")
-	protected String				strongSpamTerms;
+	protected String strongSpamTerms;
 
-	protected double				strongSpamThreshold;
-	
+	protected double strongSpamThreshold;
+
 	@NotBlank
 	@Pattern(regexp = "^([A-Za-z.;'\"\\s]*,)*[A-Za-z.;'\"\\s]+$")
-	protected String				weakSpamTerms;
-	
-	protected double				weakSpamThreshold;
+	protected String weakSpamTerms;
+
+	protected double weakSpamThreshold;
 
 	// Derived attributes -----------------------------------------------------
 
