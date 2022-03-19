@@ -19,6 +19,7 @@ import org.hibernate.validator.constraints.URL;
 import acme.framework.datatypes.Money;
 import acme.framework.entities.AbstractEntity;
 import acme.roles.Inventor;
+import acme.roles.Patron;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -70,12 +71,16 @@ public class Patronage  extends AbstractEntity {
 
 	// Relationships ----------------------------------------------------------
 	
-	@ManyToOne(optional = false)
+	@ManyToOne(optional = true)
 	@Valid
-	@NotNull
 	// If we don't use this notNull, the error will get
 	// to the database, panic and throw an exception.
 	protected Inventor inventor;
 	
-	// TODO do we have to store the patron who offers the patronage?
+	@ManyToOne(optional = false)
+	@Valid
+	@NotNull
+	protected Patron patron;
+	
+	// the patron who offers the patronage?
 }
