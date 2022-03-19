@@ -1,6 +1,7 @@
 package acme.forms;
 
 import java.io.Serializable;
+import java.util.Map;
 
 public class PatronDashboard implements Serializable{
 	
@@ -26,20 +27,20 @@ public class PatronDashboard implements Serializable{
 	// attributes which are exactly the same? So we could debloat this
 	// class when we have to use it
 	
-	Double						averageBudgetofProposedPatronages;
-	Double						deviationBudgetofProposedPatronages;
-	Double						maximumBudgetofProposedPatronages;
-	Double						minimumBudgetofProposedPatronages;
+	Map<String,Double>						averageBudgetofProposedPatronages;
+	Map<String,Double>						deviationBudgetofProposedPatronages;
+	Map<String,Double>						maximumBudgetofProposedPatronages;
+	Map<String,Double>						minimumBudgetofProposedPatronages;
 	
-	Double						averageBudgetofAcceptedPatronages;
-	Double						deviationBudgetofAcceptedPatronages;
-	Double						maximumBudgetofAcceptedPatronages;
-	Double						minimumBudgetofAcceptedPatronages;
+	Map<String,Double>						averageBudgetofAcceptedPatronages;
+	Map<String,Double>						deviationBudgetofAcceptedPatronages;
+	Map<String,Double>						maximumBudgetofAcceptedPatronages;
+	Map<String,Double>						minimumBudgetofAcceptedPatronages;
 	
-	Double						averageBudgetofDeniedPatronages;
-	Double						deviationBudgetofDeniedPatronages;
-	Double						maximumBudgetofDeniedPatronages;
-	Double						minimumBudgetofDeniedPatronages;
+	Map<String,Double>						averageBudgetofDeniedPatronages;
+	Map<String,Double>						deviationBudgetofDeniedPatronages;
+	Map<String,Double>						maximumBudgetofDeniedPatronages;
+	Map<String,Double>						minimumBudgetofDeniedPatronages;
 
 
 	// Derived attributes -----------------------------------------------------
