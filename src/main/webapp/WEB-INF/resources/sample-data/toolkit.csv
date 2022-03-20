@@ -1,0 +1,18 @@
+key,code,title,description,assembly-notes,link
+toolkit-01,AAA-111-B,Toolkit example,This is an example description,This is an example of a toolkit assembly note,http://www.example.com
+toolkit-02,ZZZ-888,Ejemplo de toolkit,Esta es una descripción de ejemplo,Esto es un ejemplo de nota de ensamblado de un toolkit,null
+toolkit-03,BBB-222-B,Παράδειγμα εργαλειοθήκης,Αυτό είναι ένα παράδειγμα περιγραφής,Αυτό είναι ένα παράδειγμα σημείωσης συναρμολόγησης εργαλειοθήκης,http://www.acme.com/a?b
+toolkit-04,YYY-777,ツールキットの例,これは説明の例です,これは、ツールキットアセンブリノートの例です,https://www.acme.com/a/b
+toolkit-05,XXX-999,Ví dụ về bộ công cụ,Đây là một mô tả ví dụ,Đây là một ví dụ về ghi chú lắp ráp bộ công cụ,http://a.b/c?d&e
+toolkit-06,DDD-000-B,Пример за инструментариум,Това е примерно описание,Това е пример за бележка за сглобяване на комплекта от инструменти,https://www.example.com
+toolkit-07,WWW-999,Գործիքակազմի օրինակ,Սա նկարագրության օրինակ է,Սա գործիքակազմի հավաքման նշումի օրինակ է,ftp://user:pass@acme.org
+toolkit-08,EEE-000-B,ინსტრუმენტთა ნაკრების მაგალითი,ეს არის მაგალითის აღწერა,ეს არის ინსტრუმენტთა ნაკრების შეკრების ჩანაწერის მაგალითი,http://www.example.com
+toolkit-09,VVV-999,툴킷 예시,설명 예시입니다,이것은 툴킷 어셈블리 노트의 예입니다,http://www.example.com
+toolkit-10,UUU-999,This is an example of a toolkit title which has 100 characters. This is an example of a toolkit titl,This is an example description,This is an assembly note example,http://www.example.com
+toolkit-11,GGG-000-B,Toolkit example,This is an example of a toolkit description which has 255 characters. This is an example of a toolkit description which has 255 characters. This is an example of a toolkit description which has 255 characters. This is an example of a toolkit description w,This is an assembly note example,http://www.example.com
+toolkit-12,TTT-999,Toolkit example,This is an example description,This is an example of a toolkit assembly note which has 255 characters. This is an example of a toolkit assembly note which has 255 characters. This is an example of a toolkit assembly note which has 255 characters. This is an example of a toolkit assembl,http://www.example.com
+toolkit-13,HHH-000-B,Toolkit example,This is an example description,This is an assembly note example,http://www.example.com
+toolkit-14,SSS-999,Toolkit example,This is an example description,This is an assembly note example,http://www.example.com
+toolkit-15,SSS-999-C,Toolkit example,This is an example description,This is an assembly note example,http://www.example.com
+toolkit-16,SSS-000,Toolkit example,This is an example description,This is an assembly note example,http://www.example.com
+toolkit-17,SSS-999-D,Toolkit example,This is an example description,This is an assembly note example,http://www.example.com
