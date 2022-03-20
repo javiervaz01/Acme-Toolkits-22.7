@@ -1,0 +1,41 @@
+key,code,title,description,assembly-notes,link
+toolkit-01,AAA-000,Toolkit example,This is an example description,This is an example of a toolkit assembly note,http://www.example.com
+toolkit-02,HHH-000-B,Toolkit example,This is an example description,This is an assembly note example,http://www.example.com
+toolkit-03,SSS-999,Toolkit example,This is an example description,This is an assembly note example,http://www.example.com
+toolkit-04,SSS-999-C,Toolkit example,This is an example description,This is an assembly note example,http://www.example.com
+toolkit-05,SSS-000,Toolkit example,This is an example description,This is an assembly note example,http://www.example.com
+toolkit-06,SSS-999-D,Toolkit example,This is an example description,This is an assembly note example,http://www.example.com
+toolkit-07,SSS-222-D,Toolkit example,This is an example description,This is an assembly note example,http://www.example.com
+toolkit-08,AAA-000-A,This is an example of a toolkit title which has 100 characters. This is an example of a toolkit titl,This is an example description,This is an assembly note example,http://www.example.com
+toolkit-09,AAA-000-B,Ejemplo de toolkit,This is an example description,This is an example of a toolkit assembly note,http://www.example.com
+toolkit-10,AAA-000-C,Παράδειγμα εργαλειοθήκης,This is an example description,This is an example of a toolkit assembly note,http://www.example.com
+toolkit-11,AAA-000-D,ツールキットの例,This is an example description,This is an example of a toolkit assembly note,http://www.example.com
+toolkit-12,AAA-000-E,Ví dụ về bộ công cụ,This is an example description,This is an example of a toolkit assembly note,http://www.example.com
+toolkit-13,AAA-000-F,Пример за инструментариум,This is an example description,This is an example of a toolkit assembly note,http://www.example.com
+toolkit-14,AAA-000-G,Գործիքակազմի օրինակ,This is an example description,This is an example of a toolkit assembly note,http://www.example.com
+toolkit-15,AAA-000-H,ინსტრუმენტთა ნაკრების მაგალითი,This is an example description,This is an example of a toolkit assembly note,http://www.example.com
+toolkit-16,AAA-000-I,툴킷 예시,This is an example description,This is an example of a toolkit assembly note,http://www.example.com
+toolkit-17,AAA-000-J,Toolkit example,This is an example of a toolkit description which has 255 characters. This is an example of a toolkit description which has 255 characters. This is an example of a toolkit description which has 255 characters. This is an example of a toolkit description w,This is an assembly note example,http://www.example.com
+toolkit-18,AAA-000-K,Toolkit example,Esta es una descripción de ejemplo,This is an example of a toolkit assembly note,http://www.example.com
+toolkit-19,AAA-000-L,Toolkit example,Αυτό είναι ένα παράδειγμα περιγραφής,This is an example of a toolkit assembly note,http://www.example.com
+toolkit-20,AAA-000-M,Toolkit example,これは説明の例です,This is an example of a toolkit assembly note,http://www.example.com
+toolkit-21,AAA-000-N,Toolkit example,Đây là một mô tả ví dụ,This is an example of a toolkit assembly note,http://www.example.com
+toolkit-22,AAA-000-O,Toolkit example,Това е примерно описание,This is an example of a toolkit assembly note,http://www.example.com
+toolkit-23,AAA-000-P,Toolkit example,Սա նկարագրության օրինակ է,This is an example of a toolkit assembly note,http://www.example.com
+toolkit-24,AAA-000-Q,Toolkit example,ეს არის მაგალითის აღწერა,This is an example of a toolkit assembly note,http://www.example.com
+toolkit-25,AAA-000-R,Toolkit example,설명 예시입니다,This is an example of a toolkit assembly note,http://www.example.com
+toolkit-26,AAA-000-S,Toolkit example,This is an example description,This is an example of a toolkit assembly note which has 255 characters. This is an example of a toolkit assembly note which has 255 characters. This is an example of a toolkit assembly note which has 255 characters. This is an example of a toolkit assembl,http://www.example.com
+toolkit-27,AAA-000-T,Toolkit example,This is an example description,Esto es un ejemplo de nota de ensamblado de un toolkit,http://www.example.com
+toolkit-28,AAA-000-U,Toolkit example,This is an example description,Αυτό είναι ένα παράδειγμα σημείωσης συναρμολόγησης εργαλειοθήκης,http://www.example.com
+toolkit-29,AAA-000-V,Toolkit example,This is an example description,これは、ツールキットアセンブリノートの例です,http://www.example.com
+toolkit-30,AAA-000-W,Toolkit example,This is an example description,Đây là một ví dụ về ghi chú lắp ráp bộ công cụ,http://www.example.com
+toolkit-31,AAA-000-X,Toolkit example,This is an example description,Това е пример за бележка за сглобяване на комплекта от инструменти,http://www.example.com
+toolkit-32,AAA-000-Y,Toolkit example,This is an example description,Սա գործիքակազմի հավաքման նշումի օրինակ է,http://www.example.com
+toolkit-33,AAA-000-Z,Toolkit example,This is an example description,ეს არის ინსტრუმენტთა ნაკრების შეკრების ჩანაწერის მაგალითი,http://www.example.com
+toolkit-34,AAA-111-A,Toolkit example,This is an example description,이것은 툴킷 어셈블리 노트의 예입니다,http://www.example.com
+toolkit-35,AAA-111-B,Toolkit example,This is an example description,This is an example of a toolkit assembly note,http://www.example.com
+toolkit-36,AAA-111-C,Toolkit example,This is an example description,This is an example of a toolkit assembly note,null
+toolkit-37,AAA-111-D,Toolkit example,This is an example description,This is an example of a toolkit assembly note,http://www.acme.com/a?b
+toolkit-38,AAA-111-E,Toolkit example,This is an example description,This is an example of a toolkit assembly note,https://www.acme.com/a/b
+toolkit-39,AAA-111-F,Toolkit example,This is an example description,This is an example of a toolkit assembly note,http://a.b/c?d&e
+toolkit-40,AAA-111-G,Toolkit example,This is an example description,This is an example of a toolkit assembly note,ftp://user:pass@acme.org
