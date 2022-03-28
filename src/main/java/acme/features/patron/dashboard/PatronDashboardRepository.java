@@ -1,6 +1,5 @@
 package acme.features.patron.dashboard;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -13,21 +12,21 @@ import acme.framework.repositories.AbstractRepository;
 public interface PatronDashboardRepository extends AbstractRepository {
 
 	@Query("select count(p) from Patronage p where p.status = PROPOSED")
-	Double numberOfProposedPatronages();
+	int numberOfProposedPatronages();
 
 	@Query("select count(p) from Patronage p where p.status = ACCEPTED")
-	Double numberOfAcceptedPatronages();
+	int numberOfAcceptedPatronages();
 
 	@Query("select count(p) from Patronage p where p.status = DENIED")
-	Double numberOfDeniedPatronages();
+	int numberOfDeniedPatronages();
 
-	@Query("select new map () from Patronage p WHERE p.status= PROPOSED")
-	List<Map<String,Double>> stastBudgetofProposedPatronages();
+	@Query("select avg(p.budget.amount), stddev(p.budget.amount), min(p.budget.amount), max(p.budget.amount) from Patronage p WHERE p.status=PROPOSED group by p.budget.currency")
+	Map<String,List<Double>> stastBudgetofProposedPatronages();
 	
-	@Query("select new map () from Patronage p WHERE p.status= ACCEPTED")
-	Collection<Map<String, Double>> stastBudgetofAcceptedPatronages();
+	@Query("select avg(p.budget.amount),stddev(p.budget.amount),min(p.budget.amount),max(p.budget.amount) from Patronage p WHERE p.status=ACCEPTED group by p.budget.currency")
+	Map<String,List<Double>> stastBudgetofAcceptedPatronages();
 	
-	@Query("select new map () from Patronage p WHERE p.status= DENIED")
-	Collection<Map<String,Double>> statsBudgetofDeniedPatronages();
+	@Query("select avg(p.budget.amount),stddev(p.budget.amount),min(p.budget.amount),max(p.budget.amount) from Patronage p WHERE p.status=DENIED group by p.budget.currency")
+	Map<String,List<Double>> statsBudgetofDeniedPatronages();
 
 }
