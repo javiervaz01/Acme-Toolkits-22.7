@@ -44,14 +44,16 @@
 	</acme:menu-left>
 	
 	<acme:menu-right>
+		<acme:menu-option code="master.menu.user-account.list" action="/any/user-account/list"/>
 		<acme:menu-option code="master.menu.sign-up" action="/anonymous/user-account/create" access="isAnonymous()"/>
 		<acme:menu-option code="master.menu.sign-in" action="/master/sign-in" access="isAnonymous()"/>
-
-		<acme:menu-option code="master.menu.user-account" access="isAuthenticated()">
+		<acme:menu-option code="master.menu.user-account" access="hasRole('Authenticated')">
 			<acme:menu-suboption code="master.menu.user-account.general-data" action="/authenticated/user-account/update"/>
 			<acme:menu-suboption code="master.menu.user-account.announcement.list-recent" action="/authenticated/announcement/list-recent"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.sign-out" action="/master/sign-out" access="isAuthenticated()"/>
 	</acme:menu-right>
+
 </acme:menu-bar>
+

@@ -44,4 +44,5 @@ master.menu.inventor.patronage.list = Ver mis patronazgos
 
 master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
+master.menu.user-account.list = Ver cuentas de usuario
 master.menu.user-account.announcement.list-recent = Ver anuncios recientes
