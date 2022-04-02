@@ -39,6 +39,7 @@ master.menu.administrator.shut-down = Parar el sistema
 
 master.menu.inventor = Inventor
 master.menu.inventor.patronage.list = Ver mis patronazgos
+master.menu.inventor.item.list = Ver mis artículos
 
 # master.menu.user-account ####################################################
 
