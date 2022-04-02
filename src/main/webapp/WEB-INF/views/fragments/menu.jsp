@@ -40,6 +40,7 @@
 
 		<acme:menu-option code="master.menu.inventor" access="hasRole('Inventor')">			
 			<acme:menu-suboption code="master.menu.inventor.patronage.list" action="/inventor/patronage/list-mine"/>
+			<acme:menu-suboption code="master.menu.inventor.item.list" action="/inventor/item/list-own"/>
 		</acme:menu-option>
 	</acme:menu-left>
 	
