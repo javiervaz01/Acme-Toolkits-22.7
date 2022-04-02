@@ -1,11 +1,11 @@
 package acme.features.patron.dashboard;
 
-import java.util.List;
-import java.util.Map;
+import java.util.Collection;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.patronages.Status;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
@@ -20,13 +20,19 @@ public interface PatronDashboardRepository extends AbstractRepository {
 	@Query("select count(p) from Patronage p where p.status = DENIED")
 	int numberOfDeniedPatronages();
 
-	@Query("select avg(p.budget.amount), stddev(p.budget.amount), min(p.budget.amount), max(p.budget.amount) from Patronage p WHERE p.status=PROPOSED group by p.budget.currency")
-	Map<String,List<Double>> stastBudgetofProposedPatronages();
+	@Query("select distinct p.budget.currency from Patronage p")
+	Collection<String> currencies();
 	
-	@Query("select avg(p.budget.amount),stddev(p.budget.amount),min(p.budget.amount),max(p.budget.amount) from Patronage p WHERE p.status=ACCEPTED group by p.budget.currency")
-	Map<String,List<Double>> stastBudgetofAcceptedPatronages();
+	@Query("select avg(p) from Patronage p where p.status = :status and p.budget.currency = :currency")
+	double averagePatronage(Status status,String currency);
 	
-	@Query("select avg(p.budget.amount),stddev(p.budget.amount),min(p.budget.amount),max(p.budget.amount) from Patronage p WHERE p.status=DENIED group by p.budget.currency")
-	Map<String,List<Double>> statsBudgetofDeniedPatronages();
+	@Query("select stddev(p) from Patronage p where p.status = :status and p.budget.currency = :currency ")
+	double deviationPatronage(Status status,String currency);
+	
+	@Query("select min(p) from Patronage p where p.status = :status and p.budget.currency = :currency ")
+	double minimunPatronage(Status status,String currency);
+	
+	@Query("select max(p) from Patronage p where p.status = :status and p.budget.currency = :currency ")
+	double maximunPatronage(Status status,String currency);
 
 }
