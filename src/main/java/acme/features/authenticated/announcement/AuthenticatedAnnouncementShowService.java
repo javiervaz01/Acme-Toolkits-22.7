@@ -61,9 +61,7 @@ public class AuthenticatedAnnouncementShowService implements AbstractShowService
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "moment", "status", "text", "info");
-		model.setAttribute("confirmation", false);
-		model.setAttribute("readonly", true);
+		request.unbind(entity, model, "moment", "title", "body", "isCritical", "info");
 	}
 
 }
