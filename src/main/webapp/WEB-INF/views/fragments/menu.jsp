@@ -55,6 +55,7 @@
 		<acme:menu-option code="master.menu.user-account" access="hasRole('Authenticated')">
 			<acme:menu-suboption code="master.menu.user-account.general-data" action="/authenticated/user-account/update"/>
 			<acme:menu-suboption code="master.menu.user-account.announcement.list-recent" action="/authenticated/announcement/list-recent"/>
+			<acme:menu-suboption code="master.menu.user-account.system-configuration.show" action="/authenticated/system-configuration/show"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.sign-out" action="/master/sign-out" access="isAuthenticated()"/>
