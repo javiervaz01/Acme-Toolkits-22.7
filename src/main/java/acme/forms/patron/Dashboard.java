@@ -1,10 +1,15 @@
-package acme.forms;
+package acme.forms.patron;
 
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
-public class PatronDashboard implements Serializable {
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class Dashboard implements Serializable {
 
 	// Serialisation identifier -----------------------------------------------
 
@@ -17,17 +22,13 @@ public class PatronDashboard implements Serializable {
 	int numberOfDeniedPatronages;
 
 	// [
-	// {"WhatsApp 2":{"THB":1000.00,"CAD":247.09,"AUS":302.00},"Awesome
-	// Computer":{"THB":76.00,"AUS":12.00}}, ---> Average
-	// {"WhatsApp 2":{"THB":1000.00,"CAD":247.09,"AUS":302.00},"Awesome
-	// Computer":{"THB":76.00,"AUS":12.00}}, ---> Deviation
-	// {"WhatsApp 2":{"THB":1000.00,"CAD":247.09,"AUS":302.00},"Awesome
-	// Computer":{"THB":76.00,"AUS":12.00}}, ---> Min
-	// {"WhatsApp 2":{"THB":1000.00,"CAD":247.09,"AUS":302.00},"Awesome
-	// Computer":{"THB":76.00,"AUS":12.00}} ---> Max
+	// 	{"THB":1000.00,"CAD":247.09,"AUS":302.00}, ---> Average
+	// 	{"THB":1000.00,"CAD":247.09,"AUS":302.00}, --> Deviation
+	// 	{"THB":1000.00,"CAD":247.09,"AUS":302.00}, ---> Min
+	// 	{"THB":1000.00,"CAD":247.09,"AUS":302.00} ---> Max
 	// ]
 	// We have to round to 2 decimal places.
-
+	
 	List<Map<String, Double>> stastBudgetofProposedPatronages;
 	List<Map<String, Double>> stastBudgetofAcceptedPatronages;
 	List<Map<String, Double>> stastBudgetofDeniedPatronages;
