@@ -9,7 +9,7 @@
  * aver-age, deviation, minimum, and maximum budget of proposed/accepted/denied patronages.
  */
 
-package acme.forms;
+package acme.forms.administrator;
 
 import java.io.Serializable;
 import java.util.List;
@@ -20,7 +20,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class AdministratorDashboard implements Serializable {
+public class Dashboard implements Serializable {
 
 	// Serialisation identifier -----------------------------------------------
 
