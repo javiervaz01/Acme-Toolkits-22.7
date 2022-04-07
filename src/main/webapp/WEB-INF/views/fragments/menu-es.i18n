@@ -15,6 +15,11 @@ master.menu.sign-up = Registrarse
 master.menu.sign-in = Entrar
 master.menu.sign-out = Salir
 
+# master.menu.any #######################################################
+
+master.menu.any = Listas
+master.menu.any.item.list = Lista de Items
+
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anónimo
@@ -39,9 +44,12 @@ master.menu.administrator.shut-down = Parar el sistema
 
 master.menu.inventor = Inventor
 master.menu.inventor.patronage.list = Ver mis patronazgos
+master.menu.inventor.item.list = Ver mis artículos
 
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
+master.menu.user-account.list = Ver cuentas de usuario
 master.menu.user-account.announcement.list-recent = Ver anuncios recientes
+master.menu.user-account.system-configuration.show = Ver la configuración del sistema

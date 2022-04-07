@@ -37,21 +37,29 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/shut-down"/>
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.any">			
+			<acme:menu-suboption code="master.menu.any.item.list" action="/any/item/list-all"/>
+		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.inventor" access="hasRole('Inventor')">			
 			<acme:menu-suboption code="master.menu.inventor.patronage.list" action="/inventor/patronage/list-mine"/>
+			<acme:menu-suboption code="master.menu.inventor.item.list" action="/inventor/item/list-own"/>
 		</acme:menu-option>
 	</acme:menu-left>
 	
 	<acme:menu-right>
+		<acme:menu-option code="master.menu.user-account.list" action="/any/user-account/list"/>
 		<acme:menu-option code="master.menu.sign-up" action="/anonymous/user-account/create" access="isAnonymous()"/>
 		<acme:menu-option code="master.menu.sign-in" action="/master/sign-in" access="isAnonymous()"/>
-
-		<acme:menu-option code="master.menu.user-account" access="isAuthenticated()">
+		<acme:menu-option code="master.menu.user-account" access="hasRole('Authenticated')">
 			<acme:menu-suboption code="master.menu.user-account.general-data" action="/authenticated/user-account/update"/>
 			<acme:menu-suboption code="master.menu.user-account.announcement.list-recent" action="/authenticated/announcement/list-recent"/>
+			<acme:menu-suboption code="master.menu.user-account.system-configuration.show" action="/authenticated/system-configuration/show"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.sign-out" action="/master/sign-out" access="isAuthenticated()"/>
 	</acme:menu-right>
+
 </acme:menu-bar>
+

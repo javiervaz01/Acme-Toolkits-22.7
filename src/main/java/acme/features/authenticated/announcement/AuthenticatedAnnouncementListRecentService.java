@@ -51,7 +51,7 @@ public class AuthenticatedAnnouncementListRecentService implements AbstractListS
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "title", "moment", "status");
+		request.unbind(entity, model, "moment", "title", "isCritical");
 	}
 	
 }

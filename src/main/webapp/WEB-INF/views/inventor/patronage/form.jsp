@@ -16,5 +16,10 @@
 	<acme:input-moment code="inventor.patronage.form.label.start-date" path="startDate"/>
 	<acme:input-moment code="inventor.patronage.form.label.end-date" path="endDate"/>
 	<acme:input-url code="inventor.patronage.form.label.info" path="info"/>
-	<acme:input-textbox code="inventor.patronage.form.label.patron" path="company"/>
+	<acme:input-textbox code="inventor.patronage.form.label.patron.identity.name" path="patron.identity.name"/>
+	<acme:input-textbox code="inventor.patronage.form.label.patron.identity.surname" path="patron.identity.surname"/>
+	<acme:input-textbox code="inventor.patronage.form.label.patron.identity.email" path="patron.identity.email"/>
+	<acme:input-textbox code="inventor.patronage.form.label.patron.company" path="patron.company"/>
+	<acme:input-textbox code="inventor.patronage.form.label.patron.statement" path="patron.statement"/>
+	<acme:input-textbox code="inventor.patronage.form.label.patron.info" path="patron.info"/>
 </acme:form>
