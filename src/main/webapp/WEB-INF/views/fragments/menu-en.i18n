@@ -44,6 +44,7 @@ master.menu.administrator.shut-down = Shut down
 
 master.menu.inventor = Inventor
 master.menu.inventor.patronage.list = List my patronages
+master.menu.inventor.toolkit.list = List my toolkits
 master.menu.inventor.item.list = List my items
 
 # master.menu.user-account ####################################################
