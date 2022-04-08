@@ -8,7 +8,7 @@
 	<acme:input-textbox code="inventor.item.form.label.code" path="code"/>
 	<acme:input-textbox code="inventor.item.form.label.technology" path="technology"/>
 	<acme:input-textarea code="inventor.item.form.label.description" path="description"/>
-	<acme:input-textbox code="inventor.item.form.label.retail-price" path="retailPrice"/>
+	<acme:input-money code="inventor.item.form.label.price" path="retailPrice"/>
 	<acme:input-url code="inventor.item.form.label.info" path="info"/>
 	<acme:input-select code="inventor.item.form.label.type" path="type">
 		<acme:input-option code="COMPONENT" value="COMPONENT" selected="${status == 'COMPONENT'}"/>
