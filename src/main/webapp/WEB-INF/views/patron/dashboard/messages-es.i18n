@@ -1,0 +1,10 @@
+patron.dashboard.form.title.general-indicators = Paneles del Patrocinador
+patron.dashboard.form.proposed = Número de Patronajes propuestos
+patron.dashboard.form.accepted = Número de Patronajes aceptados
+patron.dashboard.form.denied = Número de Patronajes denegados
+
+patron.dashboard.form.label.currency= Moneda
+patron.dashboard.form.label.average = Media
+patron.dashboard.form.label.deviation= Desviación
+patron.dashboard.form.label.min= Mínimo
+patron.dashboard.form.label.max= Máximo

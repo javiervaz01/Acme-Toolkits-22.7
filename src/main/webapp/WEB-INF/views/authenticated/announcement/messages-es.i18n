@@ -1,8 +1,12 @@
 authenticated.announcement.list.label.moment = Momento
-authenticated.announcement.list.label.status = Estado
 authenticated.announcement.list.label.title = Título
+authenticated.announcement.list.label.is-critical = Crítico
 
+
+authenticated.announcement.form.label.moment = Momento:
 authenticated.announcement.form.label.title = Título:
-authenticated.announcement.form.label.status = Estado:
-authenticated.announcement.form.label.text = Texto:
+authenticated.announcement.form.label.body = Cuerpo:
+authenticated.announcement.form.label.is-critical = Crítico:
+authenticated.announcement.form.label.is-critical.true = SI
+authenticated.announcement.form.label.is-critical.false = NO
 authenticated.announcement.form.label.info = Información:
