@@ -1,0 +1,6 @@
+administrator.systemconfiguration.form.label.currency = Divisa del sistema
+administrator.systemconfiguration.form.label.acceptedcurrencies = Divisas aceptadas
+administrator.systemconfiguration.form.label.strongSpamTerms = Términos spam fuertes
+administrator.systemconfiguration.form.label.strongSpamThreshold = Umbral de spam fuerte
+administrator.systemconfiguration.form.label.weakSpamTerms = Términos spam débiles
+administrator.systemconfiguration.form.label.weakSpamThreshold = Umbral de spam débil

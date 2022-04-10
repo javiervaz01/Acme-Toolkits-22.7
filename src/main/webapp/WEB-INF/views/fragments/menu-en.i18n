@@ -36,6 +36,7 @@ master.menu.anonymous.pablo-nunez.favourite-link = 44062067R: Núñez Moreno, Pa
 master.menu.administrator = Administrator
 master.menu.administrator.dashboard = Dashboard
 master.menu.administrator.user-accounts = User accounts
+master.menu.administrator.system-configuration.show = See system configuration
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
 master.menu.administrator.shut-down = Shut down

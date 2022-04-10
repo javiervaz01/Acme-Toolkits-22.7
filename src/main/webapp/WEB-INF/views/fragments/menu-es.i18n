@@ -36,6 +36,7 @@ master.menu.anonymous.pablo-nunez.favourite-link = 44062067R: Núñez Moreno, Pa
 master.menu.administrator = Administrador
 master.menu.administrator.dashboard = Panel de indicadores
 master.menu.administrator.user-accounts = Cuentas de usuario
+master.menu.administrator.system-configuration.show = Ver la configuración del sistema
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
 master.menu.administrator.shut-down = Parar el sistema
