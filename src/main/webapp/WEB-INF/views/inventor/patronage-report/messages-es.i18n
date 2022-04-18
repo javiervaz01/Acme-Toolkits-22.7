@@ -1,0 +1,14 @@
+inventor.patronageReport.list.label.patronage = Patronazgo
+inventor.patronageReport.list.label.sequenceNumber = Número de secuencia 
+inventor.patronageReport.list.label.creationTime = Momento de Creación
+inventor.patronageReport.list.label.memorandum = Memorando
+inventor.patronageReport.list.label.info = Información
+inventor.patronage.list.label.patronage.identify.status = Estado
+inventor.patronage.list.label.patronage.identify.legalStuff = Legal
+inventor.patronage.list.label.patronage.identify.budget = Presupuesto
+inventor.patronage.list.label.patronage.identify.creationDate = Fecha de creación
+inventor.patronage.list.label.patronage.identify.startDate = Fecha de comienzo
+inventor.patronage.list.label.patronage.identify.endDate = Fecha de fin
+inventor.patronage.list.label.patronage.identify.info = Información
+
+
