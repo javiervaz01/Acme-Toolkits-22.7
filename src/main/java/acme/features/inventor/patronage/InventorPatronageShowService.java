@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.patronages.Patronage;
+import acme.features.inventor.moneyExchange.InventorMoneyExchangePerform;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.datatypes.Money;
 import acme.framework.services.AbstractShowService;
 import acme.roles.Inventor;
 
@@ -37,14 +39,25 @@ public class InventorPatronageShowService implements AbstractShowService<Invento
 		final int id = request.getModel().getInteger("id");
 		return this.repository.findOnePatronageById(id);
 	}
+	
+	public Money getInternationalizedMoney(final int id) {
+		
+		final Money budget = this.repository.findBudgetByPatronageId(id);
+		return InventorMoneyExchangePerform.computeMoneyExchange(budget, "EUR");
+		
+	}
 
 	@Override
 	public void unbind(final Request<Patronage> request, final Patronage entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
+		
+		//final int id = request.getModel().getInteger("id");
+		//final Money budget = this.getInternationalizedMoney(id);
 
-		request.unbind(entity, model, "status", "code", "legalStuff", "budget", "creationDate", "startDate", "endDate", "info", "patron.identity.name", "patron.identity.surname", "patron.identity.email", "patron.company", "patron.statement", "patron.info");
+		request.unbind(entity, model, "status", "code", "legalStuff","budget", "creationDate", "startDate", "endDate", "info", "patron.identity.name", "patron.identity.surname", "patron.identity.email", "patron.company", "patron.statement", "patron.info");
+		//model.setAttribute("budget", budget);
 	}
 
 }

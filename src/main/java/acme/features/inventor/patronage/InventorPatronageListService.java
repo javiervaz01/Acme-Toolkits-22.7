@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.patronages.Patronage;
+import acme.features.inventor.moneyExchange.InventorMoneyExchangePerform;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.datatypes.Money;
 import acme.framework.services.AbstractListService;
 import acme.roles.Inventor;
 
@@ -33,6 +35,12 @@ public class InventorPatronageListService implements AbstractListService<Invento
 		final int inventorId = request.getPrincipal().getActiveRoleId();
 		
 		return this.repository.findPatronagesByInventorId(inventorId);
+	}
+	public Money getInternationalizedMoney(final int id) {
+		
+		final Money budget = this.repository.findBudgetByPatronageId(id);
+		return InventorMoneyExchangePerform.computeMoneyExchange(budget, "EUR");
+		
 	}
 
 	@Override

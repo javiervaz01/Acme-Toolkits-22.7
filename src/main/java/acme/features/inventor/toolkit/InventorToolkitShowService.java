@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.toolkits.Toolkit;
+import acme.features.inventor.moneyExchange.InventorMoneyExchangePerform;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.datatypes.Money;
@@ -42,6 +43,22 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 		final int id = request.getModel().getInteger("id");
 		return this.repository.findOneToolkitById(id);
 	}
+	public Money getInternationalizedMoney(final int id) {
+		final Collection<String> currencies = this.repository.currencies();
+		Double finalAmount=0.;
+		for(final String currency: currencies) {
+			
+			final Double amount = this.repository.findRetailPriceByToolkitId(id,currency);
+			final Money retailPrice = new Money();
+			retailPrice.setAmount(amount);	retailPrice.setCurrency(currency);
+			final Money price = InventorMoneyExchangePerform.computeMoneyExchange(retailPrice, "EUR");
+			finalAmount+=price.getAmount();
+		}
+		final Money res = new Money();
+		res.setAmount(finalAmount);	res.setCurrency("EUR");
+		return res;
+		
+	}
 
 	@Override
 	public void unbind(final Request<Toolkit> request, final Toolkit entity, final Model model) {
@@ -52,23 +69,9 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 		final int id = request.getModel().getInteger("id");
 		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "link");
 		
-		final Collection<String> currencies = this.repository.currencies();
-		//for(final String currency: currencies) {
-		//	final Double amount = this.repository.findRetailPriceByToolkitId(id,currency);
-		//}
+		final Money retailPrice = this.getInternationalizedMoney(id);
 		
-		final Double amountEUR = this.repository.findRetailPriceByToolkitId(id,"EUR");
-		//final Double amountUSD = this.repository.findRetailPriceByToolkitId(id,"USD");
-		//final Double amountGBP = this.repository.findRetailPriceByToolkitId(id,"GBP");
-		
-		final Money retailPriceEUR = new Money();
-		retailPriceEUR.setAmount(amountEUR);	retailPriceEUR.setCurrency("EUR");
-		//final Money retailPriceUSD = null;
-		//retailPriceUSD.setAmount(amountUSD);	retailPriceUSD.setCurrency("USD");
-		//final Money retailPriceGBP = null;
-		//retailPriceGBP.setAmount(amountGBP);	retailPriceGBP.setCurrency("GBP");
-		
-		model.setAttribute("retailPrice", retailPriceEUR);
+		model.setAttribute("retailPrice", retailPrice);
 		
 	}
 

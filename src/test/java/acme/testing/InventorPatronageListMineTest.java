@@ -28,7 +28,7 @@ public class InventorPatronageListMineTest extends TestHarness {
 		super.checkFormExists();
 		super.checkInputBoxHasValue("status", status);
 		super.checkInputBoxHasValue("code", code);
-		super.checkInputBoxHasValue("legalStuff", legalStuff);
+		super.checkInputBoxHasValue("legalStuff", legalStuff);		
 		super.checkInputBoxHasValue("budget", budget);
 		super.checkInputBoxHasValue("creationDate", creationDate);
 		super.checkInputBoxHasValue("startDate", startDate);

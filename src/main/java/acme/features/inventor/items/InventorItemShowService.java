@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.items.Item;
+import acme.features.inventor.moneyExchange.InventorMoneyExchangePerform;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.datatypes.Money;
 import acme.framework.services.AbstractShowService;
 import acme.roles.Inventor;
 
@@ -32,14 +34,24 @@ public class InventorItemShowService implements AbstractShowService<Inventor, It
 		
 		return this.repository.findItemById(id);
 	}
+	public Money getInternationalizedMoney(final int id) {
+		
+		final Money retailPrice = this.repository.findRetailPriceByItemId(id);
+		return InventorMoneyExchangePerform.computeMoneyExchange(retailPrice, "EUR");
+		
+	}
 
 	@Override
 	public void unbind(final Request<Item> request, final Item entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
+		
+		final int id = request.getModel().getInteger("id");
+		final Money retailPrice = this.getInternationalizedMoney(id);
 
-		request.unbind(entity, model, "name", "code", "technology", "description", "retailPrice", "info", "type");
+		request.unbind(entity, model, "name", "code", "technology", "description", "info", "type");
+		model.setAttribute("retailPrice", retailPrice);
 	}
 
 	
