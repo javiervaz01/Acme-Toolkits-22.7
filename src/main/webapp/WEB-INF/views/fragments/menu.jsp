@@ -49,6 +49,10 @@
 			<acme:menu-suboption code="master.menu.inventor.item.list" action="/inventor/item/list-own"/>
 			<acme:menu-suboption code="master.menu.inventor.patronageReport.list" action="/inventor/patronage-report/list-mine"/>
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.patron" access="hasRole('Patron')">			
+			<acme:menu-suboption code="master.menu.patron.dashboard" action="/patron/dashboard/show"/>
+		</acme:menu-option>
 	</acme:menu-left>
 	
 	<acme:menu-right>
