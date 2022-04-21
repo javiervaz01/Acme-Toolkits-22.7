@@ -17,7 +17,7 @@ master.menu.sign-out = Salir
 
 # master.menu.any #######################################################
 
-master.menu.any = Listas
+master.menu.any = Cualquiera
 master.menu.any.item.list = Lista de Items
 
 # master.menu.anonymous #######################################################
@@ -48,6 +48,11 @@ master.menu.inventor.patronage.list = Ver mis patronazgos
 master.menu.inventor.patronageReport.list = Ver mis Reportes de patronazgos
 master.menu.inventor.toolkit.list = Ver mis herramientas
 master.menu.inventor.item.list = Ver mis artículos
+
+# master.menu.inventor ########################################################
+
+master.menu.patron = Patrón
+master.menu.patron.dashboard = Panel
 
 # master.menu.user-account ####################################################
 

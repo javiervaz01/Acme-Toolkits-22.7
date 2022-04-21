@@ -2,8 +2,8 @@ package acme.forms.patron;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
 
+import acme.features.patron.dashboard.PatronDashboardItem;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -29,9 +29,9 @@ public class Dashboard implements Serializable {
 	// ]
 	// We have to round to 2 decimal places.
 	
-	List<Map<String, Double>> stastBudgetofProposedPatronages;
-	List<Map<String, Double>> stastBudgetofAcceptedPatronages;
-	List<Map<String, Double>> stastBudgetofDeniedPatronages;
+	List<PatronDashboardItem> statsBudgetofProposedPatronages;
+	List<PatronDashboardItem> statsBudgetofAcceptedPatronages;
+	List<PatronDashboardItem> statsBudgetofDeniedPatronages;
 
 	// Derived attributes -----------------------------------------------------
 
