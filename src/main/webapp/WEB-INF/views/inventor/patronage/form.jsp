@@ -4,6 +4,11 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:form readonly="${readonly}">
+
+	<h2>
+		<acme:message code="inventor.patronage.form.info"/>
+	</h2>
+
 	<acme:input-select code="inventor.patronage.form.label.status" path="status">
 		<acme:input-option code="PROPOSED" value="PROPOSED" selected="${status == 'PROPOSED'}"/>
 		<acme:input-option code="ACCEPTED" value="ACCEPTED" selected="${status == 'ACCEPTED'}"/>
@@ -22,4 +27,33 @@
 	<acme:input-textbox code="inventor.patronage.form.label.patron.company" path="patron.company"/>
 	<acme:input-textbox code="inventor.patronage.form.label.patron.statement" path="patron.statement"/>
 	<acme:input-textbox code="inventor.patronage.form.label.patron.info" path="patron.info"/>
+	
+	
+	<h2>
+		<acme:message code="inventor.patronage.form.reports"/>
+	</h2>
+	<table class="table table-sm">
+		<tr>
+			<th><acme:message code="inventor.patronageReport.list.label.sequenceNumber"/></th>
+			<th><acme:message code="inventor.patronageReport.list.label.creationTime"/></th>
+			<th><acme:message code="inventor.patronageReport.list.label.memorandum"/></th>
+			<th><acme:message code="inventor.patronageReport.list.label.info"/></th>
+		</tr>
+		<jstl:forEach items="${reports}" var="var">
+	    	<tr>
+	     		<td><acme:print value="${var.getSequenceNumber()}" /></td>
+	     		<td><acme:print value="${var.getCreationTime()}" /></td>
+	     		<td><acme:print value= "${var.getMemorandum()}"/></td>
+	     		<td><acme:print value="${var.getInfo()}" /></td>
+	    	</tr>
+		</jstl:forEach>
+	</table>
+		
+	
+	
+	
 </acme:form>
+
+
+
+

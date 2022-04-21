@@ -1,7 +1,6 @@
 package acme.features.inventor.patronagereports;
 
 import java.util.Collection;
-import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,7 +33,7 @@ public class InventorPatronageReportListService implements AbstractListService<I
 
 		final int inventorId = request.getPrincipal().getActiveRoleId();
 		
-		return this.repository.findAllPatronageReport().stream().filter(x -> x.getPatronage().getInventor().getId()==inventorId).collect(Collectors.toList());
+		return this.repository.findPatronagesByInventorId(inventorId);
 	}
 
 
@@ -44,7 +43,7 @@ public class InventorPatronageReportListService implements AbstractListService<I
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "sequenceNumber", "creationTime", "memorandum", "info", "patronage.status", "patronage.legalStuff", "patronage.budget", "patronage.creationDate", "patronage.startDate", "patronage.endDate", "patronage.info");
+		request.unbind(entity, model, "sequenceNumber", "creationTime", "memorandum", "info", "patronage.code");
 	}
 	
 	
