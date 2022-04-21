@@ -25,10 +25,10 @@
 	<jstl:forEach items="${statsBudgetofProposedPatronages}" var="var">
     	<tr>
      		<td><jstl:out value="${var.currency}" /></td>
-     		<td><fmt:formatNumber value="${var.average}" maxFractionDigits="1"/></td>
-     		<td><fmt:formatNumber value="${var.deviation}" maxFractionDigits="1"/></td>
-     		<td><fmt:formatNumber value="${var.min}" maxFractionDigits="1"/></td>
-     		<td><fmt:formatNumber value="${var.max}" maxFractionDigits="1"/></td>
+			<td><acme:format value="${var.average}" format="{0,number,0.00}"/></td> 
+     		<td><acme:format value="${var.deviation}" format="{0,number,0.00}"/></td>
+     		<td><acme:format value="${var.min}" format="{0,number,0.00}"/></td>
+     		<td><acme:format value="${var.max}" format="{0,number,0.00}"/></td>
     	</tr>
 	</jstl:forEach>
 </table>
@@ -50,10 +50,10 @@
 	<jstl:forEach items="${statsBudgetofAcceptedPatronages}" var="var">
     	<tr>
      		<td><jstl:out value="${var.currency}" /></td>
-     		<td><jstl:out value="${var.average}" /></td>
-     		<td><jstl:out value="${var.deviation}" /></td>
-     		<td><jstl:out value="${var.min}" /></td>
-     		<td><jstl:out value="${var.max}" /></td>
+     		<td><acme:format value="${var.average}" format="{0,number,0.00}"/></td> 
+     		<td><acme:format value="${var.deviation}" format="{0,number,0.00}"/></td>
+     		<td><acme:format value="${var.min}" format="{0,number,0.00}"/></td>
+     		<td><acme:format value="${var.max}" format="{0,number,0.00}"/></td>
     	</tr>
 	</jstl:forEach>
 </table>
@@ -75,10 +75,10 @@
 	<jstl:forEach items="${statsBudgetofDeniedPatronages}" var="var">
     	<tr>
      		<td><jstl:out value="${var.currency}" /></td>
-     		<td><jstl:out value="${var.average}" /></td>
-     		<td><jstl:out value="${var.deviation}" /></td>
-     		<td><jstl:out value="${var.min}" /></td>
-     		<td><jstl:out value="${var.max}" /></td>
+     		<td><acme:format value="${var.average}" format="{0,number,0.00}"/></td> 
+     		<td><acme:format value="${var.deviation}" format="{0,number,0.00}"/></td>
+     		<td><acme:format value="${var.min}" format="{0,number,0.00}"/></td>
+     		<td><acme:format value="${var.max}" format="{0,number,0.00}"/></td>
     	</tr>
 	</jstl:forEach>
 </table>
