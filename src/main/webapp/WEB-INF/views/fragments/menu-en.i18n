@@ -49,10 +49,11 @@ master.menu.inventor.patronageReport.list = List my patronages Report
 master.menu.inventor.toolkit.list = List my toolkits
 master.menu.inventor.item.list = List my items
 
-# master.menu.inventor ########################################################
+# master.menu.patron ########################################################
 
-master.menu.patron = Patron
-master.menu.patron.dashboard = Dashboard
+master.menu.patron = Patrón
+master.menu.patron.dashboard = Panel
+master.menu.patron.patronage.list = Ver mis patronazgos
 
 # master.menu.user-account ####################################################
 
