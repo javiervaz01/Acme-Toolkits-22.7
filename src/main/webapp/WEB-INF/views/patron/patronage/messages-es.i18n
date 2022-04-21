@@ -1,0 +1,30 @@
+inventor.patronage.list.label.status = Estado
+inventor.patronage.list.label.code = Código
+inventor.patronage.list.label.legal-stuff = Legal
+inventor.patronage.list.label.budget = Presupuesto
+inventor.patronage.list.label.creation-date = Fecha de creación
+inventor.patronage.list.label.start-date = Fecha de comienzo
+inventor.patronage.list.label.end-date = Fecha de fin
+inventor.patronage.list.label.info = Información
+
+inventor.patronage.form.label.status = Estado
+inventor.patronage.form.label.code = Código
+inventor.patronage.form.label.legal-stuff = Legal
+inventor.patronage.form.label.budget = Presupuesto
+inventor.patronage.form.label.creation-date = Fecha de creación
+inventor.patronage.form.label.start-date = Fecha de comienzo
+inventor.patronage.form.label.end-date = Fecha de fin
+inventor.patronage.form.label.info = Información
+inventor.patronage.form.label.patron.identity.name = Nombre del inventor
+inventor.patronage.form.label.patron.identity.surname = Apellidos del inventor
+inventor.patronage.form.label.patron.identity.email = Email del inventor
+inventor.patronage.form.label.patron.company = Compañía del inventor
+inventor.patronage.form.label.patron.statement = Frase del inventor
+inventor.patronage.form.label.patron.info = Información sobre el inventor
+inventor.patronage.form.reports= Reportes del patronazgo
+inventor.patronage.form.info = Detalles del patronazgo
+
+patron.patronageReport.list.label.sequenceNumber = Sequence Number
+patron.patronageReport.list.label.creationTime = Creation Time
+patron.patronageReport.list.label.memorandum = Memorandum
+patron.patronageReport.list.label.info = Information
