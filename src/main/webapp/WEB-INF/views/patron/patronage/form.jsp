@@ -34,10 +34,10 @@
 	</h2>
 	<table class="table table-sm">
 		<tr>
-			<th><acme:message code="patron.patronageReport.list.label.sequenceNumber"/></th>
-			<th><acme:message code="patron.patronageReport.list.label.creationTime"/></th>
-			<th><acme:message code="patron.patronageReport.list.label.memorandum"/></th>
-			<th><acme:message code="patron.patronageReport.list.label.info"/></th>
+			<th><acme:message code="patron.patronage.list.label.sequenceNumber"/></th>
+			<th><acme:message code="patron.patronage.list.label.creationTime"/></th>
+			<th><acme:message code="patron.patronage.list.label.memorandum"/></th>
+			<th><acme:message code="patron.patronage.list.label.info"/></th>
 		</tr>
 		<jstl:forEach items="${reports}" var="var">
 	    	<tr>
@@ -53,7 +53,6 @@
 	
 	
 </acme:form>
-
 
 
 

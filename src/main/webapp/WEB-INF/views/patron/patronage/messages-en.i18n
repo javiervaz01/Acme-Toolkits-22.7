@@ -6,6 +6,9 @@ patron.patronage.list.label.creation-date = Creation date
 patron.patronage.list.label.start-date = Start date
 patron.patronage.list.label.end-date = End date
 patron.patronage.list.label.info = Information
+patron.patronage.list.label.sequenceNumber = Sequence Number
+patron.patronage.list.label.creationTime = Creation Time
+patron.patronage.list.label.memorandum = Memorandum
 
 patron.patronage.form.label.status = Status
 patron.patronage.form.label.code = Code
@@ -23,8 +26,3 @@ patron.patronage.form.label.patron.statement = Inventor's statement
 patron.patronage.form.label.patron.info = Inventor's information
 patron.patronage.form.reports= Patronage´s Reports
 patron.patronage.form.info = Patronage´s Details
-
-patron.patronageReport.list.label.sequenceNumber = Número de secuencia
-patron.patronageReport.list.label.creationTime = Momento de Creación
-patron.patronageReport.list.label.memorandum = Memorando
-patron.patronageReport.list.label.info = Información
