@@ -13,8 +13,8 @@ package acme.forms.administrator;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.Map;
 
+import acme.features.administrator.dashboard.AdministratorDashboardItem;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -36,7 +36,7 @@ public class Dashboard implements Serializable {
 	//	{"Java":{"THB":1000.00,"CAD":247.09,"AUS":302.00},"Python":{"THB":76.00,"AUS":12.00}}  ---> Max
 	// ]
 	
-	List<Map<String, Map<String,Double>>> statsRetailPriceOfComponentsPerTechnology;
+	List<AdministratorDashboardItem> statsRetailPriceOfComponents;
 	
 	int numberOfTools;
 	
@@ -47,7 +47,7 @@ public class Dashboard implements Serializable {
 	//	{"Hammer":{"THB":1000.00,"CAD":247.09,"AUS":302.00},"Saw":{"THB":76.00,"AUS":12.00}}  ---> Max
 	// ]
 	
-	List<Map<String, Map<String,Double>>> statsRetailPriceOfToolsPerCurrency;
+	List<AdministratorDashboardItem> statsRetailPriceOfTools;
 	
 	int numberOfProposedPatronages;
 	int numberOfAcceptedPatronages;
@@ -60,9 +60,9 @@ public class Dashboard implements Serializable {
 	//	{"WhatsApp 2":{"THB":1000.00,"CAD":247.09,"AUS":302.00},"Awesome Computer":{"THB":76.00,"AUS":12.00}}  ---> Max
 	// ]
 	// We have to round to 2 decimal places.
-	List<Map<String, Double>> budgetOfProposedPatronages;
-	List<Map<String, Double>> budgetOfAcceptedPatronages;
-	List<Map<String, Double>> budgetOfDeniedPatronages;
+	List<AdministratorDashboardItem> statsBudgetofProposedPatronages;
+	List<AdministratorDashboardItem> statsBudgetofAcceptedPatronages;
+	List<AdministratorDashboardItem> statsBudgetofDeniedPatronages;
 
 	// Derived attributes -----------------------------------------------------
 

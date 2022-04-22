@@ -1,0 +1,27 @@
+administrator.dashboard.form.title.general-indicators = Patron Dashboards
+administrator.dashboard.form.title.proposed = Proposed Patronages 
+administrator.dashboard.form.title.accepted = Accepted Patronages
+administrator.dashboard.form.title.denied = Denied Patronages
+
+administrator.dashboard.form.title.tools = Tools
+
+administrator.dashboard.form.title.components = Components
+
+administrator.dashboard.form.proposed = Number of Proposed Patronages
+administrator.dashboard.form.accepted = Number of Accepted Patronages
+administrator.dashboard.form.denied = Number of Denied Patronages
+
+administrator.dashboard.form.tools = Number of tools
+
+administrator.dashboard.form.components = Number of components
+
+administrator.dashboard.form.label.currency= Currency
+administrator.dashboard.form.label.average = Average
+administrator.dashboard.form.label.deviation= Deviation
+administrator.dashboard.form.label.min= Minimum
+administrator.dashboard.form.label.max= Maximum
+
+
+
+
+
