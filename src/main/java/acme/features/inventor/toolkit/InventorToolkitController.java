@@ -15,7 +15,7 @@ public class InventorToolkitController extends AbstractController<Inventor,Toolk
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected InventorToolkitListService	listService;
+	protected InventorToolkitListMineService	listService;
 	
 	@Autowired
 	protected InventorToolkitShowService	showService;
