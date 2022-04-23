@@ -1,4 +1,4 @@
-key,code,title,description,assembly-notes,link,draftMode,key:inventor
+key,code,title,description,assembly-notes,link,draft-mode,key:inventor
 toolkit-01,AAA-000,Toolkit example,This is an example description,This is an example of a toolkit assembly note,http://www.example.com,false,inventor-01
 toolkit-02,HHH-000-B,Toolkit example,This is an example description,This is an assembly note example,http://www.example.com,false,inventor-01
 toolkit-03,SSS-999,Toolkit example,This is an example description,This is an assembly note example,http://www.example.com,false,inventor-01
