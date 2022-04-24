@@ -58,7 +58,7 @@ master.menu.patron.patronageReport.list = List my patronage reports
 
 # master.menu.authenticated ########################################################
 
-master.menu.autenticated = Authenticated
+master.menu.authenticated = Authenticated
 master.menu.user-account.system-configuration.show = See system configuration
 
 # master.menu.user-account ####################################################
