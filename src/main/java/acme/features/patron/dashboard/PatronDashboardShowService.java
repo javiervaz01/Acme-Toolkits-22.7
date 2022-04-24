@@ -7,14 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.patronages.Status;
-import acme.forms.patron.Dashboard;
+import acme.forms.patron.PatronDashboard;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractShowService;
 import acme.roles.Patron;
 
 @Service
-public class PatronDashboardShowService implements AbstractShowService<Patron, Dashboard> {
+public class PatronDashboardShowService implements AbstractShowService<Patron, PatronDashboard> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -25,17 +25,17 @@ public class PatronDashboardShowService implements AbstractShowService<Patron, D
 
 
 	@Override
-	public boolean authorise(final Request<Dashboard> request) {
+	public boolean authorise(final Request<PatronDashboard> request) {
 		assert request != null;
 
 		return true;
 	}
 
 	@Override
-	public Dashboard findOne(final Request<Dashboard> request) {
+	public PatronDashboard findOne(final Request<PatronDashboard> request) {
 		assert request != null;
 		
-		Dashboard result;
+		PatronDashboard result;
 		int numberOfProposedPatronages;
 		final int numberOfAcceptedPatronages;
 		final int numberOfDeniedPatronages;
@@ -54,7 +54,7 @@ public class PatronDashboardShowService implements AbstractShowService<Patron, D
 		statsBudgetofAcceptedPatronages=this.getStatistics(Status.ACCEPTED);
 		statsBudgetofDeniedPatronages=this.getStatistics(Status.DENIED);
 		
-		result= new Dashboard();
+		result= new PatronDashboard();
 		result.setNumberOfProposedPatronages(numberOfProposedPatronages);
 		result.setNumberOfAcceptedPatronages(numberOfAcceptedPatronages);
 		result.setNumberOfDeniedPatronages(numberOfDeniedPatronages);
@@ -66,7 +66,7 @@ public class PatronDashboardShowService implements AbstractShowService<Patron, D
 	}
 
 	@Override
-	public void unbind(final Request<Dashboard> request, final Dashboard entity, final Model model) {
+	public void unbind(final Request<PatronDashboard> request, final PatronDashboard entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
