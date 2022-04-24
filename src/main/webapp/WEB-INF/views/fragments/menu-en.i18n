@@ -56,10 +56,15 @@ master.menu.patron.dashboard = Dashboard
 master.menu.patron.patronage.list = List my patronages
 master.menu.patron.patronageReport.list = List my patronage reports
 
+# master.menu.authenticated ########################################################
+
+master.menu.autenticated = Authenticated
+master.menu.user-account.system-configuration.show = See system configuration
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Account
 master.menu.user-account.general-data = General data
 master.menu.user-account.list = List user accounts
 master.menu.user-account.announcement.list-recent = List recent announcements
-master.menu.user-account.system-configuration.show = See system configuration
+

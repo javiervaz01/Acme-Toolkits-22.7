@@ -55,7 +55,14 @@
 			<acme:menu-suboption code="master.menu.patron.patronage.list" action="/patron/patronage/list"/>
 			<acme:menu-suboption code="master.menu.patron.patronageReport.list" action="/patron/patronage-report/list"/>
 		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.authenticated">			
+			<acme:menu-suboption code="master.menu.user-account.system-configuration.show" action="/authenticated/system-configuration/show"/>
+		</acme:menu-option>
+		
 	</acme:menu-left>
+	
+	
 	
 	<acme:menu-right>
 		<acme:menu-option code="master.menu.user-account.list" action="/any/user-account/list"/>
@@ -64,7 +71,6 @@
 		<acme:menu-option code="master.menu.user-account" access="hasRole('Authenticated')">
 			<acme:menu-suboption code="master.menu.user-account.general-data" action="/authenticated/user-account/update"/>
 			<acme:menu-suboption code="master.menu.user-account.announcement.list-recent" action="/authenticated/announcement/list-recent"/>
-			<acme:menu-suboption code="master.menu.user-account.system-configuration.show" action="/authenticated/system-configuration/show"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.sign-out" action="/master/sign-out" access="isAuthenticated()"/>
