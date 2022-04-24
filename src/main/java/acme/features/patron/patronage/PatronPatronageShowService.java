@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.patronagereports.PatronageReport;
 import acme.entities.patronages.Patronage;
-import acme.features.inventor.patronage.InventorPatronageRepository;
+import acme.features.patron.patronagereports.PatronPatronageReportRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractShowService;
@@ -19,7 +19,10 @@ public class PatronPatronageShowService implements AbstractShowService<Patron, P
 	// Internal state ---------------------------------------------------------
 	
 	@Autowired
-	protected InventorPatronageRepository repository;
+	protected PatronPatronageRepository repository;
+	
+	@Autowired
+	protected PatronPatronageReportRepository repositoryReport;
 	
 	@Override
 	public boolean authorise(final Request<Patronage> request) {

@@ -54,6 +54,7 @@ master.menu.inventor.item.list = List my items
 master.menu.patron = Patron
 master.menu.patron.dashboard = Dashboard
 master.menu.patron.patronage.list = List my patronages
+master.menu.patron.patronageReport.list = List my patronage reports
 
 # master.menu.user-account ####################################################
 
