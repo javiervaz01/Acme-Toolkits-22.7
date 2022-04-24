@@ -116,6 +116,7 @@
 
 <table class="table table-sm">
 	<tr>
+		<th><acme:message code="administrator.dashboard.form.label.technology"/></th>
 		<th><acme:message code="administrator.dashboard.form.label.currency"/></th>
 		<th><acme:message code="administrator.dashboard.form.label.average"/></th>
 		<th><acme:message code="administrator.dashboard.form.label.deviation"/></th>
@@ -124,6 +125,7 @@
 	</tr>
 	<jstl:forEach items="${statsRetailPriceOfComponents}" var="var">
     	<tr>
+    		<td><jstl:out value="${var.technology}" /></td>
      		<td><jstl:out value="${var.currency}" /></td>
      		<td><acme:format value="${var.average}" format="{0,number,0.00}"/></td> 
      		<td><acme:format value="${var.deviation}" format="{0,number,0.00}"/></td>

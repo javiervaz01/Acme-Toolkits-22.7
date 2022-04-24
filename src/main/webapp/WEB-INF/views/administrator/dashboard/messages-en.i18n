@@ -15,6 +15,7 @@ administrator.dashboard.form.tools = Number of tools
 
 administrator.dashboard.form.components = Number of components
 
+administrator.dashboard.form.label.technology = Technology
 administrator.dashboard.form.label.currency= Currency
 administrator.dashboard.form.label.average = Average
 administrator.dashboard.form.label.deviation= Deviation

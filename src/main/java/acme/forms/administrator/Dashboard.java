@@ -14,6 +14,7 @@ package acme.forms.administrator;
 import java.io.Serializable;
 import java.util.List;
 
+import acme.features.administrator.dashboard.AdministratorDashboardComponentItem;
 import acme.features.administrator.dashboard.AdministratorDashboardItem;
 import lombok.Getter;
 import lombok.Setter;
@@ -36,7 +37,7 @@ public class Dashboard implements Serializable {
 	//	{"Java":{"THB":1000.00,"CAD":247.09,"AUS":302.00},"Python":{"THB":76.00,"AUS":12.00}}  ---> Max
 	// ]
 	
-	List<AdministratorDashboardItem> statsRetailPriceOfComponents;
+	List<AdministratorDashboardComponentItem> statsRetailPriceOfComponents;
 	
 	int numberOfTools;
 	

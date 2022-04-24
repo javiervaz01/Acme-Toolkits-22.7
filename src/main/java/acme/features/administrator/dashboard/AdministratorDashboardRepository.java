@@ -19,16 +19,16 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	Collection<String> technologies();
 
 	@Query("select avg(i.retailPrice.amount) from Item i where i.type = 0 and i.retailPrice.currency = :currency and i.technology = :technology")
-	double averageRetailPriceOfComponents(String currency, String technology);
+	Double averageRetailPriceOfComponents(String currency, String technology);
 
 	@Query("select stddev(i.retailPrice.amount) from Item i where i.type = 0 and i.retailPrice.currency = :currency and i.technology = :technology")
-	double deviationRetailPriceOfComponents(String currency, String technology);
+	Double deviationRetailPriceOfComponents(String currency, String technology);
 
 	@Query("select min(i.retailPrice.amount) from Item i where i.type = 0 and i.retailPrice.currency = :currency and i.technology = :technology")
-	double minumumRetailPriceOfComponents(String currency, String technology);
+	Double minumumRetailPriceOfComponents(String currency, String technology);
 
 	@Query("select max(i.retailPrice.amount) from Item i where i.type = 0 and i.retailPrice.currency = :currency and i.technology = :technology")
-	double maximumRetailPriceOfComponents(String currency, String technology);
+	Double maximumRetailPriceOfComponents(String currency, String technology);
 
 	
 

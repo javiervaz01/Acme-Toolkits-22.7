@@ -15,6 +15,7 @@ administrator.dashboard.form.tools = Número de herramientas
 
 administrator.dashboard.form.components = Número de componentes
 
+administrator.dashboard.form.label.technology = Tecnología
 administrator.dashboard.form.label.currency= Moneda
 administrator.dashboard.form.label.average = Media
 administrator.dashboard.form.label.deviation= Desviación

@@ -42,7 +42,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		
 		final int numberOfTools;
 		
-//		final int numberOfComponents;
+		final int numberOfComponents;
 		
 		numberOfProposedPatronages=this.repository.numberOfPatronages(Status.PROPOSED);
 		numberOfAcceptedPatronages=this.repository.numberOfPatronages(Status.ACCEPTED);
@@ -50,7 +50,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		
 		numberOfTools = this.repository.numberOfTools();
 		
-//		numberOfComponents = this.repository.numberOfComponents();
+		numberOfComponents = this.repository.numberOfComponents();
 		
 		
 		List<AdministratorDashboardItem> statsBudgetofProposedPatronages;
@@ -59,7 +59,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		
 		List<AdministratorDashboardItem> statsRetailPriceofTools;
 		
-//		List<AdministratorDashboardItem> statsRetailPriceofComponents;
+		List<AdministratorDashboardComponentItem> statsRetailPriceofComponents;
 		
 		
 		statsBudgetofProposedPatronages=this.getStatisticsOfPatronages(Status.PROPOSED);
@@ -68,7 +68,7 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		
 		statsRetailPriceofTools=this.getStatisticsOfTools();
 		
-//		statsRetailPriceofComponents=this.getStatisticsOfComponents();
+		statsRetailPriceofComponents=this.getStatisticsOfComponents();
 		
 		result= new Dashboard();
 		result.setNumberOfProposedPatronages(numberOfProposedPatronages);
@@ -81,8 +81,8 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result.setNumberOfTools(numberOfTools);
 		result.setStatsRetailPriceOfTools(statsRetailPriceofTools);
 		
-//		result.setNumberOfComponents(numberOfComponents);
-//		result.setStatsRetailPriceOfComponents(statsRetailPriceofComponents);
+		result.setNumberOfComponents(numberOfComponents);
+		result.setStatsRetailPriceOfComponents(statsRetailPriceofComponents);
 		
 		return result;
 	}
@@ -142,32 +142,33 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		
 	}
 	
-//private List<AdministratorDashboardItem> getStatisticsOfComponents(){
-//		
-//		final List<String> currencies= (List<String>) this.repository.currencies();
-//		final List<AdministratorDashboardItem> res = new ArrayList<AdministratorDashboardItem>();
-//		
-//		final List<String> technologies= (List<String>) this.repository.technologies();
-//		
-//		for(int j = 0;j<technologies.size();j++) {
-//			final String technology = technologies.get(j);
-//		
-//		
-//			for(int i=0;i<currencies.size();i++) {
-//				final String currency = currencies.get(i);
-//				
-//				final AdministratorDashboardItem itemStats = new AdministratorDashboardItem();
-//				itemStats.currency=currency;
-//				itemStats.average= this.repository.averageRetailPriceOfComponents(currency,technology);
-//				itemStats.deviation= this.repository.deviationRetailPriceOfComponents(currency,technology);
-//				itemStats.min=this.repository.minumumRetailPriceOfComponents(currency,technology);
-//				itemStats.max=this.repository.maximumRetailPriceOfComponents(currency,technology);
-//				
-//				res.add(itemStats);
-//			}
-//		}
-//		return res;
-//		
-//	}
+private List<AdministratorDashboardComponentItem> getStatisticsOfComponents(){
+		
+		final List<String> currencies= (List<String>) this.repository.currencies();
+		final List<AdministratorDashboardComponentItem> res = new ArrayList<AdministratorDashboardComponentItem>();
+		
+		final List<String> technologies= (List<String>) this.repository.technologies();
+		
+		for(int j = 0;j<technologies.size();j++) {
+			final String technology = technologies.get(j);
+		
+		
+			for(int i=0;i<currencies.size();i++) {
+				final String currency = currencies.get(i);
+				
+				final AdministratorDashboardComponentItem itemStats = new AdministratorDashboardComponentItem();
+				itemStats.technology = technology;
+				itemStats.currency=currency;
+				itemStats.average= this.repository.averageRetailPriceOfComponents(currency,technology);
+				itemStats.deviation= this.repository.deviationRetailPriceOfComponents(currency,technology);
+				itemStats.min=this.repository.minumumRetailPriceOfComponents(currency,technology);
+				itemStats.max=this.repository.maximumRetailPriceOfComponents(currency,technology);
+				
+				res.add(itemStats);
+			}
+		}
+		return res;
+		
+	}
 
 }
