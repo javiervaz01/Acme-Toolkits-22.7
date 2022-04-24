@@ -56,10 +56,15 @@ master.menu.patron.dashboard = Panel
 master.menu.patron.patronage.list = Ver mis patronazgos
 master.menu.patron.patronageReport.list = Ver mis reportes de patronazgos
 
+# master.menu.authenticated ########################################################
+
+master.menu.authenticated = Autenticado
+master.menu.user-account.system-configuration.show = Ver la configuración del sistema
+
 # master.menu.user-account ####################################################
 
 master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
 master.menu.user-account.list = Ver cuentas de usuario
 master.menu.user-account.announcement.list-recent = Ver anuncios recientes
-master.menu.user-account.system-configuration.show = Ver la configuración del sistema
+
