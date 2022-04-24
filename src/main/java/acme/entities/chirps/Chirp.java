@@ -31,7 +31,7 @@ public class Chirp extends AbstractEntity {
 	@NotNull
 	@Past
 	@Temporal(TemporalType.TIMESTAMP)
-	protected Date creationMoment;
+	protected Date moment;
 
 	@NotBlank
 	@Length(max = 100)
