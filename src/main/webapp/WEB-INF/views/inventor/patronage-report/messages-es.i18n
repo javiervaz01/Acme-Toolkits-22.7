@@ -10,5 +10,6 @@ inventor.patronage.list.label.patronage.identify.creationDate = Fecha de creaci�
 inventor.patronage.list.label.patronage.identify.startDate = Fecha de comienzo
 inventor.patronage.list.label.patronage.identify.endDate = Fecha de fin
 inventor.patronage.list.label.patronage.identify.info = Información
-
+inventor.patronage.list.label.patronage.identify.code = Código de Patronazgo
+inventor.patronageReport.title.report = Reporte 
 

@@ -1,25 +1,24 @@
-package acme.features.inventor.toolkit;
+package acme.features.patron.patronagereports;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import acme.entities.toolkits.Toolkit;
+import acme.entities.patronagereports.PatronageReport;
 import acme.framework.controllers.AbstractController;
-import acme.roles.Inventor;
+import acme.roles.Patron;
 
 @Controller
-public class InventorToolkitController extends AbstractController<Inventor,Toolkit>{
-	
+public class PatronPatronageReportController extends AbstractController<Patron, PatronageReport>{
+
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected InventorToolkitListMineService	listService;
-	
-	@Autowired
-	protected InventorToolkitShowService	showService;
+	protected PatronPatronageReportListService listService;
 
+	@Autowired
+	protected PatronPatronageReportShowService showService;
 
 	// Constructors -----------------------------------------------------------
 
@@ -28,6 +27,8 @@ public class InventorToolkitController extends AbstractController<Inventor,Toolk
 	protected void initialise() {
 		super.addCommand("show", this.showService);
 
-		super.addCommand("list-mine", "list", this.listService);
+		super.addCommand("list", "list", this.listService);
 	}
+
+
 }

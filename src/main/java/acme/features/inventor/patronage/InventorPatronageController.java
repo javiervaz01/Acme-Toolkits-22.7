@@ -28,7 +28,7 @@ public class InventorPatronageController extends AbstractController<Inventor, Pa
 	protected void initialise() {
 		super.addCommand("show", this.showService);
 		
-		super.addCommand("list-mine", "list", this.listService);
+		super.addCommand("list", "list", this.listService);
 	}
 
 }

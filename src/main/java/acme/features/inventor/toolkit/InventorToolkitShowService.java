@@ -5,6 +5,7 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.entities.items.Item;
 import acme.entities.toolkits.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
@@ -22,17 +23,17 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 
 	@Override
 	public boolean authorise(final Request<Toolkit> request) {
+
 		assert request != null;
 
-		// Check that the inventor trying to see the toolkit is the one linked to it
+		int id;
+		final Toolkit toolkit;
 		
-		final int inventorId = request.getPrincipal().getActiveRoleId();
+		id = request.getModel().getInteger("id");
+		toolkit = this.repository.findOneToolkitById(id);
+		return !toolkit.isDraftMode() || request.isPrincipal(toolkit.getInventor());
 		
-		final Collection<Toolkit> toolkits = this.repository.findToolkitsByInventorId(inventorId);
 		
-		final Toolkit requested = this.findOne(request);
-		
-		return toolkits.contains(requested);
 	}
 
 	@Override
@@ -52,21 +53,20 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 		final int id = request.getModel().getInteger("id");
 		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "link");
 		
-		final Collection<String> currencies = this.repository.currencies();
-		//for(final String currency: currencies) {
-		//	final Double amount = this.repository.findRetailPriceByToolkitId(id,currency);
-		//}
-		
-		final Double amountEUR = this.repository.findRetailPriceByToolkitId(id,"EUR");
-		//final Double amountUSD = this.repository.findRetailPriceByToolkitId(id,"USD");
-		//final Double amountGBP = this.repository.findRetailPriceByToolkitId(id,"GBP");
+		Double amountEUR = 0.;
+		final Collection<Item> items = this.repository.findItemsByToolkitId(id);
+		for(final Item item : items) {
+			if(item.getRetailPrice().getCurrency().equals("EUR")) {
+				amountEUR+=item.getRetailPrice().getAmount();
+			}
+			else {
+				amountEUR=0.;
+				break;
+			}
+		}
 		
 		final Money retailPriceEUR = new Money();
 		retailPriceEUR.setAmount(amountEUR);	retailPriceEUR.setCurrency("EUR");
-		//final Money retailPriceUSD = null;
-		//retailPriceUSD.setAmount(amountUSD);	retailPriceUSD.setCurrency("USD");
-		//final Money retailPriceGBP = null;
-		//retailPriceGBP.setAmount(amountGBP);	retailPriceGBP.setCurrency("GBP");
 		
 		model.setAttribute("retailPrice", retailPriceEUR);
 		

@@ -4,6 +4,11 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:form readonly="${readonly}">
+
+	<h2>
+		<acme:message code="inventor.patronage.form.info"/>
+	</h2>
+
 	<acme:input-select code="inventor.patronage.form.label.status" path="status">
 		<acme:input-option code="PROPOSED" value="PROPOSED" selected="${status == 'PROPOSED'}"/>
 		<acme:input-option code="ACCEPTED" value="ACCEPTED" selected="${status == 'ACCEPTED'}"/>
@@ -22,4 +27,15 @@
 	<acme:input-textbox code="inventor.patronage.form.label.patron.company" path="patron.company"/>
 	<acme:input-textbox code="inventor.patronage.form.label.patron.statement" path="patron.statement"/>
 	<acme:input-textbox code="inventor.patronage.form.label.patron.info" path="patron.info"/>
+	
+	<acme:button code="inventor.patronage.form.reports" action="/inventor/patronage-report/list"/>
+	
+		
+	
+	
+	
 </acme:form>
+
+
+
+
