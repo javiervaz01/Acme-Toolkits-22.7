@@ -28,30 +28,8 @@
 	<acme:input-textbox code="patron.patronage.form.label.patron.statement" path="inventor.statement"/>
 	<acme:input-textbox code="patron.patronage.form.label.patron.info" path="inventor.info"/>
 	
-	
-	<h2>
-		<acme:message code="patron.patronage.form.reports"/>
-	</h2>
-	<table class="table table-sm">
-		<tr>
-			<th><acme:message code="patron.patronage.list.label.sequenceNumber"/></th>
-			<th><acme:message code="patron.patronage.list.label.creationTime"/></th>
-			<th><acme:message code="patron.patronage.list.label.memorandum"/></th>
-			<th><acme:message code="patron.patronage.list.label.info"/></th>
-		</tr>
-		<jstl:forEach items="${reports}" var="var">
-	    	<tr>
-	     		<td><acme:print value="${var.getSequenceNumber()}" /></td>
-	     		<td><acme:print value="${var.getCreationTime()}" /></td>
-	     		<td><acme:print value= "${var.getMemorandum()}"/></td>
-	     		<td><acme:print value="${var.getInfo()}" /></td>
-	    	</tr>
-		</jstl:forEach>
-	</table>
-		
-	
-	
-	
+	<acme:button code="patron.patronage.form.reports" action="/patron/patronage-report/list"/>
+			
 </acme:form>
 
 
