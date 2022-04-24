@@ -21,7 +21,12 @@ public class AnyItemShowService implements AbstractShowService<Any, Item>{
 	public boolean authorise(final Request<Item> request) {
 		assert request != null;
 		
-		return true;
+		int id;
+		final Item item;
+		
+		id = request.getModel().getInteger("id");
+		item = this.repository.findItemById(id);
+		return !item.isDraftMode();
 	}
 
 	@Override
