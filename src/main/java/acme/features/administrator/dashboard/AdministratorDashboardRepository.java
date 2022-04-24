@@ -1,104 +1,71 @@
 
 package acme.features.administrator.dashboard;
 
+import java.util.Collection;
+
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.patronages.Status;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
 public interface AdministratorDashboardRepository extends AbstractRepository {
 
-	@Query("select count(i) from Item i where i.type = COMPONENT")
+	@Query("select count(i) from Item i where i.type = 0 ")
 	int numberOfComponents();
+	
+	@Query("select distinct i.technology from Item i where i.type = 0")
+	Collection<String> technologies();
 
-	@Query("select avg(i.retailPrice.amount) from Item i where i.type = COMPONENT group by i.technology")
-	double averageRetailPriceOfComponentsPerTechnology();
+	@Query("select avg(i.retailPrice.amount) from Item i where i.type = 0 and i.retailPrice.currency = :currency and i.technology = :technology")
+	Double averageRetailPriceOfComponents(String currency, String technology);
 
-	@Query("select stddev(i.retailPrice.amount) from Item i where i.type = COMPONENT group by i.technology")
-	double deviationRetailPriceOfComponentsPerTechnology();
+	@Query("select stddev(i.retailPrice.amount) from Item i where i.type = 0 and i.retailPrice.currency = :currency and i.technology = :technology")
+	Double deviationRetailPriceOfComponents(String currency, String technology);
 
-	@Query("select min(i.retailPrice.amount) from Item i where i.type = COMPONENT group by i.technology")
-	double minumumRetailPriceOfComponentsPerTechnology();
+	@Query("select min(i.retailPrice.amount) from Item i where i.type = 0 and i.retailPrice.currency = :currency and i.technology = :technology")
+	Double minumumRetailPriceOfComponents(String currency, String technology);
 
-	@Query("select max(i.retailPrice.amount) from Item i where i.type = COMPONENT group by i.technology")
-	double maximumRetailPriceOfComponentsPerTechnology();
+	@Query("select max(i.retailPrice.amount) from Item i where i.type = 0 and i.retailPrice.currency = :currency and i.technology = :technology")
+	Double maximumRetailPriceOfComponents(String currency, String technology);
 
-	@Query("select avg(i.retailPrice.amount) from Item i where i.type = COMPONENT group by i.retailPrice.currency")
-	double averageRetailPriceOfComponentsPerCurrency();
+	
 
-	@Query("select stddev(i.retailPrice.amount) from Item i where i.type = COMPONENT group by i.retailPrice.currency")
-	double deviationRetailPriceOfComponentsPerCurrency();
-
-	@Query("select min(i.retailPrice.amount) from Item i where i.type = COMPONENT group by i.retailPrice.currency")
-	double minumumRetailPriceOfComponentsPerCurrency();
-
-	@Query("select max(i.retailPrice.amount) from Item i where i.type = COMPONENT group by i.retailPrice.currency")
-	double maximumRetailPriceOfComponentsPerCurrency();
-
-
-	@Query("select count(i) from Item i where i.type = TOOL")
+	@Query("select count(i) from Item i where i.type = 1")
 	int numberOfTools();
 
-	@Query("select avg(i.retailPrice.amount) from Item i where i.type = TOOL group by i.retailPrice.currency")
-	double averageRetailPriceOfToolsPerCurrency();
+	@Query("select avg(i.retailPrice.amount) from Item i where i.type = 1 and i.retailPrice.currency = :currency ")
+	double averageRetailPriceOfTools(String currency);
 
-	@Query("select stddev(i.retailPrice.amount) from Item i where i.type = TOOL group by i.retailPrice.currency")
-	double deviationRetailPriceOfToolsPerCurrency();
+	@Query("select stddev(i.retailPrice.amount) from Item i where i.type = 1 and i.retailPrice.currency = :currency ")
+	double deviationRetailPriceOfTools(String currency);
 
-	@Query("select min(i.retailPrice.amount) from Item i where i.type = TOOL group by i.retailPrice.currency")
-	double minumumRetailPriceOfToolsPerCurrency();
+	@Query("select min(i.retailPrice.amount) from Item i where i.type = 1 and i.retailPrice.currency = :currency ")
+	double minimumRetailPriceOfTools(String currency);
 
-	@Query("select max(i.retailPrice.amount) from Item i where i.type = TOOL group by i.retailPrice.currency")
-	double maximumRetailPriceOfToolsPerCurrency();
-
-
-
-	@Query("select count(p) from Patronage p where p.status = PROPOSED")
-	int numberOfProposedPatronages();
-
-	@Query("select count(p) from Patronage p where p.status = ACCEPTED")
-	int numberOfAcceptedPatronages();
-
-	@Query("select count(p) from Patronage p where p.status = DENIED")
-	int numberOfDeniedPatronages();
+	@Query("select max(i.retailPrice.amount) from Item i where i.type = 1 and i.retailPrice.currency = :currency ")
+	double maximumRetailPriceOfTools(String currency);
 
 
-	@Query("select avg(p.budget.amount) from Patronage p where p.status = PROPOSED")
-	double averageBudgetOfProposedPatronages();
 
-	@Query("select stddev(p.budget.amount) from Patronage p where p.status = PROPOSED")
-	double deviationBudgetOfProposedPatronages();
+	@Query("select count(p) from Patronage p where p.status = :status ")
+	int numberOfPatronages(Status status);
 
-	@Query("select min(p.budget.amount) from Patronage p where p.status = PROPOSED")
-	double minumumBudgetOfProposedPatronages();
-
-	@Query("select max(p.budget.amount) from Patronage p where p.status = PROPOSED")
-	double maximumBudgetOfProposedPatronages();
-
-	@Query("select avg(p.budget.amount) from Patronage p where p.status = ACCEPTED")
-	double averageBudgetOfAcceptedPatronages();
-
-	@Query("select stddev(p.budget.amount) from Patronage p where p.status = ACCEPTED")
-	double deviationBudgetOfAcceptedPatronages();
-
-	@Query("select min(p.budget.amount) from Patronage p where p.status = ACCEPTED")
-	double minumumBudgetOfAcceptedPatronages();
-
-	@Query("select max(p.budget.amount) from Patronage p where p.status = ACCEPTED")
-	double maximumBudgetOfAcceptedPatronages();
-
-	@Query("select avg(p.budget.amount) from Patronage p where p.status = DENIED")
-	double averageBudgetOfDeniedPatronages();
-
-	@Query("select stddev(p.budget.amount) from Patronage p where p.status = DENIED")
-	double deviationBudgetOfDeniedPatronages();
-
-	@Query("select min(p.budget.amount) from Patronage p where p.status = DENIED")
-	double minumumBudgetOfDeniedPatronages();
-
-	@Query("select max(p.budget.amount) from Patronage p where p.status = DENIED")
-	double maximumBudgetOfDeniedPatronages();
+	@Query("select distinct p.budget.currency from Patronage p")
+	Collection<String> currencies();
+	
+	@Query("select avg(p.budget.amount) from Patronage p where p.status = :status and p.budget.currency = :currency")
+	Double averagePatronage(Status status,String currency);
+	
+	@Query("select stddev(p.budget.amount) from Patronage p where p.status = :status and p.budget.currency = :currency ")
+	Double deviationPatronage(Status status,String currency);
+	
+	@Query("select min(p.budget.amount) from Patronage p where p.status = :status and p.budget.currency = :currency ")
+	Double minimunPatronage(Status status,String currency);
+	
+	@Query("select max(p.budget.amount) from Patronage p where p.status = :status and p.budget.currency = :currency ")
+	Double maximunPatronage(Status status,String currency);
 
 
 }
