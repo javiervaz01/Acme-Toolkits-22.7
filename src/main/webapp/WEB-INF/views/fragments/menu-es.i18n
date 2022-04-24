@@ -54,6 +54,7 @@ master.menu.inventor.item.list = Ver mis artículos
 master.menu.patron = Patrón
 master.menu.patron.dashboard = Panel
 master.menu.patron.patronage.list = Ver mis patronazgos
+master.menu.patron.patronageReport.list = Ver mis reportes de patronazgos
 
 # master.menu.user-account ####################################################
 
