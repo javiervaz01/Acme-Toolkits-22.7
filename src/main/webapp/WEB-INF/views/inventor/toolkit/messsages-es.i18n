@@ -4,9 +4,9 @@ inventor.toolkit.list.label.description = Descripción
 inventor.toolkit.list.label.assembly-notes = Notas de montaje
 inventor.toolkit.list.label.link = Link
 
-inventor.toolkit.form.label.code = Code
-inventor.toolkit.form.label.title = Title
-inventor.toolkit.form.label.description = Description
+inventor.toolkit.form.label.code = Código
+inventor.toolkit.form.label.title = Título
+inventor.toolkit.form.label.description = Descripción
 inventor.toolkit.form.label.assembly-notes = Notas de montaje
 inventor.toolkit.form.label.link = Link
 inventor.toolkit.form.label.retail-price = Precio de venta
