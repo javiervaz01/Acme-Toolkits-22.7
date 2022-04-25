@@ -29,20 +29,9 @@ public class AnyItemListTest extends TestHarness {
 		super.checkInputBoxHasValue("description", description);
 		super.checkInputBoxHasValue("retailPrice", retailPrice);
 		super.checkInputBoxHasValue("info", info);
-//		super.checkInputBoxHasValue("type", type);
-//		super.checkInputBoxHasValue("creationDate", creationDate);
-//		super.checkInputBoxHasValue("startDate", startDate);
-//		super.checkInputBoxHasValue("endDate", endDate);
-//		super.checkInputBoxHasValue("info", info);
-//		super.checkInputBoxHasValue("patron.identity.name", patronIdentityName);
-//		super.checkInputBoxHasValue("patron.identity.surname", patronIdentitySurname);
-//		super.checkInputBoxHasValue("patron.identity.email", patronIdentityEmail);
-//		super.checkInputBoxHasValue("patron.company", patronCompany);
-//		super.checkInputBoxHasValue("patron.company", patronCompany);
-//		super.checkInputBoxHasValue("patron.statement", patronStatement);
-//		super.checkInputBoxHasValue("patron.info", patronInfo);
+
 		
-		//super.signOut();
+		
 	}
 
 	// Ancillary methods ------------------------------------------------------
