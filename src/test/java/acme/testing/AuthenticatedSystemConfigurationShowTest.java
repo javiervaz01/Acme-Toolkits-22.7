@@ -12,7 +12,7 @@ public class AuthenticatedSystemConfigurationShowTest extends TestHarness{
 	public void positiveTest(final String currency, final String acceptedCurrencies) {
 		super.signIn("inventor1", "inventor1");
 
-		super.clickOnMenu("Account", "See system configuration");
+		super.clickOnMenu("Authenticated", "See system configuration");
 
 		super.checkFormExists();
 		super.checkInputBoxHasValue("currency", currency);

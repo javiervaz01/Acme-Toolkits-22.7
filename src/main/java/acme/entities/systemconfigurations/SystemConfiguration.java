@@ -19,7 +19,6 @@ public class SystemConfiguration extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
-	// TODO add regular expression (3 uppercase letters)
 	@NotBlank
 	@Pattern(regexp = "^[A-Z]{3}$")
 	protected String currency;
