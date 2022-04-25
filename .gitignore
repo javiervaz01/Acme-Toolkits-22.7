@@ -3,6 +3,7 @@ target/
 
 ### STS ###
 .apt_generated
+.apt_generated_tests
 #.classpath
 .factorypath
 #.project
@@ -29,7 +30,6 @@ nbdist/
 mvnw
 
 mvnw\.cmd
-/.apt_generated_tests/
 logs/
 
 .classpath

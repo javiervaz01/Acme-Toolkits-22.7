@@ -58,7 +58,7 @@
 			<acme:menu-suboption code="master.menu.patron.patronageReport.list" action="/patron/patronage-report/list"/>
 		</acme:menu-option>
 		
-		<acme:menu-option code="master.menu.authenticated">			
+		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">			
 			<acme:menu-suboption code="master.menu.user-account.system-configuration.show" action="/authenticated/system-configuration/show"/>
 		</acme:menu-option>
 		
