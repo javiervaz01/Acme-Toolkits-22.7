@@ -46,7 +46,7 @@ master.menu.administrator.shut-down = Shut down
 
 master.menu.inventor = Inventor
 master.menu.inventor.patronage.list = List my patronages
-master.menu.inventor.patronageReport.list = List my patronages Report
+master.menu.inventor.patronage-report.list = List my patronage reports
 master.menu.inventor.toolkit.list = List my toolkits
 master.menu.inventor.item.list = List my items
 
@@ -55,7 +55,7 @@ master.menu.inventor.item.list = List my items
 master.menu.patron = Patron
 master.menu.patron.dashboard = Dashboard
 master.menu.patron.patronage.list = List my patronages
-master.menu.patron.patronageReport.list = List my patronage reports
+master.menu.patron.patronage-report.list = List my patronage reports
 
 # master.menu.authenticated ########################################################
 

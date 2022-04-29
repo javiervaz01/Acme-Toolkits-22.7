@@ -51,7 +51,7 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 		assert model != null;
 		
 		final int id = request.getModel().getInteger("id");
-		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "link");
+		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "link", "draftMode");
 		
 		Double amountEUR = 0.;
 		final Collection<Item> items = this.repository.findItemsByToolkitId(id);

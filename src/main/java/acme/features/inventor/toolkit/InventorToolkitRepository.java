@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import acme.entities.items.Item;
 import acme.entities.toolkits.Toolkit;
 import acme.framework.repositories.AbstractRepository;
+import acme.roles.Inventor;
 
 public interface InventorToolkitRepository extends AbstractRepository{
 	
@@ -24,4 +25,10 @@ public interface InventorToolkitRepository extends AbstractRepository{
 		
 	@Query("select distinct(q.item) from Quantity q where q.toolkit.id = :id")
 	Collection<Item> findItemsByToolkitId(int id);
+	
+	@Query("select i from Inventor i where i.id = :id")
+	Inventor findOneInventorById(int id);
+	
+	@Query("select t from Toolkit t where t.code = :code")
+	Toolkit findOneToolkitByCode(String code);
 }
