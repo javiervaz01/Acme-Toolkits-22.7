@@ -1,15 +1,18 @@
 package acme.entities.announcements;
 
 import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
-import acme.framework.entities.AbstractEntity;
+
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.URL;
+
+import acme.framework.entities.AbstractEntity;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -42,8 +45,7 @@ public class Announcement extends AbstractEntity {
 	// We also tried another formats, such as using 0 and 1, and the error
 	// persisted. We have decided to use the Boolean type with @NotNull again,
 	// as it works as expected when populating the system.
-	@NotNull
-	protected Boolean isCritical;
+	protected boolean isCritical;
 
 	@URL
 	protected String info;
