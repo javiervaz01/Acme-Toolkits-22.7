@@ -12,7 +12,7 @@ import acme.framework.services.AbstractListService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorToolkitListMineService implements AbstractListService<Inventor,Toolkit>{
+public class InventorToolkitListMineService implements AbstractListService<Inventor, Toolkit> {
 	
 	// Internal state ---------------------------------------------------------
 

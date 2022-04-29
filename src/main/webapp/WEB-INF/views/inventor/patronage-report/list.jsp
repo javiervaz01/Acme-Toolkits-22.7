@@ -4,9 +4,8 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:list>
-	<acme:list-column code="inventor.patronage.list.label.patronage.identify.code" path="patronage.code"/>
-	<acme:list-column code="inventor.patronageReport.list.label.sequenceNumber" path="sequenceNumber" width="10%"/>
-	<acme:list-column code="inventor.patronageReport.list.label.creationTime" path="creationTime"/>
-	<acme:list-column code="inventor.patronageReport.list.label.memorandum" path="memorandum"/>
-	<acme:list-column code="inventor.patronageReport.list.label.info" path="info"/>
+	<acme:list-column code="inventor.patronage-report.list.label.patronage.identify.code" path="patronage.code"/>
+	<acme:list-column code="inventor.patronage-report.list.label.sequence-number" path="sequenceNumber" width="10%"/>
+	<acme:list-column code="inventor.patronage-report.list.label.creation-time" path="creationTime"/>
+	<acme:list-column code="inventor.patronage-report.list.label.info" path="info"/>
 </acme:list>

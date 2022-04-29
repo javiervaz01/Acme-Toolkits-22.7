@@ -1,11 +1,8 @@
 inventor.patronage.list.label.status = Estado
 inventor.patronage.list.label.code = Código
-inventor.patronage.list.label.legal-stuff = Legal
 inventor.patronage.list.label.budget = Presupuesto
-inventor.patronage.list.label.creation-date = Fecha de creación
 inventor.patronage.list.label.start-date = Fecha de comienzo
 inventor.patronage.list.label.end-date = Fecha de fin
-inventor.patronage.list.label.info = Información
 
 inventor.patronage.form.label.status = Estado
 inventor.patronage.form.label.code = Código

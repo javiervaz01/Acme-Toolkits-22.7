@@ -18,6 +18,7 @@ master.menu.sign-out = Sign out
 # master.menu.any #######################################################
 
 master.menu.any = Any
+master.menu.any.user-account.list = User accounts list
 master.menu.any.item.list = Items list
 master.menu.any.chirp.list = Chirps list
 

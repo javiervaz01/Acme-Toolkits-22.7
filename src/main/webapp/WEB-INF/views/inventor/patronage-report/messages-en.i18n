@@ -1,14 +1,15 @@
-inventor.patronageReport.list.label.patronage = Patronage
-inventor.patronageReport.list.label.sequenceNumber = Sequence Number
-inventor.patronageReport.list.label.creationTime = Creation Time
-inventor.patronageReport.list.label.memorandum = Memorandum
-inventor.patronageReport.list.label.info = Information
-inventor.patronage.list.label.patronage.identify.status = Status
-inventor.patronage.list.label.patronage.identify.legalStuff = Legal Stuff
-inventor.patronage.list.label.patronage.identify.budget = Budget
-inventor.patronage.list.label.patronage.identify.creationDate = Creation Date
-inventor.patronage.list.label.patronage.identify.startDate = Start Date
-inventor.patronage.list.label.patronage.identify.endDate = End Date
-inventor.patronage.list.label.patronage.identify.info = Information
-inventor.patronage.list.label.patronage.identify.code = Patronage Code
-inventor.patronageReport.title.report = Report
+inventor.patronage-report.list.label.patronage.identify.code = Patronage code
+inventor.patronage-report.list.label.sequence-number = Sequence number
+inventor.patronage-report.list.label.creation-time = Creation time
+inventor.patronage-report.list.label.info = Information
+
+inventor.patronage-report.form.title.report = Report
+
+inventor.patronage-report.form.label.patronage.identify.code = Patronage code
+inventor.patronage-report.form.label.patronage.identify.status = Status
+inventor.patronage-report.form.label.patronage.identify.legal-stuff = Legal stuff
+inventor.patronage-report.form.label.patronage.identify.budget = Budget
+inventor.patronage-report.form.label.patronage.identify.creation-date = Creation date
+inventor.patronage-report.form.label.patronage.identify.start-date = Start date
+inventor.patronage-report.form.label.patronage.identify.end-date = End date
+inventor.patronage-report.form.label.patronage.identify.info = Information

@@ -18,7 +18,7 @@ master.menu.sign-out = Salir
 # master.menu.any #######################################################
 
 master.menu.any = Cualquiera
-
+master.menu.any.user-account.list = Lista de cuentas de usuario
 master.menu.any.item.list = Lista de artículos
 master.menu.any.chirp.list = Lista de chirps
 

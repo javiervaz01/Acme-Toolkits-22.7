@@ -1,14 +1,8 @@
 patron.patronage.list.label.status = Estado
 patron.patronage.list.label.code = Código
-patron.patronage.list.label.legal-stuff = Legal
 patron.patronage.list.label.budget = Presupuesto
-patron.patronage.list.label.creation-date = Fecha de creación
 patron.patronage.list.label.start-date = Fecha de comienzo
 patron.patronage.list.label.end-date = Fecha de fin
-patron.patronage.list.label.info = Información
-patron.patronage.list.label.sequenceNumber = Número de secuencia
-patron.patronage.list.label.creationTime = Momento de Creación
-patron.patronage.list.label.memorandum = Memorando
 
 patron.patronage.form.label.status = Estado
 patron.patronage.form.label.code = Código
