@@ -10,14 +10,18 @@ import acme.framework.controllers.AbstractController;
 import acme.framework.roles.Administrator;
 
 @Controller
-public class AdministratorSystemConfigurationController extends AbstractController<Administrator, SystemConfiguration>{
+public class AdministratorSystemConfigurationController extends AbstractController<Administrator, SystemConfiguration> {
 	
 	@Autowired
 	protected AdministratorSystemConfigurationShowService showService;
 	
+	@Autowired
+	protected AdministratorSystemConfigurationUpdateService updateService;
+
 	@PostConstruct
-	protected void initialize() {
-		super.addCommand("show", "show",this.showService);
+	protected void initialise() {
+		super.addCommand("show", this.showService);
+		super.addCommand("update",this.updateService);
 	}
 
 }
