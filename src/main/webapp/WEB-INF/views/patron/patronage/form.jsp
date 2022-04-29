@@ -3,12 +3,10 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
-<acme:form readonly="${readonly}">
-
+<acme:form>
 	<h2>
 		<acme:message code="patron.patronage.form.info"/>
 	</h2>
-
 	<acme:input-select code="patron.patronage.form.label.status" path="status">
 		<acme:input-option code="PROPOSED" value="PROPOSED" selected="${status == 'PROPOSED'}"/>
 		<acme:input-option code="ACCEPTED" value="ACCEPTED" selected="${status == 'ACCEPTED'}"/>
@@ -26,15 +24,6 @@
 	<acme:input-textbox code="patron.patronage.form.label.patron.identity.email" path="inventor.identity.email"/>
 	<acme:input-textbox code="patron.patronage.form.label.patron.company" path="inventor.company"/>
 	<acme:input-textbox code="patron.patronage.form.label.patron.statement" path="inventor.statement"/>
-	<acme:input-textbox code="patron.patronage.form.label.patron.info" path="inventor.info"/>
-	
-	
-	<acme:button code="patron.patronage.form.reports" action="/patron/patronage-report/list"/>
-		
-	
-	
-	
+	<acme:input-url code="patron.patronage.form.label.patron.info" path="inventor.info"/>
+	<acme:button code="patron.patronage.form.reports" action="/patron/patronage-report/list-by-patronage?masterId=${masterId}"/>
 </acme:form>
-
-
-
