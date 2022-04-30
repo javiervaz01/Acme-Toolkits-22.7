@@ -87,6 +87,8 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 			Integer quantity;
 
 			quantity = request.getModel().getInteger("quantity");
+			
+			errors.state(request, quantity != null && quantity >= 1, "quantity", "inventor.item.form.error.no-quantity");
 			errors.state(request, entity.getType().equals(ItemType.COMPONENT) || quantity == 1, "quantity", "inventor.item.form.error.repeated-tool");
 		}
 		
@@ -112,7 +114,8 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 		assert model != null;
 
 		request.unbind(entity, model, "name", "code", "technology", "description", "retailPrice", "info", "type", "quantity");
-		model.setAttribute("masterId", request.getModel().getAttribute("masterId"));
+		
+		model.setAttribute("masterId", request.getModel().getInteger("masterId"));
 		model.setAttribute("draftMode", true);
 	}
 
@@ -133,10 +136,12 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 		final Model model = request.getModel();
 		final Integer masterId = request.getModel().getInteger("masterId");
 		final Toolkit toolkit = this.repository.findOneToolkitById(masterId);
+		
 		final Quantity quantity = new Quantity();
 		quantity.setItem(entity);
 		quantity.setToolkit(toolkit);
 		quantity.setNumber(model.getInteger("quantity"));
+		
 		this.quantityRepository.save(quantity);
 	}
 }

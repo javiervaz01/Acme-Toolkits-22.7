@@ -84,6 +84,8 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 			Integer quantity;
 
 			quantity = request.getModel().getInteger("quantity");
+			
+			errors.state(request, quantity != null && quantity >= 1, "quantity", "inventor.item.form.error.no-quantity");
 			errors.state(request, entity.getType().equals(ItemType.COMPONENT) || quantity == 1, "quantity", "inventor.item.form.error.repeated-tool");
 		}
 		
@@ -110,7 +112,7 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 		assert model != null;
 
 		request.unbind(entity, model, "name", "code", "technology", "description", "retailPrice", "info", "type");
-		model.setAttribute("masterId", request.getModel().getAttribute("masterId"));
+		model.setAttribute("masterId", request.getModel().getInteger("masterId"));
 	}
 
 	@Override
@@ -129,8 +131,10 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 		// Create the Quantity entity on bind
 		final Model model = request.getModel();
 		final Integer id = entity.getId();
+		
 		final Quantity quantity = this.repository.findQuantityByItemId(id);
-		quantity.setNumber(model.getInteger("quantity"));
+		quantity.setNumber((int)model.getAttribute("quantity"));
+		
 		this.quantityRepository.save(quantity);
 	}
 }

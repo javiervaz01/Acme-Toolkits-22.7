@@ -46,6 +46,7 @@ public class InventorItemListMineService implements AbstractListService<Inventor
 		
 		final Integer id = entity.getId();
 		final Quantity quantity = this.repository.findQuantityByItemId(id);
+		if (quantity == null) return;
 		model.setAttribute("quantity", quantity.getNumber());
 	}
 }

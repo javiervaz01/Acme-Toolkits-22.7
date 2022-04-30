@@ -16,7 +16,7 @@ inventor.toolkit.form.label.retail-price = Precio de venta
 inventor.toolkit.form.button.items = Artículos
 
 inventor.toolkit.form.error.duplicated = Ya existe un toolkit con este código
-inventor.toolkit.form.error.no-items = Un toolkit debe tener al menos un componente/herramienta
+inventor.toolkit.form.error.no-items = Un toolkit debe tener al menos un componente o herramienta
 
 inventor.toolkit.form.button.items = Artículos
 inventor.toolkit.form.button.update = Actualizar 

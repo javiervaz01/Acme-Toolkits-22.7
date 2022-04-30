@@ -22,4 +22,5 @@ inventor.item.form.button.delete = Eliminar
 
 inventor.item.form.error.duplicated = Ya existe un artículo con el mismo código
 inventor.item.form.error.repeated-tool = Una herramienta no puede aparecer repetida en un toolkit
+inventor.item.form.error.no-quantity = Debe haber al menos un artículo
 inventor.item.form.error.wrong-currency = El precio del artículo debe estar en la misma divisa que el resto de artículos del toolkit

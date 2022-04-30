@@ -48,10 +48,15 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 		final int id = request.getModel().getInteger("id");
 		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "link", "draftMode");
 		
-		final String currency = this.repository.findRetailPriceCurrencyByToolkitId(id);
-		if (currency == null) return;
+		String currency = this.repository.findRetailPriceCurrencyByToolkitId(id);
+		double amount;
 		
-		final double amount = this.repository.findRetailPriceAmountByToolkitId(id);
+		if (currency == null) { // If there are no items in the toolkit
+			amount = 0.0;
+			currency = ""; // To avoid showing "null" in the view
+		} else {
+			amount = this.repository.findRetailPriceAmountByToolkitId(id);
+		}
 		
 		final Money retailPrice = new Money();
 		retailPrice.setAmount(amount);
