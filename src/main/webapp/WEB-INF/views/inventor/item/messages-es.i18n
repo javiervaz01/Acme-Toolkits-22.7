@@ -11,3 +11,5 @@ inventor.item.form.label.description = Descripción
 inventor.item.form.label.price = Precio
 inventor.item.form.label.info = Información
 inventor.item.form.label.type = Tipo de artículo
+inventor.item.form.label.type.component = Componente
+inventor.item.form.label.type.tool = Herramienta

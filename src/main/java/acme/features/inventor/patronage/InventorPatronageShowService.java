@@ -42,13 +42,17 @@ public class InventorPatronageShowService implements AbstractShowService<Invento
 		return this.repository.findOnePatronageById(id);
 	}
 
-	@SuppressWarnings("unused") // The variables are being used in the unbind() as Strings, so SonarLint does not detect them
 	@Override
 	public void unbind(final Request<Patronage> request, final Patronage entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
+		request.unbind(entity, model, "status", "code", "legalStuff", "budget", "creationDate", "startDate", "endDate", "info");
+	
+		final int masterId = request.getModel().getInteger("id");
+		model.setAttribute("masterId", masterId);
+		
 		final String patronName = entity.getPatron().getIdentity().getName();
 		final String patronSurname = entity.getPatron().getIdentity().getSurname();
 		final String patronEmail = entity.getPatron().getIdentity().getEmail();
@@ -56,10 +60,11 @@ public class InventorPatronageShowService implements AbstractShowService<Invento
 		final String patronStatement = entity.getPatron().getStatement();
 		final String patronInfo = entity.getPatron().getInfo();
 		
-		request.unbind(entity, model, "status", "code", "legalStuff", "budget", "creationDate", "startDate", "endDate", "info",
-			"patronName", "patronSurname", "patronEmail", "patronCompany", "patronStatement", "patronInfo");
-	
-		final int masterId = request.getModel().getInteger("id");
-		model.setAttribute("masterId", masterId);
+		model.setAttribute("patronName", patronName);
+		model.setAttribute("patronSurname", patronSurname);
+		model.setAttribute("patronEmail", patronEmail);
+		model.setAttribute("patronCompany", patronCompany);
+		model.setAttribute("patronStatement", patronStatement);
+		model.setAttribute("patronInfo", patronInfo);
 	}
 }

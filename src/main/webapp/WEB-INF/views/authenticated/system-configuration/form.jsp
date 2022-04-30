@@ -5,5 +5,5 @@
 
 <acme:form>
 	<acme:input-textbox code="authenticated.systemconfiguration.form.label.currency" path="currency"/>
-	<acme:input-textbox code="authenticated.systemconfiguration.form.label.acceptedcurrencies" path="acceptedCurrencies"/>
+	<acme:input-textbox code="authenticated.systemconfiguration.form.label.accepted-currencies" path="acceptedCurrencies"/>
 </acme:form>

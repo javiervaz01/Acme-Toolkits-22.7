@@ -11,3 +11,6 @@ any.item.form.label.description = Description
 any.item.form.label.price = Retail Price
 any.item.form.label.info = Info
 any.item.form.label.type = Item type
+
+any.item.form.label.type.component = Component
+any.item.form.label.type.tool = Tool

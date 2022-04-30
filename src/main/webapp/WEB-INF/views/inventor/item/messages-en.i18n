@@ -1,15 +1,15 @@
 inventor.item.list.label.name = Name
 inventor.item.list.label.code = Code
 inventor.item.list.label.technology = Technology
-inventor.item.list.label.price = Retail Price
-inventor.item.list.label.type = Item Type
+inventor.item.list.label.price = Retail price
+inventor.item.list.label.type = Item type
 
 inventor.item.form.label.name = Name
 inventor.item.form.label.code = Code
 inventor.item.form.label.technology = Technology
 inventor.item.form.label.description = Description 
-inventor.item.form.label.price = Retail Price
+inventor.item.form.label.price = Retail price
 inventor.item.form.label.info = Info
 inventor.item.form.label.type = Item type
-
-
+inventor.item.form.label.type.component = Component
+inventor.item.form.label.type.tool = Tool
