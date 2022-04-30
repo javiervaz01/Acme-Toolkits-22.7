@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.items.Item;
+import acme.entities.quantities.Quantity;
 import acme.entities.toolkits.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
@@ -58,5 +59,8 @@ public class InventorItemShowService implements AbstractShowService<Inventor, It
 		model.setAttribute("masterId", toolkit.getId());
 		model.setAttribute("draftMode", toolkit.isDraftMode());
 
+		final Integer id = entity.getId();
+		final Quantity quantity = this.repository.findQuantityByItemId(id);
+		model.setAttribute("quantity", quantity.getNumber());
 	}
 }

@@ -9,7 +9,7 @@
 	<acme:input-textarea code="inventor.toolkit.form.label.description" path="description"/>
 	<acme:input-textarea code="inventor.toolkit.form.label.assembly-notes" path="assemblyNotes"/>
 	<acme:input-url code="inventor.toolkit.form.label.link" path="link"/>
-	<acme:input-money code="inventor.toolkit.form.label.retail-price" path="retailPrice"/>
+	<acme:input-money code="inventor.toolkit.form.label.retail-price" path="retailPrice" readonly="true"/>
 		
 	<jstl:choose>
 		<jstl:when test="${command == 'show' && draftMode == false}">

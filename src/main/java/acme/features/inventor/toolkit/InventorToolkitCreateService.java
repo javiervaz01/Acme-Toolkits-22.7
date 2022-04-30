@@ -77,7 +77,6 @@ public class InventorToolkitCreateService implements AbstractCreateService<Inven
 		assert request != null;
 		assert entity != null;
 
-		entity.setDraftMode(false);
 		this.repository.save(entity);
 	}
 

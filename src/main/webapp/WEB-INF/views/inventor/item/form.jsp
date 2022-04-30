@@ -14,6 +14,7 @@
 		<acme:input-option code="COMPONENT" value="COMPONENT" selected="${type == 'COMPONENT'}"/>
 		<acme:input-option code="TOOL" value="TOOL" selected="${type == 'TOOL'}"/>
 	</acme:input-select>
+	<acme:input-integer code="inventor.item.form.label.quantity" path="quantity"/>
 	
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(command, 'show, update, delete') && draftMode == true}">

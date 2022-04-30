@@ -7,12 +7,11 @@ import acme.entities.toolkits.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
-import acme.framework.datatypes.Money;
 import acme.framework.services.AbstractUpdateService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorToolkitPublishService implements AbstractUpdateService<Inventor, Toolkit> {
+public class InventorToolkitUpdateService implements AbstractUpdateService<Inventor, Toolkit> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -26,14 +25,21 @@ public class InventorToolkitPublishService implements AbstractUpdateService<Inve
 		boolean result;
 		int id;
 		Toolkit toolkit;
-		Inventor inventor;
 
 		id = request.getModel().getInteger("id");
 		toolkit = this.repository.findOneToolkitById(id);
-		inventor = toolkit.getInventor();
-		result = toolkit.isDraftMode() && request.isPrincipal(inventor);
+		result = (toolkit != null && toolkit.isDraftMode() && request.isPrincipal(toolkit.getInventor()));
 
 		return result;
+	}
+
+	@Override
+	public void bind(final Request<Toolkit> request, final Toolkit entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
+
+		request.bind(entity, errors, "code", "title", "description", "assemblyNotes", "link");
 	}
 
 	@Override
@@ -50,20 +56,11 @@ public class InventorToolkitPublishService implements AbstractUpdateService<Inve
 	}
 
 	@Override
-	public void bind(final Request<Toolkit> request, final Toolkit entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
-
-		request.bind(entity, errors, "code", "title", "description", "assemblyNotes", "link");
-	}
-
-	@Override
 	public void validate(final Request<Toolkit> request, final Toolkit entity, final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		
+
 		if (!errors.hasErrors("code")) {
 			Toolkit existing;
 			Integer id;
@@ -73,15 +70,6 @@ public class InventorToolkitPublishService implements AbstractUpdateService<Inve
 			
 			errors.state(request, existing == null || existing.getId() == id, "code", "inventor.toolkit.form.error.duplicated");
 		}
-		
-		if (!errors.hasErrors("retailPrice")) {
-			Double retailPrice;
-			Integer id;
-
-			id = request.getModel().getInteger("id");
-			retailPrice = this.repository.findRetailPriceAmountByToolkitId(id);
-			errors.state(request, retailPrice != null && retailPrice > 0.0, "retailPrice", "inventor.toolkit.form.error.no-items");
-		}
 	}
 
 	@Override
@@ -89,28 +77,17 @@ public class InventorToolkitPublishService implements AbstractUpdateService<Inve
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		
-		final int id = request.getModel().getInteger("id");
+
 		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "link", "draftMode");
-		
-		final String currency = this.repository.findRetailPriceCurrencyByToolkitId(id);
-		if (currency == null) return;
-		
-		final double amount = this.repository.findRetailPriceAmountByToolkitId(id);
-		
-		final Money retailPrice = new Money();
-		retailPrice.setAmount(amount);
-		retailPrice.setCurrency(currency);
-		
-		model.setAttribute("retailPrice", retailPrice);
 	}
 
+	
 	@Override
 	public void update(final Request<Toolkit> request, final Toolkit entity) {
 		assert request != null;
 		assert entity != null;
 
-		entity.setDraftMode(false);
 		this.repository.save(entity);
 	}
+
 }

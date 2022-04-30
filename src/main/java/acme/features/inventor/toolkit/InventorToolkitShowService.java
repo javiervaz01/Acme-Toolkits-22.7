@@ -1,11 +1,8 @@
 package acme.features.inventor.toolkit;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.items.Item;
 import acme.entities.toolkits.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
@@ -51,23 +48,16 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 		final int id = request.getModel().getInteger("id");
 		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "link", "draftMode");
 		
-		Double amountEUR = 0.;
-		final Collection<Item> items = this.repository.findItemsByToolkitId(id);
-		for(final Item item : items) {
-			if(item.getRetailPrice().getCurrency().equals("EUR")) {
-				amountEUR+=item.getRetailPrice().getAmount();
-			}
-			else {
-				amountEUR=0.;
-				break;
-			}
-		}
+		final String currency = this.repository.findRetailPriceCurrencyByToolkitId(id);
+		if (currency == null) return;
 		
-		final Money retailPriceEUR = new Money();
-		retailPriceEUR.setAmount(amountEUR);	retailPriceEUR.setCurrency("EUR");
+		final double amount = this.repository.findRetailPriceAmountByToolkitId(id);
 		
-		model.setAttribute("retailPrice", retailPriceEUR);
+		final Money retailPrice = new Money();
+		retailPrice.setAmount(amount);
+		retailPrice.setCurrency(currency);
 		
+		model.setAttribute("retailPrice", retailPrice);
 	}
 
 }

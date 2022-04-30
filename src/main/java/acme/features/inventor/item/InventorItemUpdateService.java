@@ -13,11 +13,11 @@ import acme.entities.toolkits.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
-import acme.framework.services.AbstractCreateService;
+import acme.framework.services.AbstractUpdateService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorItemCreateService implements AbstractCreateService<Inventor, Item> {
+public class InventorItemUpdateService implements AbstractUpdateService<Inventor, Item> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -26,6 +26,7 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 
 	@Autowired
 	protected InventorQuantityRepository quantityRepository;
+
 
 	@Override
 	public boolean authorise(final Request<Item> request) {
@@ -43,20 +44,13 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 	}
 
 	@Override
-	public Item instantiate(final Request<Item> request) {
-		assert request != null;
+	public Item findOne(final Request<Item> request) {
 
 		Item result;
-		int masterId;
-		Toolkit toolkit;
-		Inventor inventor;
+		int id;
 
-		masterId = request.getModel().getInteger("masterId");
-		toolkit = this.repository.findOneToolkitById(masterId);
-		inventor = toolkit.getInventor();
-
-		result = new Item();
-		result.setInventor(inventor);
+		id = request.getModel().getInteger("id");
+		result = this.repository.findItemById(id);
 
 		return result;
 	}
@@ -78,9 +72,12 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 
 		if (!errors.hasErrors("code")) {
 			Item existing;
-
+			Integer id;
+			
 			existing = this.repository.findOneItemByCode(entity.getCode());
-			errors.state(request, existing == null, "code", "inventor.item.form.error.duplicated");
+			id = request.getModel().getInteger("id");
+			
+			errors.state(request, existing == null || existing.getId() == id, "code", "inventor.item.form.error.duplicated");
 		}
 
 		if (!errors.hasErrors("quantity")) {
@@ -101,9 +98,10 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 			masterId = request.getModel().getInteger("masterId");
 			itemsInToolkit = this.repository.findItemsByToolkitId(masterId);
 			
-			errors.state(request, itemsInToolkit.isEmpty() || itemsInToolkit.iterator().next().getRetailPrice().getCurrency().equals(newItemCurrency), "retailPrice", "inventor.item.form.error.wrong-currency");
+			errors.state(request, !itemsInToolkit.isEmpty() && itemsInToolkit.iterator().next().getRetailPrice().getCurrency().equals(newItemCurrency), "retailPrice", "inventor.item.form.error.wrong-currency");
 		}
 	}
+
 
 	@Override
 	public void unbind(final Request<Item> request, final Item entity, final Model model) {
@@ -111,13 +109,12 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "name", "code", "technology", "description", "retailPrice", "info", "type", "quantity");
+		request.unbind(entity, model, "name", "code", "technology", "description", "retailPrice", "info", "type");
 		model.setAttribute("masterId", request.getModel().getAttribute("masterId"));
-		model.setAttribute("draftMode", true);
 	}
 
 	@Override
-	public void create(final Request<Item> request, final Item entity) {
+	public void update(final Request<Item> request, final Item entity) {
 		assert request != null;
 		assert entity != null;
 
@@ -128,14 +125,11 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 		// LocalisedMoneyFormatter)
 		
 		this.repository.save(entity);
-		
+
 		// Create the Quantity entity on bind
 		final Model model = request.getModel();
-		final Integer masterId = request.getModel().getInteger("masterId");
-		final Toolkit toolkit = this.repository.findOneToolkitById(masterId);
-		final Quantity quantity = new Quantity();
-		quantity.setItem(entity);
-		quantity.setToolkit(toolkit);
+		final Integer id = entity.getId();
+		final Quantity quantity = this.repository.findQuantityByItemId(id);
 		quantity.setNumber(model.getInteger("quantity"));
 		this.quantityRepository.save(quantity);
 	}
