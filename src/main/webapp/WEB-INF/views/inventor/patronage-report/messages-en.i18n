@@ -5,6 +5,13 @@ inventor.patronage-report.list.label.info = Information
 
 inventor.patronage-report.form.title.report = Report
 
+inventor.patronage-report.form.label.sequence-number = Sequence number
+inventor.patronage-report.form.label.creation-time = Creation time
+inventor.patronage-report.form.label.memorandum = Memorandum
+inventor.patronage-report.form.label.info = Information
+
+inventor.patronage-report.form.label.patronage = Patronage
+
 inventor.patronage-report.form.label.patronage.identify.code = Patronage code
 inventor.patronage-report.form.label.patronage.identify.status = Status
 inventor.patronage-report.form.label.patronage.identify.legal-stuff = Legal stuff

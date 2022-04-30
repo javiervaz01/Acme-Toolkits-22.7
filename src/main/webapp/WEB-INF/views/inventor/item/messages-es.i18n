@@ -14,6 +14,7 @@ inventor.item.form.label.description = Descripción
 inventor.item.form.label.retail-price = Precio
 inventor.item.form.label.info = Información
 inventor.item.form.label.type = Tipo de artículo
+
 inventor.item.form.label.quantity = Cantidad
 
 inventor.item.form.button.create = Crear

@@ -11,6 +11,7 @@ inventor.item.form.label.name = Name
 inventor.item.form.label.code = Code
 inventor.item.form.label.technology = Technology
 inventor.item.form.label.description = Description 
+
 inventor.item.form.label.retail-price = Retail Price
 inventor.item.form.label.info = Info
 inventor.item.form.label.type = Item type
@@ -24,3 +25,4 @@ inventor.item.form.error.duplicated = An item with the same code already exists
 inventor.item.form.error.repeated-tool = A tool can't be repeated in a toolkit
 inventor.item.form.error.no-quantity = There must be at least one item
 inventor.item.form.error.wrong-currency = The price must be in the same currency as the rest of items in the toolkit
+

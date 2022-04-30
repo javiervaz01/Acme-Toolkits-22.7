@@ -4,7 +4,12 @@ inventor.patronage.list.label.budget = Budget
 inventor.patronage.list.label.start-date = Start date
 inventor.patronage.list.label.end-date = End date
 
+inventor.patronage.form.info = Patronage's Details
+
 inventor.patronage.form.label.status = Status
+inventor.patronage.form.label.proposed = Proposed
+inventor.patronage.form.label.accepted = Accepted
+inventor.patronage.form.label.denied = Denied
 inventor.patronage.form.label.code = Code
 inventor.patronage.form.label.legal-stuff = Legal
 inventor.patronage.form.label.budget = Budget
@@ -12,11 +17,14 @@ inventor.patronage.form.label.creation-date = Creation date
 inventor.patronage.form.label.start-date = Start date
 inventor.patronage.form.label.end-date = End date
 inventor.patronage.form.label.info = Information
-inventor.patronage.form.label.patron.identity.name = Patron's name
-inventor.patronage.form.label.patron.identity.surname = Patron's surname
-inventor.patronage.form.label.patron.identity.email = Patron's email
-inventor.patronage.form.label.patron.company = Patron's company
-inventor.patronage.form.label.patron.statement = Patron's statement
-inventor.patronage.form.label.patron.info = Patron's information
-inventor.patronage.form.reports= Patronage´s Reports
-inventor.patronage.form.info = Patronage´s Details
+
+inventor.patronage.form.patron-data = Patron's details
+
+inventor.patronage.form.label.patron.identity.name = Name
+inventor.patronage.form.label.patron.identity.surname = Surname
+inventor.patronage.form.label.patron.identity.email = Email
+inventor.patronage.form.label.patron.company = Company
+inventor.patronage.form.label.patron.statement = Statement
+inventor.patronage.form.label.patron.info = Information
+
+inventor.patronage.form.reports= Patronage's Reports
