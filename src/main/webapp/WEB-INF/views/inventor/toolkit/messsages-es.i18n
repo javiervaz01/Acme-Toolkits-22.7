@@ -2,12 +2,24 @@ inventor.toolkit.list.label.code = Código
 inventor.toolkit.list.label.title = Título
 inventor.toolkit.list.label.description = Descripción
 inventor.toolkit.list.label.assembly-notes = Notas de montaje
-inventor.toolkit.list.label.link = Link
+inventor.toolkit.list.label.link = Enlace
+inventor.toolkit.list.label.published = Publicado
+
+inventor.toolkit.list.button.create = Crear
 
 inventor.toolkit.form.label.code = Código
 inventor.toolkit.form.label.title = Título
 inventor.toolkit.form.label.description = Descripción
 inventor.toolkit.form.label.assembly-notes = Notas de montaje
-inventor.toolkit.form.label.link = Link
+inventor.toolkit.form.label.link = Enlace
 inventor.toolkit.form.label.retail-price = Precio de venta
 inventor.toolkit.form.button.items = Artículos
+
+inventor.toolkit.form.error.duplicated = Ya existe un toolkit con este código
+inventor.toolkit.form.error.no-items = Un toolkit debe tener al menos un componente o herramienta
+
+inventor.toolkit.form.button.items = Artículos
+inventor.toolkit.form.button.update = Actualizar 
+inventor.toolkit.form.button.delete = Eliminar
+inventor.toolkit.form.button.publish = Publicar
+inventor.toolkit.form.button.create = Crear

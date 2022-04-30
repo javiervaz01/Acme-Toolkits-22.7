@@ -24,6 +24,7 @@ public class InventorPatronageListService implements AbstractListService<Invento
 		assert request != null;
 
 		return true;
+		
 	}
 
 	@Override
@@ -43,5 +44,4 @@ public class InventorPatronageListService implements AbstractListService<Invento
 
 		request.unbind(entity, model, "status", "code", "legalStuff", "budget", "creationDate", "startDate", "endDate", "info");
 	}
-
 }

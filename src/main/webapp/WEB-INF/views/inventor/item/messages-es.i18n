@@ -1,15 +1,27 @@
 inventor.item.list.label.name = Nombre
 inventor.item.list.label.code = Código
 inventor.item.list.label.technology = Tecnología
-inventor.item.list.label.description = Descripción
-inventor.item.list.label.price = Precio
-inventor.item.list.label.info = Información 
+inventor.item.list.label.retail-price = Precio
 inventor.item.list.label.type = Tipo de Artículo
+inventor.item.list.label.quantity = Cantidad
+
+inventor.item.list.button.create = Crear
 
 inventor.item.form.label.name = Nombre
 inventor.item.form.label.code = Código
 inventor.item.form.label.technology = Tecnología
 inventor.item.form.label.description = Descripción 
-inventor.item.form.label.price = Precio
+inventor.item.form.label.retail-price = Precio
 inventor.item.form.label.info = Información
 inventor.item.form.label.type = Tipo de artículo
+
+inventor.item.form.label.quantity = Cantidad
+
+inventor.item.form.button.create = Crear
+inventor.item.form.button.update = Actualizar
+inventor.item.form.button.delete = Eliminar
+
+inventor.item.form.error.duplicated = Ya existe un artículo con el mismo código
+inventor.item.form.error.repeated-tool = Una herramienta no puede aparecer repetida en un toolkit
+inventor.item.form.error.no-quantity = Debe haber al menos un artículo
+inventor.item.form.error.wrong-currency = El precio del artículo debe estar en la misma divisa que el resto de artículos del toolkit

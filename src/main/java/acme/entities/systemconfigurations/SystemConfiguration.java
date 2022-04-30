@@ -3,6 +3,7 @@ package acme.entities.systemconfigurations;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.PositiveOrZero;
 
 import acme.framework.entities.AbstractEntity;
 import lombok.Getter;
@@ -29,15 +30,17 @@ public class SystemConfiguration extends AbstractEntity {
 
 
 	@NotBlank
-	@Pattern(regexp = "^([A-Za-z.;'\"\\s]*,)*[A-Za-z.;'\"\\s]+$")
+	@Pattern(regexp = "^(?:[a-zA-Z0-9 ']+,)*[a-zA-Z0-9 ']+$")
 	protected String strongSpamTerms;
 
+	@PositiveOrZero
 	protected double strongSpamThreshold;
 
 	@NotBlank
-	@Pattern(regexp = "^([A-Za-z.;'\"\\s]*,)*[A-Za-z.;'\"\\s]+$")
+	@Pattern(regexp = "^(?:[a-zA-Z0-9 ']+,)*[a-zA-Z0-9 ']+$")
 	protected String weakSpamTerms;
 
+	@PositiveOrZero
 	protected double weakSpamThreshold;
 
 	// Derived attributes -----------------------------------------------------

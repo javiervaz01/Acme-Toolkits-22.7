@@ -18,7 +18,7 @@ master.menu.sign-out = Salir
 # master.menu.any #######################################################
 
 master.menu.any = Cualquiera
-
+master.menu.any.user-account.list = Lista de cuentas de usuario
 master.menu.any.item.list = Lista de artículos
 master.menu.any.chirp.list = Lista de chirps
 
@@ -48,16 +48,16 @@ master.menu.administrator.shut-down = Parar el sistema
 master.menu.inventor = Inventor
 master.menu.inventor.patronage.list = Ver mis patronazgos
 master.menu.inventor.patronage.list-proposed = Ver mis patronazgos propuestos
-master.menu.inventor.patronageReport.list = Ver mis Reportes de patronazgos
+master.menu.inventor.patronage-report.list = Ver mis reportes de patronazgos
 master.menu.inventor.toolkit.list = Ver mis toolkits
 master.menu.inventor.item.list = Ver mis artículos
 
 # master.menu.patron ########################################################
 
-master.menu.patron = Patrón
+master.menu.patron = Patrocinador
 master.menu.patron.dashboard = Panel
 master.menu.patron.patronage.list = Ver mis patronazgos
-master.menu.patron.patronageReport.list = Ver mis reportes de patronazgos
+master.menu.patron.patronage-report.list = Ver mis reportes de patronazgos
 
 # master.menu.authenticated ########################################################
 

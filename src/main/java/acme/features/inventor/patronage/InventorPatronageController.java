@@ -39,6 +39,7 @@ public class InventorPatronageController extends AbstractController<Inventor, Pa
 		super.addCommand("list-proposed", "list", this.listProposedService);
 		
 		super.addCommand("update", this.updateService);
+
 	}
 
 }

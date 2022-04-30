@@ -1,13 +1,10 @@
 package acme.features.patron.patronage;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.patronagereports.PatronageReport;
 import acme.entities.patronages.Patronage;
-import acme.features.patron.patronagereports.PatronPatronageReportRepository;
+import acme.features.patron.patronagereport.PatronPatronageReportRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractShowService;
@@ -49,10 +46,23 @@ public class PatronPatronageShowService implements AbstractShowService<Patron, P
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model, "status", "code", "legalStuff", "budget", "creationDate", "startDate", "endDate", "info", "inventor.identity.name", "inventor.identity.surname", "inventor.identity.email", "inventor.company", "inventor.statement", "inventor.info");
+		request.unbind(entity, model, "status", "code", "legalStuff", "budget", "creationDate", "startDate", "endDate", "info");
 		
-		final Collection<PatronageReport> reports = this.repository.findPatronageReportsByPatronageCode(entity.getCode());
-		model.setAttribute("reports", reports);
+		final int masterId = request.getModel().getInteger("id");
+		model.setAttribute("masterId", masterId);
+		
+		final String inventorName = entity.getInventor().getIdentity().getName();
+		final String inventorSurname = entity.getInventor().getIdentity().getSurname();
+		final String inventorEmail = entity.getInventor().getIdentity().getEmail();
+		final String inventorCompany = entity.getInventor().getCompany();
+		final String inventorStatement = entity.getInventor().getStatement();
+		final String inventorInfo = entity.getInventor().getInfo();
+		
+		model.setAttribute("inventorName", inventorName);
+		model.setAttribute("inventorSurname", inventorSurname);
+		model.setAttribute("inventorEmail", inventorEmail);
+		model.setAttribute("inventorCompany", inventorCompany);
+		model.setAttribute("inventorStatement", inventorStatement);
+		model.setAttribute("inventorInfo", inventorInfo);
 	}
-
 }
