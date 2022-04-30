@@ -1,10 +1,8 @@
 any.item.list.label.name = Nombre
 any.item.list.label.code = Código
 any.item.list.label.technology = Tecnología
-any.item.list.label.description = Descripción
 any.item.list.label.price = Precio
-any.item.list.label.info = Información 
-any.item.list.label.type = Tipo de Artículo
+any.item.list.label.type = Tipo de artículo
 
 any.item.form.label.name = Nombre
 any.item.form.label.code = Código
@@ -13,3 +11,6 @@ any.item.form.label.description = Descripción
 any.item.form.label.price = Precio
 any.item.form.label.info = Información
 any.item.form.label.type = Tipo de artículo
+
+any.item.form.label.type.component = Componente
+any.item.form.label.type.tool = Herramienta

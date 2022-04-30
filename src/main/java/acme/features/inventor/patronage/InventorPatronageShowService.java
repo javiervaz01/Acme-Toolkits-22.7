@@ -1,13 +1,10 @@
 package acme.features.inventor.patronage;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.patronagereports.PatronageReport;
 import acme.entities.patronages.Patronage;
-import acme.features.inventor.patronagereports.InventorPatronageReportRepository;
+import acme.features.inventor.patronagereport.InventorPatronageReportRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractShowService;
@@ -34,7 +31,7 @@ public class InventorPatronageShowService implements AbstractShowService<Invento
 		final int patronageId = request.getModel().getInteger("id");
 		final int patronageInventorId = this.repository.findOnePatronageById(patronageId).getInventor().getId();
 		
-		return  patronId == patronageInventorId; 
+		return patronId == patronageInventorId; 
 	}
 
 	@Override
@@ -51,10 +48,23 @@ public class InventorPatronageShowService implements AbstractShowService<Invento
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "status", "code", "legalStuff", "budget", "creationDate", "startDate", "endDate", "info", "patron.identity.name", "patron.identity.surname", "patron.identity.email", "patron.company", "patron.statement", "patron.info");
+		request.unbind(entity, model, "status", "code", "legalStuff", "budget", "creationDate", "startDate", "endDate", "info");
 	
-		final Collection<PatronageReport> reports = this.repository.findPatronageReportsByPatronageCode(entity.getCode());
-		model.setAttribute("reports", reports);
+		final int masterId = request.getModel().getInteger("id");
+		model.setAttribute("masterId", masterId);
+		
+		final String patronName = entity.getPatron().getIdentity().getName();
+		final String patronSurname = entity.getPatron().getIdentity().getSurname();
+		final String patronEmail = entity.getPatron().getIdentity().getEmail();
+		final String patronCompany = entity.getPatron().getCompany();
+		final String patronStatement = entity.getPatron().getStatement();
+		final String patronInfo = entity.getPatron().getInfo();
+		
+		model.setAttribute("patronName", patronName);
+		model.setAttribute("patronSurname", patronSurname);
+		model.setAttribute("patronEmail", patronEmail);
+		model.setAttribute("patronCompany", patronCompany);
+		model.setAttribute("patronStatement", patronStatement);
+		model.setAttribute("patronInfo", patronInfo);
 	}
-
 }

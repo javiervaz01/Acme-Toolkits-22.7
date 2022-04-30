@@ -1,13 +1,15 @@
 inventor.patronage.list.label.status = Estado
 inventor.patronage.list.label.code = Código
-inventor.patronage.list.label.legal-stuff = Legal
 inventor.patronage.list.label.budget = Presupuesto
-inventor.patronage.list.label.creation-date = Fecha de creación
 inventor.patronage.list.label.start-date = Fecha de comienzo
 inventor.patronage.list.label.end-date = Fecha de fin
-inventor.patronage.list.label.info = Información
+
+inventor.patronage.form.info = Detalles del patronazgo
 
 inventor.patronage.form.label.status = Estado
+inventor.patronage.form.label.proposed = Propuesto
+inventor.patronage.form.label.accepted = Aceptado
+inventor.patronage.form.label.denied = Denegado
 inventor.patronage.form.label.code = Código
 inventor.patronage.form.label.legal-stuff = Legal
 inventor.patronage.form.label.budget = Presupuesto
@@ -15,11 +17,14 @@ inventor.patronage.form.label.creation-date = Fecha de creación
 inventor.patronage.form.label.start-date = Fecha de comienzo
 inventor.patronage.form.label.end-date = Fecha de fin
 inventor.patronage.form.label.info = Información
-inventor.patronage.form.label.patron.identity.name = Nombre del patrocinador
-inventor.patronage.form.label.patron.identity.surname = Apellidos del patrocinador
-inventor.patronage.form.label.patron.identity.email = Email del patrocinador
-inventor.patronage.form.label.patron.company = Compañía del patrocinador
-inventor.patronage.form.label.patron.statement = Frase del patrocinador
-inventor.patronage.form.label.patron.info = Información sobre el patrocinador
+
+inventor.patronage.form.patron-data = Detalles del patrocinador
+
+inventor.patronage.form.label.patron.identity.name = Nombre
+inventor.patronage.form.label.patron.identity.surname = Apellidos
+inventor.patronage.form.label.patron.identity.email = Email
+inventor.patronage.form.label.patron.company = Compañía
+inventor.patronage.form.label.patron.statement = Frase
+inventor.patronage.form.label.patron.info = Información
+
 inventor.patronage.form.reports= Reportes del patronazgo
-inventor.patronage.form.info = Detalles del patronazgo

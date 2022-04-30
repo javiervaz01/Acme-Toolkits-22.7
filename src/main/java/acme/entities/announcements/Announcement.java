@@ -40,11 +40,6 @@ public class Announcement extends AbstractEntity {
 	@Length(max = 100)
 	protected String body;
 
-	// We tried to use the primitive type boolean, but inserting the sample
-	// data failed. The error was: "couldn't assign value 'false' to property"
-	// We also tried another formats, such as using 0 and 1, and the error
-	// persisted. We have decided to use the Boolean type with @NotNull again,
-	// as it works as expected when populating the system.
 	protected boolean isCritical;
 
 	@URL

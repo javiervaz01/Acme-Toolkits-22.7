@@ -12,7 +12,7 @@ import acme.framework.services.AbstractListService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorToolkitListMineService implements AbstractListService<Inventor,Toolkit>{
+public class InventorToolkitListMineService implements AbstractListService<Inventor, Toolkit> {
 	
 	// Internal state ---------------------------------------------------------
 
@@ -24,10 +24,7 @@ public class InventorToolkitListMineService implements AbstractListService<Inven
 			assert request != null;
 
 			return true;
-			
 		}
-
-		
 
 		@Override
 		public void unbind(final Request<Toolkit> request, final Toolkit entity, final Model model) {
@@ -37,8 +34,6 @@ public class InventorToolkitListMineService implements AbstractListService<Inven
 
 			request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "link");
 		}
-
-
 
 		@Override
 		public Collection<Toolkit> findMany(final Request<Toolkit> request) {
