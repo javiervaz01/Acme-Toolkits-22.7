@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.items.Item;
+import acme.entities.quantities.Quantity;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractListService;
@@ -42,8 +43,10 @@ public class InventorItemListMineService implements AbstractListService<Inventor
 		assert model != null;
 
 		request.unbind(entity, model, "name", "code", "technology", "description", "retailPrice", "info", "type");
+		
+		final Integer id = entity.getId();
+		final Quantity quantity = this.repository.findQuantityByItemId(id);
+		if (quantity == null) return;
+		model.setAttribute("quantity", quantity.getNumber());
 	}
-	
-	
-
 }

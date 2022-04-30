@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.items.Item;
+import acme.entities.toolkits.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.roles.Any;
@@ -12,7 +13,7 @@ import acme.framework.services.AbstractShowService;
 
 
 @Service
-public class AnyItemShowService implements AbstractShowService<Any, Item>{
+public class AnyItemShowService implements AbstractShowService<Any, Item> {
 	
 	@Autowired
 	protected AnyItemRepository repository;
@@ -22,11 +23,12 @@ public class AnyItemShowService implements AbstractShowService<Any, Item>{
 		assert request != null;
 		
 		int id;
-		final Item item;
+		final Toolkit toolkit;
 		
 		id = request.getModel().getInteger("id");
-		item = this.repository.findItemById(id);
-		return !item.isDraftMode();
+		toolkit = this.repository.findOneToolkitByItemId(id);
+		
+		return !toolkit.isDraftMode();
 	}
 
 	@Override
@@ -46,7 +48,4 @@ public class AnyItemShowService implements AbstractShowService<Any, Item>{
 
 		request.unbind(entity, model, "name", "code", "technology", "description", "retailPrice", "info", "type");
 	}
-
-	
-
 }

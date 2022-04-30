@@ -4,13 +4,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.items.Item;
+import acme.entities.quantities.Quantity;
+import acme.entities.toolkits.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractShowService;
 import acme.roles.Inventor;
 
+
+
 @Service
-public class InventorItemShowService implements AbstractShowService<Inventor, Item>{
+public class InventorItemShowService implements AbstractShowService<Inventor, Item> {
 	
 	@Autowired
 	protected InventorItemRepository repository;
@@ -18,22 +22,29 @@ public class InventorItemShowService implements AbstractShowService<Inventor, It
 	@Override
 	public boolean authorise(final Request<Item> request) {
 		assert request != null;
-		
+
+		boolean result;
 		int id;
-		final Item item;
+		Toolkit toolkit;
 		
 		id = request.getModel().getInteger("id");
-		item = this.repository.findItemById(id);
-		return !item.isDraftMode() || request.isPrincipal(item.getInventor());
+		toolkit = this.repository.findOneToolkitByItemId(id);
+		result = (toolkit != null && (!toolkit.isDraftMode() || request.isPrincipal(toolkit.getInventor())));
+		
+		return result;
 	}
 
 	@Override
 	public Item findOne(final Request<Item> request) {
 		assert request != null;
 		
-		final int id = request.getModel().getInteger("id");
+		int id;
+		Item result;
 		
-		return this.repository.findItemById(id);
+		id = request.getModel().getInteger("id");
+		result = this.repository.findItemById(id);
+		
+		return result;
 	}
 
 	@Override
@@ -43,5 +54,13 @@ public class InventorItemShowService implements AbstractShowService<Inventor, It
 		assert model != null;
 
 		request.unbind(entity, model, "name", "code", "technology", "description", "retailPrice", "info", "type");
+		
+		final Toolkit toolkit = this.repository.findOneToolkitByItemId(entity.getId());
+		model.setAttribute("masterId", toolkit.getId());
+		model.setAttribute("draftMode", toolkit.isDraftMode());
+
+		final Integer id = entity.getId();
+		final Quantity quantity = this.repository.findQuantityByItemId(id);
+		model.setAttribute("quantity", quantity.getNumber());
 	}
 }

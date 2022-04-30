@@ -67,4 +67,5 @@ public class Toolkit extends AbstractEntity {
 	@ManyToOne(optional = false)
 	protected Inventor inventor; // TODO missing in the UML, idk if we have to add it
 
+	// TODO getter for code?
 }

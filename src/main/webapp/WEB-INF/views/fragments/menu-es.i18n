@@ -53,7 +53,7 @@ master.menu.inventor.item.list = Ver mis artículos
 
 # master.menu.patron ########################################################
 
-master.menu.patron = Patrón
+master.menu.patron = Patrocinador
 master.menu.patron.dashboard = Panel
 master.menu.patron.patronage.list = Ver mis patronazgos
 master.menu.patron.patronage-report.list = Ver mis reportes de patronazgos
