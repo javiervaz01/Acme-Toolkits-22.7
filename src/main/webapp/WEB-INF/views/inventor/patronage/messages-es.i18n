@@ -28,3 +28,6 @@ inventor.patronage.form.label.patron.statement = Frase
 inventor.patronage.form.label.patron.info = Información
 
 inventor.patronage.form.reports= Reportes del patronazgo
+inventor.patronage.form.info = Detalles del patronazgo
+inventor.patronage.form.button.update = Actualizar
+
