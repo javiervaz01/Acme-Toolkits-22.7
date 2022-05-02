@@ -18,8 +18,13 @@ public class InventorPatronageEditService implements AbstractUpdateService<Inven
 
 	@Override
 	public boolean authorise(final Request<Patronage> request) {
-		// TODO Auto-generated method stub
-		return true;
+		assert request != null;
+		
+		final int patronId = request.getPrincipal().getActiveRoleId();
+		final int patronageId = request.getModel().getInteger("id");
+		final int patronageInventorId = this.repository.findOnePatronageById(patronageId).getInventor().getId();
+		
+		return patronId == patronageInventorId; 
 	}
 
 	@Override
