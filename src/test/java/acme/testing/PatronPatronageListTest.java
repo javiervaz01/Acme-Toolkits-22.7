@@ -35,14 +35,12 @@ public class PatronPatronageListTest extends TestHarness {
 		super.checkInputBoxHasValue("endDate", endDate);
 		super.checkInputBoxHasValue("info", info);
 		
-		super.checkInputBoxHasValue("inventor.identity.name", patronIdentityName);
-		super.checkInputBoxHasValue("inventor.identity.surname", patronIdentitySurname);
-		super.checkInputBoxHasValue("inventor.identity.email", patronIdentityEmail);
-		super.checkInputBoxHasValue("inventor.company", patronCompany);
-		super.checkInputBoxHasValue("inventor.statement", patronStatement);
-		super.checkInputBoxHasValue("inventor.info", patronInfo);
-		
-		
+		super.checkInputBoxHasValue("inventorName", patronIdentityName);
+		super.checkInputBoxHasValue("inventorSurname", patronIdentitySurname);
+		super.checkInputBoxHasValue("inventorEmail", patronIdentityEmail);
+		super.checkInputBoxHasValue("inventorCompany", patronCompany);
+		super.checkInputBoxHasValue("inventorStatement", patronStatement);
+		super.checkInputBoxHasValue("inventorInfo", patronInfo);
 		
 		super.signOut();
 	}

@@ -25,22 +25,18 @@
       <h2>
 		    <acme:message code="inventor.patronage.form.patron-data"/>
 	    </h2>
-			<acme:input-textbox code="inventor.patronage.form.label.patron.identity.name" path="patron.identity.name"/>
-			<acme:input-textbox code="inventor.patronage.form.label.patron.identity.surname" path="patron.identity.surname"/>
-			<acme:input-textbox code="inventor.patronage.form.label.patron.identity.email" path="patron.identity.email"/>
-			<acme:input-textbox code="inventor.patronage.form.label.patron.company" path="patron.company"/>
-			<acme:input-textbox code="inventor.patronage.form.label.patron.statement" path="patron.statement"/>
-			<acme:input-textbox code="inventor.patronage.form.label.patron.info" path="patron.info"/>
-			
-			
+			<acme:input-textbox code="inventor.patronage.form.label.patron.identity.name" path="patronName"/>
+			<acme:input-textbox code="inventor.patronage.form.label.patron.identity.surname" path="patronSurname"/>
+			<acme:input-textbox code="inventor.patronage.form.label.patron.identity.email" path="patronEmail"/>
+			<acme:input-textbox code="inventor.patronage.form.label.patron.company" path="patronCompany"/>
+			<acme:input-textbox code="inventor.patronage.form.label.patron.statement" path="patronStatement"/>
+			<acme:input-textbox code="inventor.patronage.form.label.patron.info" path="patronInfo"/>
 		</jstl:when>
-		
 	</jstl:choose>
 	
-	
 	<acme:button code="inventor.patronage.form.reports" action="/inventor/patronage-report/list"/>
-	<acme:button test="${command=='show' && status == 'PROPOSED'}" code="inventor.patronage.form.button.update" action="/inventor/patronage/update?id=${id}"/>
-	<acme:submit test="${command=='update' && status == 'PROPOSED'}" code="inventor.patronage.form.button.update" action="/inventor/patronage/update"/>
+	<acme:button test="${command == 'show' && status == 'PROPOSED'}" code="inventor.patronage.form.button.update" action="/inventor/patronage/update?id=${id}"/>
+	<acme:submit test="${command == 'update' && status == 'PROPOSED'}" code="inventor.patronage.form.button.update" action="/inventor/patronage/update"/>
 	
 </acme:form>
 
