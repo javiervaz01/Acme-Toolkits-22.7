@@ -22,7 +22,7 @@ public class PatronPatronageListTest extends TestHarness {
 		
 		super.checkColumnHasValue(recordIndex, 0, status);
 		super.checkColumnHasValue(recordIndex, 1, code);
-		super.checkColumnHasValue(recordIndex, 2, legalStuff);
+		super.checkColumnHasValue(recordIndex, 2, budget);
 		
 		super.clickOnListingRecord(recordIndex);
 		super.checkFormExists();
