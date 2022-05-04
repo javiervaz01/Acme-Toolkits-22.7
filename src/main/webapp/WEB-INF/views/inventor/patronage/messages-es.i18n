@@ -7,9 +7,9 @@ inventor.patronage.list.label.end-date = Fecha de fin
 inventor.patronage.form.info = Detalles del patronazgo
 
 inventor.patronage.form.label.status = Estado
-inventor.patronage.form.label.proposed = Propuesto
-inventor.patronage.form.label.accepted = Aceptado
-inventor.patronage.form.label.denied = Denegado
+inventor.patronage.form.label.proposed = PROPUESTO
+inventor.patronage.form.label.accepted = ACEPTADO
+inventor.patronage.form.label.denied = DENEGADO
 inventor.patronage.form.label.code = Código
 inventor.patronage.form.label.legal-stuff = Legal
 inventor.patronage.form.label.budget = Presupuesto
