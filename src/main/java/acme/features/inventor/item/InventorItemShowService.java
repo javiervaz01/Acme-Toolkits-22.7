@@ -3,11 +3,13 @@ package acme.features.inventor.item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.ExchangeService;
 import acme.entities.items.Item;
 import acme.entities.quantities.Quantity;
 import acme.entities.toolkits.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.datatypes.Money;
 import acme.framework.services.AbstractShowService;
 import acme.roles.Inventor;
 
@@ -19,6 +21,9 @@ public class InventorItemShowService implements AbstractShowService<Inventor, It
 	@Autowired
 	protected InventorItemRepository repository;
 
+	@Autowired
+	protected ExchangeService exchangeReporistory;
+	
 	@Override
 	public boolean authorise(final Request<Item> request) {
 		assert request != null;
@@ -62,5 +67,8 @@ public class InventorItemShowService implements AbstractShowService<Inventor, It
 		final Integer id = entity.getId();
 		final Quantity quantity = this.repository.findQuantityByItemId(id);
 		model.setAttribute("quantity", quantity.getNumber());
+		
+		final Money exchange=this.exchangeReporistory.getExchange(entity.getRetailPrice());
+		model.setAttribute("exchange", exchange);
 	}
 }

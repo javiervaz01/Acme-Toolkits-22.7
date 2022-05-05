@@ -8,6 +8,7 @@
 	<acme:list-column code="inventor.item.list.label.name" path="name" width="10%"/>
 	<acme:list-column code="inventor.item.list.label.technology" path="technology"/>
 	<acme:list-column code="inventor.item.list.label.retail-price" path="retailPrice"/>
+	<acme:list-column code="inventor.item.list.label.exchange" path="exchange"/>
 	<acme:list-column code="inventor.item.list.label.type" path="type"/>
 	<acme:list-column code="inventor.item.list.label.quantity" path="quantity"/>
 </acme:list>

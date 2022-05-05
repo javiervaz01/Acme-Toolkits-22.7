@@ -3,10 +3,12 @@ package acme.features.patron.patronage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.ExchangeService;
 import acme.entities.patronages.Patronage;
 import acme.features.patron.patronagereport.PatronPatronageReportRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.datatypes.Money;
 import acme.framework.services.AbstractShowService;
 import acme.roles.Patron;
 
@@ -20,6 +22,9 @@ public class PatronPatronageShowService implements AbstractShowService<Patron, P
 	
 	@Autowired
 	protected PatronPatronageReportRepository repositoryReport;
+	
+	@Autowired
+	protected ExchangeService exchangeReporistory;
 	
 	@Override
 	public boolean authorise(final Request<Patronage> request) {
@@ -57,6 +62,7 @@ public class PatronPatronageShowService implements AbstractShowService<Patron, P
 		final String inventorCompany = entity.getInventor().getCompany();
 		final String inventorStatement = entity.getInventor().getStatement();
 		final String inventorInfo = entity.getInventor().getInfo();
+		final Money exchange=this.exchangeReporistory.getExchange(entity.getBudget());
 		
 		model.setAttribute("inventorName", inventorName);
 		model.setAttribute("inventorSurname", inventorSurname);
@@ -64,5 +70,6 @@ public class PatronPatronageShowService implements AbstractShowService<Patron, P
 		model.setAttribute("inventorCompany", inventorCompany);
 		model.setAttribute("inventorStatement", inventorStatement);
 		model.setAttribute("inventorInfo", inventorInfo);
+		model.setAttribute("exchange", exchange);
 	}
 }

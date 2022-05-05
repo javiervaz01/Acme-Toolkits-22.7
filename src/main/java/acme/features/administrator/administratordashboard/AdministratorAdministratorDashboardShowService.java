@@ -6,10 +6,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.ExchangeService;
 import acme.entities.patronages.Status;
 import acme.forms.administrator.AdministratorDashboard;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.datatypes.Money;
 import acme.framework.roles.Administrator;
 import acme.framework.services.AbstractShowService;
 
@@ -20,6 +22,9 @@ public class AdministratorAdministratorDashboardShowService implements AbstractS
 
 	@Autowired
 	protected AdministratorAdministratorDashboardRepository repository;
+	
+	@Autowired
+	protected ExchangeService exchangeReporistory;
 
 	// AbstractShowService<Patron, PatronDashboard> interface ----------------
 
@@ -107,12 +112,15 @@ public class AdministratorAdministratorDashboardShowService implements AbstractS
 			final String currency = currencies.get(i);
 			
 			final AdministratorDashboardItem itemStats = new AdministratorDashboardItem();
-			itemStats.currency=currency;
-			itemStats.average= this.repository.averagePatronage(status, currency);
-			itemStats.deviation= this.repository.deviationPatronage(status, currency);
-			itemStats.min=this.repository.minimumPatronage(status, currency);
-			itemStats.max=this.repository.maximumPatronage(status, currency);
-			
+			itemStats.currency = currency;
+			itemStats.average = this.repository.averagePatronage(status, currency);
+			itemStats.exchangeAverage = this.getExchange(itemStats.average, currency);
+			itemStats.deviation = this.repository.deviationPatronage(status, currency);
+			itemStats.min = this.repository.minimumPatronage(status, currency);
+			itemStats.exchangeMin= this.getExchange(itemStats.min, currency);
+			itemStats.max = this.repository.maximumPatronage(status, currency);
+			itemStats.exchangeMax = this.getExchange(itemStats.max, currency);
+	
 			res.add(itemStats);
 		}
 		
@@ -142,7 +150,7 @@ public class AdministratorAdministratorDashboardShowService implements AbstractS
 		
 	}
 	
-private List<AdministratorDashboardComponentItem> getStatisticsOfComponents(){
+	private List<AdministratorDashboardComponentItem> getStatisticsOfComponents(){
 		
 		final List<String> currencies= (List<String>) this.repository.currencies();
 		final List<AdministratorDashboardComponentItem> res = new ArrayList<AdministratorDashboardComponentItem>();
@@ -169,6 +177,18 @@ private List<AdministratorDashboardComponentItem> getStatisticsOfComponents(){
 		}
 		return res;
 		
+	}
+	
+	private String getExchange(final Double amount, final String Currency) {
+		
+		final Money aux= new Money();
+		aux.setAmount(amount);
+		aux.setCurrency(Currency);
+		
+		final Money exchange=this.exchangeReporistory.getExchange(aux);
+		final Double roundedAmount= Math.round(exchange.getAmount()*100.0)/100.0;
+		
+		return exchange.getCurrency()+" "+roundedAmount;
 	}
 
 }

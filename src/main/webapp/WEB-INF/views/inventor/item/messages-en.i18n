@@ -2,6 +2,7 @@ inventor.item.list.label.name = Name
 inventor.item.list.label.code = Code
 inventor.item.list.label.technology = Technology
 inventor.item.list.label.retail-price = Retail Price
+inventor.item.list.label.exchange= Currency Exchange
 inventor.item.list.label.type = Item Type
 inventor.item.list.label.quantity = Quantity
 
@@ -13,6 +14,7 @@ inventor.item.form.label.technology = Technology
 inventor.item.form.label.description = Description 
 
 inventor.item.form.label.retail-price = Retail Price
+inventor.item.form.label.exchange = Currency Exchange
 inventor.item.form.label.info = Info
 inventor.item.form.label.type = Item type
 inventor.item.form.label.quantity = Quantity

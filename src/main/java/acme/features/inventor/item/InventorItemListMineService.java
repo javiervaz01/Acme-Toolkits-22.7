@@ -5,10 +5,12 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.ExchangeService;
 import acme.entities.items.Item;
 import acme.entities.quantities.Quantity;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.datatypes.Money;
 import acme.framework.services.AbstractListService;
 import acme.roles.Inventor;
 
@@ -18,6 +20,9 @@ public class InventorItemListMineService implements AbstractListService<Inventor
 	@Autowired
 	protected InventorItemRepository repository;
 
+	@Autowired
+	protected ExchangeService exchangeReporistory;
+	
 	@Override
 	public boolean authorise(final Request<Item> request) {
 		assert request != null;
@@ -48,5 +53,8 @@ public class InventorItemListMineService implements AbstractListService<Inventor
 		final Quantity quantity = this.repository.findQuantityByItemId(id);
 		if (quantity == null) return;
 		model.setAttribute("quantity", quantity.getNumber());
+		
+		final Money exchange=this.exchangeReporistory.getExchange(entity.getRetailPrice());
+		model.setAttribute("exchange", exchange);
 	}
 }

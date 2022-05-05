@@ -6,10 +6,12 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.ExchangeService;
 import acme.entities.patronages.Status;
 import acme.forms.patron.PatronDashboard;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.datatypes.Money;
 import acme.framework.services.AbstractShowService;
 import acme.roles.Patron;
 
@@ -21,6 +23,9 @@ public class PatronPatronDashboardShowService implements AbstractShowService<Pat
 	@Autowired
 	protected PatronPatronDashboardRepository repository;
 
+	@Autowired
+	protected ExchangeService exchangeReporistory;
+	
 	// AbstractShowService<Patron, PatronDashboard> interface ----------------
 
 
@@ -83,9 +88,23 @@ public class PatronPatronDashboardShowService implements AbstractShowService<Pat
 		final PatronDashboardItem itemStats = new PatronDashboardItem();
 		itemStats.currency = currency;
 		itemStats.average = this.repository.averagePatronage(status, currency);
+		itemStats.exchangeAverage = this.getExchange(itemStats.average, currency);
 		itemStats.deviation = this.repository.deviationPatronage(status, currency);
 		itemStats.min = this.repository.minimumPatronage(status, currency);
+		itemStats.exchangeMin= this.getExchange(itemStats.min, currency);
 		itemStats.max = this.repository.maximumPatronage(status, currency);
+		itemStats.exchangeMax = this.getExchange(itemStats.max, currency);
 		return itemStats;
+	}
+	
+	private String getExchange(final Double amount, final String Currency) {
+		final Money aux= new Money();
+		aux.setAmount(amount);
+		aux.setCurrency(Currency);
+		
+		final Money exchange=this.exchangeReporistory.getExchange(aux);
+		final Double roundedAmount= Math.round(exchange.getAmount()*100.0)/100.0;
+		
+		return exchange.getCurrency()+" "+roundedAmount;
 	}
 }

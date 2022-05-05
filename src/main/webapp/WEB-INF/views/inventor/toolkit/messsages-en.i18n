@@ -13,6 +13,7 @@ inventor.toolkit.form.label.description = Description
 inventor.toolkit.form.label.assembly-notes = Assembly notes
 inventor.toolkit.form.label.link = Link
 inventor.toolkit.form.label.retail-price = Retail price
+inventor.toolkit.form.label.exchange = Currency Exchange
 
 inventor.toolkit.form.error.duplicated = A toolkit with this code already exists
 inventor.toolkit.form.error.no-items = A toolkit must have at least one component/tool
