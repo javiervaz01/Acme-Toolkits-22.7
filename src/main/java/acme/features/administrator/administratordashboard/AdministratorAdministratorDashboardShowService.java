@@ -139,9 +139,12 @@ public class AdministratorAdministratorDashboardShowService implements AbstractS
 			final AdministratorDashboardItem itemStats = new AdministratorDashboardItem();
 			itemStats.currency=currency;
 			itemStats.average= this.repository.averageRetailPriceOfTools(currency);
+			itemStats.exchangeAverage = this.getExchange(itemStats.average, currency);
 			itemStats.deviation= this.repository.deviationRetailPriceOfTools(currency);
 			itemStats.min=this.repository.minimumRetailPriceOfTools(currency);
+			itemStats.exchangeMin= this.getExchange(itemStats.min, currency);
 			itemStats.max=this.repository.maximumRetailPriceOfTools(currency);
+			itemStats.exchangeMax = this.getExchange(itemStats.max, currency);
 			
 			res.add(itemStats);
 		}
@@ -168,9 +171,12 @@ public class AdministratorAdministratorDashboardShowService implements AbstractS
 				itemStats.technology = technology;
 				itemStats.currency=currency;
 				itemStats.average= this.repository.averageRetailPriceOfComponents(currency,technology);
+				itemStats.exchangeAverage = this.getExchange(itemStats.average, currency);
 				itemStats.deviation= this.repository.deviationRetailPriceOfComponents(currency,technology);
 				itemStats.min=this.repository.minumumRetailPriceOfComponents(currency,technology);
+				itemStats.exchangeMin= this.getExchange(itemStats.min, currency);
 				itemStats.max=this.repository.maximumRetailPriceOfComponents(currency,technology);
+				itemStats.exchangeMax = this.getExchange(itemStats.max, currency);
 				
 				res.add(itemStats);
 			}
@@ -180,15 +186,18 @@ public class AdministratorAdministratorDashboardShowService implements AbstractS
 	}
 	
 	private String getExchange(final Double amount, final String Currency) {
+		final Money source= new Money();
+		source.setAmount(amount);
+		source.setCurrency(Currency);
+		if(source.getAmount()==null || source.getCurrency()==null) {
+			return null;
+		}else {
+			final Money exchange=this.exchangeReporistory.getExchange(source);
+			final Double roundedAmount= Math.round(exchange.getAmount()*100.0)/100.0;
+			return exchange.getCurrency()+" "+roundedAmount;
+		}
 		
-		final Money aux= new Money();
-		aux.setAmount(amount);
-		aux.setCurrency(Currency);
 		
-		final Money exchange=this.exchangeReporistory.getExchange(aux);
-		final Double roundedAmount= Math.round(exchange.getAmount()*100.0)/100.0;
-		
-		return exchange.getCurrency()+" "+roundedAmount;
 	}
 
 }
