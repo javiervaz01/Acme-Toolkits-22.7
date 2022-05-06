@@ -24,7 +24,7 @@ public class AdministratorAdministratorDashboardShowService implements AbstractS
 	protected AdministratorAdministratorDashboardRepository repository;
 	
 	@Autowired
-	protected ExchangeService exchangeReporistory;
+	protected ExchangeService exchangeRepository;
 
 	// AbstractShowService<Patron, PatronDashboard> interface ----------------
 
@@ -192,7 +192,7 @@ public class AdministratorAdministratorDashboardShowService implements AbstractS
 		if(source.getAmount()==null || source.getCurrency()==null) {
 			return null;
 		}else {
-			final Money exchange=this.exchangeReporistory.getExchange(source);
+			final Money exchange=this.exchangeRepository.getExchange(source);
 			final Double roundedAmount= Math.round(exchange.getAmount()*100.0)/100.0;
 			return exchange.getCurrency()+" "+roundedAmount;
 		}

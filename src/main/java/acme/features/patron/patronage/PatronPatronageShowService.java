@@ -24,7 +24,7 @@ public class PatronPatronageShowService implements AbstractShowService<Patron, P
 	protected PatronPatronageReportRepository repositoryReport;
 	
 	@Autowired
-	protected ExchangeService exchangeReporistory;
+	protected ExchangeService exchangeRepository;
 	
 	@Override
 	public boolean authorise(final Request<Patronage> request) {
@@ -62,7 +62,7 @@ public class PatronPatronageShowService implements AbstractShowService<Patron, P
 		final String inventorCompany = entity.getInventor().getCompany();
 		final String inventorStatement = entity.getInventor().getStatement();
 		final String inventorInfo = entity.getInventor().getInfo();
-		final Money exchange=this.exchangeReporistory.getExchange(entity.getBudget());
+		final Money exchange=this.exchangeRepository.getExchange(entity.getBudget());
 		
 		model.setAttribute("inventorName", inventorName);
 		model.setAttribute("inventorSurname", inventorSurname);

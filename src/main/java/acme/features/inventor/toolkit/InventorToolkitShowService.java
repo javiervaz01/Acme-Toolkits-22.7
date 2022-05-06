@@ -20,7 +20,7 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 	protected InventorToolkitRepository repository;
 
 	@Autowired
-	protected ExchangeService exchangeReporistory;
+	protected ExchangeService exchangeRepository;
 	
 	@Override
 	public boolean authorise(final Request<Toolkit> request) {
@@ -68,7 +68,7 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 		
 		model.setAttribute("retailPrice", retailPrice);
 		
-		final Money exchange=this.exchangeReporistory.getExchange(retailPrice);
+		final Money exchange=this.exchangeRepository.getExchange(retailPrice);
 		model.setAttribute("exchange", exchange);
 	}
 

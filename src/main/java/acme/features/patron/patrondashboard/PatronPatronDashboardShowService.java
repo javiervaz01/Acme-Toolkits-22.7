@@ -24,7 +24,7 @@ public class PatronPatronDashboardShowService implements AbstractShowService<Pat
 	protected PatronPatronDashboardRepository repository;
 
 	@Autowired
-	protected ExchangeService exchangeReporistory;
+	protected ExchangeService exchangeRepository;
 	
 	// AbstractShowService<Patron, PatronDashboard> interface ----------------
 
@@ -102,7 +102,7 @@ public class PatronPatronDashboardShowService implements AbstractShowService<Pat
 		aux.setAmount(amount);
 		aux.setCurrency(Currency);
 		
-		final Money exchange=this.exchangeReporistory.getExchange(aux);
+		final Money exchange=this.exchangeRepository.getExchange(aux);
 		final Double roundedAmount= Math.round(exchange.getAmount()*100.0)/100.0;
 		
 		return exchange.getCurrency()+" "+roundedAmount;

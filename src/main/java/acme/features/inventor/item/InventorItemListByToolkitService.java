@@ -25,7 +25,7 @@ public class InventorItemListByToolkitService implements AbstractListService<Inv
 		protected InventorItemRepository repository;
 
 		@Autowired
-		protected ExchangeService exchangeReporistory;
+		protected ExchangeService exchangeRepository;
 		
 		@Override
 		public boolean authorise(final Request<Item> request) {
@@ -79,7 +79,7 @@ public class InventorItemListByToolkitService implements AbstractListService<Inv
 			final Quantity quantity = this.repository.findQuantityByItemId(id);
 			model.setAttribute("quantity", quantity.getNumber());
 			
-			final Money exchange=this.exchangeReporistory.getExchange(entity.getRetailPrice());
+			final Money exchange=this.exchangeRepository.getExchange(entity.getRetailPrice());
 			model.setAttribute("exchange", exchange);
 		}
 }

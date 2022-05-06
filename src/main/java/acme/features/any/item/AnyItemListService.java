@@ -20,7 +20,7 @@ public class AnyItemListService implements AbstractListService<Any, Item>{
 	protected AnyItemRepository repository;
 	
 	@Autowired
-	protected ExchangeService exchangeReporistory;
+	protected ExchangeService exchangeRepository;
 
 	@Override
 	public boolean authorise(final Request<Item> request) {
@@ -47,7 +47,7 @@ public class AnyItemListService implements AbstractListService<Any, Item>{
 
 		request.unbind(entity, model, "name", "code", "technology", "description", "retailPrice", "info", "type");
 	
-		final Money exchange=this.exchangeReporistory.getExchange(entity.getRetailPrice());
+		final Money exchange=this.exchangeRepository.getExchange(entity.getRetailPrice());
 		model.setAttribute("exchange", exchange);
 	}
 }

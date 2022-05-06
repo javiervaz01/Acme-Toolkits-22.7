@@ -45,15 +45,12 @@ public class ExchangeService {
 				ExchangeRate.class,
 				sourceCurrency,
 				targetCurrency);
-			
 			assert record != null;
 			rate = record.getRates().get(targetCurrency);
 			targetAmount = rate * sourceAmount;
-				
 			result= new Money();
 			result.setAmount(targetAmount);
 			result.setCurrency(targetCurrency);
-					
 		} catch (final Throwable oops) {
 			result = null;
 		}
