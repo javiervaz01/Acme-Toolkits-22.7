@@ -13,6 +13,7 @@ inventor.toolkit.form.label.description = Descripción
 inventor.toolkit.form.label.assembly-notes = Notas de montaje
 inventor.toolkit.form.label.link = Enlace
 inventor.toolkit.form.label.retail-price = Precio de venta
+inventor.toolkit.form.label.exchange = Cambio de divisa
 inventor.toolkit.form.button.items = Artículos
 
 inventor.toolkit.form.error.duplicated = Ya existe un toolkit con este código

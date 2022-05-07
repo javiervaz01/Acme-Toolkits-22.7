@@ -12,6 +12,7 @@
 		
 	<jstl:if test="${!(command == 'create')}">
 		<acme:input-money code="inventor.toolkit.form.label.retail-price" path="retailPrice" readonly="true"/>
+		<acme:input-money code="inventor.toolkit.form.label.exchange" path="exchange" readonly="true"/>
 	</jstl:if>	
 	
 	<jstl:choose>

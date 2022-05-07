@@ -11,10 +11,16 @@ public class PatronDashboardItem {
 	
 	public Double average;
 	
+	public String exchangeAverage;
+	
 	public Double deviation;
 	
 	public Double min;
 	
+	public String exchangeMin;
+	
 	public Double max;
+	
+	public String exchangeMax;
 	
 }

@@ -18,6 +18,7 @@
 	<acme:input-textbox code="patron.patronage.list.label.patronage.identify.status" path="patronage.status"/>
 	<acme:input-textbox code="patron.patronage.list.label.patronage.identify.legal-stuff" path="patronage.legalStuff"/>
 	<acme:input-money code="patron.patronage.list.label.patronage.identify.budget" path="patronage.budget"/>
+		<acme:input-money code="patron.patronage.list.label.exchange" path="exchange"/>
 	<acme:input-moment code="patron.patronage.list.label.patronage.identify.creation-date" path="patronage.creationDate"/>
 	<acme:input-moment code="patron.patronage.list.label.patronage.identify.start-date" path="patronage.startDate"/>
 	<acme:input-moment code="patron.patronage.list.label.patronage.identify.end-date" path="patronage.endDate"/>

@@ -5,9 +5,11 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.ExchangeService;
 import acme.entities.items.Item;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.datatypes.Money;
 import acme.framework.roles.Any;
 import acme.framework.services.AbstractListService;
 
@@ -16,6 +18,9 @@ public class AnyItemListService implements AbstractListService<Any, Item>{
 	
 	@Autowired
 	protected AnyItemRepository repository;
+	
+	@Autowired
+	protected ExchangeService exchangeRepository;
 
 	@Override
 	public boolean authorise(final Request<Item> request) {
@@ -41,5 +46,8 @@ public class AnyItemListService implements AbstractListService<Any, Item>{
 		assert model != null;
 
 		request.unbind(entity, model, "name", "code", "technology", "description", "retailPrice", "info", "type");
+	
+		final Money exchange=this.exchangeRepository.getExchange(entity.getRetailPrice());
+		model.setAttribute("exchange", exchange);
 	}
 }

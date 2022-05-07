@@ -1,6 +1,7 @@
 inventor.patronage.list.label.status = Estado
 inventor.patronage.list.label.code = Código
 inventor.patronage.list.label.budget = Presupuesto
+inventor.patronage.list.label.exchange = Cambio de divisa
 inventor.patronage.list.label.start-date = Fecha de comienzo
 inventor.patronage.list.label.end-date = Fecha de fin
 
@@ -13,6 +14,7 @@ inventor.patronage.form.label.denied = DENEGADO
 inventor.patronage.form.label.code = Código
 inventor.patronage.form.label.legal-stuff = Legal
 inventor.patronage.form.label.budget = Presupuesto
+inventor.patronage.form.label.exchange = Cambio de divisa
 inventor.patronage.form.label.creation-date = Fecha de creación
 inventor.patronage.form.label.start-date = Fecha de comienzo
 inventor.patronage.form.label.end-date = Fecha de fin
