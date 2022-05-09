@@ -18,7 +18,7 @@ patron.patronage.form.label.start-date = Start date
 patron.patronage.form.label.end-date = End date
 patron.patronage.form.label.info = Information
 
-patron.patronage.form.inventor-data = Detalles del inventor
+patron.patronage.form.inventor-data = Inventor's details
 
 patron.patronage.form.label.inventor.identity.name = Name
 patron.patronage.form.label.inventor.identity.surname = Surname
@@ -28,3 +28,14 @@ patron.patronage.form.label.inventor.statement = Statement
 patron.patronage.form.label.inventor.info = Information
 
 patron.patronage.form.reports= Patronage's reports
+
+patron.patronage.list.button.create = Create
+patron.patronage.form.button.update = Update
+patron.patronage.form.button.delete = Delete
+patron.patronage.form.button.publish = Publish
+patron.patronage.form.button.create = Create
+
+patron.patronage.form.error.too-close = Start Date must be at least one month ahead
+patron.patronage.form.error.duplicated = This reference is taken
+patron.patronage.form.error.negative-budget = The salary must be positive
+

@@ -28,3 +28,13 @@ patron.patronage.form.label.inventor.statement = Frase
 patron.patronage.form.label.inventor.info = Información
 
 patron.patronage.form.reports= Reportes del patronazgo
+
+patron.patronage.list.button.create = Crear
+patron.patronage.form.button.update = Actualizar
+patron.patronage.form.button.delete = Borrar
+patron.patronage.form.button.publish = Publicar
+patron.patronage.form.button.create = Crear
+
+patron.patronage.form.error.too-close = La fecha límite debe ser en un mes como mínimo
+patron.patronage.form.error.duplicated = Esta referencia no está libre
+patron.patronage.form.error.negative-budget = El salario debe ser positivo
