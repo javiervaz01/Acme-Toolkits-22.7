@@ -1,0 +1,12 @@
+inventor.quantity.form.label.toolkit-id = Toolkit's ID
+inventor.quantity.form.label.toolkit = Toolkit's name
+inventor.quantity.form.label.items = Items
+inventor.quantity.form.label.quantity = Quantity
+
+inventor.quantity.form.button.create = Create
+inventor.quantity.form.button.update = Update
+inventor.quantity.form.button.delete = Delete
+
+inventor.quantity.form.error.no-quantity = There must be at least one item
+inventor.quantity.form.error.repeated-tool = A tool can't be repeated in a toolkit
+inventor.quantity.form.error.wrong-currency = The price must be in the same currency as the rest of items in the toolkit

@@ -57,9 +57,10 @@ public class Item extends AbstractEntity {
 
 	@NotNull
 	protected ItemType type;
-	
-	// Derived attributes ----------------------------------------------------
 
+	protected boolean draftMode;
+
+	// Derived attributes ----------------------------------------------------
 
 	// Relationships ----------------------------------------------------
 

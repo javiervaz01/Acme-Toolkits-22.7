@@ -10,7 +10,13 @@
 	<acme:list-column code="inventor.item.list.label.retail-price" path="retailPrice"/>
 	<acme:list-column code="inventor.item.list.label.exchange" path="exchange"/>
 	<acme:list-column code="inventor.item.list.label.type" path="type"/>
-	<acme:list-column code="inventor.item.list.label.quantity" path="quantity"/>
+	
+	<jstl:choose>
+		<jstl:when test="${command == 'list-by-toolkit'}">
+			<acme:list-column code="inventor.item.list.label.quantity" path="quantity"/>
+		</jstl:when>
+	</jstl:choose>
+	
 </acme:list>
 
-<acme:button test="${showCreate}" code="inventor.item.list.button.create" action="/inventor/item/create?masterId=${masterId}"/>
+<acme:button test="${showAddItem}" code="inventor.item.list.button.add-item" action="/inventor/quantity/create?toolkitId=${toolkitId}"/>

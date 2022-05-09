@@ -4,8 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.items.Item;
-import acme.entities.quantities.Quantity;
-import acme.entities.toolkits.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
@@ -20,20 +18,18 @@ public class InventorItemDeleteService implements AbstractDeleteService<Inventor
 	@Autowired
 	protected InventorItemRepository repository;
 
-	@Autowired
-	protected InventorQuantityRepository quantityRepository;
-
 	@Override
 	public boolean authorise(final Request<Item> request) {
 		assert request != null;
 
 		boolean result;
-		int itemId;
-		Toolkit toolkit;
+		int id;
+		Item item;
 
-		itemId = request.getModel().getInteger("id");
-		toolkit = this.repository.findOneToolkitByItemId(itemId);
-		result = (toolkit != null && toolkit.isDraftMode() && request.isPrincipal(toolkit.getInventor()));
+		id = request.getModel().getInteger("id");
+		item = this.repository.findItemById(id);
+
+		result = (item.isDraftMode() && request.isPrincipal(item.getInventor()));
 
 		return result;
 	}
@@ -67,12 +63,8 @@ public class InventorItemDeleteService implements AbstractDeleteService<Inventor
 		assert model != null;
 
 		request.unbind(entity, model, "title", "description", "workLoad", "moreInfo");
-		
-		final Integer id = entity.getId();
-		final Toolkit toolkit = this.repository.findOneToolkitByItemId(id);
-		
-		model.setAttribute("masterId", toolkit.getId());
-		model.setAttribute("draftMode", toolkit.isDraftMode());
+
+		model.setAttribute("draftMode", true);
 	}
 
 	@Override
@@ -87,9 +79,6 @@ public class InventorItemDeleteService implements AbstractDeleteService<Inventor
 		assert request != null;
 		assert entity != null;
 
-		final Quantity quantity = this.repository.findQuantityByItemId(entity.getId());
-		this.quantityRepository.delete(quantity);
-		
 		this.repository.delete(entity);
 	}
 }
