@@ -52,6 +52,8 @@ master.menu.inventor.patronage.list-proposed = Ver mis patronazgos propuestos
 master.menu.inventor.patronage-report.list = Ver mis reportes de patronazgos
 master.menu.inventor.toolkit.list = Ver mis toolkits
 master.menu.inventor.item.list = Ver mis artículos
+master.menu.inventor.patronage-report.create = Crear un reporte de patronazgo
+
 
 # master.menu.patron ########################################################
 
