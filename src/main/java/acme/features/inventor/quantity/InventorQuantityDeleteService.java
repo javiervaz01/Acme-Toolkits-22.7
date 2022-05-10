@@ -1,27 +1,31 @@
 package acme.features.inventor.quantity;
 
-import java.util.Collection;
+import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.ExchangeService;
 import acme.entities.items.Item;
-import acme.entities.items.ItemType;
 import acme.entities.quantities.Quantity;
 import acme.entities.toolkits.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
-import acme.framework.services.AbstractUpdateService;
+import acme.framework.datatypes.Money;
+import acme.framework.services.AbstractDeleteService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorQuantityUpdateService implements AbstractUpdateService<Inventor, Quantity> {
+public class InventorQuantityDeleteService implements AbstractDeleteService<Inventor, Quantity> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected InventorQuantityRepository repository;
+
+	@Autowired
+	protected ExchangeService exchangeService;
 
 	@Override
 	public boolean authorise(final Request<Quantity> request) {
@@ -33,13 +37,15 @@ public class InventorQuantityUpdateService implements AbstractUpdateService<Inve
 
 		id = request.getModel().getInteger("id");
 		toolkit = this.repository.findOneQuantityById(id).getToolkit();
-		result = (toolkit != null && toolkit.isDraftMode() && request.isPrincipal(toolkit.getInventor()));
+		result = toolkit.isDraftMode() && request.isPrincipal(toolkit.getInventor());
 
 		return result;
 	}
 
 	@Override
 	public Quantity findOne(final Request<Quantity> request) {
+		assert request != null;
+
 		Quantity result;
 		int id;
 
@@ -59,44 +65,6 @@ public class InventorQuantityUpdateService implements AbstractUpdateService<Inve
 	}
 
 	@Override
-	public void validate(final Request<Quantity> request, final Quantity entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
-
-		Model model;
-		Integer quantity;
-		Item selectedItem;
-
-		model = request.getModel();
-		quantity = model.getInteger("number");
-		selectedItem = this.repository.findOneItemByCode(model.getString("items"));
-
-		if (!errors.hasErrors("number")) {
-			errors.state(request, selectedItem.getType().equals(ItemType.COMPONENT) || quantity == 1, "number",
-					"inventor.quantity.form.error.repeated-tool");
-		}
-
-		if (!errors.hasErrors("items")) {
-			int toolkitId;
-			Collection<Item> itemsInToolkit;
-			String newItemCurrency;
-
-			newItemCurrency = selectedItem.getRetailPrice().getCurrency();
-
-			// Take the currency of an existing item in the toolkit. Can be null if the
-			// toolkit is empty
-			toolkitId = entity.getToolkit().getId();
-			itemsInToolkit = this.repository.findManyItemByToolkitId(toolkitId);
-
-			errors.state(request,
-					itemsInToolkit.isEmpty()
-							|| itemsInToolkit.iterator().next().getRetailPrice().getCurrency().equals(newItemCurrency),
-					"retailPrice", "inventor.quantity.form.error.wrong-currency");
-		}
-	}
-
-	@Override
 	public void unbind(final Request<Quantity> request, final Quantity entity, final Model model) {
 		assert request != null;
 		assert entity != null;
@@ -104,15 +72,29 @@ public class InventorQuantityUpdateService implements AbstractUpdateService<Inve
 
 		request.unbind(entity, model, "toolkit.title", "number");
 
+		Item item;
+		Money exchange;
+
+		item = entity.getItem();
+		model.setAttribute("items", Arrays.asList(item));
 		model.setAttribute("draftMode", entity.getToolkit().isDraftMode());
+
+		exchange = this.exchangeService.getExchange(item.getRetailPrice());
+		model.setAttribute("exchange", exchange);
 	}
 
 	@Override
-	public void update(final Request<Quantity> request, final Quantity entity) {
+	public void validate(final Request<Quantity> request, final Quantity entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
+	}
+
+	@Override
+	public void delete(final Request<Quantity> request, final Quantity entity) {
 		assert request != null;
 		assert entity != null;
 
-		this.repository.save(entity);
+		this.repository.delete(entity);
 	}
-
 }

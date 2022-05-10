@@ -48,8 +48,9 @@ public class InventorItemListMineService implements AbstractListService<Inventor
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "name", "code", "technology", "description", "retailPrice", "info", "type",
-				"draftMode");
+		request.unbind(entity, model, "name", "code", "technology", "description", "retailPrice", "info", "type");
+
+		model.setAttribute("published", !entity.isDraftMode());
 
 		final Money exchange = this.exchangeService.getExchange(entity.getRetailPrice());
 		model.setAttribute("exchange", exchange);

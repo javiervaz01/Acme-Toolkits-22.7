@@ -17,10 +17,10 @@
 	
 	<jstl:choose>
 		<jstl:when test="${command == 'show' && draftMode == false}">
-			<acme:button code="inventor.toolkit.form.button.items" action="/inventor/item/list-by-toolkit?masterId=${id}"/>
+			<acme:button code="inventor.toolkit.form.button.items" action="/inventor/quantity/list?toolkitId=${id}"/>
 		</jstl:when>	 
 		<jstl:when test="${acme:anyOf(command, 'show, update, delete, publish') && draftMode == true}">
-			<acme:button code="inventor.toolkit.form.button.items" action="/inventor/item/list-by-toolkit?masterId=${id}"/>
+			<acme:button code="inventor.toolkit.form.button.items" action="/inventor/quantity/list?toolkitId=${id}"/>
 			<acme:submit code="inventor.toolkit.form.button.update" action="/inventor/toolkit/update"/>
 			<acme:submit code="inventor.toolkit.form.button.delete" action="/inventor/toolkit/delete"/>
 			<acme:submit code="inventor.toolkit.form.button.publish" action="/inventor/toolkit/publish"/>

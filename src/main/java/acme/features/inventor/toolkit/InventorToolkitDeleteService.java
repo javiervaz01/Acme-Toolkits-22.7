@@ -88,7 +88,7 @@ public class InventorToolkitDeleteService implements AbstractDeleteService<Inven
 		id = request.getModel().getInteger("id");
 		quantities = this.repository.findManyQuantityByToolkitId(id);
 
-		this.repository.deleteAll(quantities); // Can I delete Quantity entities from Toolkit repository?
+		this.repository.deleteAll(quantities);
 		this.repository.delete(entity);
 	}
 }

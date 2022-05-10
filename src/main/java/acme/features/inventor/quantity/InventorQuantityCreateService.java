@@ -61,7 +61,19 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "toolkit.title", "number", "items", "toolkitId");
+		request.bind(entity, errors, "toolkit.title", "number", "items");
+
+		// TODO: The code below is necessary because, if it is missing, the form
+		// attributes won't be bound automatically to the Quantity entity. Maybe we are
+		// doing something wrong
+
+		Model model;
+		Item selectedItem;
+
+		model = request.getModel();
+		selectedItem = this.repository.findOneItemByCode(model.getString("items"));
+
+		entity.setItem(selectedItem);
 	}
 
 	@Override
@@ -79,8 +91,6 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 		selectedItem = this.repository.findOneItemByCode(model.getString("items"));
 
 		if (!errors.hasErrors("number")) {
-			errors.state(request, quantity != null && quantity >= 1, "number",
-					"inventor.quantity.form.error.no-quantity");
 			errors.state(request, selectedItem.getType().equals(ItemType.COMPONENT) || quantity == 1, "number",
 					"inventor.quantity.form.error.repeated-tool");
 		}
@@ -95,12 +105,15 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 			// Take the currency of an existing item in the toolkit. Can be null if the
 			// toolkit is empty
 			toolkitId = request.getModel().getInteger("toolkitId");
-			itemsInToolkit = this.repository.findItemsByToolkitId(toolkitId);
+			itemsInToolkit = this.repository.findManyItemByToolkitId(toolkitId);
 
 			errors.state(request,
 					itemsInToolkit.isEmpty()
 							|| itemsInToolkit.iterator().next().getRetailPrice().getCurrency().equals(newItemCurrency),
-					"retailPrice", "inventor.quantity.form.error.wrong-currency");
+					"toolkit.title", "inventor.quantity.form.error.wrong-currency");
+
+			errors.state(request, !itemsInToolkit.contains(entity.getItem()), "toolkit.title",
+					"inventor.quantity.form.error.repeated-item");
 		}
 	}
 
@@ -112,10 +125,14 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 
 		request.unbind(entity, model, "toolkit.title", "number");
 
-		final Collection<Item> items = this.repository.findAllItems();
-		model.setAttribute("items", items);
+		int toolkitId;
+		Collection<Item> items;
 
-		model.setAttribute("toolkitId", entity.getToolkit().getId());
+		toolkitId = request.getModel().getInteger("toolkitId");
+		items = this.repository.findAllItems();
+
+		model.setAttribute("items", items);
+		model.setAttribute("toolkitId", toolkitId);
 
 	}
 
@@ -124,16 +141,7 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 		assert request != null;
 		assert entity != null;
 
-		Model model;
-		Item item;
-
-		model = request.getModel();
-		item = (Item) model.getAttribute("item");
-
-		entity.setItem(item);
-
 		this.repository.save(entity);
-
 	}
 
 }

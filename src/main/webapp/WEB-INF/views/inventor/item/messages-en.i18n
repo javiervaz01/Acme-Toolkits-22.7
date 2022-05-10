@@ -4,9 +4,7 @@ inventor.item.list.label.technology = Technology
 inventor.item.list.label.retail-price = Retail Price
 inventor.item.list.label.exchange= Currency Exchange
 inventor.item.list.label.type = Item Type
-inventor.item.list.label.quantity = Quantity
-
-inventor.item.list.button.add-item = Add item
+inventor.item.list.label.published = Published
 
 inventor.item.form.label.name = Name
 inventor.item.form.label.code = Code
@@ -18,7 +16,6 @@ inventor.item.form.label.info = Info
 inventor.item.form.label.type = Item type
 inventor.item.form.label.type.tool = TOOL
 inventor.item.form.label.type.component = COMPONENT
-inventor.item.form.label.quantity = Quantity
 
 inventor.item.form.button.create = Create
 inventor.item.form.button.update = Update

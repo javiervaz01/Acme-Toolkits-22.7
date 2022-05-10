@@ -79,19 +79,14 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "name", "code", "technology", "description", "retailPrice", "info", "type");
+		request.unbind(entity, model, "name", "code", "technology", "description", "retailPrice", "info", "type",
+				"draftMode");
 	}
 
 	@Override
 	public void update(final Request<Item> request, final Item entity) {
 		assert request != null;
 		assert entity != null;
-
-		// TODO If the system currency changes, there will be problems (new items will
-		// have a different currency). The solution is to force every subsequent item to
-		// be of the the same currency of the first one added (or transform it on save).
-		// The display currency should be set via the user's locale by means of a
-		// Formatter (acme includes LocalisedMoneyFormatter)
 
 		this.repository.save(entity);
 	}

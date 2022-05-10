@@ -32,8 +32,8 @@ public interface InventorItemRepository extends AbstractRepository {
 	@Query("select i from Item i where i.code = :code")
 	Item findOneItemByCode(String code);
 
-	@Query("select q from Quantity q where q.item.id = :id")
-	Quantity findQuantityByItemId(int id);
+	@Query("select q from Quantity q where q.item.id = :itemId and q.toolkit.id = :toolkitId")
+	Quantity findQuantityInToolkit(int itemId, int toolkitId);
 
 	@Query("select sc.currency from SystemConfiguration sc")
 	String findSystemCurrency();

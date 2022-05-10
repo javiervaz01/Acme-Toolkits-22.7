@@ -10,23 +10,20 @@ import acme.framework.controllers.AbstractController;
 import acme.roles.Inventor;
 
 @Controller
-public class InventorItemController extends AbstractController<Inventor, Item>{
+public class InventorItemController extends AbstractController<Inventor, Item> {
 
 	@Autowired
 	protected InventorItemListMineService listMineService;
-	
-	@Autowired
-	protected InventorItemListByToolkitService listByToolkitService;
-	
+
 	@Autowired
 	protected InventorItemShowService showService;
-	
+
 	@Autowired
 	protected InventorItemCreateService createService;
 
 	@Autowired
 	protected InventorItemUpdateService updateService;
-	
+
 	@Autowired
 	protected InventorItemDeleteService deleteService;
 
@@ -37,7 +34,6 @@ public class InventorItemController extends AbstractController<Inventor, Item>{
 		super.addCommand("update", this.updateService);
 		super.addCommand("delete", this.deleteService);
 
-		super.addCommand("list-mine","list", this.listMineService);
-		super.addCommand("list-by-toolkit","list", this.listByToolkitService);
+		super.addCommand("list-mine", "list", this.listMineService);
 	}
 }
