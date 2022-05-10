@@ -21,3 +21,6 @@ inventor.patronage-report.form.label.patronage.identify.creation-date = Fecha de
 inventor.patronage-report.form.label.patronage.identify.start-date = Fecha de comienzo
 inventor.patronage-report.form.label.patronage.identify.end-date = Fecha de fin
 inventor.patronage-report.form.label.patronage.identify.info = Información
+
+inventor.patronage-report.form.label.confirmation = Confirmación
+inventor.patronage-report.form.button.create = Crear un reporte de patronazgo
