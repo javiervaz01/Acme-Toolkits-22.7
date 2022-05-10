@@ -6,7 +6,5 @@ administrator.system-configuration.form.label.weak-spam-terms = Weak Spam Terms
 administrator.system-configuration.form.label.weak-spam-threshold = Weak Spam Threshold
 
 administrator.system-configuration.form.error.currency-not-supported = The currency is not in the list of accepted currencies
-administrator.system-configuration.form.error.negative-threshold = The threshold can not be negative
-administrator.system-configuration.form.error.threshold-over-limit = The threshold can not be greater than 100%
 
 administrator.system-configuration.form.button.update = Update

@@ -10,14 +10,19 @@
 - they accept any liabilities with respect to them.
 --%>
 
-<%@page language="java" import="acme.framework.helpers.PrincipalHelper,acme.roles.Provider,acme.roles.Consumer"%>
-
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
+	
+		<acme:menu-option code="master.menu.any">
+			<acme:menu-suboption code="master.menu.any.user-account.list" action="/any/user-account/list"/>			
+			<acme:menu-suboption code="master.menu.any.item.list" action="/any/item/list"/>
+			<acme:menu-suboption code="master.menu.any.chirp.list" action="/any/chirp/list-recent"/>
+		</acme:menu-option>
+		
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.andres-duran.favourite-link" action="https://distill.pub/"/>
@@ -26,9 +31,13 @@
 			<acme:menu-suboption code="master.menu.anonymous.alejandro-carrasco.favourite-link" action="https://www.visitarsevilla.com/"/>
 			<acme:menu-suboption code="master.menu.anonymous.pablo-robledo.favourite-link" action="https://www.learnweb3.io/"/>
 			<acme:menu-suboption code="master.menu.anonymous.pablo-nunez.favourite-link" action="https://www.windy.com/"/>
-
 		</acme:menu-option>
-
+	
+		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">			
+			<acme:menu-suboption code="master.menu.user-account.system-configuration.show" action="/authenticated/system-configuration/show"/>
+			<acme:menu-suboption code="master.menu.user-account.announcement.list-recent" action="/authenticated/announcement/list-recent"/>
+		</acme:menu-option>
+		
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-suboption code="master.menu.administrator.system-configuration.show" action="/administrator/system-configuration/show"/>
@@ -41,11 +50,6 @@
 			<acme:menu-suboption code="master.menu.administrator.shut-down" action="/administrator/shut-down"/>
 		</acme:menu-option>
 		
-		<acme:menu-option code="master.menu.any">
-			<acme:menu-suboption code="master.menu.any.user-account.list" action="/any/user-account/list"/>			
-			<acme:menu-suboption code="master.menu.any.item.list" action="/any/item/list"/>
-			<acme:menu-suboption code="master.menu.any.chirp.list" action="/any/chirp/list-recent"/>
-		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.inventor" access="hasRole('Inventor')">			
 			<acme:menu-suboption code="master.menu.inventor.patronage.list" action="/inventor/patronage/list"/>
@@ -59,11 +63,6 @@
 			<acme:menu-suboption code="master.menu.patron.dashboard" action="/patron/patron-dashboard/show"/>
 			<acme:menu-suboption code="master.menu.patron.patronage.list" action="/patron/patronage/list"/>
 			<acme:menu-suboption code="master.menu.patron.patronage-report.list" action="/patron/patronage-report/list"/>
-		</acme:menu-option>
-		
-		<acme:menu-option code="master.menu.authenticated" access="isAuthenticated()">			
-			<acme:menu-suboption code="master.menu.user-account.system-configuration.show" action="/authenticated/system-configuration/show"/>
-			<acme:menu-suboption code="master.menu.user-account.announcement.list-recent" action="/authenticated/announcement/list-recent"/>
 		</acme:menu-option>
 		
 	</acme:menu-left>

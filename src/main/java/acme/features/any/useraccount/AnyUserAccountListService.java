@@ -36,22 +36,22 @@ public class AnyUserAccountListService implements AbstractListService<Any, UserA
 
 		final Collection<UserAccount> accounts = this.repository.findEnabledUserAccounts();
 
-		final Stream<UserAccount> filtered =
-				accounts.stream().filter(e -> !e.isAnonymous() && !e.hasRole(Administrator.class));
+		// TODO create a query that performs this filter, to avoid doing so in memory
+		final Stream<UserAccount> filtered = accounts.stream()
+				.filter(e -> !e.isAnonymous() && !e.hasRole(Administrator.class));
 
 		return filtered.collect(Collectors.toList());
 	}
 
 	@Override
-	public void unbind(final Request<UserAccount> request, final UserAccount entity,
-			final Model model) {
+	public void unbind(final Request<UserAccount> request, final UserAccount entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
 		StringBuilder buffer;
 		Collection<UserRole> roles;
-		
+
 		request.unbind(entity, model, "identity.name", "identity.surname", "identity.email");
 
 		roles = entity.getRoles();
