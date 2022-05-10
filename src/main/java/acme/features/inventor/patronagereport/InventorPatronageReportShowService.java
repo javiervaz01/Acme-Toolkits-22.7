@@ -3,9 +3,11 @@ package acme.features.inventor.patronagereport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.ExchangeService;
 import acme.entities.patronagereports.PatronageReport;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.datatypes.Money;
 import acme.framework.services.AbstractShowService;
 import acme.roles.Inventor;
 
@@ -17,7 +19,8 @@ public class InventorPatronageReportShowService implements AbstractShowService<I
 	@Autowired
 	protected InventorPatronageReportRepository repository;
 	
-	
+	@Autowired
+	protected ExchangeService exchangeRepository;
 	
 	@Override
 	public boolean authorise(final Request<PatronageReport> request) {
@@ -47,6 +50,9 @@ public class InventorPatronageReportShowService implements AbstractShowService<I
 	
 		final int masterId = request.getModel().getInteger("id");
 		model.setAttribute("masterId", masterId);
+		
+		final Money exchange=this.exchangeRepository.getExchange(entity.getPatronage().getBudget());
+		model.setAttribute("exchange", exchange);
 	}
 
 }

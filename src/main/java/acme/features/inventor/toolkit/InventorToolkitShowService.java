@@ -3,6 +3,7 @@ package acme.features.inventor.toolkit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.ExchangeService;
 import acme.entities.toolkits.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
@@ -18,6 +19,9 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 	@Autowired
 	protected InventorToolkitRepository repository;
 
+	@Autowired
+	protected ExchangeService exchangeRepository;
+	
 	@Override
 	public boolean authorise(final Request<Toolkit> request) {
 
@@ -63,6 +67,9 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 		retailPrice.setCurrency(currency);
 		
 		model.setAttribute("retailPrice", retailPrice);
+		
+		final Money exchange=this.exchangeRepository.getExchange(retailPrice);
+		model.setAttribute("exchange", exchange);
 	}
 
 }

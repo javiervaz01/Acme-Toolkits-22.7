@@ -1,6 +1,7 @@
 patron.patronage.list.label.status = Status
 patron.patronage.list.label.code = Code
 patron.patronage.list.label.budget = Budget
+patron.patronage.list.label.exchange= Currency Exchange
 patron.patronage.list.label.start-date = Start date
 patron.patronage.list.label.end-date = End date
 
@@ -13,6 +14,7 @@ patron.patronage.form.label.denied = DENIED
 patron.patronage.form.label.code = Code
 patron.patronage.form.label.legal-stuff = Legal
 patron.patronage.form.label.budget = Budget
+patron.patronage.form.label.exchange= Currency Exchange
 patron.patronage.form.label.creation-date = Creation date
 patron.patronage.form.label.start-date = Start date
 patron.patronage.form.label.end-date = End date
