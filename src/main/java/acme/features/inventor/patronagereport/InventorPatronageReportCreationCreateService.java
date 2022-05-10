@@ -35,7 +35,15 @@ public class InventorPatronageReportCreationCreateService implements AbstractCre
 		assert errors != null;
 
 		request.bind(entity, errors, "sequenceNumber","creationTime","memorandum","info");
+		Integer masterId;
+		Patronage patronage;
 		
+		
+		masterId = request.getModel().getInteger("masterId");
+		patronage = this.repository.findPatronageById(masterId);
+		
+		entity.setPatronage(patronage);
+		System.out.println(entity.getPatronage());
 	}
 
 	@Override
@@ -44,8 +52,12 @@ public class InventorPatronageReportCreationCreateService implements AbstractCre
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "sequenceNumber","creationTime","memorandum","info");
 		
+		
+		request.unbind(entity, model, "sequenceNumber","creationTime","memorandum","info");
+		Integer masterId;
+		masterId = request.getModel().getInteger("masterId");
+		model.setAttribute("masterId", masterId);
 	}
 
 	@Override
