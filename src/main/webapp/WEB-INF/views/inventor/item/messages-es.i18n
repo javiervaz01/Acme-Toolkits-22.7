@@ -6,6 +6,8 @@ inventor.item.list.label.exchange = Cambio de divisa
 inventor.item.list.label.type = Tipo de Artículo
 inventor.item.list.label.published = Publicado
 
+inventor.item.list.button.create = Crear
+
 inventor.item.form.label.name = Nombre
 inventor.item.form.label.code = Código
 inventor.item.form.label.technology = Tecnología
