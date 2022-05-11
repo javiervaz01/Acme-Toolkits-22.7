@@ -29,7 +29,6 @@ patron.patronage.form.label.inventor.info = Information
 
 patron.patronage.form.reports= Patronage's reports
 
-patron.patronage.list.button.create = Create
 patron.patronage.form.button.update = Update
 patron.patronage.form.button.delete = Delete
 patron.patronage.form.button.publish = Publish

@@ -1,9 +1,7 @@
 package acme.features.patron.patronage;
 
 
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -60,7 +58,7 @@ public class PatronPatronagePublishService implements AbstractUpdateService<Patr
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "status", "code", "legalStuff", "budget", "creationDate", "startDate", "endDate", "info"); //"inventorName", "inventorSurname", "inventorEmail", "inventorCompany", "inventorStatement", "inventorInfo");
+		request.bind(entity, errors, "code", "legalStuff", "budget", "startDate", "endDate", "info");
 	}
 
 	@Override
@@ -70,13 +68,25 @@ public class PatronPatronagePublishService implements AbstractUpdateService<Patr
 		assert errors != null;
 
 		if (!errors.hasErrors("startDate")) {
-			Calendar calendar;
-			Date minimumStartTime;
-
-			calendar = new GregorianCalendar();
-			calendar.add(Calendar.WEEK_OF_MONTH, 1);
-			minimumStartTime = calendar.getTime();
-			errors.state(request, entity.getStartDate().after(minimumStartTime), "startTime", "patron.patronage.form.error.too-close");
+			final Date creationDate = entity.getCreationDate();
+			 final Date minimumStartDate = new Date();
+			 if(creationDate.getMonth()<11) {
+				 minimumStartDate.setHours(creationDate.getHours());
+				 minimumStartDate.setMinutes(creationDate.getMinutes());
+				 minimumStartDate.setSeconds(creationDate.getSeconds());
+				 minimumStartDate.setYear(creationDate.getYear());
+				 minimumStartDate.setMonth(creationDate.getMonth()+1);
+			 }
+			 else {
+				 minimumStartDate.setHours(creationDate.getHours());
+				 minimumStartDate.setMinutes(creationDate.getMinutes());
+				 minimumStartDate.setSeconds(creationDate.getSeconds());
+				 minimumStartDate.setYear(creationDate.getYear()+1);
+				 minimumStartDate.setMonth(0); 
+			 }
+		
+			 final Date startDate = entity.getStartDate();			
+			errors.state(request, minimumStartDate.equals(startDate) || minimumStartDate.before(startDate), "startTime", "patron.patronage.form.error.too-close");
 		}
 
 		if (!errors.hasErrors("code")) {

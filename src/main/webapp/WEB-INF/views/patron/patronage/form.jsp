@@ -8,7 +8,7 @@
 	<jstl:if test="${command != 'create'}">
 		<acme:input-textbox code="patron.patronage.form.label.status" path="status" readonly="true"/>		
 	</jstl:if>
-	<acme:input-textbox code="patron.patronage.form.label.code" path="code" placeholder="ABC-123-D"/>
+		<acme:input-textbox code="patron.patronage.form.label.code" path="code" placeholder="ABC-123-D"/>
 	<acme:input-textarea code="patron.patronage.form.label.legal-stuff" path="legalStuff"/>
 	<acme:input-money code="patron.patronage.form.label.budget" path="budget"/>
 	<jstl:if test="${command != 'create'}">
@@ -22,12 +22,12 @@
 	<h2>
 		<acme:message code="patron.patronage.form.inventor-data"/>
 	</h2>
-	<acme:input-textbox code="patron.patronage.form.label.inventor.identity.name" path="inventorName"/>
-	<acme:input-textbox code="patron.patronage.form.label.inventor.identity.surname" path="inventorSurname"/>
-	<acme:input-textbox code="patron.patronage.form.label.inventor.identity.email" path="inventorEmail"/>
-	<acme:input-textbox code="patron.patronage.form.label.inventor.company" path="inventorCompany"/>
-	<acme:input-textbox code="patron.patronage.form.label.inventor.statement" path="inventorStatement"/>
-	<acme:input-url code="patron.patronage.form.label.inventor.info" path="inventorInfo"/>
+	<acme:input-textbox code="patron.patronage.form.label.inventor.identity.name" path="inventorName" readonly="true"/>
+	<acme:input-textbox code="patron.patronage.form.label.inventor.identity.surname" path="inventorSurname" readonly="true"/>
+	<acme:input-textbox code="patron.patronage.form.label.inventor.identity.email" path="inventorEmail" readonly="true"/>
+	<acme:input-textbox code="patron.patronage.form.label.inventor.company" path="inventorCompany" readonly="true"/>
+	<acme:input-textbox code="patron.patronage.form.label.inventor.statement" path="inventorStatement" readonly="true"/>
+	<acme:input-url code="patron.patronage.form.label.inventor.info" path="inventorInfo" readonly="true"/>
 	</jstl:if>
 	
 	<jstl:choose>	 
