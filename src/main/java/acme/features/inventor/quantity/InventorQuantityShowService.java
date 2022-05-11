@@ -1,10 +1,13 @@
-package acme.features.inventor.item;
+package acme.features.inventor.quantity;
+
+import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.components.ExchangeService;
 import acme.entities.items.Item;
+import acme.entities.quantities.Quantity;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.datatypes.Money;
@@ -12,16 +15,16 @@ import acme.framework.services.AbstractShowService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorItemShowService implements AbstractShowService<Inventor, Item> {
+public class InventorQuantityShowService implements AbstractShowService<Inventor, Quantity> {
 
 	@Autowired
-	protected InventorItemRepository repository;
+	protected InventorQuantityRepository repository;
 
 	@Autowired
 	protected ExchangeService exchangeService;
 
 	@Override
-	public boolean authorise(final Request<Item> request) {
+	public boolean authorise(final Request<Quantity> request) {
 		assert request != null;
 
 		boolean result;
@@ -29,7 +32,8 @@ public class InventorItemShowService implements AbstractShowService<Inventor, It
 		Item item;
 
 		id = request.getModel().getInteger("id");
-		item = this.repository.findItemById(id);
+
+		item = this.repository.findOneQuantityById(id).getItem();
 
 		result = (!item.isDraftMode() || request.isPrincipal(item.getInventor()));
 
@@ -37,28 +41,34 @@ public class InventorItemShowService implements AbstractShowService<Inventor, It
 	}
 
 	@Override
-	public Item findOne(final Request<Item> request) {
+	public Quantity findOne(final Request<Quantity> request) {
 		assert request != null;
 
 		int id;
-		Item result;
+		Quantity result;
 
 		id = request.getModel().getInteger("id");
-		result = this.repository.findItemById(id);
+		result = this.repository.findOneQuantityById(id);
 
 		return result;
 	}
 
 	@Override
-	public void unbind(final Request<Item> request, final Item entity, final Model model) {
+	public void unbind(final Request<Quantity> request, final Quantity entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "name", "code", "technology", "description", "retailPrice", "info", "type",
-				"draftMode");
+		request.unbind(entity, model, "toolkit.title", "number");
 
-		final Money exchange = this.exchangeService.getExchange(entity.getRetailPrice());
+		Item item;
+		Money exchange;
+
+		item = entity.getItem();
+		model.setAttribute("items", Arrays.asList(item));
+		model.setAttribute("draftMode", entity.getToolkit().isDraftMode());
+
+		exchange = this.exchangeService.getExchange(item.getRetailPrice());
 		model.setAttribute("exchange", exchange);
 	}
 }

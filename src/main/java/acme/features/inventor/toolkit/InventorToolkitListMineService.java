@@ -13,37 +13,37 @@ import acme.roles.Inventor;
 
 @Service
 public class InventorToolkitListMineService implements AbstractListService<Inventor, Toolkit> {
-	
+
 	// Internal state ---------------------------------------------------------
 
-		@Autowired
-		protected InventorToolkitRepository repository;
+	@Autowired
+	protected InventorToolkitRepository repository;
 
-		@Override
-		public boolean authorise(final Request<Toolkit> request) {
-			assert request != null;
+	@Override
+	public boolean authorise(final Request<Toolkit> request) {
+		assert request != null;
 
-			return true;
-		}
+		return true;
+	}
 
-		@Override
-		public Collection<Toolkit> findMany(final Request<Toolkit> request) {
-			assert request != null;
+	@Override
+	public Collection<Toolkit> findMany(final Request<Toolkit> request) {
+		assert request != null;
 
-			final int inventorId = request.getPrincipal().getActiveRoleId();
-			
-			return this.repository.findToolkitsByInventorId(inventorId);
-		}
+		final int inventorId = request.getPrincipal().getActiveRoleId();
 
-		@Override
-		public void unbind(final Request<Toolkit> request, final Toolkit entity, final Model model) {
-			assert request != null;
-			assert entity != null;
-			assert model != null;
+		return this.repository.findToolkitsByInventorId(inventorId);
+	}
 
-			request.unbind(entity, model, "code", "title", "description");
-			
-			final Boolean isPublished = !entity.isDraftMode();
-			model.setAttribute("published", isPublished);
-		}
+	@Override
+	public void unbind(final Request<Toolkit> request, final Toolkit entity, final Model model) {
+		assert request != null;
+		assert entity != null;
+		assert model != null;
+
+		request.unbind(entity, model, "code", "title", "description");
+
+		final Boolean isPublished = !entity.isDraftMode();
+		model.setAttribute("published", isPublished);
+	}
 }

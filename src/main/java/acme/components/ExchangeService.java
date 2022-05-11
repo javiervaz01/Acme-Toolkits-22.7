@@ -10,52 +10,47 @@ import acme.framework.datatypes.Money;
 public class ExchangeService {
 
 	// Internal state ---------------------------------------------------------
-	
+
 	@Autowired
 	protected ExchangeRepository repository;
 
-
-	
 	public Money getExchange(final Money budget) {
-		
+
 		final String systemCurrency = this.repository.getSystemConfiguration().getCurrency();
-		if(!budget.getCurrency().equals(systemCurrency)) {
-			return this.getAdaptedCurrency(budget);
-		}else {
-			return budget;
-		}
-		
+
+		return budget.getCurrency().equals(systemCurrency) ? budget : this.getAdaptedCurrency(budget);
 	}
 
 	private Money getAdaptedCurrency(final Money budget) {
-		Money result;
 		final RestTemplate api;
 		final ExchangeRate record;
 		final Double rate;
-		final String sourceCurrency= budget.getCurrency();
-		final Double sourceAmount=budget.getAmount();
+		final String sourceCurrency = budget.getCurrency();
+		final Double sourceAmount = budget.getAmount();
 		final Double targetAmount;
-		final String targetCurrency=this.repository.getSystemConfiguration().getCurrency();
-		
+		final String targetCurrency = this.repository.getSystemConfiguration().getCurrency();
+		Money result;
+
 		try {
-			api= new RestTemplate();
-			
-			record = api.getForObject(
-				"https://api.exchangerate.host/latest?base={0}&symbols={1}",
-				ExchangeRate.class,
-				sourceCurrency,
-				targetCurrency);
+			api = new RestTemplate();
+
+			record = api.getForObject("https://api.exchangerate.host/latest?base={0}&symbols={1}", ExchangeRate.class,
+					sourceCurrency, targetCurrency);
+
 			assert record != null;
+
 			rate = record.getRates().get(targetCurrency);
 			targetAmount = rate * sourceAmount;
-			result= new Money();
+
+			result = new Money();
 			result.setAmount(targetAmount);
 			result.setCurrency(targetCurrency);
+
 		} catch (final Throwable oops) {
 			result = null;
 		}
+
 		return result;
 	}
-
 
 }

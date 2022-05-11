@@ -29,8 +29,8 @@ public class InventorToolkitCreateService implements AbstractCreateService<Inven
 	public Toolkit instantiate(final Request<Toolkit> request) {
 		assert request != null;
 
-		Toolkit result;
 		Inventor inventor;
+		Toolkit result;
 
 		inventor = this.repository.findOneInventorById(request.getPrincipal().getActiveRoleId());
 		result = new Toolkit();
