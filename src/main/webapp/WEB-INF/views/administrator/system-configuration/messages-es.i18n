@@ -6,7 +6,5 @@ administrator.system-configuration.form.label.weak-spam-terms = Términos spam d
 administrator.system-configuration.form.label.weak-spam-threshold = Umbral de spam débil
 
 administrator.system-configuration.form.error.currency-not-supported = La divisa no está en la lista de aceptadas
-administrator.system-configuration.form.error.negative-threshold = El umbral no puede ser negativo
-administrator.system-configuration.form.error.threshold-over-limit = El umbral no puede estar por encima del 100%
 
 administrator.system-configuration.form.button.update = Actualizar
