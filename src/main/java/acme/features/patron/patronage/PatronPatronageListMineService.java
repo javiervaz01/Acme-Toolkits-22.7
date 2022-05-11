@@ -14,7 +14,7 @@ import acme.framework.services.AbstractListService;
 import acme.roles.Patron;
 
 @Service
-public class PatronPatronageListService implements AbstractListService<Patron, Patronage>{
+public class PatronPatronageListMineService implements AbstractListService<Patron, Patronage>{
 
 	// Internal state ---------------------------------------------------------
 	
@@ -46,7 +46,9 @@ public class PatronPatronageListService implements AbstractListService<Patron, P
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model, "status", "code", "budget","legalStuff", "creationDate", "startDate", "endDate", "info");
+		request.unbind(entity, model, "status", "code", "legalStuff", "budget", "creationDate", "startDate", "endDate", "info");
+		final Boolean isPublished = !entity.isDraftMode();
+		model.setAttribute("published", isPublished);
 		
 		final Money exchange=this.exchangeRepository.getExchange(entity.getBudget());
 		model.setAttribute("exchange", exchange);
