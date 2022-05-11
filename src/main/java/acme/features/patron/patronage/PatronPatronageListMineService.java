@@ -5,9 +5,11 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.ExchangeService;
 import acme.entities.patronages.Patronage;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.datatypes.Money;
 import acme.framework.services.AbstractListService;
 import acme.roles.Patron;
 
@@ -18,6 +20,9 @@ public class PatronPatronageListMineService implements AbstractListService<Patro
 	
 	@Autowired
 	protected PatronPatronageRepository repository;
+	
+	@Autowired
+	protected ExchangeService exchangeRepository;
 	
 	@Override
 	public boolean authorise(final Request<Patronage> request) {
@@ -44,6 +49,14 @@ public class PatronPatronageListMineService implements AbstractListService<Patro
 		request.unbind(entity, model, "status", "code", "legalStuff", "budget", "creationDate", "startDate", "endDate", "info");
 		final Boolean isPublished = !entity.isDraftMode();
 		model.setAttribute("published", isPublished);
+		
+		final Money exchange=this.exchangeRepository.getExchange(entity.getBudget());
+		model.setAttribute("exchange", exchange);
+		
+		
+			
 	}
+	
+	
 
 }

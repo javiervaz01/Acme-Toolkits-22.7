@@ -6,10 +6,8 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.items.Item;
 import acme.entities.quantities.Quantity;
 import acme.entities.toolkits.Toolkit;
-import acme.features.inventor.item.InventorQuantityRepository;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
@@ -23,9 +21,6 @@ public class InventorToolkitDeleteService implements AbstractDeleteService<Inven
 
 	@Autowired
 	protected InventorToolkitRepository repository;
-
-	@Autowired
-	protected InventorQuantityRepository quantityRepository;
 
 	@Override
 	public boolean authorise(final Request<Toolkit> request) {
@@ -66,8 +61,8 @@ public class InventorToolkitDeleteService implements AbstractDeleteService<Inven
 	public Toolkit findOne(final Request<Toolkit> request) {
 		assert request != null;
 
-		Toolkit result;
 		int id;
+		Toolkit result;
 
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneToolkitById(id);
@@ -87,14 +82,13 @@ public class InventorToolkitDeleteService implements AbstractDeleteService<Inven
 		assert request != null;
 		assert entity != null;
 
-		final Collection<Item> items = this.repository.findItemsByToolkitId(entity.getId());
-		
-		items.forEach(item -> {
-			final Quantity quantity = this.repository.findQuantityByItemId(item.getId());
-			this.quantityRepository.delete(quantity);
-			this.repository.delete(item);
-		});
-		
+		int id;
+		Collection<Quantity> quantities;
+
+		id = request.getModel().getInteger("id");
+		quantities = this.repository.findManyQuantityByToolkitId(id);
+
+		this.repository.deleteAll(quantities);
 		this.repository.delete(entity);
 	}
 }

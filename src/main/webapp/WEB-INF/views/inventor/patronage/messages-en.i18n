@@ -1,6 +1,7 @@
 inventor.patronage.list.label.status = Status
 inventor.patronage.list.label.code = Code
 inventor.patronage.list.label.budget = Budget
+inventor.patronage.list.label.exchange = Currency Exchange 
 inventor.patronage.list.label.start-date = Start date
 inventor.patronage.list.label.end-date = End date
 
@@ -13,6 +14,7 @@ inventor.patronage.form.label.denied = DENIED
 inventor.patronage.form.label.code = Code
 inventor.patronage.form.label.legal-stuff = Legal
 inventor.patronage.form.label.budget = Budget
+inventor.patronage.form.label.exchange = Currency Exchange
 inventor.patronage.form.label.creation-date = Creation date
 inventor.patronage.form.label.start-date = Start date
 inventor.patronage.form.label.end-date = End date
@@ -29,3 +31,4 @@ inventor.patronage.form.label.patron.info = Information
 
 inventor.patronage.form.reports= Patronage's Reports
 inventor.patronage.form.button.update = Update
+inventor.patronage-report.form.button.create = Create a Patronage Report

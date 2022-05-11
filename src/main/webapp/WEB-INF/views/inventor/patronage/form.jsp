@@ -18,6 +18,7 @@
 		<acme:input-textbox code="inventor.patronage.form.label.code" path="code"/>
 			<acme:input-textarea code="inventor.patronage.form.label.legal-stuff" path="legalStuff"/>
 			<acme:input-money code="inventor.patronage.form.label.budget" path="budget"/>
+			<acme:input-money code="inventor.patronage.form.label.exchange" path="exchange"/>
 			<acme:input-moment code="inventor.patronage.form.label.creation-date" path="creationDate"/>
 			<acme:input-moment code="inventor.patronage.form.label.start-date" path="startDate"/>
 			<acme:input-moment code="inventor.patronage.form.label.end-date" path="endDate"/>
@@ -35,8 +36,9 @@
 	</jstl:choose>
 	
 	<acme:button code="inventor.patronage.form.reports" action="/inventor/patronage-report/list"/>
-	<acme:button test="${command == 'show' && status == 'PROPOSED'}" code="inventor.patronage.form.button.update" action="/inventor/patronage/update?id=${id}"/>
+	<acme:button test="${command == 'show' && status == 'PROPOSED'}" code="inventor.patronage.form.button.update" action="/inventor/patronage/update?patronageId=${id}"/>
 	<acme:submit test="${command == 'update' && status == 'PROPOSED'}" code="inventor.patronage.form.button.update" action="/inventor/patronage/update"/>
+	<acme:button code="inventor.patronage-report.form.button.create" action="/inventor/patronage-report/create?masterId=${id}"/>
 	
 </acme:form>
 

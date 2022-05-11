@@ -9,20 +9,26 @@
 	<acme:input-textbox code="inventor.item.form.label.technology" path="technology"/>
 	<acme:input-textbox code="inventor.item.form.label.description" path="description"/>
 	<acme:input-money code="inventor.item.form.label.retail-price" path="retailPrice"/>
+
+	<jstl:choose>
+			<jstl:when test="${acme:anyOf(command, 'show, update, delete')}">
+	<acme:input-money code="inventor.item.form.label.exchange" path="exchange" readonly="true"/>
+			</jstl:when>		
+	</jstl:choose>		
+	
 	<acme:input-url code="inventor.item.form.label.info" path="info"/>
 	<acme:input-select code="inventor.item.form.label.type" path="type">
 		<acme:input-option code="inventor.item.form.label.type.component" value="COMPONENT" selected="${type == 'COMPONENT'}"/>
 		<acme:input-option code="inventor.item.form.label.type.tool" value="TOOL" selected="${type == 'TOOL'}"/>
 	</acme:input-select>
-	<acme:input-integer code="inventor.item.form.label.quantity" path="quantity"/>
-	
+
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(command, 'show, update, delete') && draftMode == true}">
 			<acme:submit code="inventor.item.form.button.update" action="/inventor/item/update"/>
 			<acme:submit code="inventor.item.form.button.delete" action="/inventor/item/delete"/>
 		</jstl:when>
 		<jstl:when test="${command == 'create'}">
-			<acme:submit code="inventor.item.form.button.create" action="/inventor/item/create?masterId=${masterId}"/>
-		</jstl:when>		
+			<acme:submit code="inventor.item.form.button.create" action="/inventor/item/create"/>
+		</jstl:when>
 	</jstl:choose>		
 </acme:form>

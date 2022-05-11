@@ -15,13 +15,13 @@ import acme.framework.roles.Administrator;
 import acme.framework.services.AbstractUpdateService;
 
 @Service
-public class AdministratorSystemConfigurationUpdateService implements AbstractUpdateService<Administrator, SystemConfiguration> {
+public class AdministratorSystemConfigurationUpdateService
+		implements AbstractUpdateService<Administrator, SystemConfiguration> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
 	protected AdministratorSystemConfigurationRepository repository;
-
 
 	@Override
 	public boolean authorise(final Request<SystemConfiguration> request) {
@@ -29,51 +29,44 @@ public class AdministratorSystemConfigurationUpdateService implements AbstractUp
 
 		return true;
 	}
-	
+
 	@Override
-	public void validate(final Request<SystemConfiguration> request, final SystemConfiguration entity, final Errors errors) {
+	public void validate(final Request<SystemConfiguration> request, final SystemConfiguration entity,
+			final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
 
 		final Model model = request.getModel();
-		
+
 		if (!errors.hasErrors("currency")) {
 			final String acceptedCurrencies = (String) model.getAttribute("acceptedCurrencies");
 			final List<String> acceptedCurrenciesList = Arrays.asList(acceptedCurrencies.split(","));
-			errors.state(request, acceptedCurrenciesList.contains(entity.getCurrency()), "currency", "administrator.system-configuration.form.error.currency-not-supported");
-		}
-		
-		if (!errors.hasErrors("strongSpamThreshold")) {
-			final double strongSpamThreshold = model.getDouble("strongSpamThreshold");
-			errors.state(request, strongSpamThreshold >= 0, "strongSpamThreshold", "administrator.system-configuration.form.error.negative-threshold");
-			errors.state(request, strongSpamThreshold <= 1, "strongSpamThreshold", "administrator.system-configuration.form.error.threshold-over-limit");
-
-		}
-		
-		if (!errors.hasErrors("weakSpamThreshold")) {
-			final double weakSpamThreshold = model.getDouble("weakSpamThreshold");
-			errors.state(request, weakSpamThreshold >= 0, "weakSpamThreshold", "administrator.system-configuration.form.error.negative-threshold");
-			errors.state(request, weakSpamThreshold <= 1, "weakSpamThreshold", "administrator.system-configuration.form.error.threshold-over-limit");
+			errors.state(request, acceptedCurrenciesList.contains(entity.getCurrency()), "currency",
+					"administrator.system-configuration.form.error.currency-not-supported");
 		}
 	}
 
 	@Override
-	public void bind(final Request<SystemConfiguration> request, final SystemConfiguration entity, final Errors errors) {
+	public void bind(final Request<SystemConfiguration> request, final SystemConfiguration entity,
+			final Errors errors) {
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "currency", "acceptedCurrencies", "strongSpamTerms", "strongSpamThreshold", "weakSpamTerms", "weakSpamThreshold");
+		request.bind(entity, errors, "currency", "acceptedCurrencies", "strongSpamTerms", "strongSpamThreshold",
+				"weakSpamTerms", "weakSpamThreshold");
 	}
 
 	@Override
-	public void unbind(final Request<SystemConfiguration> request, final SystemConfiguration entity, final Model model) {
+	public void unbind(final Request<SystemConfiguration> request, final SystemConfiguration entity,
+			final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "currency", "acceptedCurrencies", "strongSpamTerms", "strongSpamThreshold", "weakSpamTerms", "weakSpamThreshold");
+		request.unbind(entity, model, "currency", "acceptedCurrencies", "strongSpamTerms", "strongSpamThreshold",
+				"weakSpamTerms", "weakSpamThreshold");
 	}
 
 	@Override

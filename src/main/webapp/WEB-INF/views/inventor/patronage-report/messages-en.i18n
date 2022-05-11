@@ -9,6 +9,7 @@ inventor.patronage-report.form.label.sequence-number = Sequence number
 inventor.patronage-report.form.label.creation-time = Creation time
 inventor.patronage-report.form.label.memorandum = Memorandum
 inventor.patronage-report.form.label.info = Information
+inventor.patronage-report.form.label.exchange = Currency Exchange
 
 inventor.patronage-report.form.label.patronage = Patronage
 
@@ -20,3 +21,6 @@ inventor.patronage-report.form.label.patronage.identify.creation-date = Creation
 inventor.patronage-report.form.label.patronage.identify.start-date = Start date
 inventor.patronage-report.form.label.patronage.identify.end-date = End date
 inventor.patronage-report.form.label.patronage.identify.info = Information
+
+inventor.patronage-report.form.label.confirmation = Confirmation
+inventor.patronage-report.form.button.create = Create a patronage report

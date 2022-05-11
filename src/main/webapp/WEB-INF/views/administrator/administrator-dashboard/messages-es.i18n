@@ -21,3 +21,6 @@ administrator.dashboard.form.label.average = Media
 administrator.dashboard.form.label.deviation= Desviación
 administrator.dashboard.form.label.min= Mínimo
 administrator.dashboard.form.label.max= Máximo
+administrator.dashboard.form.label.average-exchange = Media internacionalizada
+administrator.dashboard.form.label.min-exchange = Mínimo internacionalizado
+administrator.dashboard.form.label.max-exchange = Máximo internacionalizado
