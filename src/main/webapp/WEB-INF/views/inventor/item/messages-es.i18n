@@ -22,5 +22,7 @@ inventor.item.form.label.type.component = COMPONENTE
 inventor.item.form.button.create = Crear
 inventor.item.form.button.update = Actualizar
 inventor.item.form.button.delete = Eliminar
+inventor.item.form.button.publish = Publicar
 
 inventor.item.form.error.duplicated = Ya existe un artículo con el mismo código
+inventor.item.form.error.negative-price = El precio del artículo tiene que ser positivo
