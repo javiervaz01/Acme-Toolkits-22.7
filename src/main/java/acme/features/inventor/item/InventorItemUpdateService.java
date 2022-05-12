@@ -71,6 +71,13 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 			errors.state(request, existing == null || existing.getId() == id, "code",
 					"inventor.item.form.error.duplicated");
 		}
+		
+		if (!errors.hasErrors("retailPrice")) {
+			Double retailPrice;
+
+			retailPrice = entity.getRetailPrice().getAmount();
+			errors.state(request, retailPrice > 0.0, "retailPrice", "inventor.item.form.error.negative-price");
+		}
 	}
 
 	@Override

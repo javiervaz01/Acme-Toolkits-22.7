@@ -38,8 +38,8 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 		inventor = this.repository.findOneInventorById(inventorId);
 
 		result = new Item();
-		result.setInventor(inventor);
 		result.setDraftMode(true);
+		result.setInventor(inventor);
 
 		return result;
 	}
@@ -64,6 +64,13 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 
 			existing = this.repository.findOneItemByCode(entity.getCode());
 			errors.state(request, existing == null, "code", "inventor.item.form.error.duplicated");
+		}
+		
+		if (!errors.hasErrors("retailPrice")) {
+			Double retailPrice;
+
+			retailPrice = entity.getRetailPrice().getAmount();
+			errors.state(request, retailPrice > 0.0, "retailPrice", "inventor.item.form.error.negative-price");
 		}
 	}
 
