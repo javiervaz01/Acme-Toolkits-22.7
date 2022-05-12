@@ -1,0 +1,5 @@
+authenticated.inventor.form.label.company = Empresa
+authenticated.inventor.form.label.statement = Declaración
+authenticated.inventor.form.label.info = Info
+
+authenticated.inventor.form.button.create = Registrarse

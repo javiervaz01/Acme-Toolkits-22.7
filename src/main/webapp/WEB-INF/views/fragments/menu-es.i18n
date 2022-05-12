@@ -71,6 +71,8 @@ master.menu.user-account.system-configuration.show = Ver la configuración del s
 
 master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
+master.menu.user-account.become-patron = Conviértete en patrón
+master.menu.user-account.become-inventor = Conviértete en inventor
 master.menu.user-account.list = Ver cuentas de usuario
 master.menu.user-account.announcement.list-recent = Ver anuncios recientes
 
