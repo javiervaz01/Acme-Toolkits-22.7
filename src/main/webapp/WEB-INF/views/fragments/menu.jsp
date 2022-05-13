@@ -43,6 +43,7 @@
 		<acme:menu-option code="master.menu.any">			
 			<acme:menu-suboption code="master.menu.any.item.list" action="/any/item/list-all"/>
 			<acme:menu-suboption code="master.menu.any.chirp.list" action="/any/chirp/list-recent"/>
+			<acme:menu-suboption code="master.menu.any.toolkit.list" action="/any/toolkit/list-all"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.inventor" access="hasRole('Inventor')">			

@@ -17,6 +17,9 @@ public class AnyItemController extends AbstractController<Any, Item>{
 	protected AnyItemListService listAllService;
 	
 	@Autowired
+	protected AnyItemListByToolkitService listByToolkitService;
+	
+	@Autowired
 	protected AnyItemShowService showService;
 	
 	@PostConstruct
@@ -24,5 +27,6 @@ public class AnyItemController extends AbstractController<Any, Item>{
 		super.addCommand("show", this.showService);
 		
 		super.addCommand("list-all","list", this.listAllService);
+		super.addCommand("list-by-toolkit","list", this.listByToolkitService);
 	}
 }

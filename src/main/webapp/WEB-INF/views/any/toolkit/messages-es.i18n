@@ -1,0 +1,13 @@
+any.toolkit.list.label.code = Código
+any.toolkit.list.label.title = Título
+any.toolkit.list.label.description = Descripción
+any.toolkit.list.label.assembly-notes = Notas de montaje
+any.toolkit.list.label.link = Enlace
+
+any.toolkit.form.label.code = Código
+any.toolkit.form.label.title = Título
+any.toolkit.form.label.description = Descripción 
+any.toolkit.form.label.assembly-notes = Notas de montaje
+any.toolkit.form.label.link = Enlace
+any.toolkit.form.label.retail-price = Precio de venta
+any.toolkit.form.button.items = Artículos

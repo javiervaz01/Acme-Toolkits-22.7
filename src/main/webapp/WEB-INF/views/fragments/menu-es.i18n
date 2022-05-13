@@ -21,6 +21,7 @@ master.menu.any = Cualquiera
 
 master.menu.any.item.list = Lista de artículos
 master.menu.any.chirp.list = Lista de chirps
+master.menu.any.toolkit.list = Lista de toolkits
 
 # master.menu.anonymous #######################################################
 
