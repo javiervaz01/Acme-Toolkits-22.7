@@ -1,4 +1,4 @@
-package acme.features.any.toolkits;
+package acme.features.any.toolkit;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,16 +22,24 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit>{
 	@Override
 	public boolean authorise(final Request<Toolkit> request) {
 		assert request != null;
-
-		return true;
+		
+		int id;
+		Toolkit toolkit;
+		
+		id = request.getModel().getInteger("id");
+		toolkit = this.repository.findToolkitById(id);
+		
+		return !toolkit.isDraftMode();
 	}
-
+	
 	@Override
 	public Toolkit findOne(final Request<Toolkit> request) {
 	
 		assert request != null;
 
-		final int id = request.getModel().getInteger("id");
+		int id;
+		
+		id = request.getModel().getInteger("id");
 
 		return this.repository.findToolkitById(id);
 	}
@@ -42,7 +50,10 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit>{
 		assert entity != null;
 		assert model != null;
 
-		final int id = request.getModel().getInteger("id");
+		int id;
+		
+		id = request.getModel().getInteger("id");
+		
 		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "link", "draftMode");
 		
 		Double amount = 0.;
@@ -56,7 +67,7 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit>{
 			}
 		}*/
 		
-		
+		// TODO extract to utility class if we are repeating this code more than once (probably we are)
 		final Double foundRetailPriceOfToolkit = this.repository.findRetailPriceByToolkitId(id);
 		if(foundRetailPriceOfToolkit != null) amount = foundRetailPriceOfToolkit;
 		final String currency = this.repository.findCurrencyByToolkitId(id);
@@ -70,7 +81,4 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit>{
 		}
 		
 	}
-
-
-
 }

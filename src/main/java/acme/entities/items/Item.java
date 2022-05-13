@@ -68,5 +68,18 @@ public class Item extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	protected Inventor inventor;
+	
+	@Override
+	public String toString() {
+		return String.format("%s; %s; %s; %s; %s; %s; %s; %s", 
+			this.getName(),
+			this.getCode(),
+			this.getTechnology(),
+			this.getDescription(),
+			this.getRetailPrice(),
+			this.getInfo(),
+			this.getType(),
+			this.getInventor());
+	}
 
 }

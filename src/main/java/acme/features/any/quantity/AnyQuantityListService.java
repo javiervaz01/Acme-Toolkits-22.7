@@ -1,4 +1,4 @@
-package acme.features.inventor.quantity;
+package acme.features.any.quantity;
 
 import java.util.Collection;
 
@@ -13,16 +13,16 @@ import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.datatypes.Money;
 import acme.framework.helpers.CollectionHelper;
+import acme.framework.roles.Any;
 import acme.framework.services.AbstractListService;
-import acme.roles.Inventor;
 
 @Service
-public class InventorQuantityListService implements AbstractListService<Inventor, Quantity> {
+public class AnyQuantityListService implements AbstractListService<Any, Quantity> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected InventorQuantityRepository repository;
+	protected AnyQuantityRepository repository;
 
 	@Autowired
 	protected ExchangeService exchangeService;
@@ -37,7 +37,7 @@ public class InventorQuantityListService implements AbstractListService<Inventor
 		id = request.getModel().getInteger("toolkitId");
 		requested = this.repository.findOneToolkitById(id);
 
-		return !requested.isDraftMode() || request.isPrincipal(requested.getInventor());
+		return !requested.isDraftMode();
 	}
 
 	@Override
@@ -60,15 +60,10 @@ public class InventorQuantityListService implements AbstractListService<Inventor
 		assert model != null;
 
 		int id;
-		Toolkit toolkit;
-		boolean showAddItem;
 
 		id = request.getModel().getInteger("toolkitId");
-		toolkit = this.repository.findOneToolkitById(id);
-		showAddItem = (toolkit.isDraftMode() && request.isPrincipal(toolkit.getInventor()));
 
 		model.setAttribute("toolkitId", id);
-		model.setAttribute("showAddItem", showAddItem);
 	}
 
 	@Override

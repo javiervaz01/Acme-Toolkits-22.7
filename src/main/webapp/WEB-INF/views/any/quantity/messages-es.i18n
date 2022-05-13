@@ -1,0 +1,11 @@
+any.quantity.list.label.name = Nombre
+any.quantity.list.label.code = Código
+any.quantity.list.label.technology = Tecnología
+any.quantity.list.label.retail-price = Precio
+any.quantity.list.label.exchange = Cambio de divisa
+any.quantity.list.label.type = Tipo de Artículo
+any.quantity.list.label.quantity = Cantidad
+
+any.quantity.form.label.toolkit = Nombre del toolkit
+any.quantity.form.label.items = Artículos
+any.quantity.form.label.quantity = Cantidad

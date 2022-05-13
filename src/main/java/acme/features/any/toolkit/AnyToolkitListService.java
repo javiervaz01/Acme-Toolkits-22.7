@@ -1,6 +1,7 @@
-package acme.features.any.toolkits;
+package acme.features.any.toolkit;
 
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,6 +37,17 @@ public class AnyToolkitListService implements AbstractListService<Any, Toolkit>{
 		/*result = this.repository.findToolkitsIncludingItemsInfo();
 		return result;*/
 	}
+	
+	@Override
+	public void unbind(final Request<Toolkit> request, final Collection<Toolkit> entities, final Model model) {
+		
+		assert request != null;
+		assert entities != null;
+		assert model != null;
+
+//		request.unbind(entities, model, "code", "title", "description", "assemblyNotes", "link", "draftMode");
+	}
+	
 
 	@Override
 	public void unbind(final Request<Toolkit> request, final Toolkit entity, final Model model) {
@@ -47,41 +59,13 @@ public class AnyToolkitListService implements AbstractListService<Any, Toolkit>{
 		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "link", "draftMode");
 		
 		//ID FUNCIONA EN SHOW, NO EN LIST
-		final int id = request.getModel().getInteger("id");
+		final int id = entity.getId();
 		final Collection<Item> items = this.repository.findItemsByToolkitId(id);
 		
-		String payload = "";
+		final String payload = String.join(", ", items.stream().map(Item::toString).collect(Collectors.toList()));
 		
-		for(final Item item: items) {
-			if(payload.isEmpty()) {
-				payload = String.format("%s; %s; %s; %s; %s; %s; %s; %s", 
-										item.getName(),
-										item.getCode(),
-										item.getTechnology(),
-										item.getDescription(),
-										item.getRetailPrice(),
-										item.getInfo(),
-										item.getType(),
-										item.getInventor());
-				model.setAttribute("payload", payload);
-			} else { 
-				payload = String.format("%s; %s; %s; %s; %s; %s; %s; %s; %s", 
-										payload,
-										item.getName(),
-										item.getCode(),
-										item.getTechnology(),
-										item.getDescription(),
-										item.getRetailPrice(),
-										item.getInfo(),
-										item.getType(),
-										item.getInventor());
-				model.setAttribute("payload", payload);
-			}
-			
-		}
-		
+		model.setAttribute("payload", payload);
 	}
-
-
-
+	
+	
 }

@@ -1,4 +1,4 @@
-package acme.features.inventor.quantity;
+package acme.features.any.quantity;
 
 import java.util.Arrays;
 
@@ -11,14 +11,14 @@ import acme.entities.quantities.Quantity;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.datatypes.Money;
+import acme.framework.roles.Any;
 import acme.framework.services.AbstractShowService;
-import acme.roles.Inventor;
 
 @Service
-public class InventorQuantityShowService implements AbstractShowService<Inventor, Quantity> {
+public class AnyQuantityShowService implements AbstractShowService<Any, Quantity> {
 
 	@Autowired
-	protected InventorQuantityRepository repository;
+	protected AnyQuantityRepository repository;
 
 	@Autowired
 	protected ExchangeService exchangeService;
@@ -35,7 +35,7 @@ public class InventorQuantityShowService implements AbstractShowService<Inventor
 
 		item = this.repository.findOneQuantityById(id).getItem();
 
-		result = item != null && (!item.isDraftMode() || request.isPrincipal(item.getInventor()));
+		result = item != null && !item.isDraftMode();
 
 		return result;
 	}
