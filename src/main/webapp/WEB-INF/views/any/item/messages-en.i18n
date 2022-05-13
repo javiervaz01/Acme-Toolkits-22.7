@@ -1,17 +1,18 @@
 any.item.list.label.name = Name
 any.item.list.label.code = Code
 any.item.list.label.technology = Technology
-any.item.list.label.description = Description
 any.item.list.label.price = Retail Price
-any.item.list.label.info = Info 
-any.item.list.label.type = Item Type
+any.item.list.label.exchange = Currency Exchange
+any.item.list.label.type = Item type
 
 any.item.form.label.name = Name
 any.item.form.label.code = Code
 any.item.form.label.technology = Technology
 any.item.form.label.description = Description 
 any.item.form.label.price = Retail Price
+any.item.form.label.exchange = Currency Exchange
 any.item.form.label.info = Info
 any.item.form.label.type = Item type
 
-
+any.item.form.label.type.component = Component
+any.item.form.label.type.tool = Tool

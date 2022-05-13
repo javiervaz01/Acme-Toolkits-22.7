@@ -1,25 +1,34 @@
 inventor.patronage.list.label.status = Status
 inventor.patronage.list.label.code = Code
-inventor.patronage.list.label.legal-stuff = Legal
 inventor.patronage.list.label.budget = Budget
-inventor.patronage.list.label.creation-date = Creation date
+inventor.patronage.list.label.exchange = Currency Exchange 
 inventor.patronage.list.label.start-date = Start date
 inventor.patronage.list.label.end-date = End date
-inventor.patronage.list.label.info = Information
+
+inventor.patronage.form.info = Patronage's Details
 
 inventor.patronage.form.label.status = Status
+inventor.patronage.form.label.proposed = PROPOSED
+inventor.patronage.form.label.accepted = ACCEPTED
+inventor.patronage.form.label.denied = DENIED
 inventor.patronage.form.label.code = Code
 inventor.patronage.form.label.legal-stuff = Legal
 inventor.patronage.form.label.budget = Budget
+inventor.patronage.form.label.exchange = Currency Exchange
 inventor.patronage.form.label.creation-date = Creation date
 inventor.patronage.form.label.start-date = Start date
 inventor.patronage.form.label.end-date = End date
 inventor.patronage.form.label.info = Information
-inventor.patronage.form.label.patron.identity.name = Patron's name
-inventor.patronage.form.label.patron.identity.surname = Patron's surname
-inventor.patronage.form.label.patron.identity.email = Patron's email
-inventor.patronage.form.label.patron.company = Patron's company
-inventor.patronage.form.label.patron.statement = Patron's statement
-inventor.patronage.form.label.patron.info = Patron's information
-inventor.patronage.form.reports= Patronage´s Reports
-inventor.patronage.form.info = Patronage´s Details
+
+inventor.patronage.form.patron-data = Patron's details
+
+inventor.patronage.form.label.patron.identity.name = Name
+inventor.patronage.form.label.patron.identity.surname = Surname
+inventor.patronage.form.label.patron.identity.email = Email
+inventor.patronage.form.label.patron.company = Company
+inventor.patronage.form.label.patron.statement = Statement
+inventor.patronage.form.label.patron.info = Information
+
+inventor.patronage.form.reports= Patronage's Reports
+inventor.patronage.form.button.update = Update
+inventor.patronage-report.form.button.create = Create a Patronage Report

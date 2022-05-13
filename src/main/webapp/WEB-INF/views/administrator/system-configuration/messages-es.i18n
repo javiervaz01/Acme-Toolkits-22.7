@@ -1,6 +1,10 @@
-administrator.systemconfiguration.form.label.currency = Divisa del sistema
-administrator.systemconfiguration.form.label.acceptedcurrencies = Divisas aceptadas
-administrator.systemconfiguration.form.label.strongSpamTerms = Términos spam fuertes
-administrator.systemconfiguration.form.label.strongSpamThreshold = Umbral de spam fuerte
-administrator.systemconfiguration.form.label.weakSpamTerms = Términos spam débiles
-administrator.systemconfiguration.form.label.weakSpamThreshold = Umbral de spam débil
+administrator.system-configuration.form.label.currency = Divisa del sistema
+administrator.system-configuration.form.label.accepted-currencies = Divisas aceptadas
+administrator.system-configuration.form.label.strong-spam-terms = Términos spam fuertes
+administrator.system-configuration.form.label.strong-spam-threshold = Umbral de spam fuerte
+administrator.system-configuration.form.label.weak-spam-terms = Términos spam débiles
+administrator.system-configuration.form.label.weak-spam-threshold = Umbral de spam débil
+
+administrator.system-configuration.form.error.currency-not-supported = La divisa no está en la lista de aceptadas
+
+administrator.system-configuration.form.button.update = Actualizar

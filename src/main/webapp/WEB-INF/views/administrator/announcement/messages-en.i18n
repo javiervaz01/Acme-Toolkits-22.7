@@ -1,0 +1,14 @@
+authenticated.announcement.list.label.moment = Moment
+authenticated.announcement.list.label.title = Title
+authenticated.announcement.list.label.is-critical = Critical
+
+authenticated.announcement.form.label.moment = Moment
+authenticated.announcement.form.label.title = Title
+authenticated.announcement.form.label.body = Body
+authenticated.announcement.form.label.is-critical = Critical
+authenticated.announcement.form.label.is-critical.true = Yes
+authenticated.announcement.form.label.is-critical.false = No
+authenticated.announcement.form.label.info = Information
+
+administrator.announcement.form.label.confirmation = Confirmation
+administrator.announcement.form.button.create = Create

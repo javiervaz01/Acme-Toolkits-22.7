@@ -1,4 +1,4 @@
-key,name,code,technology,description,retail-price,info,type,draftMode,key:inventor
+key,name,code,technology,description,retail-price,info,type,draft-mode,key:inventor
 item-01,Sensor,ABC-108-A,Adobe,It is a well known component,EUR 970.85,null,COMPONENT,false,inventor-01
 item-02,Sensor,ABC-108-B,Adobe,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,false,inventor-01
 item-03,Sensor,ABC-108-C,Adobe,It is a well known component,EUR 970.85,http://happybirthday.com,COMPONENT,false,inventor-01

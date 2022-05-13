@@ -21,6 +21,9 @@ administrator.dashboard.form.label.average = Average
 administrator.dashboard.form.label.deviation= Deviation
 administrator.dashboard.form.label.min= Minimum
 administrator.dashboard.form.label.max= Maximum
+administrator.dashboard.form.label.average-exchange = Internationalized Average
+administrator.dashboard.form.label.min-exchange = Internationalized Minimun
+administrator.dashboard.form.label.max-exchange = Internationalized Maximun
 
 
 

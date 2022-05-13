@@ -1,0 +1,21 @@
+inventor.quantity.list.label.name = Name
+inventor.quantity.list.label.code = Code
+inventor.quantity.list.label.technology = Technology
+inventor.quantity.list.label.retail-price = Retail Price
+inventor.quantity.list.label.exchange= Currency Exchange
+inventor.quantity.list.label.type = Item Type
+inventor.quantity.list.label.quantity = Quantity
+
+inventor.quantity.list.button.add-item = Add item
+
+inventor.quantity.form.label.toolkit = Toolkit's name
+inventor.quantity.form.label.items = Items
+inventor.quantity.form.label.quantity = Quantity
+
+inventor.quantity.form.button.create = Create
+inventor.quantity.form.button.update = Update
+inventor.quantity.form.button.delete = Delete
+
+inventor.quantity.form.error.repeated-tool = A tool can't be repeated in a toolkit
+inventor.quantity.form.error.repeated-item = This tool/component is already in the toolkit
+inventor.quantity.form.error.wrong-currency = The price must be in the same currency as the rest of items in the toolkit

@@ -3,7 +3,7 @@ package acme.forms.patron;
 import java.io.Serializable;
 import java.util.List;
 
-import acme.features.patron.dashboard.PatronDashboardItem;
+import acme.features.patron.patrondashboard.PatronDashboardItem;
 import lombok.Getter;
 import lombok.Setter;
 

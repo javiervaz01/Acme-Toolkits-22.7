@@ -1,9 +1,10 @@
-administrator.systemconfiguration.form.label.currency = System Currency
-administrator.systemconfiguration.form.label.acceptedcurrencies = Accepted Currencies
-administrator.systemconfiguration.form.label.strongSpamTerms = Strong Spam Terms
-administrator.systemconfiguration.form.label.strongSpamThreshold = Strong Spam Threshold
-administrator.systemconfiguration.form.label.weakSpamTerms = Weak Spam Terms
-administrator.systemconfiguration.form.label.weakSpamThreshold = Weak Spam Threshold
+administrator.system-configuration.form.label.currency = System Currency
+administrator.system-configuration.form.label.accepted-currencies = Accepted Currencies
+administrator.system-configuration.form.label.strong-spam-terms = Strong Spam Terms
+administrator.system-configuration.form.label.strong-spam-threshold = Strong Spam Threshold
+administrator.system-configuration.form.label.weak-spam-terms = Weak Spam Terms
+administrator.system-configuration.form.label.weak-spam-threshold = Weak Spam Threshold
 
+administrator.system-configuration.form.error.currency-not-supported = The currency is not in the list of accepted currencies
 
-
+administrator.system-configuration.form.button.update = Update

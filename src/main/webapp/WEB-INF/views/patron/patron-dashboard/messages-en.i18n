@@ -10,11 +10,9 @@ patron.dashboard.form.denied = Number of Denied Patronages
 
 patron.dashboard.form.label.currency= Currency
 patron.dashboard.form.label.average = Average
+patron.dashboard.form.label.average-exchange = Internationalized Average 
 patron.dashboard.form.label.deviation= Deviation
 patron.dashboard.form.label.min= Minimum
 patron.dashboard.form.label.max= Maximum
-
-
-
-
-
+patron.dashboard.form.label.min-exchange = Internationalized Minimum
+patron.dashboard.form.label.max-exchange = Internationalized Maximum
