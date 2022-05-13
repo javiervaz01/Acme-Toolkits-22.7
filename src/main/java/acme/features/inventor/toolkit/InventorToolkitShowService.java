@@ -1,11 +1,9 @@
 package acme.features.inventor.toolkit;
 
-import java.util.Collection;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.items.Item;
+import acme.components.ExchangeService;
 import acme.entities.toolkits.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
@@ -21,6 +19,9 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 	@Autowired
 	protected InventorToolkitRepository repository;
 
+	@Autowired
+	protected ExchangeService exchangeRepository;
+
 	@Override
 	public boolean authorise(final Request<Toolkit> request) {
 
@@ -28,12 +29,10 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 
 		int id;
 		final Toolkit toolkit;
-		
+
 		id = request.getModel().getInteger("id");
 		toolkit = this.repository.findOneToolkitById(id);
-		return !toolkit.isDraftMode() || request.isPrincipal(toolkit.getInventor());
-		
-		
+		return toolkit != null && (!toolkit.isDraftMode() || request.isPrincipal(toolkit.getInventor()));
 	}
 
 	@Override
@@ -49,27 +48,28 @@ public class InventorToolkitShowService implements AbstractShowService<Inventor,
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		
+
 		final int id = request.getModel().getInteger("id");
-		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "link");
-		
-		Double amountEUR = 0.;
-		final Collection<Item> items = this.repository.findItemsByToolkitId(id);
-		for(final Item item : items) {
-			if(item.getRetailPrice().getCurrency().equals("EUR")) {
-				amountEUR+=item.getRetailPrice().getAmount();
-			}
-			else {
-				amountEUR=0.;
-				break;
-			}
+		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "link", "draftMode");
+
+		String currency = this.repository.findRetailPriceCurrencyByToolkitId(id);
+		double amount;
+
+		if (currency == null) { // If there are no items in the toolkit
+			amount = 0.0;
+			currency = ""; // To avoid showing "null" in the view
+		} else {
+			amount = this.repository.findRetailPriceAmountByToolkitId(id);
 		}
-		
-		final Money retailPriceEUR = new Money();
-		retailPriceEUR.setAmount(amountEUR);	retailPriceEUR.setCurrency("EUR");
-		
-		model.setAttribute("retailPrice", retailPriceEUR);
-		
+
+		final Money retailPrice = new Money();
+		retailPrice.setAmount(amount);
+		retailPrice.setCurrency(currency);
+
+		model.setAttribute("retailPrice", retailPrice);
+
+		final Money exchange = this.exchangeRepository.getExchange(retailPrice);
+		model.setAttribute("exchange", exchange);
 	}
 
 }

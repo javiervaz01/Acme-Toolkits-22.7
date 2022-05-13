@@ -1,15 +1,26 @@
-inventor.patronageReport.list.label.patronage = Patronazgo
-inventor.patronageReport.list.label.sequenceNumber = Número de secuencia 
-inventor.patronageReport.list.label.creationTime = Momento de Creación
-inventor.patronageReport.list.label.memorandum = Memorando
-inventor.patronageReport.list.label.info = Información
-inventor.patronage.list.label.patronage.identify.status = Estado
-inventor.patronage.list.label.patronage.identify.legalStuff = Legal
-inventor.patronage.list.label.patronage.identify.budget = Presupuesto
-inventor.patronage.list.label.patronage.identify.creationDate = Fecha de creación
-inventor.patronage.list.label.patronage.identify.startDate = Fecha de comienzo
-inventor.patronage.list.label.patronage.identify.endDate = Fecha de fin
-inventor.patronage.list.label.patronage.identify.info = Información
-inventor.patronage.list.label.patronage.identify.code = Código de Patronazgo
-inventor.patronageReport.title.report = Reporte 
+inventor.patronage-report.list.label.patronage.identify.code = Código de patronazgo
+inventor.patronage-report.list.label.sequence-number = Número de secuencia 
+inventor.patronage-report.list.label.creation-time = Momento de creación
+inventor.patronage-report.list.label.info = Información
 
+inventor.patronage-report.form.title.report = Reporte
+
+inventor.patronage-report.form.label.sequence-number = Número de secuencia
+inventor.patronage-report.form.label.creation-time = Fecha de creación
+inventor.patronage-report.form.label.memorandum = Memorando
+inventor.patronage-report.form.label.info = Información
+inventor.patronage-report.form.label.exchange = Cambio de divisa
+
+inventor.patronage-report.form.label.patronage = Patronazgo
+
+inventor.patronage-report.form.label.patronage.identify.code = Código de patronazgo
+inventor.patronage-report.form.label.patronage.identify.status = Estado
+inventor.patronage-report.form.label.patronage.identify.legal-stuff = Legal
+inventor.patronage-report.form.label.patronage.identify.budget = Presupuesto
+inventor.patronage-report.form.label.patronage.identify.creation-date = Fecha de creación
+inventor.patronage-report.form.label.patronage.identify.start-date = Fecha de comienzo
+inventor.patronage-report.form.label.patronage.identify.end-date = Fecha de fin
+inventor.patronage-report.form.label.patronage.identify.info = Información
+
+inventor.patronage-report.form.label.confirmation = Confirmación
+inventor.patronage-report.form.button.create = Crear un reporte de patronazgo

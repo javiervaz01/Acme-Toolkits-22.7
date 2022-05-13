@@ -1,0 +1,11 @@
+patron.inventor.list.inventor-data = ¡Elija a su inventor!
+
+patron.inventor.list.label.username = Apodo
+patron.inventor.list.label.name = Nombre
+patron.inventor.list.label.surname = Apellidos
+
+patron.inventor.form.label.name = Nombre
+patron.inventor.form.label.surname = Apellidos
+patron.inventor.form.label.email = E-mail
+
+patron.inventor.list.button.create = Proponer un Patrocinio

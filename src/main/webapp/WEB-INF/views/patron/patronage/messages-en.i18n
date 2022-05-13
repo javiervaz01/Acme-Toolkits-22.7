@@ -1,28 +1,42 @@
 patron.patronage.list.label.status = Status
 patron.patronage.list.label.code = Code
-patron.patronage.list.label.legal-stuff = Legal
 patron.patronage.list.label.budget = Budget
-patron.patronage.list.label.creation-date = Creation date
+patron.patronage.list.label.exchange= Currency Exchange
 patron.patronage.list.label.start-date = Start date
 patron.patronage.list.label.end-date = End date
-patron.patronage.list.label.info = Information
-patron.patronage.list.label.sequenceNumber = Sequence Number
-patron.patronage.list.label.creationTime = Creation Time
-patron.patronage.list.label.memorandum = Memorandum
+
+patron.patronage.form.info = Patronage's details
 
 patron.patronage.form.label.status = Status
+patron.patronage.form.label.proposed = PROPOSED
+patron.patronage.form.label.accepted = ACCEPTED
+patron.patronage.form.label.denied = DENIED
 patron.patronage.form.label.code = Code
 patron.patronage.form.label.legal-stuff = Legal
 patron.patronage.form.label.budget = Budget
+patron.patronage.form.label.exchange= Currency Exchange
 patron.patronage.form.label.creation-date = Creation date
 patron.patronage.form.label.start-date = Start date
 patron.patronage.form.label.end-date = End date
 patron.patronage.form.label.info = Information
-patron.patronage.form.label.patron.identity.name = Inventor's name
-patron.patronage.form.label.patron.identity.surname = Inventor's surname
-patron.patronage.form.label.patron.identity.email = Inventor's email
-patron.patronage.form.label.patron.company = Inventor's company
-patron.patronage.form.label.patron.statement = Inventor's statement
-patron.patronage.form.label.patron.info = Inventor's information
-patron.patronage.form.reports= Patronage´s Reports
-patron.patronage.form.info = Patronage´s Details
+
+patron.patronage.form.inventor-data = Inventor's details
+
+patron.patronage.form.label.inventor.identity.name = Name
+patron.patronage.form.label.inventor.identity.surname = Surname
+patron.patronage.form.label.inventor.identity.email = Email
+patron.patronage.form.label.inventor.company = Company
+patron.patronage.form.label.inventor.statement = Statement
+patron.patronage.form.label.inventor.info = Information
+
+patron.patronage.form.reports= Patronage's reports
+
+patron.patronage.form.button.update = Update
+patron.patronage.form.button.delete = Delete
+patron.patronage.form.button.publish = Publish
+patron.patronage.form.button.create = Create
+
+patron.patronage.form.error.too-close = Start Date must be at least one month ahead
+patron.patronage.form.error.duplicated = This reference is taken
+patron.patronage.form.error.negative-budget = The salary must be positive
+

@@ -4,7 +4,7 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:list>
-	<acme:list-column code="authenticated.announcement.list.label.moment" path="moment" width="20%"/>
-	<acme:list-column code="authenticated.announcement.list.label.is-critical" path="isCritical" width="10%"/>
 	<acme:list-column code="authenticated.announcement.list.label.title" path="title" width="70%"/>	
+	<acme:list-column code="authenticated.announcement.list.label.is-critical" path="isCritical" width="10%"/>
+	<acme:list-column code="authenticated.announcement.list.label.moment" path="moment" width="20%"/>
 </acme:list>

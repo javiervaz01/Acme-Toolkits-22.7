@@ -10,5 +10,5 @@
 	<acme:input-textarea code="any.toolkit.form.label.assembly-notes" path="assemblyNotes"/>
 	<acme:input-url code="any.toolkit.form.label.link" path="link"/>
 	<acme:input-textbox code="any.toolkit.form.label.retail-price" path="retailPrice"/>
-	<acme:button code="any.toolkit.form.button.items" action="/any/item/list-by-toolkit?masterId=${id}"/>
+	<acme:button code="any.toolkit.form.button.items" action="/any/quantity/list?toolkitId=${id}"/>
 </acme:form>

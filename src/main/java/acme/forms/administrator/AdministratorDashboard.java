@@ -14,8 +14,8 @@ package acme.forms.administrator;
 import java.io.Serializable;
 import java.util.List;
 
-import acme.features.administrator.dashboard.AdministratorDashboardComponentItem;
-import acme.features.administrator.dashboard.AdministratorDashboardItem;
+import acme.features.administrator.administratordashboard.AdministratorDashboardComponentItem;
+import acme.features.administrator.administratordashboard.AdministratorDashboardItem;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -18,9 +18,10 @@ master.menu.sign-out = Sign out
 # master.menu.any #######################################################
 
 master.menu.any = Any
-master.menu.any.item.list = Items list
-master.menu.any.chirp.list = Chirps list
-master.menu.any.toolkit.list = Toolkits list
+master.menu.any.user-account.list = List user accounts
+master.menu.any.chirp.list = List chirps
+master.menu.any.toolkit.list = List toolkits
+master.menu.any.item.list = List items
 
 # master.menu.anonymous #######################################################
 
@@ -37,7 +38,8 @@ master.menu.anonymous.pablo-nunez.favourite-link = 44062067R: Núñez Moreno, Pa
 
 master.menu.administrator = Administrator
 master.menu.administrator.dashboard = Dashboard
-master.menu.administrator.user-accounts = User accounts
+master.menu.administrator.announcement = Create announcement
+master.menu.administrator.user-accounts = List user accounts
 master.menu.administrator.system-configuration.show = See system configuration
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
@@ -47,7 +49,8 @@ master.menu.administrator.shut-down = Shut down
 
 master.menu.inventor = Inventor
 master.menu.inventor.patronage.list = List my patronages
-master.menu.inventor.patronageReport.list = List my patronages Report
+master.menu.inventor.patronage.list-proposed = List my proposed patronages
+master.menu.inventor.patronage-report.list = List my patronage reports
 master.menu.inventor.toolkit.list = List my toolkits
 master.menu.inventor.item.list = List my items
 
@@ -56,7 +59,8 @@ master.menu.inventor.item.list = List my items
 master.menu.patron = Patron
 master.menu.patron.dashboard = Dashboard
 master.menu.patron.patronage.list = List my patronages
-master.menu.patron.patronageReport.list = List my patronage reports
+master.menu.patron.patronage-report.list = List my patronage reports
+master.menu.patron.inventor.list = Propose a patronage
 
 # master.menu.authenticated ########################################################
 
@@ -67,6 +71,8 @@ master.menu.user-account.system-configuration.show = See system configuration
 
 master.menu.user-account = Account
 master.menu.user-account.general-data = General data
+master.menu.user-account.become-patron = Become a patron
+master.menu.user-account.become-inventor = Become an inventor
 master.menu.user-account.list = List user accounts
 master.menu.user-account.announcement.list-recent = List recent announcements
 

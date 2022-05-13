@@ -5,9 +5,11 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.ExchangeService;
 import acme.entities.patronages.Patronage;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.datatypes.Money;
 import acme.framework.services.AbstractListService;
 import acme.roles.Inventor;
 
@@ -19,11 +21,15 @@ public class InventorPatronageListService implements AbstractListService<Invento
 	@Autowired
 	protected InventorPatronageRepository repository;
 
+	@Autowired
+	protected ExchangeService exchangeRepository;
+	
 	@Override
 	public boolean authorise(final Request<Patronage> request) {
 		assert request != null;
 
 		return true;
+		
 	}
 
 	@Override
@@ -42,6 +48,8 @@ public class InventorPatronageListService implements AbstractListService<Invento
 		assert model != null;
 
 		request.unbind(entity, model, "status", "code", "legalStuff", "budget", "creationDate", "startDate", "endDate", "info");
+	
+		final Money exchange=this.exchangeRepository.getExchange(entity.getBudget());
+		model.setAttribute("exchange", exchange);
 	}
-
 }

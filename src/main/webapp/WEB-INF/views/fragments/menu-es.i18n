@@ -18,10 +18,10 @@ master.menu.sign-out = Salir
 # master.menu.any #######################################################
 
 master.menu.any = Cualquiera
-
-master.menu.any.item.list = Lista de artículos
+master.menu.any.user-account.list = Lista de cuentas de usuario
 master.menu.any.chirp.list = Lista de chirps
 master.menu.any.toolkit.list = Lista de toolkits
+master.menu.any.item.list = Lista de artículos
 
 # master.menu.anonymous #######################################################
 
@@ -38,6 +38,7 @@ master.menu.anonymous.pablo-nunez.favourite-link = 44062067R: Núñez Moreno, Pa
 
 master.menu.administrator = Administrador
 master.menu.administrator.dashboard = Panel de indicadores
+master.menu.administrator.announcement = Crear anuncio
 master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.system-configuration.show = Ver la configuración del sistema
 master.menu.administrator.populate-initial = Poblar BD (inicial)
@@ -48,16 +49,19 @@ master.menu.administrator.shut-down = Parar el sistema
 
 master.menu.inventor = Inventor
 master.menu.inventor.patronage.list = Ver mis patronazgos
-master.menu.inventor.patronageReport.list = Ver mis Reportes de patronazgos
+master.menu.inventor.patronage.list-proposed = Ver mis patronazgos propuestos
+master.menu.inventor.patronage-report.list = Ver mis reportes de patronazgos
 master.menu.inventor.toolkit.list = Ver mis toolkits
 master.menu.inventor.item.list = Ver mis artículos
 
+
 # master.menu.patron ########################################################
 
-master.menu.patron = Patrón
+master.menu.patron = Patrocinador
 master.menu.patron.dashboard = Panel
 master.menu.patron.patronage.list = Ver mis patronazgos
-master.menu.patron.patronageReport.list = Ver mis reportes de patronazgos
+master.menu.patron.patronage-report.list = Ver mis reportes de patronazgos
+master.menu.patron.inventor.list = Proponer un Patrocinio
 
 # master.menu.authenticated ########################################################
 
@@ -68,6 +72,8 @@ master.menu.user-account.system-configuration.show = Ver la configuración del s
 
 master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
+master.menu.user-account.become-patron = Conviértete en patrón
+master.menu.user-account.become-inventor = Conviértete en inventor
 master.menu.user-account.list = Ver cuentas de usuario
 master.menu.user-account.announcement.list-recent = Ver anuncios recientes
 
