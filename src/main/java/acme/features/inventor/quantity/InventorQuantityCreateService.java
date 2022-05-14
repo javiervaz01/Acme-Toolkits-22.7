@@ -61,7 +61,7 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "toolkit.title", "number", "items");
+		request.bind(entity, errors, "toolkit.title", "number");
 
 		// TODO: The code below is necessary because, if it is missing, the form
 		// attributes won't be bound automatically to the Quantity entity. Maybe we are
@@ -88,8 +88,8 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 
 		model = request.getModel();
 		quantity = model.getInteger("number");
-		selectedItem = this.repository.findOneItemByCode(model.getString("items"));
-
+		selectedItem = entity.getItem();
+		
 		if (!errors.hasErrors("number")) {
 			errors.state(request, selectedItem.getType().equals(ItemType.COMPONENT) || quantity == 1, "number",
 					"inventor.quantity.form.error.repeated-tool");
@@ -110,10 +110,13 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 			errors.state(request,
 					itemsInToolkit.isEmpty()
 							|| itemsInToolkit.iterator().next().getRetailPrice().getCurrency().equals(newItemCurrency),
-					"toolkit.title", "inventor.quantity.form.error.wrong-currency");
+					"*", "inventor.quantity.form.error.wrong-currency");
 
-			errors.state(request, !itemsInToolkit.contains(entity.getItem()), "toolkit.title",
+			errors.state(request, !itemsInToolkit.contains(selectedItem), "*",
 					"inventor.quantity.form.error.repeated-item");
+			
+			errors.state(request, !selectedItem.isDraftMode(), "*",
+				"inventor.quantity.form.error.draft-mode-item"); // Protection against hacking
 		}
 	}
 
@@ -126,14 +129,28 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 		request.unbind(entity, model, "toolkit.title", "number");
 
 		int toolkitId;
+		Collection<Item> itemsInToolkit;
 		Collection<Item> items;
-
+		Item selectedItem;
+		String toolkitCurrency;
+		
+		selectedItem = entity.getItem();		
 		toolkitId = request.getModel().getInteger("toolkitId");
-		items = this.repository.findAllItems();
-
+		itemsInToolkit = this.repository.findManyItemByToolkitId(toolkitId);
+		
+		// If the toolkit is empty, show all items. If it already has items,
+		// only show the items with the same currency as the rest of the
+		// toolkit's items (custom constraint above)
+		toolkitCurrency = itemsInToolkit.iterator().next().getRetailPrice().getCurrency();
+		items = itemsInToolkit.isEmpty() ? this.repository.findAllItems() : this.repository.findItemsByCurrency(toolkitCurrency);
+		
+		// Moreover, remove from the list the repeated items, which are not
+		// allowed either in the toolkit
+		items.removeAll(itemsInToolkit);
+		
 		model.setAttribute("items", items);
+		model.setAttribute("selected", selectedItem);
 		model.setAttribute("toolkitId", toolkitId);
-
 	}
 
 	@Override

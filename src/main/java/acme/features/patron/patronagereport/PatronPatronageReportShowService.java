@@ -20,7 +20,7 @@ public class PatronPatronageReportShowService implements AbstractShowService<Pat
 	protected PatronPatronageReportRepository repository;
 
 	@Autowired
-	protected ExchangeService exchangeRepository;
+	protected ExchangeService exchangeService;
 
 	@Override
 	public boolean authorise(final Request<PatronageReport> request) {
@@ -48,7 +48,7 @@ public class PatronPatronageReportShowService implements AbstractShowService<Pat
 
 		request.unbind(entity, model, "sequenceNumber", "creationTime", "memorandum", "info", "patronage.status", "patronage.legalStuff", "patronage.budget", "patronage.creationDate", "patronage.startDate", "patronage.endDate", "patronage.info", "patronage.code");
 	
-		final Money exchange=this.exchangeRepository.getExchange(entity.getPatronage().getBudget());
+		final Money exchange=this.exchangeService.getExchange(entity.getPatronage().getBudget());
 		model.setAttribute("exchange", exchange);
 	}
 

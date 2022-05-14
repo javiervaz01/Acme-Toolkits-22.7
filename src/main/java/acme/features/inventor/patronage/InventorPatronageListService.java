@@ -22,7 +22,7 @@ public class InventorPatronageListService implements AbstractListService<Invento
 	protected InventorPatronageRepository repository;
 
 	@Autowired
-	protected ExchangeService exchangeRepository;
+	protected ExchangeService exchangeService;
 	
 	@Override
 	public boolean authorise(final Request<Patronage> request) {
@@ -49,7 +49,7 @@ public class InventorPatronageListService implements AbstractListService<Invento
 
 		request.unbind(entity, model, "status", "code", "legalStuff", "budget", "creationDate", "startDate", "endDate", "info");
 	
-		final Money exchange=this.exchangeRepository.getExchange(entity.getBudget());
+		final Money exchange=this.exchangeService.getExchange(entity.getBudget());
 		model.setAttribute("exchange", exchange);
 	}
 }
