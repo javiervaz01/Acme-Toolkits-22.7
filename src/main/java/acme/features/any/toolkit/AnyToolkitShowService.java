@@ -4,6 +4,7 @@ package acme.features.any.toolkit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.ExchangeService;
 import acme.entities.toolkits.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
@@ -18,6 +19,9 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit>{
 
 	@Autowired
 	protected AnyToolkitRepository repository;
+
+	@Autowired
+	protected ExchangeService exchangeRepository;
 
 	@Override
 	public boolean authorise(final Request<Toolkit> request) {
@@ -50,35 +54,26 @@ public class AnyToolkitShowService implements AbstractShowService<Any, Toolkit>{
 		assert entity != null;
 		assert model != null;
 
-		int id;
-		
-		id = request.getModel().getInteger("id");
-		
+		final int id = request.getModel().getInteger("id");
 		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "link", "draftMode");
-		
-		Double amount = 0.;
-		/*final Collection<Item> items = this.repository.findItemsByToolkitId(id);
-		for(final Item item: items) {
-			if(!item.getRetailPrice().getCurrency().isEmpty()) {
-				amount += item.getRetailPrice().getAmount();
-			} else {
-				amount=0.;
-				break;
-			}
-		}*/
-		
-		// TODO extract to utility class if we are repeating this code more than once (probably we are)
-		final Double foundRetailPriceOfToolkit = this.repository.findRetailPriceByToolkitId(id);
-		if(foundRetailPriceOfToolkit != null) amount = foundRetailPriceOfToolkit;
-		final String currency = this.repository.findCurrencyByToolkitId(id);
+
+		String currency = this.repository.findRetailPriceCurrencyByToolkitId(id);
+		double amount;
+
+		if (currency == null) { // If there are no items in the toolkit
+			amount = 0.0;
+			currency = ""; // To avoid showing "null" in the view
+		} else {
+			amount = this.repository.findRetailPriceAmountByToolkitId(id);
+		}
+
 		final Money retailPrice = new Money();
 		retailPrice.setAmount(amount);
 		retailPrice.setCurrency(currency);
-		if(retailPrice.getCurrency() != null) {
-			model.setAttribute("retailPrice", retailPrice);
-		} else {
-			model.setAttribute("retailPrice", 0.0);
-		}
-		
+
+		model.setAttribute("retailPrice", retailPrice);
+
+		final Money exchange = this.exchangeRepository.getExchange(retailPrice);
+		model.setAttribute("exchange", exchange);
 	}
 }
