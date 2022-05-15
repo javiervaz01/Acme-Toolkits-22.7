@@ -20,7 +20,7 @@ public class InventorPatronageReportShowService implements AbstractShowService<I
 	protected InventorPatronageReportRepository repository;
 	
 	@Autowired
-	protected ExchangeService exchangeRepository;
+	protected ExchangeService exchangeService;
 	
 	@Override
 	public boolean authorise(final Request<PatronageReport> request) {
@@ -51,7 +51,7 @@ public class InventorPatronageReportShowService implements AbstractShowService<I
 		final int masterId = request.getModel().getInteger("id");
 		model.setAttribute("masterId", masterId);
 		
-		final Money exchange=this.exchangeRepository.getExchange(entity.getPatronage().getBudget());
+		final Money exchange=this.exchangeService.getExchange(entity.getPatronage().getBudget());
 		model.setAttribute("exchange", exchange);
 	}
 

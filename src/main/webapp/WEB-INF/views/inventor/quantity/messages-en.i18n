@@ -19,3 +19,4 @@ inventor.quantity.form.button.delete = Delete
 inventor.quantity.form.error.repeated-tool = A tool can't be repeated in a toolkit
 inventor.quantity.form.error.repeated-item = This tool/component is already in the toolkit
 inventor.quantity.form.error.wrong-currency = The price must be in the same currency as the rest of items in the toolkit
+inventor.quantity.form.error.draft-mode-item = This item has not been published yet

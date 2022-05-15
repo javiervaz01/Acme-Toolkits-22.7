@@ -55,7 +55,15 @@ public class InventorQuantityUpdateService implements AbstractUpdateService<Inve
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "toolkit.title", "number", "items");
+		request.bind(entity, errors, "toolkit.title", "number");
+		
+		Model model;
+		Item selectedItem;
+
+		model = request.getModel();
+		selectedItem = this.repository.findOneItemByCode(model.getString("items"));
+
+		entity.setItem(selectedItem);
 	}
 
 	@Override
@@ -70,8 +78,10 @@ public class InventorQuantityUpdateService implements AbstractUpdateService<Inve
 
 		model = request.getModel();
 		quantity = model.getInteger("number");
-		selectedItem = this.repository.findOneItemByCode(model.getString("items"));
-
+		selectedItem = entity.getItem();
+		
+		model.setAttribute("selected", selectedItem);
+		
 		if (!errors.hasErrors("number")) {
 			errors.state(request, selectedItem.getType().equals(ItemType.COMPONENT) || quantity == 1, "number",
 					"inventor.quantity.form.error.repeated-tool");
@@ -93,6 +103,12 @@ public class InventorQuantityUpdateService implements AbstractUpdateService<Inve
 					itemsInToolkit.isEmpty()
 							|| itemsInToolkit.iterator().next().getRetailPrice().getCurrency().equals(newItemCurrency),
 					"retailPrice", "inventor.quantity.form.error.wrong-currency");
+		
+		errors.state(request, !itemsInToolkit.contains(selectedItem), "*",
+			"inventor.quantity.form.error.repeated-item");
+		
+		errors.state(request, !selectedItem.isDraftMode(), "*",
+			"inventor.quantity.form.error.draft-mode-item"); // Protection against hacking
 		}
 	}
 
@@ -104,6 +120,19 @@ public class InventorQuantityUpdateService implements AbstractUpdateService<Inve
 
 		request.unbind(entity, model, "toolkit.title", "number");
 
+		int toolkitId;
+		Item selectedItem;
+		Collection<Item> items;
+		Collection<Item> itemsInToolkit;
+		
+		toolkitId = entity.getToolkit().getId();
+		selectedItem = entity.getItem();
+		items = this.repository.findAllItems();
+		itemsInToolkit = this.repository.findManyItemByToolkitId(toolkitId);
+		items.removeAll(itemsInToolkit);
+		
+		model.setAttribute("items", items);
+		model.setAttribute("selected", selectedItem);
 		model.setAttribute("draftMode", entity.getToolkit().isDraftMode());
 	}
 

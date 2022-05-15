@@ -1,6 +1,6 @@
 package acme.features.inventor.quantity;
 
-import java.util.Arrays;
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +12,6 @@ import acme.entities.toolkits.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
-import acme.framework.datatypes.Money;
 import acme.framework.services.AbstractDeleteService;
 import acme.roles.Inventor;
 
@@ -72,15 +71,11 @@ public class InventorQuantityDeleteService implements AbstractDeleteService<Inve
 
 		request.unbind(entity, model, "toolkit.title", "number");
 
-		Item item;
-		Money exchange;
+		Collection<Item> allItems;
 
-		item = entity.getItem();
-		model.setAttribute("items", Arrays.asList(item));
-		model.setAttribute("draftMode", entity.getToolkit().isDraftMode());
-
-		exchange = this.exchangeService.getExchange(item.getRetailPrice());
-		model.setAttribute("exchange", exchange);
+		allItems = this.repository.findAllItems();
+		
+		model.setAttribute("items", allItems);
 	}
 
 	@Override
