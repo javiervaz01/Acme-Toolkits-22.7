@@ -5,6 +5,7 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.SpamDetectorService;
 import acme.entities.announcements.Announcement;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
@@ -17,6 +18,9 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 
 	@Autowired
 	AdministratorAnnouncementRepository repository;
+	
+	@Autowired
+	SpamDetectorService spamDetectorService;
 	
 	@Override
 	public boolean authorise(final Request<Announcement> request) {
@@ -72,6 +76,27 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 
 		confirmation = request.getModel().getBoolean("confirmation");
 		errors.state(request, confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
+		
+		if (!errors.hasErrors("title")) {
+			final boolean spamStrong = this.spamDetectorService.ratioSurpassesThreshold(entity.getTitle(), 
+				this.repository.getSystemConfiguration().getStrongSpamThreshold(), 
+				this.repository.getSystemConfiguration().getStrongSpamTerms());
+			final boolean spamWeak = this.spamDetectorService.ratioSurpassesThreshold(entity.getTitle(), 
+				this.repository.getSystemConfiguration().getWeakSpamThreshold(), 
+				this.repository.getSystemConfiguration().getWeakSpamTerms());
+			
+			errors.state(request, !(spamStrong || spamWeak), "title", "administrator.announcement.form.error.spam");
+		}
+		if(!errors.hasErrors("body")) {
+			final boolean spamStrong = this.spamDetectorService.ratioSurpassesThreshold(entity.getBody(), 
+				this.repository.getSystemConfiguration().getStrongSpamThreshold(), 
+				this.repository.getSystemConfiguration().getStrongSpamTerms());
+			final boolean spamWeak = this.spamDetectorService.ratioSurpassesThreshold(entity.getBody(), 
+				this.repository.getSystemConfiguration().getWeakSpamThreshold(), 
+				this.repository.getSystemConfiguration().getWeakSpamTerms());
+			
+			errors.state(request, !spamStrong || !spamWeak, "body", "administrator.announcement.form.error.spam");			
+		}
 		
 	}
 

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class SpamDetectorService {
 	
-	public boolean surpassesStrongTermsRatio(final String text, final double threshold, final String spamTerms) {
+	public boolean ratioSurpassesThreshold(final String text, final double threshold, final String spamTerms) {
 		int counter = 0;
 		final String normalizedText = text.trim().replaceAll("\\s{2,}", " ").toLowerCase();
 		final int numberOfWords = normalizedText.split(" ").length;
