@@ -14,7 +14,7 @@ public class PatronPatronageListTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources= "/patron/patronage/list.csv", encoding ="utf-8", numLinesToSkip=1)
 	@Order(10)
-	public void positiveTest(final int recordIndex, final String status, final String code,final String legalStuff, final String budget, final String creationDate, final String startDate, final String endDate, final String info, final String patronIdentityName, final String patronIdentitySurname, final String patronIdentityEmail, final String patronCompany, final String patronStatement, final String patronInfo) {
+	public void positiveTest(final int recordIndex, final String status, final String code,final String legalStuff, final String budget, final String creationDate, final String exchange,final String startDate, final String endDate, final String info, final String patronIdentityName, final String patronIdentitySurname, final String patronIdentityEmail, final String patronCompany, final String patronStatement, final String patronInfo) {
 		
 		super.signIn("patron1", "patron1");
 		
@@ -33,6 +33,7 @@ public class PatronPatronageListTest extends TestHarness {
 		super.checkInputBoxHasValue("legalStuff", legalStuff);
 		super.checkInputBoxHasValue("budget", budget);
 		super.checkInputBoxHasValue("creationDate", creationDate);
+		super.checkInputBoxHasValue("exchange", exchange);
 		super.checkInputBoxHasValue("startDate", startDate);
 		super.checkInputBoxHasValue("endDate", endDate);
 		super.checkInputBoxHasValue("info", info);

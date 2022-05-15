@@ -10,4 +10,5 @@
 	<acme:list-column code="patron.patronage.list.label.exchange" path="exchange"/>
 	<acme:list-column code="patron.patronage.list.label.start-date" path="startDate"/>
 	<acme:list-column code="patron.patronage.list.label.end-date" path="endDate"/>
+	<acme:list-column code="inventor.item.list.label.published" path="published" width="10%"/>
 </acme:list>
