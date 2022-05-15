@@ -22,7 +22,7 @@ public class PatronPatronageListMineService implements AbstractListService<Patro
 	protected PatronPatronageRepository repository;
 	
 	@Autowired
-	protected ExchangeService exchangeRepository;
+	protected ExchangeService exchangeService;
 	
 	@Override
 	public boolean authorise(final Request<Patronage> request) {
@@ -51,7 +51,7 @@ public class PatronPatronageListMineService implements AbstractListService<Patro
 		final Boolean isPublished = !entity.isDraftMode();
 		model.setAttribute("published", isPublished);
 		
-		final Money exchange=this.exchangeRepository.getExchange(entity.getBudget());
+		final Money exchange=this.exchangeService.getExchange(entity.getBudget());
 		model.setAttribute("exchange", exchange);
 	}
 }
