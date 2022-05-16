@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import acme.entities.items.Item;
 import acme.entities.quantities.Quantity;
+import acme.entities.systemconfigurations.SystemConfiguration;
 import acme.entities.toolkits.Toolkit;
 import acme.framework.repositories.AbstractRepository;
 import acme.roles.Inventor;
@@ -41,4 +42,7 @@ public interface InventorToolkitRepository extends AbstractRepository {
 
 	@Query("select q from Quantity q where q.toolkit.id = :id")
 	Collection<Quantity> findManyQuantityByToolkitId(int id);
+	
+	@Query("select c from SystemConfiguration c")
+	SystemConfiguration getSystemConfiguration();
 }

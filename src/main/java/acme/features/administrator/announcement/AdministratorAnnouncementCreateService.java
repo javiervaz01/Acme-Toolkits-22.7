@@ -95,7 +95,7 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 				this.repository.getSystemConfiguration().getWeakSpamThreshold(), 
 				this.repository.getSystemConfiguration().getWeakSpamTerms());
 			
-			errors.state(request, !spamStrong || !spamWeak, "body", "administrator.announcement.form.error.spam");			
+			errors.state(request, !(spamStrong || spamWeak), "body", "administrator.announcement.form.error.spam");			
 		}
 		
 	}

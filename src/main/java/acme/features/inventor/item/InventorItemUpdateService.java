@@ -4,6 +4,7 @@ package acme.features.inventor.item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.SpamDetectorService;
 import acme.entities.items.Item;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
@@ -15,7 +16,10 @@ import acme.roles.Inventor;
 public class InventorItemUpdateService implements AbstractUpdateService<Inventor, Item> {
 
 	// Internal state ---------------------------------------------------------
-
+	
+	@Autowired
+	SpamDetectorService spamDetectorService;
+	
 	@Autowired
 	protected InventorItemRepository repository;
 
@@ -77,6 +81,26 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 
 			retailPrice = entity.getRetailPrice().getAmount();
 			errors.state(request, retailPrice > 0.0, "retailPrice", "inventor.item.form.error.negative-price");
+		}
+		if (!errors.hasErrors("technology")) {
+			final boolean spamStrong = this.spamDetectorService.ratioSurpassesThreshold(entity.getTechnology(), 
+				this.repository.getSystemConfiguration().getStrongSpamThreshold(), 
+				this.repository.getSystemConfiguration().getStrongSpamTerms());
+			final boolean spamWeak = this.spamDetectorService.ratioSurpassesThreshold(entity.getTechnology(), 
+				this.repository.getSystemConfiguration().getWeakSpamThreshold(), 
+				this.repository.getSystemConfiguration().getWeakSpamTerms());
+			
+			errors.state(request, !(spamStrong || spamWeak), "technology", "inventor.item.form.error.spam");
+		}
+		if(!errors.hasErrors("description")) {
+			final boolean spamStrong = this.spamDetectorService.ratioSurpassesThreshold(entity.getDescription(), 
+				this.repository.getSystemConfiguration().getStrongSpamThreshold(), 
+				this.repository.getSystemConfiguration().getStrongSpamTerms());
+			final boolean spamWeak = this.spamDetectorService.ratioSurpassesThreshold(entity.getDescription(), 
+				this.repository.getSystemConfiguration().getWeakSpamThreshold(), 
+				this.repository.getSystemConfiguration().getWeakSpamTerms());
+			
+			errors.state(request, !(spamStrong || spamWeak), "description", "inventor.item.form.error.spam");			
 		}
 	}
 
