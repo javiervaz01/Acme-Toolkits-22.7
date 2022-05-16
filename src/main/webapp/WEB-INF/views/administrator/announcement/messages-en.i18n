@@ -14,3 +14,4 @@ administrator.announcement.form.label.confirmation = Confirmation
 administrator.announcement.form.button.create = Create
 
 administrator.announcement.form.error.spam = The text has been considered Spam
+administrator.announcement.form.error.confirmation = You must check the confirmation box

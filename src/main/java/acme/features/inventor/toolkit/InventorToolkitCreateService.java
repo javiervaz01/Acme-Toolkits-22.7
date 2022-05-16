@@ -3,7 +3,7 @@ package acme.features.inventor.toolkit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.components.SpamDetectorService;
+import acme.components.SpamService;
 import acme.entities.toolkits.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
@@ -18,9 +18,9 @@ public class InventorToolkitCreateService implements AbstractCreateService<Inven
 
 	@Autowired
 	protected InventorToolkitRepository repository;
-	
+
 	@Autowired
-	SpamDetectorService spamDetectorService;
+	protected SpamService spamService;
 
 	@Override
 	public boolean authorise(final Request<Toolkit> request) {
@@ -66,34 +66,16 @@ public class InventorToolkitCreateService implements AbstractCreateService<Inven
 			errors.state(request, existing == null, "code", "inventor.toolkit.form.error.duplicated");
 		}
 		if (!errors.hasErrors("title")) {
-			final boolean spamStrong = this.spamDetectorService.ratioSurpassesThreshold(entity.getTitle(), 
-				this.repository.getSystemConfiguration().getStrongSpamThreshold(), 
-				this.repository.getSystemConfiguration().getStrongSpamTerms());
-			final boolean spamWeak = this.spamDetectorService.ratioSurpassesThreshold(entity.getTitle(), 
-				this.repository.getSystemConfiguration().getWeakSpamThreshold(), 
-				this.repository.getSystemConfiguration().getWeakSpamTerms());
-			
-			errors.state(request, !(spamStrong || spamWeak), "title", "inventor.toolkit.form.error.spam");
+			errors.state(request, !this.spamService.isSpam(entity.getTitle()), "title",
+					"inventor.toolkit.form.error.spam");
 		}
-		if(!errors.hasErrors("description")) {
-			final boolean spamStrong = this.spamDetectorService.ratioSurpassesThreshold(entity.getDescription(), 
-				this.repository.getSystemConfiguration().getStrongSpamThreshold(), 
-				this.repository.getSystemConfiguration().getStrongSpamTerms());
-			final boolean spamWeak = this.spamDetectorService.ratioSurpassesThreshold(entity.getDescription(), 
-				this.repository.getSystemConfiguration().getWeakSpamThreshold(), 
-				this.repository.getSystemConfiguration().getWeakSpamTerms());
-			
-			errors.state(request, !(spamStrong || spamWeak), "description", "inventor.toolkit.form.error.spam");			
+		if (!errors.hasErrors("description")) {
+			errors.state(request, !this.spamService.isSpam(entity.getDescription()), "description",
+					"inventor.toolkit.form.error.spam");
 		}
-		if(!errors.hasErrors("assemblyNotes")) {
-			final boolean spamStrong = this.spamDetectorService.ratioSurpassesThreshold(entity.getAssemblyNotes(), 
-				this.repository.getSystemConfiguration().getStrongSpamThreshold(), 
-				this.repository.getSystemConfiguration().getStrongSpamTerms());
-			final boolean spamWeak = this.spamDetectorService.ratioSurpassesThreshold(entity.getAssemblyNotes(), 
-				this.repository.getSystemConfiguration().getWeakSpamThreshold(), 
-				this.repository.getSystemConfiguration().getWeakSpamTerms());
-			
-			errors.state(request, !(spamStrong || spamWeak), "assemblyNotes", "inventor.toolkit.form.error.spam");			
+		if (!errors.hasErrors("assemblyNotes")) {
+			errors.state(request, !this.spamService.isSpam(entity.getAssemblyNotes()), "assemblyNotes",
+					"inventor.toolkit.form.error.spam");
 		}
 	}
 

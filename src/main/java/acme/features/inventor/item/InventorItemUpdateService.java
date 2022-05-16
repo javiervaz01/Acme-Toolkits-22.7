@@ -4,11 +4,13 @@ package acme.features.inventor.item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.components.SpamDetectorService;
+import acme.components.ExchangeService;
+import acme.components.SpamService;
 import acme.entities.items.Item;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
+import acme.framework.datatypes.Money;
 import acme.framework.services.AbstractUpdateService;
 import acme.roles.Inventor;
 
@@ -16,12 +18,15 @@ import acme.roles.Inventor;
 public class InventorItemUpdateService implements AbstractUpdateService<Inventor, Item> {
 
 	// Internal state ---------------------------------------------------------
-	
-	@Autowired
-	SpamDetectorService spamDetectorService;
-	
+
 	@Autowired
 	protected InventorItemRepository repository;
+
+	@Autowired
+	protected ExchangeService exchangeService;
+
+	@Autowired
+	protected SpamService spamService;
 
 	@Override
 	public boolean authorise(final Request<Item> request) {
@@ -75,7 +80,7 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 			errors.state(request, existing == null || existing.getId() == id, "code",
 					"inventor.item.form.error.duplicated");
 		}
-		
+
 		if (!errors.hasErrors("retailPrice")) {
 			Double retailPrice;
 
@@ -83,24 +88,12 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 			errors.state(request, retailPrice > 0.0, "retailPrice", "inventor.item.form.error.negative-price");
 		}
 		if (!errors.hasErrors("technology")) {
-			final boolean spamStrong = this.spamDetectorService.ratioSurpassesThreshold(entity.getTechnology(), 
-				this.repository.getSystemConfiguration().getStrongSpamThreshold(), 
-				this.repository.getSystemConfiguration().getStrongSpamTerms());
-			final boolean spamWeak = this.spamDetectorService.ratioSurpassesThreshold(entity.getTechnology(), 
-				this.repository.getSystemConfiguration().getWeakSpamThreshold(), 
-				this.repository.getSystemConfiguration().getWeakSpamTerms());
-			
-			errors.state(request, !(spamStrong || spamWeak), "technology", "inventor.item.form.error.spam");
+			errors.state(request, !this.spamService.isSpam(entity.getTechnology()), "technology",
+					"inventor.item.form.error.spam");
 		}
-		if(!errors.hasErrors("description")) {
-			final boolean spamStrong = this.spamDetectorService.ratioSurpassesThreshold(entity.getDescription(), 
-				this.repository.getSystemConfiguration().getStrongSpamThreshold(), 
-				this.repository.getSystemConfiguration().getStrongSpamTerms());
-			final boolean spamWeak = this.spamDetectorService.ratioSurpassesThreshold(entity.getDescription(), 
-				this.repository.getSystemConfiguration().getWeakSpamThreshold(), 
-				this.repository.getSystemConfiguration().getWeakSpamTerms());
-			
-			errors.state(request, !(spamStrong || spamWeak), "description", "inventor.item.form.error.spam");			
+		if (!errors.hasErrors("description")) {
+			errors.state(request, !this.spamService.isSpam(entity.getDescription()), "description",
+					"inventor.item.form.error.spam");
 		}
 	}
 
@@ -112,6 +105,9 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 
 		request.unbind(entity, model, "name", "code", "technology", "description", "retailPrice", "info", "type",
 				"draftMode");
+
+		final Money exchange = this.exchangeService.getExchange(entity.getRetailPrice());
+		model.setAttribute("exchange", exchange);
 	}
 
 	@Override

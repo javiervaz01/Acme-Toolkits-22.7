@@ -67,6 +67,7 @@ public class PatronPatronagePublishService implements AbstractUpdateService<Patr
 		assert entity != null;
 		assert errors != null;
 
+		// TODO using deprecated methods. Fix this
 		if (!errors.hasErrors("startDate")) {
 			final Date creationDate = entity.getCreationDate();
 			 final Date minimumStartDate = new Date();
