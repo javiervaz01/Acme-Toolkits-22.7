@@ -27,13 +27,11 @@ public class SystemConfiguration extends AbstractEntity {
 
 	@NotBlank
 	@Pattern(regexp = "^([A-Z]{3}, ?)*[A-Z]{3}$")
-	// If we allow an optional blank space after the comma, we are informed again of
-	// a possible stack overflow
-
-	protected String acceptedCurrencies; // Comma separated groups of three letters
+	protected String acceptedCurrencies;
 
 	@NotBlank
-	@Pattern(regexp = "^([a-zA-Z0-9 ']+)(,[a-zA-Z0-9 ']+)*$") // TODO comment this in the lint report. use this
+	@Pattern(regexp = "^([\\p{L}\\p{N}\\p{P} ]+)(,[\\p{L}\\p{N}\\p{P} ]+)*$")
+	// TODO: Comment this in the lint report. Use this expression
 	protected String strongSpamTerms;
 
 	@PositiveOrZero
@@ -41,7 +39,7 @@ public class SystemConfiguration extends AbstractEntity {
 	protected double strongSpamThreshold;
 
 	@NotBlank
-	@Pattern(regexp = "^([a-zA-Z0-9 ']+)(,[a-zA-Z0-9 ']+)*$")
+	@Pattern(regexp = "^([\\p{L}\\p{N}\\p{P} ]+)(,[\\p{L}\\p{N}\\p{P} ]+)*$")
 	protected String weakSpamTerms;
 
 	@PositiveOrZero

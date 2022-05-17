@@ -54,10 +54,9 @@ master.menu.inventor.patronage-report.list = Ver mis reportes de patronazgos
 master.menu.inventor.toolkit.list = Ver mis toolkits
 master.menu.inventor.item.list = Ver mis artículos
 
-
 # master.menu.patron ########################################################
 
-master.menu.patron = Patrocinador
+master.menu.patron = Patrón
 master.menu.patron.dashboard = Panel
 master.menu.patron.patronage.list = Ver mis patronazgos
 master.menu.patron.patronage-report.list = Ver mis reportes de patronazgos
@@ -73,7 +72,8 @@ master.menu.user-account.system-configuration.show = Ver la configuración del s
 master.menu.user-account = Cuenta
 master.menu.user-account.general-data = Datos generales
 master.menu.user-account.become-patron = Conviértete en patrón
+master.menu.user-account.patron = Datos de patrón
 master.menu.user-account.become-inventor = Conviértete en inventor
+master.menu.user-account.inventor = Datos de inventor
 master.menu.user-account.list = Ver cuentas de usuario
 master.menu.user-account.announcement.list-recent = Ver anuncios recientes
-

@@ -3,3 +3,4 @@ authenticated.inventor.form.label.statement = Declaración
 authenticated.inventor.form.label.info = Info
 
 authenticated.inventor.form.button.create = Registrarse
+authenticated.inventor.form.button.update = Actualizar

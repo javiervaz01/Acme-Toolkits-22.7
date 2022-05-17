@@ -1,7 +1,7 @@
 key,enabled,identity,password,username
 user-account-anonymous-01,false,"UserIdentity{name: 'John', surname: 'Doe', email: 'john.doe@acme.com'}",HIDDEN-PASSWORD,anonymous
-user-account-administrator-01,true,"UserIdentity{name: 'Administrator', surname: 'Acme', email: 'administrator@acme.com'}",administrator,administrator
 user-account-authenticated-01,true,"UserIdentity{name: 'Authenticated', surname: 'Acme', email: 'authenticated@acme.com'}",authenticated,authenticated
+user-account-administrator-01,true,"UserIdentity{name: 'Administrator', surname: 'Acme', email: 'administrator@acme.com'}",administrator,administrator
 user-account-patron-01,true,"UserIdentity{name: 'Patron', surname: 'Delfin', email: 'patron1@acme.com'}",patron1,patron1
 user-account-patron-02,true,"UserIdentity{name: 'Patron', surname: 'Jose', email: 'patron2@acme.com'}",patron2,patron2
 user-account-patron-03,true,"UserIdentity{name: 'Patron', surname: 'Jose', email: 'patron3@acme.com'}",patron3,patron3
@@ -38,3 +38,5 @@ user-account-inventor-15,true,"UserIdentity{name: 'Inventor', surname: 'Jose', e
 user-account-inventor-16,true,"UserIdentity{name: 'Inventor', surname: 'Jose', email: 'inventor16@acme.com'}",inventor16,inventor16
 user-account-inventor-17,true,"UserIdentity{name: 'Inventor', surname: 'Jose', email: 'inventor17@acme.com'}",inventor17,inventor17
 user-account-inventor-18,true,"UserIdentity{name: 'Inventor', surname: 'Jose', email: 'inventor18@acme.com'}",inventor18,inventor18
+user-account-goodgod,true,"UserIdentity{name: 'God', surname: 'Palmero', email: 'god@heaven.com'}",goodgod,goodgod
+user-account-noroles,true,"UserIdentity{name: 'Mr no roles', surname: 'Pérez', email: 'none@noroles.com'}",noroles,noroles

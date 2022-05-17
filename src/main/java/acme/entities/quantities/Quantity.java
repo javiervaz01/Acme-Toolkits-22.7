@@ -28,7 +28,6 @@ public class Quantity extends AbstractEntity {
 
 	// Derived attributes ----------------------------------------------------
 
-
 	// Relationships ----------------------------------------------------
 
 	@NotNull
@@ -40,5 +39,4 @@ public class Quantity extends AbstractEntity {
 	@Valid
 	@ManyToOne(optional = false)
 	protected Toolkit toolkit;
-
 }

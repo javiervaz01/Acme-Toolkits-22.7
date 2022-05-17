@@ -13,28 +13,28 @@ import acme.framework.services.AbstractShowService;
 import acme.roles.Patron;
 
 @Service
-public class PatronPatronageShowService implements AbstractShowService<Patron, Patronage>{
+public class PatronPatronageShowService implements AbstractShowService<Patron, Patronage> {
 
 	// Internal state ---------------------------------------------------------
-	
+
 	@Autowired
 	protected PatronPatronageRepository repository;
-	
+
 	@Autowired
 	protected PatronPatronageReportRepository reportRepository;
-	
+
 	@Autowired
 	protected ExchangeService exchangeService;
-	
+
 	@Override
 	public boolean authorise(final Request<Patronage> request) {
-		assert request !=null;
-		
+		assert request != null;
+
 		final int patronId = request.getPrincipal().getActiveRoleId();
 		final int patronageId = request.getModel().getInteger("id");
 		final int patronageInventorId = this.repository.findOnePatronageById(patronageId).getPatron().getId();
-		
-		return  patronId == patronageInventorId;
+
+		return patronId == patronageInventorId;
 	}
 
 	@Override
@@ -50,20 +50,21 @@ public class PatronPatronageShowService implements AbstractShowService<Patron, P
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		
-		request.unbind(entity, model, "status", "code", "legalStuff", "budget", "creationDate", "startDate", "endDate", "info","draftMode");
-		
+
+		request.unbind(entity, model, "status", "code", "legalStuff", "budget", "creationDate", "startDate", "endDate",
+				"info", "draftMode");
+
 		final int masterId = request.getModel().getInteger("id");
 		model.setAttribute("masterId", masterId);
-		
+
 		final String inventorName = entity.getInventor().getIdentity().getName();
 		final String inventorSurname = entity.getInventor().getIdentity().getSurname();
 		final String inventorEmail = entity.getInventor().getIdentity().getEmail();
 		final String inventorCompany = entity.getInventor().getCompany();
 		final String inventorStatement = entity.getInventor().getStatement();
 		final String inventorInfo = entity.getInventor().getInfo();
-		final Money exchange=this.exchangeService.getExchange(entity.getBudget());
-		
+		final Money exchange = this.exchangeService.getExchange(entity.getBudget());
+
 		model.setAttribute("inventorName", inventorName);
 		model.setAttribute("inventorSurname", inventorSurname);
 		model.setAttribute("inventorEmail", inventorEmail);

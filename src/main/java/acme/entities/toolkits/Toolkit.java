@@ -21,15 +21,6 @@ import lombok.Setter;
 @Setter
 public class Toolkit extends AbstractEntity {
 
-	/**
-	 * A toolkit is a bundle with components and tools that are expected to work as a whole. The
-	 * system must store the following data about them: a code (pattern
-	 * “^[A-Z]{3}-[0-9]{3}(-[A-Z])?$”, unique), title (not blank, shorter than 101 characters),
-	 * description (not blank, shorter than 256 characters), assembly notes (not blank, shorter than
-	 * 256 characters), and an optional link with further information. A toolkit may have several
-	 * instances of the same component, but only one instance of a given tool.
-	 */
-
 	// Serialisation identifier -----------------------------------------------
 
 	protected static final long serialVersionUID = 1L;
@@ -55,13 +46,13 @@ public class Toolkit extends AbstractEntity {
 
 	@URL
 	protected String link;
-	
+
 	protected boolean draftMode;
 
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
-	
+
 	@NotNull
 	@Valid
 	@ManyToOne(optional = false)

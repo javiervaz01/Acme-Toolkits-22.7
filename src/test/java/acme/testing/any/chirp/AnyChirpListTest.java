@@ -17,10 +17,11 @@ public class AnyChirpListTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/any/chirp/list.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void positiveTest(final int index, final Date moment, final String title, final String author, final String body, final String email) {
-		
+	public void positiveTest(final int index, final Date moment, final String title, final String author,
+			final String body, final String email) {
+
 		super.signIn("inventor1", "inventor1");
-		super.clickOnMenu("Any", "Chirps list");
+		super.clickOnMenu("Any", "List chirps");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
 		super.checkColumnHasValue(index, 0, title);
@@ -32,4 +33,4 @@ public class AnyChirpListTest extends TestHarness {
 
 	// Ancillary methods ------------------------------------------------------
 
-} 
+}

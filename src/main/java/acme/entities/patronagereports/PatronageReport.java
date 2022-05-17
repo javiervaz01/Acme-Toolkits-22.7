@@ -32,8 +32,7 @@ public class PatronageReport extends AbstractEntity {
 	// Attributes -------------------------------------------------------------
 
 	@NotBlank
-	@Pattern(regexp = "^[A-Z]{3}-[0-9]{3}(-[A-Z])?:[0-9]{4}$") // first part taken from the patronage
-	// TODOcount how many reports and add 1
+	@Pattern(regexp = "^[A-Z]{3}-[0-9]{3}(-[A-Z])?:[0-9]{4}$")
 	protected String sequenceNumber;
 
 	@NotNull

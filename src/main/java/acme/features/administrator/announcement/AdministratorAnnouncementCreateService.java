@@ -54,12 +54,8 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 		assert request != null;
 
 		Announcement result;
-		Date moment;
-
-		moment = new Date(System.currentTimeMillis() - 1);
 
 		result = new Announcement();
-		result.setMoment(moment);
 
 		return result;
 	}

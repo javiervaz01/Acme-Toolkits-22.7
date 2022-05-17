@@ -12,21 +12,22 @@ import acme.framework.services.AbstractUpdateService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorPatronageAcceptService implements AbstractUpdateService<Inventor, Patronage>{
-	
+public class InventorPatronageAcceptService implements AbstractUpdateService<Inventor, Patronage> {
+
 	@Autowired
 	protected InventorPatronageRepository repository;
 
 	@Override
 	public boolean authorise(final Request<Patronage> request) {
 		assert request != null;
-		
+
 		final int patronId = request.getPrincipal().getActiveRoleId();
 		final int patronageId = request.getModel().getInteger("id");
 		final Patronage patronage = this.repository.findOnePatronageById(patronageId);
 		final int patronageInventorId = patronage.getInventor().getId();
-		
-		return patronId == patronageInventorId && patronage.getStatus().equals(Status.PROPOSED); 
+
+		return patronId == patronageInventorId && !patronage.isDraftMode()
+				&& patronage.getStatus().equals(Status.PROPOSED);
 	}
 
 	@Override
@@ -66,7 +67,7 @@ public class InventorPatronageAcceptService implements AbstractUpdateService<Inv
 	public void update(final Request<Patronage> request, final Patronage entity) {
 		assert request != null;
 		assert entity != null;
-		
+
 		entity.setStatus(Status.ACCEPTED);
 		this.repository.save(entity);
 	}

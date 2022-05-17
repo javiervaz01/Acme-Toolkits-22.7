@@ -63,7 +63,7 @@ public class InventorItemPublishService implements AbstractUpdateService<Invento
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "name", "code", "technology", "description", "retailPrice", "info", "type");
+		request.bind(entity, errors);
 	}
 
 	@Override
@@ -71,32 +71,6 @@ public class InventorItemPublishService implements AbstractUpdateService<Invento
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-
-		if (!errors.hasErrors("code")) {
-			Item existing;
-			Integer id;
-
-			id = request.getModel().getInteger("id");
-			existing = this.repository.findOneItemByCode(entity.getCode());
-
-			errors.state(request, existing == null || existing.getId() == id, "code",
-					"inventor.item.form.error.duplicated");
-		}
-
-		if (!errors.hasErrors("retailPrice")) {
-			Double retailPrice;
-
-			retailPrice = entity.getRetailPrice().getAmount();
-			errors.state(request, retailPrice > 0.0, "retailPrice", "inventor.item.form.error.negative-price");
-		}
-		if (!errors.hasErrors("technology")) {
-			errors.state(request, !this.spamService.isSpam(entity.getTechnology()), "technology",
-					"inventor.item.form.error.spam");
-		}
-		if (!errors.hasErrors("description")) {
-			errors.state(request, !this.spamService.isSpam(entity.getDescription()), "description",
-					"inventor.item.form.error.spam");
-		}
 	}
 
 	@Override
