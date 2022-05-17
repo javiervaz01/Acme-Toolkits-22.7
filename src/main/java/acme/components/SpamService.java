@@ -18,6 +18,7 @@ public class SpamService {
 	protected SpamRepository repository;
 
 	public boolean isSpam(final String text) {
+		// TODO create wrapper. This shouldn't depend on systemConfiguration
 		final SystemConfiguration config = this.repository.getSystemConfiguration();
 		final boolean isStrongSpam = this.isSpam(text, config.getStrongSpamTerms(), config.getStrongSpamThreshold());
 		final boolean isWeakSpam = this.isSpam(text, config.getWeakSpamTerms(), config.getWeakSpamThreshold());
@@ -29,6 +30,7 @@ public class SpamService {
 		final String[] splitSpamTerms = spamTerms.toLowerCase().split(",");
 		final Set<String> uniqueSpamTerms = Arrays.stream(splitSpamTerms).map(String::trim).collect(Collectors.toSet());
 		int foundSpamTermsCount = 0;
+		// TODO symbols are also considered as spam. Either look for words or also consider symbols in the regex (all punctuation symbols) 
 		int totalTermsCount = text.split("[ \\r\\n]+").length;
 
 		for (final String term : uniqueSpamTerms) {
@@ -58,11 +60,12 @@ public class SpamService {
 		buffer.append(Pattern.quote(splitTerm[0]));
 		// Consider the possible white spaces or blank lines between words of the same
 		// term (e.g., "one million").
+		// TODO use \s instead or \\r\\n
 		Arrays.stream(splitTerm).skip(1).forEach(t -> buffer.append(String.format("[ \\r\\n]+%s", Pattern.quote(t))));
 		// Don't match "one millionAIRE" for the spam term "one million"
 		buffer.append(")(?!\\w)");
 
-		// Example result: "(one[ \\n]+million[ \\r\\n]+)(?!\\w)/gi"
+		// Example result: "(one[ \s]+million[ \\r\\n]+)(?!\\w)/gi"
 		return Pattern.compile(buffer.toString(), Pattern.CASE_INSENSITIVE);
 	}
 }

@@ -11,5 +11,5 @@
 	<acme:list-column code="any.quantity.list.label.exchange" path="exchange" width="10%"/>
 	<acme:list-column code="any.quantity.list.label.type" path="type" width="10%"/>
 	<acme:list-column code="any.quantity.list.label.quantity" path="number" width="10%"/>
-	
+	<!--  missing addItem -->
 </acme:list>

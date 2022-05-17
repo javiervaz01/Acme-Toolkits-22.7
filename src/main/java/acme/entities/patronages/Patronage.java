@@ -34,6 +34,7 @@ public class Patronage extends AbstractEntity {
 
 	// Attributes -------------------------------------------------------------
 
+	// TODO missing draft enum and corresponding service checks
 	@NotNull
 	protected Status status;
 

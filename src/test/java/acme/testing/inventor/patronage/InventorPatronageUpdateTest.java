@@ -26,10 +26,13 @@ public class InventorPatronageUpdateTest extends TestHarness{
 
 		super.checkFormExists();
 
+		// TODO divide this in two tests: accept and deny
 		super.clickOnButton("Update");
 		
 		super.fillInputBoxIn("status", status);
 		
+		// This will take us to the list. We have to modify this
+		// Check in the list that the value has been modified
 		super.clickOnSubmit("Update");
 		
 		super.checkFormExists();

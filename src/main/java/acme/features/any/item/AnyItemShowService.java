@@ -33,6 +33,7 @@ public class AnyItemShowService implements AbstractShowService<Any, Item> {
 		id = request.getModel().getInteger("id");
 		toolkit = this.repository.findOneToolkitByItemId(id);
 		
+		// TODO fix this. doesnt depend on toolkit anymore
 		return !toolkit.isDraftMode();
 	}
 

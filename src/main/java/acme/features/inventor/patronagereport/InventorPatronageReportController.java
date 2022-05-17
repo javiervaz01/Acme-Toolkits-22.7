@@ -24,7 +24,7 @@ public class InventorPatronageReportController extends AbstractController<Invent
 	protected InventorPatronageReportShowService showService;
 	
 	@Autowired
-	protected InventorPatronageReportCreationCreateService createService;
+	protected InventorPatronageReportCreateService createService;
 	
 	// Constructors -----------------------------------------------------------
 	

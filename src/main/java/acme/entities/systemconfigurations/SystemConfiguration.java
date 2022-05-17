@@ -33,7 +33,7 @@ public class SystemConfiguration extends AbstractEntity {
 	protected String acceptedCurrencies; // Comma separated groups of three letters
 
 	@NotBlank
-	@Pattern(regexp = "^([a-zA-Z0-9 ']+)(,[a-zA-Z0-9 ']+)*$")
+	@Pattern(regexp = "^([a-zA-Z0-9 ']+)(,[a-zA-Z0-9 ']+)*$") // TODO comment this in the lint report. use this
 	protected String strongSpamTerms;
 
 	@PositiveOrZero

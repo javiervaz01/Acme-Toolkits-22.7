@@ -1,5 +1,5 @@
-package acme.features.inventor.patronagereport;
 
+package acme.features.inventor.patronagereport;
 
 import java.util.Date;
 
@@ -15,16 +15,16 @@ import acme.framework.services.AbstractCreateService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorPatronageReportCreationCreateService implements AbstractCreateService<Inventor, PatronageReport>{
+public class InventorPatronageReportCreateService implements AbstractCreateService<Inventor, PatronageReport> {
 
 	@Autowired
-	InventorPatronageReportCreationRepository repository;
-	
+	InventorPatronageReportRepository repository;
+
+
 	@Override
 	public boolean authorise(final Request<PatronageReport> request) {
 		assert request != null;
-		
-		
+
 		return true;
 	}
 
@@ -34,16 +34,14 @@ public class InventorPatronageReportCreationCreateService implements AbstractCre
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "sequenceNumber","creationTime","memorandum","info");
+		request.bind(entity, errors, "creationTime", "memorandum", "info");
+		
 		Integer masterId;
 		Patronage patronage;
 		
-		
 		masterId = request.getModel().getInteger("masterId");
-		patronage = this.repository.findPatronageById(masterId);
-		
+		patronage = this.repository.findOnePatronageById(masterId);
 		entity.setPatronage(patronage);
-		System.out.println(entity.getPatronage());
 	}
 
 	@Override
@@ -52,26 +50,35 @@ public class InventorPatronageReportCreationCreateService implements AbstractCre
 		assert entity != null;
 		assert model != null;
 
-		
-		
-		request.unbind(entity, model, "sequenceNumber","creationTime","memorandum","info");
+		request.unbind(entity, model, "sequenceNumber", "creationTime", "memorandum", "info");
+
 		Integer masterId;
+
 		masterId = request.getModel().getInteger("masterId");
+
 		model.setAttribute("masterId", masterId);
+
 	}
 
 	@Override
 	public PatronageReport instantiate(final Request<PatronageReport> request) {
 		assert request != null;
 
-		PatronageReport result;
+		String lastSequenceNumberString;
+		int lastSequenceNumberInt;
+		final String newSequenceNumberString;
 		Date creationTime;
+		PatronageReport result;
 
 		creationTime = new Date(System.currentTimeMillis() - 1);
 
+		lastSequenceNumberString = this.repository.findLastPatronageReportSequenceNumber().iterator().next(); // AAA-000-A:0001 
+		lastSequenceNumberInt = Integer.valueOf(lastSequenceNumberString.substring(10, 14)); // 1
+		newSequenceNumberString = String.format("%s%04d", lastSequenceNumberString.substring(0, 10), lastSequenceNumberInt + 1);
+		
 		result = new PatronageReport();
 		result.setCreationTime(creationTime);
-
+		result.setSequenceNumber(newSequenceNumberString);
 
 		return result;
 	}
@@ -86,7 +93,7 @@ public class InventorPatronageReportCreationCreateService implements AbstractCre
 
 		confirmation = request.getModel().getBoolean("confirmation");
 		errors.state(request, confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
-		
+
 	}
 
 	@Override
@@ -97,14 +104,14 @@ public class InventorPatronageReportCreationCreateService implements AbstractCre
 		Integer masterId;
 		Date creationTime;
 		masterId = request.getModel().getInteger("masterId");
-		patronage = this.repository.findPatronageById(masterId);
-		
+		patronage = this.repository.findOnePatronageById(masterId);
+
 		entity.setPatronage(patronage);
 
 		creationTime = new Date(System.currentTimeMillis() - 1);
 		entity.setCreationTime(creationTime);
 		this.repository.save(entity);
-		
+
 	}
 
 }

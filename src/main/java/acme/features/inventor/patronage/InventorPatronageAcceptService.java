@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.patronages.Patronage;
+import acme.entities.patronages.Status;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
@@ -11,7 +12,7 @@ import acme.framework.services.AbstractUpdateService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorPatronageEditService implements AbstractUpdateService<Inventor, Patronage>{
+public class InventorPatronageAcceptService implements AbstractUpdateService<Inventor, Patronage>{
 	
 	@Autowired
 	protected InventorPatronageRepository repository;
@@ -22,9 +23,10 @@ public class InventorPatronageEditService implements AbstractUpdateService<Inven
 		
 		final int patronId = request.getPrincipal().getActiveRoleId();
 		final int patronageId = request.getModel().getInteger("id");
-		final int patronageInventorId = this.repository.findOnePatronageById(patronageId).getInventor().getId();
+		final Patronage patronage = this.repository.findOnePatronageById(patronageId);
+		final int patronageInventorId = patronage.getInventor().getId();
 		
-		return patronId == patronageInventorId; 
+		return patronId == patronageInventorId && patronage.getStatus().equals(Status.PROPOSED); 
 	}
 
 	@Override
@@ -33,8 +35,7 @@ public class InventorPatronageEditService implements AbstractUpdateService<Inven
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "status");
-		
+		request.bind(entity, errors);
 	}
 
 	@Override
@@ -43,8 +44,7 @@ public class InventorPatronageEditService implements AbstractUpdateService<Inven
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "status");
-		
+		request.unbind(entity, model);
 	}
 
 	@Override
@@ -60,7 +60,6 @@ public class InventorPatronageEditService implements AbstractUpdateService<Inven
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		
 	}
 
 	@Override
@@ -68,8 +67,7 @@ public class InventorPatronageEditService implements AbstractUpdateService<Inven
 		assert request != null;
 		assert entity != null;
 		
+		entity.setStatus(Status.ACCEPTED);
 		this.repository.save(entity);
-		
 	}
-
 }

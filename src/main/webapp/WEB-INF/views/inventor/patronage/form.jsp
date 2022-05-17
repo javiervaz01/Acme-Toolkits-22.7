@@ -3,7 +3,7 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
-<acme:form>
+<acme:form readonly="true">
 	<h2>
 		<acme:message code="inventor.patronage.form.info"/>
 	</h2>
@@ -14,7 +14,7 @@
 	</acme:input-select>
 
 	<jstl:choose>
-		<jstl:when test="${command=='show'}">
+		<jstl:when test="${acme:anyOf(command, 'show, update')}">
 		<acme:input-textbox code="inventor.patronage.form.label.code" path="code" placeholder="ABC-123-D"/>
 			<acme:input-textarea code="inventor.patronage.form.label.legal-stuff" path="legalStuff"/>
 			<acme:input-money code="inventor.patronage.form.label.budget" path="budget"/>
@@ -34,12 +34,17 @@
 			<acme:input-textbox code="inventor.patronage.form.label.patron.info" path="patronInfo"/>
 		</jstl:when>
 	</jstl:choose>
-	
-	<acme:button code="inventor.patronage.form.reports" action="/inventor/patronage-report/list"/>
-	<acme:button test="${command == 'show' && status == 'PROPOSED'}" code="inventor.patronage.form.button.update" action="/inventor/patronage/update?id=${id}"/>
-	<acme:submit test="${command == 'update' && status == 'PROPOSED'}" code="inventor.patronage.form.button.update" action="/inventor/patronage/update"/>
-	<acme:button code="inventor.patronage-report.form.button.create" action="/inventor/patronage-report/create?masterId=${id}"/>
-	
+
+	<%-- <acme:submit test="${command == 'update' && status == 'PROPOSED'}" code="inventor.patronage.form.button.update" action="/inventor/patronage/update"/> --%>
+	<!-- TODO: i18n the codes below if this approach is correct -->
+	<jstl:if test="${status == 'PROPOSED'}">
+		<acme:submit code="Accept" action="/inventor/patronage/accept"/>
+		<acme:submit code="Deny" action="/inventor/patronage/deny"/>
+	</jstl:if>
+	<jstl:if test="${status == 'ACCEPTED'}">
+		<acme:button code="inventor.patronage.form.reports" action="/inventor/patronage-report/list"/>
+		<acme:button code="inventor.patronage-report.form.button.create" action="/inventor/patronage-report/create?masterId=${id}"/>
+	</jstl:if>
 </acme:form>
 
 

@@ -16,7 +16,6 @@ public class AnyItemListTest extends TestHarness {
 	@CsvFileSource(resources = "/any/items/list.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
 	public void positiveTest(final int key, final String name, final String code, final String technology, final String description, final String retailPrice, final String info) {
-		//super.signIn("inventor1", "inventor1");
 
 		super.clickOnMenu("Any", "Items list");
 		super.checkListingExists();
@@ -28,12 +27,10 @@ public class AnyItemListTest extends TestHarness {
 
 		super.clickOnListingRecord(key);
 		super.checkFormExists();
+		// TODO check all the values in the show form. Add it to the CSV
 		super.checkInputBoxHasValue("description", description);
 		super.checkInputBoxHasValue("retailPrice", retailPrice);
 		super.checkInputBoxHasValue("info", info);
-
-		
-		
 	}
 
 	// Ancillary methods ------------------------------------------------------
