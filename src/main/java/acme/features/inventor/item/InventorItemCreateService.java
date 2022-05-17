@@ -63,6 +63,11 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 		assert entity != null;
 		assert errors != null;
 
+		if (!errors.hasErrors("name")) {
+			errors.state(request, !this.spamService.isSpam(entity.getName()), "name",
+					"inventor.item.form.error.spam");
+		}
+		
 		if (!errors.hasErrors("code")) {
 			Item existing;
 
