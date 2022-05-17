@@ -3,6 +3,7 @@ package acme.features.inventor.toolkit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.SpamService;
 import acme.entities.toolkits.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
@@ -17,6 +18,9 @@ public class InventorToolkitCreateService implements AbstractCreateService<Inven
 
 	@Autowired
 	protected InventorToolkitRepository repository;
+
+	@Autowired
+	protected SpamService spamService;
 
 	@Override
 	public boolean authorise(final Request<Toolkit> request) {
@@ -60,6 +64,18 @@ public class InventorToolkitCreateService implements AbstractCreateService<Inven
 
 			existing = this.repository.findOneToolkitByCode(entity.getCode());
 			errors.state(request, existing == null, "code", "inventor.toolkit.form.error.duplicated");
+		}
+		if (!errors.hasErrors("title")) {
+			errors.state(request, !this.spamService.isSpam(entity.getTitle()), "title",
+					"inventor.toolkit.form.error.spam");
+		}
+		if (!errors.hasErrors("description")) {
+			errors.state(request, !this.spamService.isSpam(entity.getDescription()), "description",
+					"inventor.toolkit.form.error.spam");
+		}
+		if (!errors.hasErrors("assemblyNotes")) {
+			errors.state(request, !this.spamService.isSpam(entity.getAssemblyNotes()), "assemblyNotes",
+					"inventor.toolkit.form.error.spam");
 		}
 	}
 

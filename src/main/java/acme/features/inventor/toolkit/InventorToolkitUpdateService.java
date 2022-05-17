@@ -3,6 +3,7 @@ package acme.features.inventor.toolkit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.SpamService;
 import acme.entities.toolkits.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
@@ -17,6 +18,9 @@ public class InventorToolkitUpdateService implements AbstractUpdateService<Inven
 
 	@Autowired
 	protected InventorToolkitRepository repository;
+
+	@Autowired
+	protected SpamService spamService;
 
 	@Override
 	public boolean authorise(final Request<Toolkit> request) {
@@ -64,11 +68,24 @@ public class InventorToolkitUpdateService implements AbstractUpdateService<Inven
 		if (!errors.hasErrors("code")) {
 			Toolkit existing;
 			Integer id;
-			
+
 			id = request.getModel().getInteger("id");
 			existing = this.repository.findOneToolkitByCode(entity.getCode());
-			
-			errors.state(request, existing == null || existing.getId() == id, "code", "inventor.toolkit.form.error.duplicated");
+
+			errors.state(request, existing == null || existing.getId() == id, "code",
+					"inventor.toolkit.form.error.duplicated");
+		}
+		if (!errors.hasErrors("title")) {
+			errors.state(request, !this.spamService.isSpam(entity.getTitle()), "title",
+					"inventor.toolkit.form.error.spam");
+		}
+		if (!errors.hasErrors("description")) {
+			errors.state(request, !this.spamService.isSpam(entity.getDescription()), "description",
+					"inventor.toolkit.form.error.spam");
+		}
+		if (!errors.hasErrors("assemblyNotes")) {
+			errors.state(request, !this.spamService.isSpam(entity.getAssemblyNotes()), "assemblyNotes",
+					"inventor.toolkit.form.error.spam");
 		}
 	}
 
@@ -81,7 +98,6 @@ public class InventorToolkitUpdateService implements AbstractUpdateService<Inven
 		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "link", "draftMode");
 	}
 
-	
 	@Override
 	public void update(final Request<Toolkit> request, final Toolkit entity) {
 		assert request != null;

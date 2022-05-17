@@ -40,5 +40,4 @@ public interface InventorItemRepository extends AbstractRepository {
 
 	@Query("select i from Inventor i where i.id = :id")
 	Inventor findOneInventorById(int id);
-
 }

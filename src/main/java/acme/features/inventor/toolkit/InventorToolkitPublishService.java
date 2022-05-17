@@ -3,6 +3,7 @@ package acme.features.inventor.toolkit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.SpamService;
 import acme.entities.toolkits.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
@@ -18,6 +19,9 @@ public class InventorToolkitPublishService implements AbstractUpdateService<Inve
 
 	@Autowired
 	protected InventorToolkitRepository repository;
+
+	@Autowired
+	protected SpamService spamService;
 
 	@Override
 	public boolean authorise(final Request<Toolkit> request) {
@@ -63,24 +67,38 @@ public class InventorToolkitPublishService implements AbstractUpdateService<Inve
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		
+
 		if (!errors.hasErrors("code")) {
 			Toolkit existing;
 			Integer id;
-			
+
 			id = request.getModel().getInteger("id");
 			existing = this.repository.findOneToolkitByCode(entity.getCode());
-			
-			errors.state(request, existing == null || existing.getId() == id, "code", "inventor.toolkit.form.error.duplicated");
+
+			errors.state(request, existing == null || existing.getId() == id, "code",
+					"inventor.toolkit.form.error.duplicated");
 		}
-		
+
 		if (!errors.hasErrors("retailPrice")) {
 			Double retailPrice;
 			Integer id;
 
 			id = request.getModel().getInteger("id");
 			retailPrice = this.repository.findRetailPriceAmountByToolkitId(id);
-			errors.state(request, retailPrice != null && retailPrice > 0.0, "retailPrice", "inventor.toolkit.form.error.no-items");
+			errors.state(request, retailPrice != null && retailPrice > 0.0, "retailPrice",
+					"inventor.toolkit.form.error.no-items");
+		}
+		if (!errors.hasErrors("title")) {
+			errors.state(request, !this.spamService.isSpam(entity.getTitle()), "title",
+					"inventor.toolkit.form.error.spam");
+		}
+		if (!errors.hasErrors("description")) {
+			errors.state(request, !this.spamService.isSpam(entity.getDescription()), "description",
+					"inventor.toolkit.form.error.spam");
+		}
+		if (!errors.hasErrors("assemblyNotes")) {
+			errors.state(request, !this.spamService.isSpam(entity.getAssemblyNotes()), "assemblyNotes",
+					"inventor.toolkit.form.error.spam");
 		}
 	}
 
@@ -89,19 +107,20 @@ public class InventorToolkitPublishService implements AbstractUpdateService<Inve
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		
+
 		final int id = request.getModel().getInteger("id");
 		request.unbind(entity, model, "code", "title", "description", "assemblyNotes", "link", "draftMode");
-		
+
 		final String currency = this.repository.findRetailPriceCurrencyByToolkitId(id);
-		if (currency == null) return;
-		
+		if (currency == null)
+			return;
+
 		final double amount = this.repository.findRetailPriceAmountByToolkitId(id);
-		
+
 		final Money retailPrice = new Money();
 		retailPrice.setAmount(amount);
 		retailPrice.setCurrency(currency);
-		
+
 		model.setAttribute("retailPrice", retailPrice);
 	}
 

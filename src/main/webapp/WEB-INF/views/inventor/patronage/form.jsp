@@ -15,7 +15,7 @@
 
 	<jstl:choose>
 		<jstl:when test="${command=='show'}">
-		<acme:input-textbox code="inventor.patronage.form.label.code" path="code"/>
+		<acme:input-textbox code="inventor.patronage.form.label.code" path="code" placeholder="ABC-123-D"/>
 			<acme:input-textarea code="inventor.patronage.form.label.legal-stuff" path="legalStuff"/>
 			<acme:input-money code="inventor.patronage.form.label.budget" path="budget"/>
 			<acme:input-money code="inventor.patronage.form.label.exchange" path="exchange"/>

@@ -5,6 +5,7 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.SpamService;
 import acme.entities.announcements.Announcement;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
@@ -13,16 +14,18 @@ import acme.framework.roles.Administrator;
 import acme.framework.services.AbstractCreateService;
 
 @Service
-public class AdministratorAnnouncementCreateService implements AbstractCreateService<Administrator, Announcement>{
+public class AdministratorAnnouncementCreateService implements AbstractCreateService<Administrator, Announcement> {
 
 	@Autowired
 	AdministratorAnnouncementRepository repository;
-	
+
+	@Autowired
+	SpamService spamService;
+
 	@Override
 	public boolean authorise(final Request<Announcement> request) {
 		assert request != null;
-		
-		
+
 		return true;
 	}
 
@@ -32,8 +35,8 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "moment","title","body","isCritical","info");
-		
+		request.bind(entity, errors, "moment", "title", "body", "isCritical", "info");
+
 	}
 
 	@Override
@@ -42,8 +45,8 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "moment","title","body","isCritical","info");
-		
+		request.unbind(entity, model, "moment", "title", "body", "isCritical", "info");
+
 	}
 
 	@Override
@@ -58,7 +61,6 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 		result = new Announcement();
 		result.setMoment(moment);
 
-
 		return result;
 	}
 
@@ -71,8 +73,23 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 		boolean confirmation;
 
 		confirmation = request.getModel().getBoolean("confirmation");
-		errors.state(request, confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
-		
+
+		errors.state(request, confirmation, "confirmation", "administrator.announcement.form.error.confirmation");
+
+		if (!errors.hasErrors("title")) {
+			String title;
+
+			title = entity.getTitle();
+			errors.state(request, !this.spamService.isSpam(title), "title",
+					"administrator.announcement.form.error.spam");
+		}
+		if (!errors.hasErrors("body")) {
+			String body;
+
+			body = entity.getBody();
+			errors.state(request, !this.spamService.isSpam(body), "body", "administrator.announcement.form.error.spam");
+		}
+
 	}
 
 	@Override
@@ -82,14 +99,14 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 
 		Date moment;
 		Boolean critical;
-		
+
 		critical = request.getModel().getBoolean("isCritical");
 
 		moment = new Date(System.currentTimeMillis() - 1);
 		entity.setMoment(moment);
 		entity.setCritical(critical);
 		this.repository.save(entity);
-		
+
 	}
 
 }

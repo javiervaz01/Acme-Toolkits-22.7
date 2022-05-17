@@ -4,6 +4,7 @@ package acme.features.inventor.item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.SpamService;
 import acme.entities.items.Item;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
@@ -18,6 +19,9 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 
 	@Autowired
 	protected InventorItemRepository repository;
+
+	@Autowired
+	protected SpamService spamService;
 
 	@Override
 	public boolean authorise(final Request<Item> request) {
@@ -59,18 +63,32 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 		assert entity != null;
 		assert errors != null;
 
+		if (!errors.hasErrors("name")) {
+			errors.state(request, !this.spamService.isSpam(entity.getName()), "name",
+					"inventor.item.form.error.spam");
+		}
+		
 		if (!errors.hasErrors("code")) {
 			Item existing;
 
 			existing = this.repository.findOneItemByCode(entity.getCode());
 			errors.state(request, existing == null, "code", "inventor.item.form.error.duplicated");
 		}
-		
+
 		if (!errors.hasErrors("retailPrice")) {
 			Double retailPrice;
 
 			retailPrice = entity.getRetailPrice().getAmount();
 			errors.state(request, retailPrice > 0.0, "retailPrice", "inventor.item.form.error.negative-price");
+		}
+
+		if (!errors.hasErrors("technology")) {
+			errors.state(request, !this.spamService.isSpam(entity.getTechnology()), "technology",
+					"inventor.item.form.error.spam");
+		}
+		if (!errors.hasErrors("description")) {
+			errors.state(request, !this.spamService.isSpam(entity.getDescription()), "description",
+					"inventor.item.form.error.spam");
 		}
 	}
 
