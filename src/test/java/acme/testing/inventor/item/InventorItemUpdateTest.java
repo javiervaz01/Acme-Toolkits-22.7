@@ -18,10 +18,10 @@ public class InventorItemUpdateTest extends TestHarness{
 		
 		super.clickOnMenu("Inventor", "List my items");
 		super.checkListingExists();
-		super.sortListing(1, "asc");
+		super.sortListing(2, "asc");
 		
-		super.checkColumnHasValue(key, 0, name);
-		super.checkColumnHasValue(key, 1, code);
+		super.checkColumnHasValue(key, 0, code);
+		super.checkColumnHasValue(key, 1, name);
 		super.checkColumnHasValue(key, 2, technology);
 
 		super.clickOnListingRecord(key);

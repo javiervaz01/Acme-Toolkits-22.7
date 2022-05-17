@@ -1,87 +1,91 @@
 key,name,code,technology,description,retail-price,info,type,draft-mode,key:inventor
-item-01,Sensor,ABC-108-A,Adobe,It is a well known component,EUR 970.85,null,COMPONENT,false,inventor-01
-item-02,Sensor,ABC-108-B,Adobe,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,false,inventor-01
-item-03,Sensor,ABC-108-C,Adobe,It is a well known component,EUR 970.85,http://happybirthday.com,COMPONENT,false,inventor-01
-item-04,Sensor,ABC-108-D,Adobe,It is a well known component,EUR 970.85,http://www.sample-app.com,COMPONENT,false,inventor-01
-item-05,Sensor,ABC-108-E,Adobe,It is a well known component,EUR 970.85,https://www.sample-server.com,COMPONENT,false,inventor-01
-item-06,Sensor,ABC-108-F,Adobe,It is a well known component,EUR 970.85,ftp://www.weird-example.es,COMPONENT,false,inventor-01
-item-07,Sensor,ABC-108-G,Adobe,It is a well known component,"EUR 1,040.85",http://www.example.org,COMPONENT,false,inventor-01
-item-08,Sensor,ABC-108-H,Adobe,It is a well known component,"USD 2,040.85",http://www.example.org,COMPONENT,false,inventor-01
-item-09,Sensor,ABC-108-I,Adobe,It is a well known component,EUR 0.0,http://www.example.org,COMPONENT,false,inventor-01
-item-10,Sensor,ABC-108-J,Adobe,It is a well known component,USD 849.85,http://www.example.org,COMPONENT,false,inventor-01
-item-11,Sensor,ABC-108-K,Adobe,It is a well known component,EUR 100.99,http://www.example.org,COMPONENT,false,inventor-01
-item-12,Sensor,ABC-108-L,Adobe,It is a well known component,GBP 720.36,http://www.example.org,COMPONENT,false,inventor-01
-item-13,Sensor,ABC-108-M,Adobe,Es un componente muy conocido,EUR 970.85,http://www.example.org,COMPONENT,false,inventor-01
-item-14,Sensor,ABC-108-N,Adobe,Il est un composant bien connu,EUR 970.85,http://www.example.org,COMPONENT,false,inventor-01
-item-15,Sensor,ABC-102,Adobe,a,EUR 970.85,http://www.example.org,COMPONENT,false,inventor-01
-item-16,Sensor,ABC-108-O,Adobe,"Dies ist eine Komponente, deren Name l�nger als 100 Buchstaben sein muss und sehr wichtig ist ......Dies ist eine Komponente, deren Name l�nger als 100 Buchstaben sein muss und sehr wichtig ist ......Dies ist eine Komponente, deren Name l�nger als 100 ...",EUR 970.85,http://www.example.org,COMPONENT,false,inventor-01
-item-17,Sensor,ABC-108-P,Adobe,Είναι ένα γνωστό συστατικό,EUR 970.85,http://www.example.org,COMPONENT,false,inventor-01
-item-18,Sensor,ABC-108-Q,Adobe,よく知られたコンポーネントです,EUR 970.85,http://www.example.org,COMPONENT,false,inventor-01
-item-19,Sensor,ABC-108-R,a,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,false,inventor-01
-item-20,Sensor,ABC-108-S,HeidiSQL,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,false,inventor-01
-item-21,Sensor,ABC-108-T,PostgreSQL,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,false,inventor-01
-item-22,Sensor,ABC-108-U,Blockchain,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,false,inventor-01
-item-23,Sensor,ABC-108-V,Big Data,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,false,inventor-01
-item-24,Sensor,ABC-108-W,"Dies ist eine Komponente, deren Name l�nger als 100 Buchstaben sein muss und sehr wichtig ist ......",It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,false,inventor-01
-item-25,Sensor,ABC-108-X,Adobe,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,false,inventor-01
-item-26,Sensor,ABC-108,Adobe,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,false,inventor-01
-item-27,Sensor,ABC-111-X,Adobe,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,false,inventor-01
-item-28,Sensor,ABC-111,Adobe,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,false,inventor-01
-item-29,Sensor,AWC-002,Adobe,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,false,inventor-01
-item-30,Sensor,AWC-002-S,Adobe,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,false,inventor-01
-item-31,センサー,ABC-108-Y,Adobe,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,false,inventor-01
-item-32,αισθητήρας,ABC-108-Z,Adobe,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,false,inventor-01
-item-33,a,ACC-108-A,Adobe,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,false,inventor-01
-item-34,Actuator,ACC-108-B,Adobe,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,false,inventor-01
-item-35,Διερμηνέας,ACC-108-C,Adobe,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,false,inventor-01
-item-36,"Dies ist eine Komponente, deren Name l�nger als 100 Buchstaben sein muss und sehr wichtig ist ......",ACC-108-D,Adobe,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,false,inventor-01
-item-37,Sensor,ACC-108-E,Adobe,It is a well known component,EUR 970.85,null,COMPONENT,true,inventor-01
-item-38,Sensor,ACC-108-F,Adobe,It is a well known component,EUR 970.85,null,COMPONENT,false,inventor-02
-item-39,Sensor,ACC-108-G,Adobe,It is a well known component,EUR 970.85,null,COMPONENT,false,inventor-03
-item-40,Sensor,ACC-108-H,Adobe,It is a well known component,EUR 970.85,null,COMPONENT,false,inventor-04
-item-41,Sensor,ACC-108-I,Adobe,It is a well known component,EUR 970.85,null,COMPONENT,false,inventor-05
-item-42,Sensor,ACC-108-J,Adobe,It is a well known component,EUR 970.85,null,COMPONENT,false,inventor-06
-item-43,Sensor,ACC-108-K,Adobe,It is a well known component,EUR 970.85,null,COMPONENT,false,inventor-07
-item-44,Hammer,ACC-108-L,Adobe,It is a well known tool,EUR 970.85,http://www.acme.com/a?b,TOOL,false,inventor-01
-item-45,Hammer,ACC-108-M,Adobe,It is a well known tool,EUR 970.85,https://www.acme.com/a/b,TOOL,false,inventor-01
-item-46,Hammer,ACC-108-N,Adobe,It is a well known tool,EUR 970.85,ftp://user:pass@acme.org,TOOL,false,inventor-01
-item-47,Hammer,ACC-108-O,Adobe,It is a well known tool,EUR 970.85,https://www.sample-server.com,TOOL,false,inventor-01
-item-48,Hammer,ACC-104,Adobe,It is a well known tool,EUR 970.85,ftp://www.weird-example.es,TOOL,false,inventor-01
-item-49,Hammer,ACC-108-P,Adobe,It is a well known tool,EUR 970.85,null,TOOL,false,inventor-01
-item-50,Hammer,ACC-108-Q,Adobe,It is a well known tool,"EUR 1,040.85",http://www.example.org,TOOL,false,inventor-01
-item-51,Hammer,ACC-108-R,Adobe,It is a well known tool,"USD 2,040.85",http://www.example.org,TOOL,false,inventor-01
-item-52,Hammer,ACC-108-S,Adobe,It is a well known tool,EUR 0.0,http://www.example.org,TOOL,false,inventor-01
-item-53,Hammer,ACC-108-T,Adobe,It is a well known tool,USD 849.85,http://www.example.org,TOOL,false,inventor-01
-item-54,Hammer,ACC-108-U,Adobe,It is a well known tool,EUR 100.99,http://www.example.org,TOOL,false,inventor-01
-item-55,Hammer,ACC-108-V,Adobe,Es una herramienta muy conocida,GBP 720.36,http://www.example.org,TOOL,false,inventor-01
-item-56,Hammer,ACC-108-W,Adobe,Il est un outil bien connu,EUR 970.85,http://www.example.org,TOOL,false,inventor-01
-item-57,Hammer,ACC-108-X,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,false,inventor-01
-item-58,Hammer,ACC-108-Y,Adobe,"Dies ist eine Komponente, deren Name l�nger als 100 Buchstaben sein muss und sehr wichtig ist ......Dies ist eine Komponente, deren Name l�nger als 100 Buchstaben sein muss und sehr wichtig ist ......Dies ist eine Komponente, deren Name l�nger als 100 ...",EUR 970.85,http://www.example.org,TOOL,false,inventor-01
-item-59,Hammer,ACC-108-Z,Adobe,Είναι ένα πολύ γνωστό μέσο,EUR 970.85,http://www.example.org,TOOL,false,inventor-01
-item-60,Hammer,ACC-109-A,Adobe,a,EUR 970.85,http://www.example.org,TOOL,false,inventor-01
-item-61,Hammer,ACC-119-S,A,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,false,inventor-01
-item-62,Hammer,ABC-119-S,MariaDB,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,false,inventor-01
-item-63,Hammer,ABC-120-S,HeidiSQL,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,false,inventor-01
-item-64,Hammer,ABC-121-S,Postgresql,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,false,inventor-01
-item-65,Hammer,ABC-122-S,Blockchain,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,false,inventor-01
-item-66,Hammer,ABC-123-S,Big Data,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,false,inventor-01
-item-67,Hammer,ABC-124-S,"Dies ist eine Komponente, deren Name l�nger als 100 Buchstaben sein muss und sehr wichtig ist ......",It is a well known tool,EUR 970.85,http://www.example.org,TOOL,false,inventor-01
-item-68,Hammer,ABC-125-Z,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,false,inventor-01
-item-69,Hammer,ABC-109,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,false,inventor-01
-item-70,Hammer,ABC-111-F,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,false,inventor-01
-item-71,Hammer,ABC-112,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,false,inventor-01
-item-72,Hammer,AWC-003,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,false,inventor-01
-item-73,Hammer,AWC-702-S,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,false,inventor-01
-item-74,センサー,AZA-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,false,inventor-01
-item-75,αισθητήρας,AZB-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,false,inventor-01
-item-76,Toolbox,AZC-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,false,inventor-01
-item-77,a,AZD-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,false,inventor-01
-item-78,Διερμηνέας,AZE-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,false,inventor-01
-item-79,"Dies ist eine Komponente, deren Name l�nger als 100 Buchstaben sein muss und sehr wichtig ist ......",AZF-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,false,inventor-01
-item-80,Hammer,ACC-109-K,Adobe,It is a well known tool,EUR 970.85,http://www.acme.com/a?b,TOOL,true,inventor-01
-item-81,Hammer,AZG-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.acme.com/a?b,TOOL,false,inventor-02
-item-82,Hammer,AZH-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.acme.com/a?b,TOOL,false,inventor-03
-item-83,Hammer,AZI-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.acme.com/a?b,TOOL,false,inventor-04
-item-84,Hammer,AZJ-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.acme.com/a?b,TOOL,false,inventor-05
-item-85,Hammer,AZK-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.acme.com/a?b,TOOL,false,inventor-06
-item-86,Hammer,AZL-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.acme.com/a?b,TOOL,false,inventor-07
+item-01,Sensor,ABC-108-A,Adobe,It is a well known component,EUR 970.85,null,COMPONENT,FALSE,inventor-01
+item-02,Sensor,ABC-108-B,Adobe,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,FALSE,inventor-01
+item-03,Sensor,ABC-108-C,Adobe,It is a well known component,EUR 970.85,http://happybirthday.com,COMPONENT,FALSE,inventor-01
+item-04,Sensor,ABC-108-D,Adobe,It is a well known component,EUR 970.85,http://www.sample-app.com,COMPONENT,FALSE,inventor-01
+item-05,Sensor,ABC-108-E,Adobe,It is a well known component,EUR 970.85,https://www.sample-server.com,COMPONENT,FALSE,inventor-01
+item-06,Sensor,ABC-108-F,Adobe,It is a well known component,EUR 970.85,ftp://www.weird-example.es,COMPONENT,FALSE,inventor-01
+item-07,Sensor,ABC-108-G,Adobe,It is a well known component,"EUR 1,040.85",http://www.example.org,COMPONENT,FALSE,inventor-01
+item-08,Sensor,ABC-108-H,Adobe,It is a well known component,"USD 2,040.85",http://www.example.org,COMPONENT,FALSE,inventor-01
+item-09,Sensor,ABC-108-I,Adobe,It is a well known component,EUR 0.0,http://www.example.org,COMPONENT,FALSE,inventor-01
+item-10,Sensor,ABC-108-J,Adobe,It is a well known component,USD 849.85,http://www.example.org,COMPONENT,FALSE,inventor-01
+item-11,Sensor,ABC-108-K,Adobe,It is a well known component,EUR 100.99,http://www.example.org,COMPONENT,FALSE,inventor-01
+item-12,Sensor,ABC-108-L,Adobe,It is a well known component,GBP 720.36,http://www.example.org,COMPONENT,FALSE,inventor-01
+item-13,Sensor,ABC-108-M,Adobe,Es un componente muy conocido,EUR 970.85,http://www.example.org,COMPONENT,FALSE,inventor-01
+item-14,Sensor,ABC-108-N,Adobe,Il est un composant bien connu,EUR 970.85,http://www.example.org,COMPONENT,FALSE,inventor-01
+item-15,Sensor,ABC-102,Adobe,a,EUR 970.85,http://www.example.org,COMPONENT,FALSE,inventor-01
+item-16,Sensor,ABC-108-O,Adobe,"Dies ist eine Komponente, deren Name l�nger als 100 Buchstaben sein muss und sehr wichtig ist ......Dies ist eine Komponente, deren Name l�nger als 100 Buchstaben sein muss und sehr wichtig ist ......Dies ist eine Komponente, deren Name l�nger als 100 ...",EUR 970.85,http://www.example.org,COMPONENT,FALSE,inventor-01
+item-17,Sensor,ABC-108-P,Adobe,Είναι ένα γνωστό συστατικό,EUR 970.85,http://www.example.org,COMPONENT,FALSE,inventor-01
+item-18,Sensor,ABC-108-Q,Adobe,よく知られたコンポーネントです,EUR 970.85,http://www.example.org,COMPONENT,FALSE,inventor-01
+item-19,Sensor,ABC-108-R,a,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,FALSE,inventor-01
+item-20,Sensor,ABC-108-S,HeidiSQL,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,FALSE,inventor-01
+item-21,Sensor,ABC-108-T,PostgreSQL,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,FALSE,inventor-01
+item-22,Sensor,ABC-108-U,Blockchain,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,FALSE,inventor-01
+item-23,Sensor,ABC-108-V,Big Data,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,FALSE,inventor-01
+item-24,Sensor,ABC-108-W,"Dies ist eine Komponente, deren Name l�nger als 100 Buchstaben sein muss und sehr wichtig ist ......",It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,FALSE,inventor-01
+item-25,Sensor,ABC-108-X,Adobe,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,FALSE,inventor-01
+item-26,Sensor,ABC-108,Adobe,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,FALSE,inventor-01
+item-27,Sensor,ABC-111-X,Adobe,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,FALSE,inventor-01
+item-28,Sensor,ABC-111,Adobe,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,FALSE,inventor-01
+item-29,Sensor,AWC-002,Adobe,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,FALSE,inventor-01
+item-30,Sensor,AWC-002-S,Adobe,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,FALSE,inventor-01
+item-31,センサー,ABC-108-Y,Adobe,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,FALSE,inventor-01
+item-32,αισθητήρας,ABC-108-Z,Adobe,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,FALSE,inventor-01
+item-33,a,ACC-108-A,Adobe,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,FALSE,inventor-01
+item-34,Actuator,ACC-108-B,Adobe,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,FALSE,inventor-01
+item-35,Διερμηνέας,ACC-108-C,Adobe,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,FALSE,inventor-01
+item-36,"Dies ist eine Komponente, deren Name l�nger als 100 Buchstaben sein muss und sehr wichtig ist ......",ACC-108-D,Adobe,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT,FALSE,inventor-01
+item-37,Sensor,ACC-108-E,Adobe,It is a well known component,EUR 970.85,null,COMPONENT,TRUE,inventor-01
+item-38,Sensor,ACC-108-F,Adobe,It is a well known component,EUR 970.85,null,COMPONENT,FALSE,inventor-02
+item-39,Sensor,ACC-108-G,Adobe,It is a well known component,EUR 970.85,null,COMPONENT,FALSE,inventor-03
+item-40,Sensor,ACC-108-H,Adobe,It is a well known component,EUR 970.85,null,COMPONENT,FALSE,inventor-04
+item-41,Sensor,ACC-108-I,Adobe,It is a well known component,EUR 970.85,null,COMPONENT,FALSE,inventor-05
+item-42,Sensor,ACC-108-J,Adobe,It is a well known component,EUR 970.85,null,COMPONENT,FALSE,inventor-06
+item-43,Sensor,ACC-108-K,Adobe,It is a well known component,EUR 970.85,null,COMPONENT,FALSE,inventor-07
+item-44,Hammer,ACC-108-L,Adobe,It is a well known tool,EUR 970.85,http://www.acme.com/a?b,TOOL,FALSE,inventor-01
+item-45,Hammer,ACC-108-M,Adobe,It is a well known tool,EUR 970.85,https://www.acme.com/a/b,TOOL,FALSE,inventor-01
+item-46,Hammer,ACC-108-N,Adobe,It is a well known tool,EUR 970.85,ftp://user:pass@acme.org,TOOL,FALSE,inventor-01
+item-47,Hammer,ACC-108-O,Adobe,It is a well known tool,EUR 970.85,https://www.sample-server.com,TOOL,FALSE,inventor-01
+item-48,Hammer,ACC-104,Adobe,It is a well known tool,EUR 970.85,ftp://www.weird-example.es,TOOL,FALSE,inventor-01
+item-49,Hammer,ACC-108-P,Adobe,It is a well known tool,EUR 970.85,null,TOOL,FALSE,inventor-01
+item-50,Hammer,ACC-108-Q,Adobe,It is a well known tool,"EUR 1,040.85",http://www.example.org,TOOL,FALSE,inventor-01
+item-51,Hammer,ACC-108-R,Adobe,It is a well known tool,"USD 2,040.85",http://www.example.org,TOOL,FALSE,inventor-01
+item-52,Hammer,ACC-108-S,Adobe,It is a well known tool,EUR 0.0,http://www.example.org,TOOL,FALSE,inventor-01
+item-53,Hammer,ACC-108-T,Adobe,It is a well known tool,USD 849.85,http://www.example.org,TOOL,FALSE,inventor-01
+item-54,Hammer,ACC-108-U,Adobe,It is a well known tool,EUR 100.99,http://www.example.org,TOOL,FALSE,inventor-01
+item-55,Hammer,ACC-108-V,Adobe,Es una herramienta muy conocida,GBP 720.36,http://www.example.org,TOOL,FALSE,inventor-01
+item-56,Hammer,ACC-108-W,Adobe,Il est un outil bien connu,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01
+item-57,Hammer,ACC-108-X,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01
+item-58,Hammer,ACC-108-Y,Adobe,"Dies ist eine Komponente, deren Name l�nger als 100 Buchstaben sein muss und sehr wichtig ist ......Dies ist eine Komponente, deren Name l�nger als 100 Buchstaben sein muss und sehr wichtig ist ......Dies ist eine Komponente, deren Name l�nger als 100 ...",EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01
+item-59,Hammer,ACC-108-Z,Adobe,Είναι ένα πολύ γνωστό μέσο,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01
+item-60,Hammer,ACC-109-A,Adobe,a,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01
+item-61,Hammer,ACC-119-S,A,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01
+item-62,Hammer,ABC-119-S,MariaDB,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01
+item-63,Hammer,ABC-120-S,HeidiSQL,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01
+item-64,Hammer,ABC-121-S,Postgresql,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01
+item-65,Hammer,ABC-122-S,Blockchain,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01
+item-66,Hammer,ABC-123-S,Big Data,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01
+item-67,Hammer,ABC-124-S,"Dies ist eine Komponente, deren Name l�nger als 100 Buchstaben sein muss und sehr wichtig ist ......",It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01
+item-68,Hammer,ABC-125-Z,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01
+item-69,Hammer,ABC-109,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01
+item-70,Hammer,ABC-111-F,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01
+item-71,Hammer,ABC-112,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01
+item-72,Hammer,AWC-003,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01
+item-73,Hammer,AWC-702-S,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01
+item-74,センサー,AZA-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01
+item-75,αισθητήρας,AZB-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01
+item-76,Toolbox,AZC-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01
+item-77,a,AZD-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01
+item-78,Διερμηνέας,AZE-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01
+item-79,"Dies ist eine Komponente, deren Name l�nger als 100 Buchstaben sein muss und sehr wichtig ist ......",AZF-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01
+item-80,Hammer,ACC-109-K,Adobe,It is a well known tool,EUR 970.85,http://www.acme.com/a?b,TOOL,TRUE,inventor-01
+item-81,Hammer,AZG-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.acme.com/a?b,TOOL,FALSE,inventor-02
+item-82,Hammer,AZH-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.acme.com/a?b,TOOL,FALSE,inventor-03
+item-83,Hammer,AZI-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.acme.com/a?b,TOOL,FALSE,inventor-04
+item-84,Hammer,AZJ-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.acme.com/a?b,TOOL,FALSE,inventor-05
+item-85,Hammer,AZK-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.acme.com/a?b,TOOL,FALSE,inventor-06
+item-86,Hammer,AZL-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.acme.com/a?b,TOOL,FALSE,inventor-07
+item-87,Hacksaw,AAA-001,Adobe,It is a well known tool,EUR 170.86,http://www.acme.com/a?b,TOOL,TRUE,inventor-01
+item-88,Ruler,AAA-002,Adobe,It is a well known tool,EUR 20.87,http://www.acme.com/a?b,TOOL,TRUE,inventor-01
+item-89,Stick,AAA-003,Adobe,It is a well known tool,EUR 300.88,http://www.acme.com/a?b,COMPONENT,TRUE,inventor-01
+item-90,Stone,AAA-004,Adobe,It is a well known tool,EUR 689.89,http://www.acme.com/a?b,COMPONENT,TRUE,inventor-01

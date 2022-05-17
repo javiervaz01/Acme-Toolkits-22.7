@@ -1,0 +1,5 @@
+key,name,code,technology,description,retail-price,info,type
+0,Hacksaw,AAA-001,Adobe,It cuts stuff,EUR 170.86,http://www.acme.com/a?b,TOOL
+1,Ruler,AAA-002,Adobe,It measures things in a standarize way,EUR 20.87,http://www.acme.com/a?b,TOOL
+2,Stick,AAA-003,Adobe,The basis to all,EUR 300.88,http://www.acme.com/a?b,COMPONENT
+3,Stone,AAA-004,Adobe,Cutting edge technology from the prehistoric era,EUR 689.89,http://www.acme.com/a?b,COMPONENT
