@@ -5,7 +5,7 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-//import acme.components.SpamService;
+import acme.components.SpamService;
 import acme.entities.chirps.Chirp;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
@@ -19,8 +19,8 @@ public class AnyChirpCreateService implements AbstractCreateService<Any, Chirp>{
 	@Autowired
 	AnyChirpCreationRepository repository;
 	
-	/*@Autowired
-	protected SpamService spamService;*/
+	@Autowired
+	protected SpamService spamService;
 
 	@Override
 	public boolean authorise(final Request<Chirp> request) {
@@ -73,7 +73,7 @@ public class AnyChirpCreateService implements AbstractCreateService<Any, Chirp>{
 		confirmation = request.getModel().getBoolean("confirmation");
 		errors.state(request, confirmation, "confirmation", "javax.validation.constraints.AssertTrue.message");
 		
-		/*if (!errors.hasErrors("title")) {
+		if (!errors.hasErrors("title")) {
 			errors.state(request, !this.spamService.isSpam(entity.getTitle()), "title",
 					"any.chirp.form.error.spam");
 		}
@@ -88,7 +88,7 @@ public class AnyChirpCreateService implements AbstractCreateService<Any, Chirp>{
 		if (!errors.hasErrors("email")) {
 			errors.state(request, !this.spamService.isSpam(entity.getEmail()), "email",
 					"any.chirp.form.error.spam");
-		}*/
+		}
 		
 	}
 
