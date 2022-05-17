@@ -8,6 +8,7 @@
 	<acme:input-textbox code="inventor.quantity.form.label.toolkit" path="toolkit.title" readonly="true"/>
 	
 	<acme:input-select code="inventor.quantity.form.label.items" path="items">
+
 		<jstl:forEach items="${items}" var="item">
 			<acme:input-option code="${item.code} | ${item.name} (${item.retailPrice.currency})" value="${item.code}" selected="${item.code.equals(selected.code)}"/>
 		</jstl:forEach>
@@ -24,5 +25,5 @@
 			<acme:submit code="inventor.quantity.form.button.create" action="/inventor/quantity/create?toolkitId=${toolkitId}"/>
 		</jstl:when>		
 	</jstl:choose>
-	
+
 </acme:form>

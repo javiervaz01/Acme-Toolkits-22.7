@@ -1,6 +1,6 @@
-package acme.features.inventor.quantity;
+package acme.features.any.quantity;
 
-import java.util.Collection;
+import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,14 +10,15 @@ import acme.entities.items.Item;
 import acme.entities.quantities.Quantity;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
+import acme.framework.datatypes.Money;
+import acme.framework.roles.Any;
 import acme.framework.services.AbstractShowService;
-import acme.roles.Inventor;
 
 @Service
-public class InventorQuantityShowService implements AbstractShowService<Inventor, Quantity> {
+public class AnyQuantityShowService implements AbstractShowService<Any, Quantity> {
 
 	@Autowired
-	protected InventorQuantityRepository repository;
+	protected AnyQuantityRepository repository;
 
 	@Autowired
 	protected ExchangeService exchangeService;
@@ -34,7 +35,7 @@ public class InventorQuantityShowService implements AbstractShowService<Inventor
 
 		item = this.repository.findOneQuantityById(id).getItem();
 
-		result = item != null && (!item.isDraftMode() || request.isPrincipal(item.getInventor()));
+		result = item != null && !item.isDraftMode();
 
 		return result;
 	}
@@ -60,19 +61,14 @@ public class InventorQuantityShowService implements AbstractShowService<Inventor
 
 		request.unbind(entity, model, "toolkit.title", "number");
 
-		int toolkitId;
-		Item selectedItem;
-		Collection<Item> items;
-		Collection<Item> itemsInToolkit;
+		Item item;
+		Money exchange;
 
-		selectedItem = entity.getItem();
-		toolkitId = entity.getToolkit().getId();
-		items = this.repository.findAllItems();
-		itemsInToolkit = this.repository.findManyItemByToolkitId(toolkitId);
-		items.removeAll(itemsInToolkit);
-
-		model.setAttribute("items", items);
-		model.setAttribute("selected", selectedItem);
+		item = entity.getItem();
+		model.setAttribute("items", Arrays.asList(item));
 		model.setAttribute("draftMode", entity.getToolkit().isDraftMode());
+
+		exchange = this.exchangeService.getExchange(item.getRetailPrice());
+		model.setAttribute("exchange", exchange);
 	}
 }
