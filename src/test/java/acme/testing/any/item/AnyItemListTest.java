@@ -15,26 +15,19 @@ public class AnyItemListTest extends TestHarness {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/any/items/list.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void positiveTest(final int key, final String name, final String code, final String technology,
-			final String description, final String retailPrice, final String info, final String type) {
+	public void positiveTest(final int key, final String name, final String code, final String technology, final String retailPrice, final String type) {
 
 		super.clickOnMenu("Any", "List items");
 		super.checkListingExists();
 		super.sortListing(1, "asc");
 
+
 		super.checkColumnHasValue(key, 0, name);
 		super.checkColumnHasValue(key, 1, code);
 		super.checkColumnHasValue(key, 2, technology);
-
-		super.clickOnListingRecord(key);
-		super.checkFormExists();
-		super.checkInputBoxHasValue("name", name);
-		super.checkInputBoxHasValue("code", code);
-		super.checkInputBoxHasValue("technology", technology);
-		super.checkInputBoxHasValue("description", description);
-		super.checkInputBoxHasValue("retailPrice", retailPrice);
-		super.checkInputBoxHasValue("info", info);
-		super.checkInputBoxHasValue("type", type);
+		super.checkColumnHasValue(key, 3, retailPrice);
+		super.checkColumnHasValue(key, 4, type);
+		
 	}
 
 	// Ancillary methods ------------------------------------------------------
