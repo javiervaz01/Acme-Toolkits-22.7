@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import acme.components.ExchangeService;
 import acme.entities.patronages.Patronage;
-import acme.entities.patronages.Status;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.datatypes.Money;
@@ -32,8 +31,7 @@ public class InventorPatronageShowService implements AbstractShowService<Invento
 		final Patronage patronage = this.repository.findOnePatronageById(patronageId);
 		final int patronageInventorId = patronage.getInventor().getId();
 
-		return patronId == patronageInventorId && !patronage.isDraftMode()
-				&& patronage.getStatus().equals(Status.PROPOSED);
+		return patronId == patronageInventorId && !patronage.isDraftMode();
 	}
 
 	@Override
