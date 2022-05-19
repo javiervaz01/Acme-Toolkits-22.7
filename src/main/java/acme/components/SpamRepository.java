@@ -11,4 +11,5 @@ public interface SpamRepository extends AbstractRepository {
 
 	@Query("select c from SystemConfiguration c")
 	SystemConfiguration getSystemConfiguration();
+
 }

@@ -26,12 +26,12 @@ public class SystemConfiguration extends AbstractEntity {
 	protected String currency;
 
 	@NotBlank
-	@Pattern(regexp = "^([A-Z]{3}, ?)*[A-Z]{3}$")
+	@Pattern(regexp = "^([A-Z]{3})(,[A-Z]{3})*$")
 	protected String acceptedCurrencies;
 
-	@NotBlank
-	@Pattern(regexp = "^([\\p{L}\\p{N}\\p{P} ]+)(,[\\p{L}\\p{N}\\p{P} ]+)*$")
 	// TODO: Comment this in the lint report. Use this expression
+	@NotBlank
+	@Pattern(regexp = "^([\\p{L}\\p{N}\\s]|(?!,)[\\p{P}])+(, *([\\p{L}\\p{N}\\s]|(?!,)[\\p{P}])+)*$")
 	protected String strongSpamTerms;
 
 	@PositiveOrZero
@@ -39,7 +39,7 @@ public class SystemConfiguration extends AbstractEntity {
 	protected double strongSpamThreshold;
 
 	@NotBlank
-	@Pattern(regexp = "^([\\p{L}\\p{N}\\p{P} ]+)(,[\\p{L}\\p{N}\\p{P} ]+)*$")
+	@Pattern(regexp = "^([\\p{L}\\p{N}\\s]|(?!,)[\\p{P}])+(, *([\\p{L}\\p{N}\\s]|(?!,)[\\p{P}])+)*$")
 	protected String weakSpamTerms;
 
 	@PositiveOrZero
