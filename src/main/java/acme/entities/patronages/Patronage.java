@@ -64,19 +64,16 @@ public class Patronage extends AbstractEntity {
 
 	@URL
 	protected String info;
-	
+
 	protected boolean draftMode;
 
 	// Derived attributes -----------------------------------------------------
-
 
 	// Relationships ----------------------------------------------------------
 
 	@ManyToOne(optional = false)
 	@Valid
 	@NotNull
-	// If we don't use this notNull, the error will get
-	// to the database, panic and throw an exception.
 	protected Inventor inventor;
 
 	@ManyToOne(optional = false)

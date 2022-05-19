@@ -4,10 +4,13 @@ package acme.features.inventor.item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.components.ExchangeService;
+import acme.components.SpamService;
 import acme.entities.items.Item;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
+import acme.framework.datatypes.Money;
 import acme.framework.services.AbstractUpdateService;
 import acme.roles.Inventor;
 
@@ -18,6 +21,12 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 
 	@Autowired
 	protected InventorItemRepository repository;
+
+	@Autowired
+	protected ExchangeService exchangeService;
+
+	@Autowired
+	protected SpamService spamService;
 
 	@Override
 	public boolean authorise(final Request<Item> request) {
@@ -71,12 +80,25 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 			errors.state(request, existing == null || existing.getId() == id, "code",
 					"inventor.item.form.error.duplicated");
 		}
-		
+
 		if (!errors.hasErrors("retailPrice")) {
 			Double retailPrice;
+			String currency;
 
 			retailPrice = entity.getRetailPrice().getAmount();
+			currency = entity.getRetailPrice().getCurrency();
+
+			errors.state(request, this.repository.isAcceptedCurrency(currency), "retailPrice",
+					"inventor.item.form.error.not-accepted-currency");
 			errors.state(request, retailPrice > 0.0, "retailPrice", "inventor.item.form.error.negative-price");
+		}
+		if (!errors.hasErrors("technology")) {
+			errors.state(request, !this.spamService.isSpam(entity.getTechnology()), "technology",
+					"inventor.item.form.error.spam");
+		}
+		if (!errors.hasErrors("description")) {
+			errors.state(request, !this.spamService.isSpam(entity.getDescription()), "description",
+					"inventor.item.form.error.spam");
 		}
 	}
 
@@ -88,6 +110,9 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 
 		request.unbind(entity, model, "name", "code", "technology", "description", "retailPrice", "info", "type",
 				"draftMode");
+
+		final Money exchange = this.exchangeService.getExchange(entity.getRetailPrice());
+		model.setAttribute("exchange", exchange);
 	}
 
 	@Override

@@ -1,6 +1,5 @@
 package acme.features.inventor.patronage;
 
-
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,30 +15,29 @@ public class InventorPatronageController extends AbstractController<Inventor, Pa
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected InventorPatronageListService	listService;
-	
-	@Autowired
-	protected InventorPatronageEditService updateService;
-	
-	@Autowired
-	protected InventorPatronageListMineProposedService	listProposedService;
+	protected InventorPatronageListService listService;
 
 	@Autowired
-	protected InventorPatronageShowService	showService;
+	protected InventorPatronageAcceptService acceptService;
+
+	@Autowired
+	protected InventorPatronageDenyService denyService;
+
+	@Autowired
+	protected InventorPatronageListMineProposedService listProposedService;
+
+	@Autowired
+	protected InventorPatronageShowService showService;
 
 	// Constructors -----------------------------------------------------------
-
 
 	@PostConstruct
 	protected void initialise() {
 		super.addCommand("show", this.showService);
-		
-		super.addCommand("list", "list", this.listService);
-		
+		super.addCommand("list", this.listService);
+
 		super.addCommand("list-proposed", "list", this.listProposedService);
-		
-		super.addCommand("update", this.updateService);
-
+		super.addCommand("accept", "update", this.acceptService);
+		super.addCommand("deny", "update", this.denyService);
 	}
-
 }

@@ -1,0 +1,11 @@
+any.quantity.list.label.name = Name
+any.quantity.list.label.code = Code
+any.quantity.list.label.technology = Technology
+any.quantity.list.label.retail-price = Retail Price
+any.quantity.list.label.exchange= Currency Exchange
+any.quantity.list.label.type = Item Type
+any.quantity.list.label.quantity = Quantity
+
+any.quantity.form.label.toolkit = Toolkit's name
+any.quantity.form.label.items = Items
+any.quantity.form.label.quantity = Quantity

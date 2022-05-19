@@ -34,7 +34,7 @@ public class InventorQuantityShowService implements AbstractShowService<Inventor
 
 		item = this.repository.findOneQuantityById(id).getItem();
 
-		result = (!item.isDraftMode() || request.isPrincipal(item.getInventor()));
+		result = item != null && (!item.isDraftMode() || request.isPrincipal(item.getInventor()));
 
 		return result;
 	}
@@ -62,14 +62,17 @@ public class InventorQuantityShowService implements AbstractShowService<Inventor
 
 		int toolkitId;
 		Item selectedItem;
+		String toolkitCurrency;
 		Collection<Item> items;
 		Collection<Item> itemsInToolkit;
 
 		selectedItem = entity.getItem();
 		toolkitId = entity.getToolkit().getId();
-		items = this.repository.findAllItems();
+
 		itemsInToolkit = this.repository.findManyItemByToolkitId(toolkitId);
-		items.removeAll(itemsInToolkit);
+		toolkitCurrency = itemsInToolkit.iterator().next().getRetailPrice().getCurrency();
+		items = itemsInToolkit.isEmpty() ? this.repository.findAllItems()
+				: this.repository.findItemsByCurrency(toolkitCurrency);
 
 		model.setAttribute("items", items);
 		model.setAttribute("selected", selectedItem);

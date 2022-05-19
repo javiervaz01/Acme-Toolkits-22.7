@@ -1,6 +1,6 @@
 package acme.features.patron.patronage;
 
-import java.util.Date;
+import java.util.Calendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,37 +44,57 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 		assert errors != null;
 
 		if (!errors.hasErrors("startDate")) {
-			final Date creationDate = entity.getCreationDate();
-			 final Date minimumStartDate = new Date();
-			 if(creationDate.getMonth()<11) {
-				 minimumStartDate.setHours(creationDate.getHours());
-				 minimumStartDate.setMinutes(creationDate.getMinutes());
-				 minimumStartDate.setSeconds(creationDate.getSeconds());
-				 minimumStartDate.setYear(creationDate.getYear());
-				 minimumStartDate.setMonth(creationDate.getMonth()+1);
-			 }
-			 else {
-				 minimumStartDate.setHours(creationDate.getHours());
-				 minimumStartDate.setMinutes(creationDate.getMinutes());
-				 minimumStartDate.setSeconds(creationDate.getSeconds());
-				 minimumStartDate.setYear(creationDate.getYear()+1);
-				 minimumStartDate.setMonth(0); 
-			 }
-		
-			 final Date startDate = entity.getStartDate();			
-			errors.state(request, minimumStartDate.equals(startDate) || minimumStartDate.before(startDate), "startTime", "patron.patronage.form.error.too-close");
+			// The patronage must start, at least, one month after its creation
+			Calendar creationDate;
+			Calendar startDate;
+
+			creationDate = Calendar.getInstance();
+			creationDate.setTime(entity.getCreationDate());
+
+			startDate = Calendar.getInstance();
+			startDate.setTime(entity.getStartDate());
+
+			startDate.add(Calendar.MONTH, -1);
+
+			errors.state(request, startDate.after(creationDate), "startDate",
+					"patron.patronage.form.error.start-date-too-early");
+		}
+
+		if (!errors.hasErrors("startDate") && !errors.hasErrors("endDate")) {
+			// The patronage must be, at least, one month long
+			Calendar startDate;
+			Calendar endDate;
+
+			startDate = Calendar.getInstance();
+			startDate.setTime(entity.getStartDate());
+
+			endDate = Calendar.getInstance();
+			endDate.setTime(entity.getEndDate());
+
+			endDate.add(Calendar.MONTH, -1);
+
+			errors.state(request, endDate.after(startDate), "endDate",
+					"patron.patronage.form.error.end-date-too-early");
 		}
 
 		if (!errors.hasErrors("code")) {
 			Patronage existing;
 
 			existing = this.repository.findOnePatronageByCode(entity.getCode());
-			errors.state(request, existing == null || existing.getId() == entity.getId(), "code", "patron.patronage.form.error.duplicated");
+			errors.state(request, existing == null || existing.getId() == entity.getId(), "code",
+					"patron.patronage.form.error.duplicated");
 		}
 
 		if (!errors.hasErrors("budget")) {
-			
-			errors.state(request, entity.getBudget().getAmount()>=0., "budget", "patron.patronage.form.error.negative-budget");
+			Double budget;
+			String currency;
+
+			budget = entity.getBudget().getAmount();
+			currency = entity.getBudget().getCurrency();
+
+			errors.state(request, this.repository.isAcceptedCurrency(currency), "budget",
+					"patron.patronage.form.error.not-accepted-currency");
+			errors.state(request, budget > 0.0, "retailPrice", "budget", "patron.patronage.form.error.negative-budget");
 		}
 	}
 
@@ -85,26 +105,27 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 		assert errors != null;
 
 		request.bind(entity, errors, "code", "legalStuff", "budget", "startDate", "endDate", "info");
-		}
+	}
 
 	@Override
 	public void unbind(final Request<Patronage> request, final Patronage entity, final Model model) {
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		
-		request.unbind(entity, model, "status", "code", "legalStuff", "budget", "creationDate", "startDate", "endDate", "info","draftMode");
-		
+
+		request.unbind(entity, model, "status", "code", "legalStuff", "budget", "creationDate", "startDate", "endDate",
+				"info", "draftMode");
+
 		final int masterId = request.getModel().getInteger("id");
 		model.setAttribute("masterId", masterId);
-		
+
 		final String inventorName = entity.getInventor().getIdentity().getName();
 		final String inventorSurname = entity.getInventor().getIdentity().getSurname();
 		final String inventorEmail = entity.getInventor().getIdentity().getEmail();
 		final String inventorCompany = entity.getInventor().getCompany();
 		final String inventorStatement = entity.getInventor().getStatement();
 		final String inventorInfo = entity.getInventor().getInfo();
-		
+
 		model.setAttribute("inventorName", inventorName);
 		model.setAttribute("inventorSurname", inventorSurname);
 		model.setAttribute("inventorEmail", inventorEmail);
@@ -133,5 +154,4 @@ public class PatronPatronageUpdateService implements AbstractUpdateService<Patro
 
 		this.repository.save(entity);
 	}
-
 }

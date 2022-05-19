@@ -1,6 +1,5 @@
 package acme.features.authenticated.inventor;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,9 +22,6 @@ public class AuthenticatedInventorCreateService implements AbstractCreateService
 
 	@Autowired
 	protected AuthenticatedInventorRepository repository;
-
-	// AbstractCreateService<Authenticated, Worker> ---------------------------
-
 
 	@Override
 	public boolean authorise(final Request<Inventor> request) {

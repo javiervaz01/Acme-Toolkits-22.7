@@ -92,6 +92,7 @@ public class InventorQuantityListService implements AbstractListService<Inventor
 		model.setAttribute("type", item.getType());
 
 		exchange = this.exchangeService.getExchange(entity.getItem().getRetailPrice());
+		
 		model.setAttribute("exchange", exchange);
 	}
 }

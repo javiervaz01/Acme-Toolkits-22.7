@@ -11,7 +11,7 @@ import acme.framework.roles.Any;
 
 
 @Controller
-public class AnyItemController extends AbstractController<Any, Item>{
+public class AnyItemController extends AbstractController<Any, Item> {
 
 	@Autowired
 	protected AnyItemListService listService;
@@ -23,6 +23,5 @@ public class AnyItemController extends AbstractController<Any, Item>{
 	protected void initialise() {
 		super.addCommand("show", this.showService);
 		super.addCommand("list", this.listService);
-		
 	}
 }

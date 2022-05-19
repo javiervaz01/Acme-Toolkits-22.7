@@ -11,7 +11,7 @@
 	<acme:list-column code="inventor.quantity.list.label.exchange" path="exchange" width="10%"/>
 	<acme:list-column code="inventor.quantity.list.label.type" path="type" width="10%"/>
 	<acme:list-column code="inventor.quantity.list.label.quantity" path="number" width="10%"/>
-	
 </acme:list>
 
 <acme:button test="${showAddItem}" code="inventor.quantity.list.button.add-item" action="/inventor/quantity/create?toolkitId=${toolkitId}"/>
+

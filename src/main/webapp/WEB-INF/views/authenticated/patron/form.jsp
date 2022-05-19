@@ -7,7 +7,6 @@
 	<acme:input-textbox code="authenticated.patron.form.label.company" path="company"/>
 	<acme:input-textbox code="authenticated.patron.form.label.statement" path="statement"/>
 	<acme:input-textbox code="authenticated.patron.form.label.info" path="info"/>
-	
-	
 	<acme:submit test="${command == 'create'}" code="authenticated.patron.form.button.create" action="/authenticated/patron/create"/>
+	<acme:submit test="${command == 'update'}" code="authenticated.patron.form.button.update" action="/authenticated/patron/update"/>
 </acme:form>

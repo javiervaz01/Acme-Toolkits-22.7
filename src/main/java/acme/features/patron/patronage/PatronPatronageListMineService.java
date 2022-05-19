@@ -47,16 +47,11 @@ public class PatronPatronageListMineService implements AbstractListService<Patro
 		assert model != null;
 		
 		request.unbind(entity, model, "status", "code", "legalStuff", "budget", "creationDate", "startDate", "endDate", "info");
+		
 		final Boolean isPublished = !entity.isDraftMode();
 		model.setAttribute("published", isPublished);
 		
 		final Money exchange=this.exchangeService.getExchange(entity.getBudget());
 		model.setAttribute("exchange", exchange);
-		
-		
-			
 	}
-	
-	
-
 }

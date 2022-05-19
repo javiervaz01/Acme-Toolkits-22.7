@@ -9,13 +9,17 @@
 	<h2>
 		<acme:message code="inventor.patronage-report.form.title.report"/>
 	</h2>
-	<acme:input-textbox code="inventor.patronage-report.form.label.sequence-number" path="sequenceNumber"/>
-	<acme:input-moment code="inventor.patronage-report.form.label.creation-time" path="creationTime"/>
+	<acme:input-textbox code="inventor.patronage-report.form.label.sequence-number" path="sequenceNumber" readonly="true"/>
+	
+	<jstl:if test="${command != 'create'}">
+		<acme:input-moment code="inventor.patronage-report.form.label.creation-time" path="creationTime" readonly="true"/>
+	</jstl:if>
+	
 	<acme:input-textarea code="inventor.patronage-report.form.label.memorandum" path="memorandum"/>
 	<acme:input-url code="inventor.patronage-report.form.label.info" path="info"/>
 	
 	<jstl:choose>
-		<jstl:when test="${!command=='create'}">
+		<jstl:when test="${!command == 'create'}">
 			<h2>
 				<acme:message code="inventor.patronage-report.form.label.patronage"/>
 			</h2>
@@ -28,16 +32,9 @@
 			<acme:input-moment code="inventor.patronage-report.form.label.patronage.identify.end-date" path="patronage.endDate"/>
 			<acme:input-url code="inventor.patronage-report.form.label.patronage.identify.info" path="patronage.info"/>
 		</jstl:when>
-		<jstl:when test="${command=='create'}">
+		<jstl:when test="${command == 'create'}">
 			<acme:input-checkbox code="inventor.patronage-report.form.label.confirmation" path="confirmation"/>
 			<acme:submit code="inventor.patronage-report.form.button.create" action="/inventor/patronage-report/create"/>
-	
-		
-		
 		</jstl:when>
-		
-		
-		
 	</jstl:choose>
-
 </acme:form>

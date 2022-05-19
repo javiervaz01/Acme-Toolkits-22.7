@@ -20,7 +20,7 @@ inventor.patronage.form.label.start-date = Fecha de comienzo
 inventor.patronage.form.label.end-date = Fecha de fin
 inventor.patronage.form.label.info = Información
 
-inventor.patronage.form.patron-data = Detalles del patrocinador
+inventor.patronage.form.patron-data = Detalles del patrón
 
 inventor.patronage.form.label.patron.identity.name = Nombre
 inventor.patronage.form.label.patron.identity.surname = Apellidos
@@ -30,6 +30,5 @@ inventor.patronage.form.label.patron.statement = Frase
 inventor.patronage.form.label.patron.info = Información
 
 inventor.patronage.form.reports= Reportes del patronazgo
-inventor.patronage.form.info = Detalles del patronazgo
-inventor.patronage.form.button.update = Actualizar
-
+inventor.patronage.form.button.accept = Aceptar
+inventor.patronage.form.button.deny = Denengar
