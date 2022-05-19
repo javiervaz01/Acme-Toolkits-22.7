@@ -7,7 +7,17 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class SpamServiceExternal {
-	// This code is ready to be externalized to a .jar
+	// This code is unused, and is kept here only for evaluation purposes. A class
+	// named acme.external.SpamDetector has been imported from a SpamDetector.jar
+	// separate file, which is the one used by our SpamService. The code below is an
+	// exact copy of such an external piece of code.
+
+	private SpamServiceExternal() {
+		// Hide the implicit public constructor. This is a utility class (i.e., a
+		// collection of static members) and it should not be instantiated.
+		throw new IllegalStateException("Utility class");
+	}
+
 	public static boolean isSpam(final String text, final String spamTerms, final double spamThreshold) {
 		final String[] splitSpamTerms = spamTerms.toLowerCase().split(",");
 		final Set<String> uniqueSpamTerms = Arrays.stream(splitSpamTerms).map(String::trim).collect(Collectors.toSet());
@@ -30,7 +40,7 @@ public class SpamServiceExternal {
 	}
 
 	private static Pattern generateSpamRegexPattern(final String term) {
-		final String[] splitTerm = term.split(" ");
+		final String[] splitTerm = term.split(" +");
 		// This method creates a regex that matches the spam term in all the
 		// requested manners
 		final StringBuilder buffer = new StringBuilder();
