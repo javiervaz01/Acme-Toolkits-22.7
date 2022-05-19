@@ -12,9 +12,8 @@ public class ExchangeRate {
 
 	// Attributes -------------------------------------------------------------
 
-	public Map<String, Double>	rates;
-	public String				base;
-	public Date					date;
-	public String				error;
-
+	public Map<String, Double> rates;
+	public String base;
+	public Date date;
+	public String error;
 }

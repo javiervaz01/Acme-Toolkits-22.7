@@ -38,5 +38,5 @@ user-account-inventor-15,true,"UserIdentity{name: 'Inventor', surname: 'Jose', e
 user-account-inventor-16,true,"UserIdentity{name: 'Inventor', surname: 'Jose', email: 'inventor16@acme.com'}",inventor16,inventor16
 user-account-inventor-17,true,"UserIdentity{name: 'Inventor', surname: 'Jose', email: 'inventor17@acme.com'}",inventor17,inventor17
 user-account-inventor-18,true,"UserIdentity{name: 'Inventor', surname: 'Jose', email: 'inventor18@acme.com'}",inventor18,inventor18
-user-account-goodgod,true,"UserIdentity{name: 'God', surname: 'Palmero', email: 'god@heaven.com'}",goodgod,goodgod
+user-account-palmero,true,"UserIdentity{name: 'God', surname: 'Palmero', email: 'god@heaven.com'}",palmero,palmero
 user-account-noroles,true,"UserIdentity{name: 'Mr no roles', surname: 'Pérez', email: 'none@noroles.com'}",noroles,noroles

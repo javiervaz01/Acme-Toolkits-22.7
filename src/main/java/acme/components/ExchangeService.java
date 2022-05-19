@@ -1,5 +1,8 @@
 package acme.components;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -18,18 +21,42 @@ public class ExchangeService {
 
 		final String systemCurrency = this.repository.getSystemConfiguration().getCurrency();
 
-		return budget.getCurrency().equals(systemCurrency) ? budget : this.getAdaptedCurrency(budget);
+		return budget.getCurrency().equals(systemCurrency) ? budget : this.getInSystemCurrency(budget);
 	}
 
-	private Money getAdaptedCurrency(final Money budget) {
-		final RestTemplate api;
-		final ExchangeRate record;
-		final Double rate;
+	private Money getInSystemCurrency(final Money budget) {
 		final String sourceCurrency = budget.getCurrency();
+		final String targetCurrency = this.repository.getSystemConfiguration().getCurrency();
 		final Double sourceAmount = budget.getAmount();
 		final Double targetAmount;
-		final String targetCurrency = this.repository.getSystemConfiguration().getCurrency();
-		Money result;
+
+		final Calendar calendar = Calendar.getInstance();
+		calendar.add(Calendar.DAY_OF_MONTH, -1);
+
+		final Date oneDayAgo = calendar.getTime();
+
+		Double rate = this.repository.getRecentExchangeRate(oneDayAgo, sourceCurrency, targetCurrency);
+		if (rate == null) { // If there is no recent exchange
+			// Delete exchange rates that are not considered recent anymore, in case they
+			// exist, to prevent the database from storing useless data as the time goes by
+			this.repository.deleteExchangeCacheByCurrency(sourceCurrency, targetCurrency);
+
+			// And now call the API for requesting (and caching) a fresh exchange rate
+			rate = this.getCurrencyFromAPI(sourceCurrency, targetCurrency);
+		}
+
+		final Money result = new Money();
+		targetAmount = rate * sourceAmount;
+		result.setAmount(targetAmount);
+		result.setCurrency(targetCurrency);
+
+		return result;
+	}
+
+	private double getCurrencyFromAPI(final String sourceCurrency, final String targetCurrency) {
+		final RestTemplate api;
+		final ExchangeRate record;
+		double result;
 
 		try {
 			api = new RestTemplate();
@@ -39,15 +66,19 @@ public class ExchangeService {
 
 			assert record != null;
 
-			rate = record.getRates().get(targetCurrency);
-			targetAmount = rate * sourceAmount;
+			result = record.getRates().get(targetCurrency);
 
-			result = new Money();
-			result.setAmount(targetAmount);
-			result.setCurrency(targetCurrency);
+			// Save the performed exchange in the cache for future requests
+			final ExchangeCache cache = new ExchangeCache();
+			final Date now = Calendar.getInstance().getTime();
+			cache.setDate(now);
+			cache.setRate(result);
+			cache.setSourceCurrency(sourceCurrency);
+			cache.setTargetCurrency(targetCurrency);
+			this.repository.save(cache);
 
 		} catch (final Throwable oops) {
-			result = null;
+			result = 0;
 		}
 
 		return result;
