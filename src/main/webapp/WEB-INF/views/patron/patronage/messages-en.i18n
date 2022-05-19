@@ -31,12 +31,13 @@ patron.patronage.form.label.inventor.info = Information
 
 patron.patronage.form.reports= Patronage's reports
 
+patron.patronage.form.button.create = Create
 patron.patronage.form.button.update = Update
 patron.patronage.form.button.delete = Delete
 patron.patronage.form.button.publish = Publish
-patron.patronage.form.button.create = Create
 
-patron.patronage.form.error.too-close = Start Date must be at least one month ahead
 patron.patronage.form.error.duplicated = This reference is taken
 patron.patronage.form.error.negative-budget = The salary must be positive
-
+patron.patronage.form.error.start-date-too-early = The patronage can't start in less than a month
+patron.patronage.form.error.end-date-too-early = The patronage must last at least a month
+patron.patronage.form.error.not-accepted-currency = This currency is not accepted in the system

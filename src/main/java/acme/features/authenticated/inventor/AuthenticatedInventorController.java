@@ -1,6 +1,5 @@
 package acme.features.authenticated.inventor;
 
-
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,15 +17,16 @@ public class AuthenticatedInventorController extends AbstractController<Authenti
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedInventorCreateService	createService;
+	protected AuthenticatedInventorCreateService createService;
 
+	@Autowired
+	protected AuthenticatedInventorUpdateService updateService;
 
 	// Constructors -----------------------------------------------------------
-
 
 	@PostConstruct
 	protected void initialise() {
 		super.addCommand("create", this.createService);
+		super.addCommand("update", this.updateService);
 	}
-
 }

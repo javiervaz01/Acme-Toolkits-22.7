@@ -5,44 +5,43 @@ import org.springframework.stereotype.Service;
 
 import acme.components.ExchangeService;
 import acme.entities.items.Item;
-import acme.entities.toolkits.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.datatypes.Money;
 import acme.framework.roles.Any;
 import acme.framework.services.AbstractShowService;
 
-
-
 @Service
 public class AnyItemShowService implements AbstractShowService<Any, Item> {
-	
+
 	@Autowired
 	protected AnyItemRepository repository;
-	
+
 	@Autowired
 	protected ExchangeService exchangeService;
 
 	@Override
 	public boolean authorise(final Request<Item> request) {
 		assert request != null;
-		
+
 		int id;
-		final Toolkit toolkit;
-		
+		Item item;
+
 		id = request.getModel().getInteger("id");
-		toolkit = this.repository.findOneToolkitByItemId(id);
-		
-		return !toolkit.isDraftMode();
+		item = this.repository.findOneItemById(id);
+
+		return !item.isDraftMode();
 	}
 
 	@Override
 	public Item findOne(final Request<Item> request) {
 		assert request != null;
-		
-		final int id = request.getModel().getInteger("id");
-		
-		return this.repository.findItemById(id);
+
+		int id;
+
+		id = request.getModel().getInteger("id");
+
+		return this.repository.findOneItemById(id);
 	}
 
 	@Override
@@ -52,8 +51,8 @@ public class AnyItemShowService implements AbstractShowService<Any, Item> {
 		assert model != null;
 
 		request.unbind(entity, model, "name", "code", "technology", "description", "retailPrice", "info", "type");
-		
-		final Money exchange=this.exchangeService.getExchange(entity.getRetailPrice());
+
+		final Money exchange = this.exchangeService.getExchange(entity.getRetailPrice());
 		model.setAttribute("exchange", exchange);
 	}
 }

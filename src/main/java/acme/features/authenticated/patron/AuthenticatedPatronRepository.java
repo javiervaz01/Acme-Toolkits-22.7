@@ -13,7 +13,7 @@ public interface AuthenticatedPatronRepository extends AbstractRepository {
 	@Query("select ua from UserAccount ua where ua.id = :id")
 	UserAccount findOneUserAccountById(int id);
 
-	@Query("select w from Patron w where w.userAccount.id = :id")
-	Patron findOnePAtronByUserAccountId(int id);
+	@Query("select p from Patron p where p.userAccount.id = :id")
+	Patron findOnePatronByUserAccountId(int id);
 
 }

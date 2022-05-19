@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 import acme.components.ExchangeService;
 import acme.entities.items.Item;
 import acme.entities.quantities.Quantity;
+import acme.entities.toolkits.Toolkit;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
-import acme.framework.datatypes.Money;
 import acme.framework.roles.Any;
 import acme.framework.services.AbstractShowService;
 
@@ -29,13 +29,13 @@ public class AnyQuantityShowService implements AbstractShowService<Any, Quantity
 
 		boolean result;
 		int id;
-		Item item;
+		Toolkit toolkit;
 
 		id = request.getModel().getInteger("id");
 
-		item = this.repository.findOneQuantityById(id).getItem();
+		toolkit = this.repository.findOneQuantityById(id).getToolkit();
 
-		result = item != null && !item.isDraftMode();
+		result = toolkit != null && !toolkit.isDraftMode();
 
 		return result;
 	}
@@ -59,16 +59,16 @@ public class AnyQuantityShowService implements AbstractShowService<Any, Quantity
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "toolkit.title", "number");
+		request.unbind(entity, model, "number");
 
 		Item item;
-		Money exchange;
 
+		model.setAttribute("toolkitTitle", entity.getToolkit().getTitle());
+
+		// The items dropdown is inmutable in /any/quantity/show so we don't bring the
+		// list of all the items since it would be both inefficient and useless here
 		item = entity.getItem();
 		model.setAttribute("items", Arrays.asList(item));
-		model.setAttribute("draftMode", entity.getToolkit().isDraftMode());
 
-		exchange = this.exchangeService.getExchange(item.getRetailPrice());
-		model.setAttribute("exchange", exchange);
 	}
 }

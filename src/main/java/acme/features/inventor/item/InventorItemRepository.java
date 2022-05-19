@@ -40,4 +40,7 @@ public interface InventorItemRepository extends AbstractRepository {
 
 	@Query("select i from Inventor i where i.id = :id")
 	Inventor findOneInventorById(int id);
+
+	@Query("select count(sc) > 0 from SystemConfiguration sc where sc.acceptedCurrencies LIKE %:currency%")
+	boolean isAcceptedCurrency(String currency);
 }

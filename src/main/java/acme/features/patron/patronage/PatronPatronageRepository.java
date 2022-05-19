@@ -12,24 +12,26 @@ import acme.roles.Inventor;
 import acme.roles.Patron;
 
 @Repository
-public interface PatronPatronageRepository extends AbstractRepository{
+public interface PatronPatronageRepository extends AbstractRepository {
 
 	@Query("select p from Patronage p where p.id = :id")
 	Patronage findOnePatronageById(int id);
-	
+
 	@Query("select p from Patronage p where p.patron.id = :id")
 	Collection<Patronage> findPatronagesByPatronId(int id);
-	
+
 	@Query("select pr from PatronageReport pr where pr.patronage.code = :code")
 	Collection<PatronageReport> findPatronageReportsByPatronageCode(String code);
-	
+
 	@Query("select p from Patronage p where p.code = :code")
 	Patronage findOnePatronageByCode(String code);
-	
+
 	@Query("select p from Patron p where p.id = :id")
 	Patron findOnePatronById(int id);
-	
+
 	@Query("select i from Inventor i where i.id = :id")
 	Inventor findOneInventorById(int id);
-	
+
+	@Query("select count(sc) > 0 from SystemConfiguration sc where sc.acceptedCurrencies LIKE %:currency%")
+	boolean isAcceptedCurrency(String currency);
 }

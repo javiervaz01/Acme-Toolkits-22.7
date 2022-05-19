@@ -45,10 +45,6 @@ public class Item extends AbstractEntity {
 	@Length(max = 255)
 	protected String description;
 
-	// The annotation @PositiveOrZero does not apply
-	// here since we have a single data type. We will
-	// learn how to implement a custom restriction.
-
 	@NotNull
 	protected Money retailPrice;
 

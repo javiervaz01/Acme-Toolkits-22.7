@@ -17,15 +17,16 @@ public class AuthenticatedPatronController extends AbstractController<Authentica
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AuthenticatedPatronCreateService	createService;
+	protected AuthenticatedPatronCreateService createService;
 
+	@Autowired
+	protected AuthenticatedPatronUpdateService updateService;
 
 	// Constructors -----------------------------------------------------------
-
 
 	@PostConstruct
 	protected void initialise() {
 		super.addCommand("create", this.createService);
+		super.addCommand("update", this.updateService);
 	}
-
 }

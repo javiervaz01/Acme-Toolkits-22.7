@@ -83,8 +83,13 @@ public class InventorItemUpdateService implements AbstractUpdateService<Inventor
 
 		if (!errors.hasErrors("retailPrice")) {
 			Double retailPrice;
+			String currency;
 
 			retailPrice = entity.getRetailPrice().getAmount();
+			currency = entity.getRetailPrice().getCurrency();
+
+			errors.state(request, this.repository.isAcceptedCurrency(currency), "retailPrice",
+					"inventor.item.form.error.not-accepted-currency");
 			errors.state(request, retailPrice > 0.0, "retailPrice", "inventor.item.form.error.negative-price");
 		}
 		if (!errors.hasErrors("technology")) {

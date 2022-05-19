@@ -56,7 +56,7 @@ public class InventorQuantityUpdateService implements AbstractUpdateService<Inve
 		assert errors != null;
 
 		request.bind(entity, errors, "toolkit.title", "number");
-		
+
 		Model model;
 		Item selectedItem;
 
@@ -79,9 +79,9 @@ public class InventorQuantityUpdateService implements AbstractUpdateService<Inve
 		model = request.getModel();
 		quantity = model.getInteger("number");
 		selectedItem = entity.getItem();
-		
+
 		model.setAttribute("selected", selectedItem);
-		
+
 		if (!errors.hasErrors("number")) {
 			errors.state(request, selectedItem.getType().equals(ItemType.COMPONENT) || quantity == 1, "number",
 					"inventor.quantity.form.error.repeated-tool");
@@ -91,6 +91,7 @@ public class InventorQuantityUpdateService implements AbstractUpdateService<Inve
 			int toolkitId;
 			Collection<Item> itemsInToolkit;
 			String newItemCurrency;
+			Item previousItem;
 
 			newItemCurrency = selectedItem.getRetailPrice().getCurrency();
 
@@ -98,17 +99,19 @@ public class InventorQuantityUpdateService implements AbstractUpdateService<Inve
 			// toolkit is empty
 			toolkitId = entity.getToolkit().getId();
 			itemsInToolkit = this.repository.findManyItemByToolkitId(toolkitId);
+			previousItem = this.repository.findOneItemByQuantityId(entity.getId());
 
 			errors.state(request,
 					itemsInToolkit.isEmpty()
 							|| itemsInToolkit.iterator().next().getRetailPrice().getCurrency().equals(newItemCurrency),
 					"retailPrice", "inventor.quantity.form.error.wrong-currency");
-		
-		errors.state(request, !itemsInToolkit.contains(selectedItem), "*",
-			"inventor.quantity.form.error.repeated-item");
-		
-		errors.state(request, !selectedItem.isDraftMode(), "*",
-			"inventor.quantity.form.error.draft-mode-item"); // Protection against hacking
+
+			errors.state(request, !itemsInToolkit.contains(selectedItem) || selectedItem.equals(previousItem), "*",
+					"inventor.quantity.form.error.repeated-item");
+
+			errors.state(request, !selectedItem.isDraftMode(), "*", "inventor.quantity.form.error.draft-mode-item"); // Protection
+																														// against
+																														// hacking
 		}
 	}
 
@@ -122,15 +125,18 @@ public class InventorQuantityUpdateService implements AbstractUpdateService<Inve
 
 		int toolkitId;
 		Item selectedItem;
+		String toolkitCurrency;
 		Collection<Item> items;
 		Collection<Item> itemsInToolkit;
-		
+
 		toolkitId = entity.getToolkit().getId();
 		selectedItem = entity.getItem();
-		items = this.repository.findAllItems();
+
 		itemsInToolkit = this.repository.findManyItemByToolkitId(toolkitId);
-		items.removeAll(itemsInToolkit);
-		
+		toolkitCurrency = itemsInToolkit.iterator().next().getRetailPrice().getCurrency();
+		items = itemsInToolkit.isEmpty() ? this.repository.findAllItems()
+				: this.repository.findItemsByCurrency(toolkitCurrency);
+
 		model.setAttribute("items", items);
 		model.setAttribute("selected", selectedItem);
 		model.setAttribute("draftMode", entity.getToolkit().isDraftMode());

@@ -10,7 +10,7 @@
 	<acme:input-select code="inventor.quantity.form.label.items" path="items">
 
 		<jstl:forEach items="${items}" var="item">
-			<acme:input-option code="${item.code} | ${item.name} (${item.retailPrice.currency})" value="${item.code}" selected="${item.code.equals(selected.code)}"/>
+			<acme:input-option code="${item.code} | ${item.name} (${item.type})" value="${item.code}" selected="${item.code.equals(selected.code)}"/>
 		</jstl:forEach>
 	</acme:input-select>
 	

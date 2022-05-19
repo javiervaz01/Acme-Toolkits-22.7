@@ -64,10 +64,9 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 		assert errors != null;
 
 		if (!errors.hasErrors("name")) {
-			errors.state(request, !this.spamService.isSpam(entity.getName()), "name",
-					"inventor.item.form.error.spam");
+			errors.state(request, !this.spamService.isSpam(entity.getName()), "name", "inventor.item.form.error.spam");
 		}
-		
+
 		if (!errors.hasErrors("code")) {
 			Item existing;
 
@@ -77,8 +76,13 @@ public class InventorItemCreateService implements AbstractCreateService<Inventor
 
 		if (!errors.hasErrors("retailPrice")) {
 			Double retailPrice;
+			String currency;
 
 			retailPrice = entity.getRetailPrice().getAmount();
+			currency = entity.getRetailPrice().getCurrency();
+
+			errors.state(request, this.repository.isAcceptedCurrency(currency), "retailPrice",
+					"inventor.item.form.error.not-accepted-currency");
 			errors.state(request, retailPrice > 0.0, "retailPrice", "inventor.item.form.error.negative-price");
 		}
 

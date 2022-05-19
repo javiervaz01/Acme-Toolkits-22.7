@@ -5,22 +5,24 @@
 
 <acme:form>
 	
-	<jstl:if test="${command != 'create'}">
+	<jstl:if test="${command != 'create' && !draftMode}">
 		<acme:input-textbox code="patron.patronage.form.label.status" path="status" readonly="true"/>		
 	</jstl:if>
-		<acme:input-textbox code="patron.patronage.form.label.code" path="code" placeholder="ABC-123-D"/>
+	
+	<acme:input-textbox code="patron.patronage.form.label.code" path="code" placeholder="ABC-123-D"/>
 	<acme:input-textarea code="patron.patronage.form.label.legal-stuff" path="legalStuff"/>
 	<acme:input-money code="patron.patronage.form.label.budget" path="budget"/>
+	
 	<jstl:if test="${command != 'create'}">
+		<acme:input-money code="patron.patronage.form.label.exchange" path="exchange" readonly="true"/>
 		<acme:input-moment code="patron.patronage.form.label.creation-date" path="creationDate" readonly="true"/>	
 	</jstl:if>
-	<acme:input-money code="patron.patronage.form.label.exchange" path="exchange"/>
-	<acme:input-moment code="patron.patronage.form.label.creation-date" path="creationDate"/>
+
 	<acme:input-moment code="patron.patronage.form.label.start-date" path="startDate"/>
 	<acme:input-moment code="patron.patronage.form.label.end-date" path="endDate"/>
 	<acme:input-url code="patron.patronage.form.label.info" path="info"/>
 	
-	<jstl:if test="${!(command == 'create')}">
+	<jstl:if test="${command != 'create'}">
 	<h2>
 		<acme:message code="patron.patronage.form.inventor-data"/>
 	</h2>
@@ -33,10 +35,10 @@
 	</jstl:if>
 	
 	<jstl:choose>	 
-		<jstl:when test="${command == 'show' && draftMode == false}">
+		<jstl:when test="${command == 'show' && !draftMode}">
 			<acme:button code="patron.patronage.form.reports" action="/patron/patronage-report/list-by-patronage?masterId=${masterId}"/>			
 		</jstl:when>
-		<jstl:when test="${acme:anyOf(command, 'show, update, delete, publish') && draftMode == true}">
+		<jstl:when test="${acme:anyOf(command, 'show, update, delete, publish') && draftMode}">
 			<acme:button code="patron.patronage.form.reports" action="/patron/patronage-report/list-by-patronage?masterId=${masterId}"/>
 			<acme:submit code="patron.patronage.form.button.update" action="/patron/patronage/update"/>
 			<acme:submit code="patron.patronage.form.button.delete" action="/patron/patronage/delete"/>

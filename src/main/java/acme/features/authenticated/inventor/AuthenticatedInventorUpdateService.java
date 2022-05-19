@@ -9,14 +9,13 @@ import acme.framework.controllers.HttpMethod;
 import acme.framework.controllers.Request;
 import acme.framework.controllers.Response;
 import acme.framework.entities.Principal;
-import acme.framework.entities.UserAccount;
 import acme.framework.helpers.PrincipalHelper;
 import acme.framework.roles.Authenticated;
-import acme.framework.services.AbstractCreateService;
+import acme.framework.services.AbstractUpdateService;
 import acme.roles.Inventor;
 
 @Service
-public class AuthenticatedInventorCreateService implements AbstractCreateService<Authenticated, Inventor> {
+public class AuthenticatedInventorUpdateService implements AbstractUpdateService<Authenticated, Inventor> {
 
 	// Internal state ---------------------------------------------------------
 
@@ -27,18 +26,7 @@ public class AuthenticatedInventorCreateService implements AbstractCreateService
 	public boolean authorise(final Request<Inventor> request) {
 		assert request != null;
 
-		boolean result;
-
-		result = !request.getPrincipal().hasRole(Inventor.class);
-
-		return result;
-	}
-
-	@Override
-	public void validate(final Request<Inventor> request, final Inventor entity, final Errors errors) {
-		assert request != null;
-		assert entity != null;
-		assert errors != null;
+		return true;
 	}
 
 	@Override
@@ -60,26 +48,30 @@ public class AuthenticatedInventorCreateService implements AbstractCreateService
 	}
 
 	@Override
-	public Inventor instantiate(final Request<Inventor> request) {
+	public Inventor findOne(final Request<Inventor> request) {
 		assert request != null;
 
 		Inventor result;
 		Principal principal;
 		int userAccountId;
-		UserAccount userAccount;
 
 		principal = request.getPrincipal();
 		userAccountId = principal.getAccountId();
-		userAccount = this.repository.findOneUserAccountById(userAccountId);
 
-		result = new Inventor();
-		result.setUserAccount(userAccount);
+		result = this.repository.findOneInventorByUserAccountId(userAccountId);
 
 		return result;
 	}
 
 	@Override
-	public void create(final Request<Inventor> request, final Inventor entity) {
+	public void validate(final Request<Inventor> request, final Inventor entity, final Errors errors) {
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
+	}
+
+	@Override
+	public void update(final Request<Inventor> request, final Inventor entity) {
 		assert request != null;
 		assert entity != null;
 
@@ -95,5 +87,4 @@ public class AuthenticatedInventorCreateService implements AbstractCreateService
 			PrincipalHelper.handleUpdate();
 		}
 	}
-
 }

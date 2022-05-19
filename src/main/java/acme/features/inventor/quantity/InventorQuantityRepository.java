@@ -16,7 +16,7 @@ public interface InventorQuantityRepository extends AbstractRepository {
 
 	@Query("select i from Item i where i.draftMode = false")
 	Collection<Item> findAllItems();
-	
+
 	@Query("select i from Item i where i.draftMode = false and i.retailPrice.currency = :currency")
 	Collection<Item> findItemsByCurrency(String currency);
 
@@ -31,4 +31,7 @@ public interface InventorQuantityRepository extends AbstractRepository {
 
 	@Query("select q from Quantity q where q.id = :id")
 	Quantity findOneQuantityById(int id);
+
+	@Query("select q.item from Quantity q where q.id = :id")
+	Item findOneItemByQuantityId(int id);
 }

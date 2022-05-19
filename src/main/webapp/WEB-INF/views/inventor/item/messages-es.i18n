@@ -26,5 +26,5 @@ inventor.item.form.button.publish = Publicar
 
 inventor.item.form.error.duplicated = Ya existe un artículo con el mismo código
 inventor.item.form.error.negative-price = El precio del artículo tiene que ser positivo
-
 inventor.item.form.error.spam = El texto se considera Spam
+inventor.item.form.error.not-accepted-currency = Esta divisa no está soportada por el sistema

@@ -30,5 +30,5 @@ inventor.patronage.form.label.patron.statement = Statement
 inventor.patronage.form.label.patron.info = Information
 
 inventor.patronage.form.reports= Patronage's Reports
-inventor.patronage.form.button.update = Update
-inventor.patronage-report.form.button.create = Create a Patronage Report
+inventor.patronage.form.button.accept = Accept
+inventor.patronage.form.button.deny = Deny
