@@ -58,7 +58,6 @@ public class AnyChirpCreateService implements AbstractCreateService<Any, Chirp>{
 		result = new Chirp();
 		result.setMoment(moment);
 
-
 		return result;
 	}
 
@@ -97,7 +96,6 @@ public class AnyChirpCreateService implements AbstractCreateService<Any, Chirp>{
 		assert request != null;
 		assert entity != null;
 		this.repository.save(entity);
-
 	}
 
 }
