@@ -36,7 +36,7 @@
 		<acme:submit code="inventor.patronage.form.button.deny" action="/inventor/patronage/deny"/>
 	</jstl:if>
 	<jstl:if test="${status == 'ACCEPTED'}">
-		<acme:button code="inventor.patronage.form.reports" action="/inventor/patronage-report/list"/>
+		<acme:button code="inventor.patronage.form.reports" action="/inventor/patronage-report/list-by-patronage?masterId=${id}"/>
 	</jstl:if>
 </acme:form>
 

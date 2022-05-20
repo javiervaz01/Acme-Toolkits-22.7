@@ -8,7 +8,7 @@
 	<acme:input-textbox code="any.item.form.label.name" path="name"/>
 	<acme:input-textbox code="any.item.form.label.code" path="code" placeholder="ABC-123-D"/>
 	<acme:input-textbox code="any.item.form.label.technology" path="technology"/>
-	<acme:input-textbox code="any.item.form.label.description" path="description"/>
+	<acme:input-textarea code="any.item.form.label.description" path="description"/>
 	<acme:input-money code="any.item.form.label.price" path="retailPrice"/>
 	<acme:input-money code="any.item.form.label.exchange" path="exchange"/>
 	<acme:input-url code="any.item.form.label.info" path="info"/>

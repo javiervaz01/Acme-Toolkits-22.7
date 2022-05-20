@@ -12,7 +12,7 @@ import acme.framework.repositories.AbstractRepository;
 @Repository
 public interface AnyItemRepository extends AbstractRepository {
 
-	@Query("select distinct(q.item) from Quantity q where q.toolkit.draftMode = false")
+	@Query("select i from Item i where i.draftMode = false")
 	Collection<Item> findItems();
 
 	@Query("select i from Item i where i.id = :id")

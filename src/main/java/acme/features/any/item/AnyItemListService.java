@@ -35,7 +35,9 @@ public class AnyItemListService implements AbstractListService<Any, Item>{
 		
 
 		Collection<Item> result;
+		
 		result = this.repository.findItems();
+		
 		return result;
 	}
 

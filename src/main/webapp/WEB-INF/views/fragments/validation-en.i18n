@@ -1,0 +1,3 @@
+acme.validation.system-configuration.pattern.currency = The currency must consist of three uppercase letters
+acme.validation.system-configuration.pattern.accepted-currencies = The accepted currencies must be a comma-separated list of groups of three uppercase letters
+acme.validation.system-configuration.pattern.spam-terms = The spam terms must be a comma-separated list of terms

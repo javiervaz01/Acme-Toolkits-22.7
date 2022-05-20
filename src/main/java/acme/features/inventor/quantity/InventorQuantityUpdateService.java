@@ -124,19 +124,29 @@ public class InventorQuantityUpdateService implements AbstractUpdateService<Inve
 		request.unbind(entity, model, "toolkit.title", "number");
 
 		int toolkitId;
+		Collection<Item> itemsInToolkit;
+		Collection<Item> items;
 		Item selectedItem;
 		String toolkitCurrency;
-		Collection<Item> items;
-		Collection<Item> itemsInToolkit;
 
-		toolkitId = entity.getToolkit().getId();
 		selectedItem = entity.getItem();
-
+		toolkitId = entity.getToolkit().getId();
 		itemsInToolkit = this.repository.findManyItemByToolkitId(toolkitId);
-		toolkitCurrency = itemsInToolkit.iterator().next().getRetailPrice().getCurrency();
-		items = itemsInToolkit.isEmpty() ? this.repository.findAllItems()
-				: this.repository.findItemsByCurrency(toolkitCurrency);
+ 		
+ 		if (itemsInToolkit.isEmpty()) {
+			items = this.repository.findAllItems();
+		} else {
+			toolkitCurrency = itemsInToolkit.iterator().next().getRetailPrice().getCurrency();
+			items = this.repository.findItemsByCurrency(toolkitCurrency);
+		}
+ 		
+		// Moreover, remove from the list the repeated items, which are not
+		// allowed either in the toolkit
+		items.removeAll(itemsInToolkit);
 
+		// But keep the one that is being edited
+		items.add(selectedItem);
+		
 		model.setAttribute("items", items);
 		model.setAttribute("selected", selectedItem);
 		model.setAttribute("draftMode", entity.getToolkit().isDraftMode());

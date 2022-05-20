@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import acme.components.ExchangeService;
 import acme.entities.patronagereports.PatronageReport;
+import acme.entities.patronages.Patronage;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.datatypes.Money;
@@ -25,9 +26,11 @@ public class InventorPatronageReportShowService implements AbstractShowService<I
 	@Override
 	public boolean authorise(final Request<PatronageReport> request) {
 		assert request != null;
+		
 		final int inventorId = request.getPrincipal().getActiveRoleId();
 		final int patronageId = request.getModel().getInteger("id");
-		final int patronageInventorId = this.repository.findOnePatronageReportById(patronageId).getPatronage().getInventor().getId();
+		final Patronage patronage = this.repository.findOnePatronageById(patronageId);
+		final int patronageInventorId = patronage.getInventor().getId();
 		
 		return  inventorId == patronageInventorId; 
 	}
@@ -46,13 +49,22 @@ public class InventorPatronageReportShowService implements AbstractShowService<I
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model, "sequenceNumber", "creationTime", "memorandum", "info", "patronage.status", "patronage.legalStuff", "patronage.budget", "patronage.creationDate", "patronage.startDate", "patronage.endDate", "patronage.info", "patronage.code");	
+		request.unbind(entity, model, "sequenceNumber", "creationTime", "memorandum", "info");	
 	
 		final int masterId = request.getModel().getInteger("id");
 		model.setAttribute("masterId", masterId);
 		
 		final Money exchange=this.exchangeService.getExchange(entity.getPatronage().getBudget());
 		model.setAttribute("exchange", exchange);
+		
+		model.setAttribute("patronageStatus", entity.getPatronage().getStatus());
+		model.setAttribute("patronageLegalStuff", entity.getPatronage().getLegalStuff());
+		model.setAttribute("patronageBudget", entity.getPatronage().getBudget());
+		model.setAttribute("patronageCreationDate", entity.getPatronage().getCreationDate());
+		model.setAttribute("patronageStartDate", entity.getPatronage().getStartDate());
+		model.setAttribute("patronageEndDate", entity.getPatronage().getEndDate());
+		model.setAttribute("patronageInfo", entity.getPatronage().getInfo());
+		model.setAttribute("patronageCode", entity.getPatronage().getCode());
 	}
 
 }

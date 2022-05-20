@@ -141,8 +141,12 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 		// If the toolkit is empty, show all items. If it already has items,
 		// only show the items with the same currency as the rest of the
 		// toolkit's items (custom constraint above)
-		toolkitCurrency = itemsInToolkit.iterator().next().getRetailPrice().getCurrency();
-		items = itemsInToolkit.isEmpty() ? this.repository.findAllItems() : this.repository.findItemsByCurrency(toolkitCurrency);
+ 		if (itemsInToolkit.isEmpty()) {
+			items = this.repository.findAllItems();
+		} else {
+			toolkitCurrency = itemsInToolkit.iterator().next().getRetailPrice().getCurrency();
+			items = this.repository.findItemsByCurrency(toolkitCurrency);
+		}
 		
 		// Moreover, remove from the list the repeated items, which are not
 		// allowed either in the toolkit

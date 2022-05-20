@@ -119,7 +119,7 @@ public class PatronPatronageCreateService implements AbstractCreateService<Patro
 
 			errors.state(request, this.repository.isAcceptedCurrency(currency), "budget",
 					"patron.patronage.form.error.not-accepted-currency");
-			errors.state(request, budget > 0.0, "retailPrice", "budget", "patron.patronage.form.error.negative-budget");
+			errors.state(request, budget > 0.0, "budget", "patron.patronage.form.error.negative-budget");
 		}
 	}
 

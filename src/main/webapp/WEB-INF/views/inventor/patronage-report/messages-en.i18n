@@ -2,6 +2,7 @@ inventor.patronage-report.list.label.patronage.identify.code = Patronage code
 inventor.patronage-report.list.label.sequence-number = Sequence number
 inventor.patronage-report.list.label.creation-time = Creation time
 inventor.patronage-report.list.label.info = Information
+inventor.patronage-report.list.button.create = Create
 
 inventor.patronage-report.form.title.report = Report
 

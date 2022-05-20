@@ -39,7 +39,6 @@
 			<acme:button code="patron.patronage.form.reports" action="/patron/patronage-report/list-by-patronage?masterId=${masterId}"/>			
 		</jstl:when>
 		<jstl:when test="${acme:anyOf(command, 'show, update, delete, publish') && draftMode}">
-			<acme:button code="patron.patronage.form.reports" action="/patron/patronage-report/list-by-patronage?masterId=${masterId}"/>
 			<acme:submit code="patron.patronage.form.button.update" action="/patron/patronage/update"/>
 			<acme:submit code="patron.patronage.form.button.delete" action="/patron/patronage/delete"/>
 			<acme:submit code="patron.patronage.form.button.publish" action="/patron/patronage/publish"/>

@@ -5,6 +5,7 @@ any.quantity.list.label.retail-price = Precio
 any.quantity.list.label.exchange = Cambio de divisa
 any.quantity.list.label.type = Tipo de Artículo
 any.quantity.list.label.quantity = Cantidad
+any.quantity.list.label.toolkit = Toolkit
 
 any.quantity.form.label.toolkit = Nombre del toolkit
 any.quantity.form.label.items = Artículos

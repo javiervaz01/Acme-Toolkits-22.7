@@ -39,8 +39,9 @@ public class ExchangeService {
 		if (rate == null) { // If there is no recent exchange
 			// Delete exchange rates that are not considered recent anymore, in case they
 			// exist, to prevent the database from storing useless data as the time goes by
-			this.repository.deleteExchangeCacheByCurrency(sourceCurrency, targetCurrency);
-
+			final ExchangeCache oldExchange =this.repository.findOneExchangeRate(sourceCurrency, targetCurrency);
+			if (oldExchange != null) this.repository.delete(oldExchange);
+			
 			// And now call the API for requesting (and caching) a fresh exchange rate
 			rate = this.getCurrencyFromAPI(sourceCurrency, targetCurrency);
 		}

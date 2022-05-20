@@ -44,8 +44,5 @@ public class PatronPatronageController extends AbstractController<Patron, Patron
 			
 			super.addCommand("list-mine", "list", this.listService);
 			super.addCommand("publish", "update", this.publishService);
-			
 		}
-	
-	
 }
