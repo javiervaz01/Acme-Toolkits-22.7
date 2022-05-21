@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import acme.components.ExchangeService;
 import acme.entities.patronagereports.PatronageReport;
-import acme.entities.patronages.Patronage;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
 import acme.framework.datatypes.Money;
@@ -28,9 +27,8 @@ public class InventorPatronageReportShowService implements AbstractShowService<I
 		assert request != null;
 		
 		final int inventorId = request.getPrincipal().getActiveRoleId();
-		final int patronageId = request.getModel().getInteger("id");
-		final Patronage patronage = this.repository.findOnePatronageById(patronageId);
-		final int patronageInventorId = patronage.getInventor().getId();
+		final int patronageReportId = request.getModel().getInteger("id");
+		final int patronageInventorId=this.repository.findInventorIdByPatronageReportId(patronageReportId);
 		
 		return  inventorId == patronageInventorId; 
 	}

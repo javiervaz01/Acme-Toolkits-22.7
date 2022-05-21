@@ -26,4 +26,7 @@ public interface PatronPatronageReportRepository extends AbstractRepository {
 	
 	@Query("select count(pr) from PatronageReport pr where pr.patronage.id = :id")
 	int countPatronageReportsInPatronageById(int id);
+	
+	@Query("select pr.patronage.patron.id from PatronageReport pr where pr.id = :id")
+	int findPatronIdByPatronageReportId(int id);
 }
