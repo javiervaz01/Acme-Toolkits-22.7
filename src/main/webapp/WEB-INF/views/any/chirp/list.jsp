@@ -4,11 +4,9 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:list readonly="false">
-	<acme:list-column code="any.chirp.list.label.title" path="title" width="20%"/>
-	<acme:list-column code="any.chirp.list.label.author" path="author" width="15%"/>
-	<acme:list-column code="any.chirp.list.label.body" path="body" width="25%"/>
-	<acme:list-column code="any.chirp.list.label.email" path="email"/>
-	<acme:list-column code="any.chirp.list.label.moment" path="moment"/>
+	<acme:list-column code="any.chirp.list.label.title" path="title" width="60%"/>
+	<acme:list-column code="any.chirp.list.label.author" path="author" width="20%"/>
+	<acme:list-column code="any.chirp.list.label.moment" path="moment" width="20%"/>
 	
 	
 </acme:list>
