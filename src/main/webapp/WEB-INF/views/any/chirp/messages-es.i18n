@@ -3,3 +3,14 @@ any.chirp.list.label.title = Título
 any.chirp.list.label.author = Autor
 any.chirp.list.label.body = Cuerpo
 any.chirp.list.label.email = Email
+
+any.chirp.form.label.moment = Momento de creación
+any.chirp.form.label.title = Título
+any.chirp.form.label.author = Autor
+any.chirp.form.label.body = Cuerpo
+any.chirp.form.label.email = Email
+
+any.chirp.form.label.confirmation = Confirmación
+any.chirp.form.button.create = Crear
+
+any.chirp.form.error.spam = El texto se considera spam
