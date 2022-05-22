@@ -36,6 +36,11 @@ public class ExchangeService {
 		final Date oneDayAgo = calendar.getTime();
 
 		Double rate = this.repository.getRecentExchangeRate(oneDayAgo, sourceCurrency, targetCurrency);
+		
+		if(sourceAmount == null) {
+			return null;
+		}
+		
 		if (rate == null) { // If there is no recent exchange
 			// Delete exchange rates that are not considered recent anymore, in case they
 			// exist, to prevent the database from storing useless data as the time goes by
