@@ -7,15 +7,20 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 import acme.testing.TestHarness;
 
-public class InventorPatronageDenyTest extends TestHarness {
+public class InventorPatronageShowProposedTest extends TestHarness {
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/inventor/patronage/deny.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/inventor/patronage/show-proposed.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
 	public void positive(final int recordIndex, final String status, final String code, final String legalStuff,
 			final String budget, final String creationDate, final String startDate, final String endDate,
 			final String info) {
+		
 		super.signIn("inventor1", "inventor1");
+
+		// TODO this update class doesn't exist anymore. We have accept/deny services
+		// Instead. However, make sure to ask the test-related questions we had in the
+		// next follow up
 
 		super.clickOnMenu("Inventor", "List my proposed patronages");
 		super.checkListingExists();
@@ -29,20 +34,7 @@ public class InventorPatronageDenyTest extends TestHarness {
 
 		super.checkFormExists();
 
-		super.clickOnSubmit("Deny");
-		
-		super.clickOnMenu("Inventor", "List my patronages");
-		
-		super.sortListing(0, "desc");
-		
-		super.checkColumnHasValue(2, 0, status);
-		super.checkColumnHasValue(2, 1, code);
-		super.checkColumnHasValue(2, 2, budget);
-		
-		super.clickOnListingRecord(2);
-		super.checkFormExists();
-		
-		super.checkInputBoxHasValue("status", "DENIED");
+		super.checkInputBoxHasValue("status", status);
 		super.checkInputBoxHasValue("code", code);
 		super.checkInputBoxHasValue("legalStuff", legalStuff);
 		super.checkInputBoxHasValue("budget", budget);
@@ -50,6 +42,10 @@ public class InventorPatronageDenyTest extends TestHarness {
 		super.checkInputBoxHasValue("startDate", startDate);
 		super.checkInputBoxHasValue("endDate", endDate);
 		super.checkInputBoxHasValue("info", info);
+
+
+
+		
 
 		super.signOut();
 	}
@@ -62,10 +58,8 @@ public class InventorPatronageDenyTest extends TestHarness {
 	
 	@Test
 	public void hackingTest() {
-		//As the framework doesn´t support this hacking feature we will have to perform this manually
-		//-Start by initiating the Acme toolkits project
-		//-Navigate to this URL /inventor/patronage/show?id=338
-		//-Check that a panic happens
+		super.navigate("/inventor/patronage/list-proposed");
+		super.checkPanicExists();
 	}
 
 }

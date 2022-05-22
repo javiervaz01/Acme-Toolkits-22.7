@@ -1,4 +1,4 @@
-package acme.testing.any.toolkit;
+package acme.testing.any.chirp;
 
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -7,28 +7,37 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 import acme.testing.TestHarness;
 
-public class AnyToolkitListTest extends TestHarness {
+public class AnyChirpShowTest extends TestHarness {
 
 	// Lifecycle management ---------------------------------------------------
 
 	// Test cases -------------------------------------------------------------
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/any/toolkits/list.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/any/chirp/show.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
-	public void positiveTest(final int key, final String code, final String title, final String description,
-		final String assemblyNotes, final String link, final String retailPrice) {
+	public void positiveTest(final int index, final String moment, final String title, final String author,
+			final String body, final String email) {
 
-		super.clickOnMenu("Any", "List toolkits");
+		super.clickOnMenu("Any", "List chirps");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
+		super.checkColumnHasValue(index, 0, title);
+		super.checkColumnHasValue(index, 1, author);
+		super.checkColumnHasValue(index, 2, moment);
+		
+		super.clickOnListingRecord(index);
+		
+		super.checkFormExists();
+		
+		super.checkInputBoxHasValue("title", title);
+		super.checkInputBoxHasValue("author", author);
+		super.checkInputBoxHasValue("body", body);
+		super.checkInputBoxHasValue("email", email);
+		super.checkInputBoxHasValue("moment", moment);
+		
 
-		super.checkColumnHasValue(key, 0, code);
-		super.checkColumnHasValue(key, 1, title);
-		super.checkColumnHasValue(key, 2, description);
-		super.checkColumnHasValue(key, 3, assemblyNotes);
-		super.checkColumnHasValue(key, 4, link);
-
+		
 	}
 	
 	@Test

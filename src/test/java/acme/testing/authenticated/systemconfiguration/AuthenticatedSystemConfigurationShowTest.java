@@ -1,6 +1,7 @@
 package acme.testing.authenticated.systemconfiguration;
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -21,6 +22,18 @@ public class AuthenticatedSystemConfigurationShowTest extends TestHarness{
 		super.checkInputBoxHasValue("acceptedCurrencies", acceptedCurrencies);
 		
 		super.signOut();
+	}
+	
+	@Test
+	public void negativeTest(){
+		//As this is a test that does not involve any form, we do not have negative cases to test,
+		//so this function will be blank.
+	}
+	
+	@Test
+	public void hackingTest() {
+		super.navigate("/authenticated/system-configuration/show");
+		super.checkPanicExists();
 	}
 
 }

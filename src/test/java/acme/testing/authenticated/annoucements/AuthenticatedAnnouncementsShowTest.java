@@ -36,17 +36,22 @@ public class AuthenticatedAnnouncementsShowTest extends TestHarness {
 		super.signOut();
 	}
 	
+	public void negativeTest(){
+		//As this is a test that does not involve any form, we do not have negative cases to test,
+		//so this function will be blank.
+	}
+	
 	@Test
 	@Order(20)
 	public void hackingTest() {
-		//As the framework doesn´t support this hacking feature we will have to performe this manually
+		//As the framework doesn´t support this hacking feature we will have to perform this manually
 		//-Start by initiating the Acme toolkits project
 		//-Navigate to this URL /authenticated/announcement/show?id=373
 		//-Check that a panic happens
 	}
 	
 	
-	
+	@Test
 	private String formatDate(final Date moment) {
 		final SimpleDateFormat formater = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 		final String date=formater.format(moment);
