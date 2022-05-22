@@ -33,6 +33,11 @@ public class AuthenticatedAnnouncementListTest extends TestHarness {
 		super.signOut();
 	}
 	
+	public void negativeTest(){
+		//As this is a test that does not involve any form, we do not have negative cases to test,
+		//so this function will be blank.
+	}
+	
 	@Test
 	@Order(20)
 	public void hackingTest() {
@@ -40,6 +45,7 @@ public class AuthenticatedAnnouncementListTest extends TestHarness {
 		super.checkPanicExists();
 	}
 	
+	@Test
 	private String formatDate(final Date moment) {
 		final SimpleDateFormat formater = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 		final String date=formater.format(moment);

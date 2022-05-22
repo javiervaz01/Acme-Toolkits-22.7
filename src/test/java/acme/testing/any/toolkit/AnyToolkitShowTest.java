@@ -1,6 +1,7 @@
 package acme.testing.any.toolkit;
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -27,6 +28,18 @@ public class AnyToolkitShowTest extends TestHarness{
 		super.checkInputBoxHasValue("link", link);
 		super.checkInputBoxHasValue("retailPrice", retailPrice);
 
+	}
+	
+	@Test
+	public void negativeTest(){
+		//As this is a test that does not involve any form, we do not have negative cases to test,
+		//so this function will be blank.
+	}
+	
+	@Test
+	public void hackingTest() {
+		//As this is a list that any user of Acme Toolkits can access,
+		//there are not hacking tests for this feature.
 	}
 
 }
