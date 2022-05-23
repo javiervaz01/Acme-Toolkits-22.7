@@ -33,6 +33,7 @@ public class AuthenticatedAnnouncementListTest extends TestHarness {
 		super.signOut();
 	}
 
+	@Test
 	public void negativeTest() {
 		// As this is a test that does not involve any form, we do not have negative
 		// cases to test, so this function will be blank.
