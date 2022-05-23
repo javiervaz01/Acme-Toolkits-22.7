@@ -22,6 +22,10 @@ public class PatronPatronageReportController extends AbstractController<Patron, 
 	
 	@Autowired
 	protected PatronPatronageReportShowService showService;
+	
+	@Autowired
+	protected PatronPatronageReportCreateService createService;
+
 
 	// Constructors -----------------------------------------------------------
 
@@ -30,10 +34,9 @@ public class PatronPatronageReportController extends AbstractController<Patron, 
 	protected void initialise() {
 		super.addCommand("list", this.listService);
 		super.addCommand("show", this.showService);
+		super.addCommand("create", this.createService);
 		
 		super.addCommand("list-by-patronage", "list", this.listByPatronageService);
 		
 	}
-
-
 }

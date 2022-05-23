@@ -54,7 +54,8 @@ public class AnyQuantityListService implements AbstractListService<Any, Quantity
 	}
 
 	@Override
-	public void unbind(final Request<Quantity> request, final Collection<Quantity> entities, final Model model) {
+	public void unbind(final Request<Quantity> request, final Collection<Quantity> entities,
+			final Model model) {
 		assert request != null;
 		assert !CollectionHelper.someNull(entities);
 		assert model != null;
@@ -79,6 +80,7 @@ public class AnyQuantityListService implements AbstractListService<Any, Quantity
 
 		item = entity.getItem();
 		model.setAttribute("name", item.getName());
+		model.setAttribute("toolkitTitle", entity.getToolkit().getTitle());
 		model.setAttribute("code", item.getCode());
 		model.setAttribute("technology", item.getTechnology());
 		model.setAttribute("description", item.getDescription());
@@ -87,7 +89,7 @@ public class AnyQuantityListService implements AbstractListService<Any, Quantity
 		model.setAttribute("type", item.getType());
 
 		exchange = this.exchangeService.getExchange(entity.getItem().getRetailPrice());
-		
+
 		model.setAttribute("exchange", exchange);
 	}
 }

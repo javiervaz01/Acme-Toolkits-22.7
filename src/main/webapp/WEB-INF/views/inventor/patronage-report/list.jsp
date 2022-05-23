@@ -8,6 +8,6 @@
 	<acme:list-column code="inventor.patronage-report.list.label.sequence-number" path="sequenceNumber" width="10%"/>
 	<acme:list-column code="inventor.patronage-report.list.label.creation-time" path="creationTime"/>
 	<acme:list-column code="inventor.patronage-report.list.label.info" path="info"/>
-	
-	<acme:button code="inventor.patronage-report.form.button.create" action="/inventor/patronage-report/create?masterId=${id}"/>
 </acme:list>
+
+<acme:button code="inventor.patronage-report.list.button.create" action="/inventor/patronage-report/create?masterId=${masterId}"/>

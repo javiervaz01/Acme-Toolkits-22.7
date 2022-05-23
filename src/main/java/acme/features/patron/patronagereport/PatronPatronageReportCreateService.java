@@ -1,5 +1,5 @@
 
-package acme.features.inventor.patronagereport;
+package acme.features.patron.patronagereport;
 
 import java.util.Date;
 
@@ -12,24 +12,24 @@ import acme.framework.components.models.Model;
 import acme.framework.controllers.Errors;
 import acme.framework.controllers.Request;
 import acme.framework.services.AbstractCreateService;
-import acme.roles.Inventor;
+import acme.roles.Patron;
 
 @Service
-public class InventorPatronageReportCreateService implements AbstractCreateService<Inventor, PatronageReport> {
+public class PatronPatronageReportCreateService implements AbstractCreateService<Patron, PatronageReport> {
 
 	@Autowired
-	InventorPatronageReportRepository repository;
+	PatronPatronageReportRepository repository;
 
 	@Override
 	public boolean authorise(final Request<PatronageReport> request) {
 		assert request != null;
 
-		final int inventorId = request.getPrincipal().getActiveRoleId();
+		final int patronId = request.getPrincipal().getActiveRoleId();
 		final int patronageId = request.getModel().getInteger("masterId");
 		final Patronage patronage = this.repository.findOnePatronageById(patronageId);
-		final int patronageInventorId = patronage.getInventor().getId();
+		final int patronagePatronId = patronage.getPatron().getId();
 		
-		return inventorId == patronageInventorId && !patronage.isDraftMode(); 
+		return patronId == patronagePatronId && !patronage.isDraftMode(); 
 	}
 
 	@Override

@@ -63,10 +63,6 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 
 		request.bind(entity, errors, "toolkit.title", "number");
 
-		// TODO: The code below is necessary because, if it is missing, the form
-		// attributes won't be bound automatically to the Quantity entity. Maybe we are
-		// doing something wrong
-
 		Model model;
 		Item selectedItem;
 
@@ -89,7 +85,7 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 		model = request.getModel();
 		quantity = model.getInteger("number");
 		selectedItem = entity.getItem();
-		
+
 		if (!errors.hasErrors("number")) {
 			errors.state(request, selectedItem.getType().equals(ItemType.COMPONENT) || quantity == 1, "number",
 					"inventor.quantity.form.error.repeated-tool");
@@ -114,9 +110,10 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 
 			errors.state(request, !itemsInToolkit.contains(selectedItem), "*",
 					"inventor.quantity.form.error.repeated-item");
-			
-			errors.state(request, !selectedItem.isDraftMode(), "*",
-				"inventor.quantity.form.error.draft-mode-item"); // Protection against hacking
+
+			errors.state(request, !selectedItem.isDraftMode(), "*", "inventor.quantity.form.error.draft-mode-item"); // Protection
+																														// against
+																														// hacking
 		}
 	}
 
@@ -133,21 +130,25 @@ public class InventorQuantityCreateService implements AbstractCreateService<Inve
 		Collection<Item> items;
 		Item selectedItem;
 		String toolkitCurrency;
-		
-		selectedItem = entity.getItem();		
+
+		selectedItem = entity.getItem();
 		toolkitId = request.getModel().getInteger("toolkitId");
 		itemsInToolkit = this.repository.findManyItemByToolkitId(toolkitId);
-		
+
 		// If the toolkit is empty, show all items. If it already has items,
 		// only show the items with the same currency as the rest of the
 		// toolkit's items (custom constraint above)
-		toolkitCurrency = itemsInToolkit.iterator().next().getRetailPrice().getCurrency();
-		items = itemsInToolkit.isEmpty() ? this.repository.findAllItems() : this.repository.findItemsByCurrency(toolkitCurrency);
+ 		if (itemsInToolkit.isEmpty()) {
+			items = this.repository.findAllItems();
+		} else {
+			toolkitCurrency = itemsInToolkit.iterator().next().getRetailPrice().getCurrency();
+			items = this.repository.findItemsByCurrency(toolkitCurrency);
+		}
 		
 		// Moreover, remove from the list the repeated items, which are not
 		// allowed either in the toolkit
 		items.removeAll(itemsInToolkit);
-		
+
 		model.setAttribute("items", items);
 		model.setAttribute("selected", selectedItem);
 		model.setAttribute("toolkitId", toolkitId);

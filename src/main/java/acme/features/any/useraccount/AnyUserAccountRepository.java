@@ -17,4 +17,10 @@ public interface AnyUserAccountRepository extends AbstractRepository {
 	@Query("select ua from UserAccount ua where ua.enabled = true")
 	Collection<UserAccount> findEnabledUserAccounts();
 
+	@Query("select distinct(ua) from UserAccount ua join ua.roles r where ua.enabled = true and (type(r) = Inventor or type(r) = Patron) and Administrator not in (select type(r) from UserAccount ua2 join ua2.roles r where ua2.id = ua.id)")
+	Collection<UserAccount> findManyUserAccountNotAdminOrAnonymous();
+	// TODO this query won't find the user accounts without any role. We are encouraged to have data
+	// with 0, 1 and 2 or more roles in order to follow the methodology, but those with 0 roles will
+	// not be listed.
+
 }

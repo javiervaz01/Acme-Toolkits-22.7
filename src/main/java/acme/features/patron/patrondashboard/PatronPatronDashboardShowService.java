@@ -44,10 +44,11 @@ public class PatronPatronDashboardShowService implements AbstractShowService<Pat
 		int numberOfProposedPatronages;
 		final int numberOfAcceptedPatronages;
 		final int numberOfDeniedPatronages;
+		final int patronId = request.getPrincipal().getActiveRoleId();
 		
-		numberOfProposedPatronages=this.repository.numberOfPatronages(Status.PROPOSED);
-		numberOfAcceptedPatronages=this.repository.numberOfPatronages(Status.ACCEPTED);
-		numberOfDeniedPatronages=this.repository.numberOfPatronages(Status.DENIED);
+		numberOfProposedPatronages=this.repository.numberOfPatronages(Status.PROPOSED, patronId);
+		numberOfAcceptedPatronages=this.repository.numberOfPatronages(Status.ACCEPTED, patronId);
+		numberOfDeniedPatronages=this.repository.numberOfPatronages(Status.DENIED, patronId);
 		
 		
 		List<PatronDashboardItem> statsBudgetofProposedPatronages;
@@ -55,9 +56,9 @@ public class PatronPatronDashboardShowService implements AbstractShowService<Pat
 		List<PatronDashboardItem> statsBudgetofDeniedPatronages;	
 		
 		
-		statsBudgetofProposedPatronages=this.getStatistics(Status.PROPOSED);
-		statsBudgetofAcceptedPatronages=this.getStatistics(Status.ACCEPTED);
-		statsBudgetofDeniedPatronages=this.getStatistics(Status.DENIED);
+		statsBudgetofProposedPatronages=this.getStatistics(Status.PROPOSED, patronId);
+		statsBudgetofAcceptedPatronages=this.getStatistics(Status.ACCEPTED, patronId);
+		statsBudgetofDeniedPatronages=this.getStatistics(Status.DENIED, patronId);
 		
 		result= new PatronDashboard();
 		result.setNumberOfProposedPatronages(numberOfProposedPatronages);
@@ -80,19 +81,19 @@ public class PatronPatronDashboardShowService implements AbstractShowService<Pat
 	}	
 	
 	
-	private List<PatronDashboardItem> getStatistics(final Status status){
-		return this.repository.currencies().stream().map(currency -> this.itemStats(status, currency)).collect(Collectors.toList());
+	private List<PatronDashboardItem> getStatistics(final Status status, final int patronId){
+		return this.repository.currencies().stream().map(currency -> this.itemStats(status, currency, patronId)).collect(Collectors.toList());
 	}
 	
-	private PatronDashboardItem itemStats(final Status status, final String currency) {
+	private PatronDashboardItem itemStats(final Status status, final String currency, final int patronId) {
 		final PatronDashboardItem itemStats = new PatronDashboardItem();
 		itemStats.currency = currency;
-		itemStats.average = this.repository.averagePatronage(status, currency);
+		itemStats.average = this.repository.averagePatronage(status, currency, patronId);
 		itemStats.exchangeAverage = this.getExchange(itemStats.average, currency);
-		itemStats.deviation = this.repository.deviationPatronage(status, currency);
-		itemStats.min = this.repository.minimumPatronage(status, currency);
+		itemStats.deviation = this.repository.deviationPatronage(status, currency, patronId);
+		itemStats.min = this.repository.minimumPatronage(status, currency, patronId);
 		itemStats.exchangeMin= this.getExchange(itemStats.min, currency);
-		itemStats.max = this.repository.maximumPatronage(status, currency);
+		itemStats.max = this.repository.maximumPatronage(status, currency, patronId);
 		itemStats.exchangeMax = this.getExchange(itemStats.max, currency);
 		return itemStats;
 	}
@@ -103,8 +104,14 @@ public class PatronPatronDashboardShowService implements AbstractShowService<Pat
 		aux.setCurrency(Currency);
 		
 		final Money exchange=this.exchangeService.getExchange(aux);
-		final Double roundedAmount= Math.round(exchange.getAmount()*100.0)/100.0;
 		
-		return exchange.getCurrency()+" "+roundedAmount;
+		if(exchange == null || exchange.getAmount() == null) {
+			return null;
+		}else {
+			final Double roundedAmount= Math.round(exchange.getAmount()*100.0)/100.0;
+			return exchange.getCurrency()+" "+roundedAmount;
+		}
+		
+		
 	}
 }

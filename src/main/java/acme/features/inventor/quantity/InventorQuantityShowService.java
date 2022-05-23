@@ -68,12 +68,14 @@ public class InventorQuantityShowService implements AbstractShowService<Inventor
 
 		selectedItem = entity.getItem();
 		toolkitId = entity.getToolkit().getId();
-
 		itemsInToolkit = this.repository.findManyItemByToolkitId(toolkitId);
-		toolkitCurrency = itemsInToolkit.iterator().next().getRetailPrice().getCurrency();
-		items = itemsInToolkit.isEmpty() ? this.repository.findAllItems()
-				: this.repository.findItemsByCurrency(toolkitCurrency);
-
+ 		
+ 		if (itemsInToolkit.isEmpty()) {
+			items = this.repository.findAllItems();
+		} else {
+			toolkitCurrency = itemsInToolkit.iterator().next().getRetailPrice().getCurrency();
+			items = this.repository.findItemsByCurrency(toolkitCurrency);
+		}
 		model.setAttribute("items", items);
 		model.setAttribute("selected", selectedItem);
 		model.setAttribute("draftMode", entity.getToolkit().isDraftMode());

@@ -15,18 +15,18 @@ public interface InventorPatronageReportRepository extends AbstractRepository {
 	@Query("select i from Patronage i where i.id = :id")
 	Patronage findOnePatronageById(int id);
 
-	@Query("select p from PatronageReport p where p.id = :id")
+	@Query("select pr from PatronageReport pr where pr.id = :id")
 	PatronageReport findOnePatronageReportById(int id);
 
-	@Query("select p from PatronageReport p where p.patronage.inventor.id = :id")
+	@Query("select pr from PatronageReport pr where pr.patronage.inventor.id = :id")
 	Collection<PatronageReport> findPatronagesByInventorId(int id);
 
-	@Query("select p from PatronageReport p where p.patronage.id = :masterId")
+	@Query("select pr from PatronageReport pr where pr.patronage.id = :masterId")
 	Collection<PatronageReport> findPatronageReportsByMasterId(int masterId);
 
-	@Query("select pr.sequenceNumber from PatronageReport pr order by pr.id desc")
-	Collection<String> findLastPatronageReportSequenceNumber();
-
-	@Query("select count(pr) from PatronageReport pt where pt.patronage.id = :id")
+	@Query("select count(pr) from PatronageReport pr where pr.patronage.id = :id")
 	int countPatronageReportsInPatronageById(int id);
+	
+	@Query("select pr.patronage.inventor.id from PatronageReport pr where pr.id = :id")
+	int findInventorIdByPatronageReportId(int id);
 }

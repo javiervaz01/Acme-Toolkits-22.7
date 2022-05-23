@@ -26,7 +26,6 @@ public class InventorPatronageReportListService implements AbstractListService<I
 		return true;
 	}
 
-
 	@Override
 	public Collection<PatronageReport> findMany(final Request<PatronageReport> request) {
 		assert request != null;
@@ -36,7 +35,6 @@ public class InventorPatronageReportListService implements AbstractListService<I
 		return this.repository.findPatronagesByInventorId(inventorId);
 	}
 
-
 	@Override
 	public void unbind(final Request<PatronageReport> request, final PatronageReport entity, final Model model) {
 		assert request != null;
@@ -45,11 +43,4 @@ public class InventorPatronageReportListService implements AbstractListService<I
 
 		request.unbind(entity, model, "sequenceNumber", "creationTime", "memorandum", "info", "patronage.code");
 	}
-	
-	
-	
-	
-	
-	
-	
 }
