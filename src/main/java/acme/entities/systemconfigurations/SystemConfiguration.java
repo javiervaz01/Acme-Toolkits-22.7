@@ -31,7 +31,6 @@ public class SystemConfiguration extends AbstractEntity {
 			message = "{acme.validation.system-configuration.pattern.accepted-currencies}")
 	protected String acceptedCurrencies;
 
-	// TODO: Comment this in the lint report. Use this expression
 	@NotBlank
 	@Pattern(
 			regexp = "^([\\p{L}\\p{N}\\s]|(?!,)[\\p{P}])+(, *([\\p{L}\\p{N}\\s]|(?!,)[\\p{P}])+)*$",

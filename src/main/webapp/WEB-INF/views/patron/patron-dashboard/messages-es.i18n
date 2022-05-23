@@ -8,10 +8,11 @@ patron.dashboard.form.proposed = Número de Patronazgos propuestos
 patron.dashboard.form.accepted = Número de Patronazgos aceptados
 patron.dashboard.form.denied = Número de Patronazgos denegados
 
-patron.dashboard.form.label.currency= Moneda
+patron.dashboard.form.label.currency = Moneda
 patron.dashboard.form.label.average = Media
-patron.dashboard.form.label.average-exchange= Media internacionalizada
-patron.dashboard.form.label.deviation= Desviación
-patron.dashboard.form.label.min= Mínimo
+patron.dashboard.form.label.average-exchange = Media internacionalizada
+patron.dashboard.form.label.deviation = Desviación
+patron.dashboard.form.label.min = Mínimo
+patron.dashboard.form.label.max = Máximo
 patron.dashboard.form.label.min-exchange = Mínimo internacionalizado
-patron.dashboard.form.label.max= Máximo internacionalizado
+patron.dashboard.form.label.max-exchange = Máximo internacionalizado
