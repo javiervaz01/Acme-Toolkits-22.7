@@ -1,6 +1,7 @@
 package acme.testing.inventor.patronage;
 
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
@@ -49,6 +50,20 @@ public class InventorPatronageAcceptTest extends TestHarness {
 		super.checkInputBoxHasValue("info", info);
 
 		super.signOut();
+	}
+	
+	@Test
+	public void negativeTest(){
+		//As this is a test that does not involve any form, we do not have negative cases to test,
+		//so this function will be blank.
+	}
+	
+	@Test
+	public void hackingTest() {
+		//As the framework doesn´t support this hacking feature we will have to perform this manually
+		//-Start by initiating the Acme toolkits project
+		//-Navigate to this URL /inventor/patronage/show?id=338
+		//-Check that a panic happens
 	}
 
 }

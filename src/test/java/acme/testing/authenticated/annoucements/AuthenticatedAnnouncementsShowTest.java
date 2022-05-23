@@ -35,7 +35,6 @@ public class AuthenticatedAnnouncementsShowTest extends TestHarness {
 
 		super.signOut();
 	}
-
 	@Test
 	@Order(20)
 	public void negativeTest() {

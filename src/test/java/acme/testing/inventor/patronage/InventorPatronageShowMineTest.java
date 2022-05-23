@@ -6,14 +6,14 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 import acme.testing.TestHarness;
 
-public class InventorPatronageListMineTest extends TestHarness {
+public class InventorPatronageShowMineTest extends TestHarness {
 
 	// Lifecycle management ---------------------------------------------------
 
 	// Test cases -------------------------------------------------------------
 
 	@ParameterizedTest
-	@CsvFileSource(resources = "/inventor/patronage/list-mine.csv", encoding = "utf-8", numLinesToSkip = 1)
+	@CsvFileSource(resources = "/inventor/patronage/show-mine.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
 	public void positiveTest(final int recordIndex, final String status, final String code, final String legalStuff, final String budget, final String creationDate, final String startDate, final String endDate, final String info, final String patronIdentityName, final String patronIdentitySurname, final String patronIdentityEmail, final String patronCompany, final String patronStatement, final String patronInfo) {
 		super.signIn("inventor1", "inventor1");
@@ -26,6 +26,22 @@ public class InventorPatronageListMineTest extends TestHarness {
 		super.checkColumnHasValue(recordIndex, 1, code);
 		super.checkColumnHasValue(recordIndex, 2, budget);
 
+		super.clickOnListingRecord(recordIndex);
+		super.checkFormExists();
+		super.checkInputBoxHasValue("status", status);
+		super.checkInputBoxHasValue("code", code);
+		super.checkInputBoxHasValue("legalStuff", legalStuff);
+		super.checkInputBoxHasValue("budget", budget);
+		super.checkInputBoxHasValue("creationDate", creationDate);
+		super.checkInputBoxHasValue("startDate", startDate);
+		super.checkInputBoxHasValue("endDate", endDate);
+		super.checkInputBoxHasValue("info", info);
+		super.checkInputBoxHasValue("patronName", patronIdentityName);
+		super.checkInputBoxHasValue("patronSurname", patronIdentitySurname);
+		super.checkInputBoxHasValue("patronEmail", patronIdentityEmail);
+		super.checkInputBoxHasValue("patronCompany", patronCompany);
+		super.checkInputBoxHasValue("patronStatement", patronStatement);
+		super.checkInputBoxHasValue("patronInfo", patronInfo);
 		
 		super.signOut();
 	}
