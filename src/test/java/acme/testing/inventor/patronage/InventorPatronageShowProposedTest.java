@@ -15,12 +15,8 @@ public class InventorPatronageShowProposedTest extends TestHarness {
 	public void positive(final int recordIndex, final String status, final String code, final String legalStuff,
 			final String budget, final String creationDate, final String startDate, final String endDate,
 			final String info) {
-		
-		super.signIn("inventor1", "inventor1");
 
-		// TODO this update class doesn't exist anymore. We have accept/deny services
-		// Instead. However, make sure to ask the test-related questions we had in the
-		// next follow up
+		super.signIn("inventor1", "inventor1");
 
 		super.clickOnMenu("Inventor", "List my proposed patronages");
 		super.checkListingExists();
@@ -43,19 +39,16 @@ public class InventorPatronageShowProposedTest extends TestHarness {
 		super.checkInputBoxHasValue("endDate", endDate);
 		super.checkInputBoxHasValue("info", info);
 
-
-
-		
-
 		super.signOut();
 	}
-	
+
 	@Test
-	public void negativeTest(){
-		//As this is a test that does not involve any form, we do not have negative cases to test,
-		//so this function will be blank.
+	public void negativeTest() {
+		// As this is a test that does not involve any form, we do not have negative
+		// cases to test,
+		// so this function will be blank.
 	}
-	
+
 	@Test
 	public void hackingTest() {
 		super.navigate("/inventor/patronage/list-proposed");

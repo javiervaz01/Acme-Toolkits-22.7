@@ -13,5 +13,5 @@ authenticated.announcement.form.label.info = Información
 administrator.announcement.form.label.confirmation = Confirmación
 administrator.announcement.form.button.create = Crear
 
-administrator.announcement.form.error.spam = El texto se considera Spam
-administrator.announcement.form.error.confirmation = Debes marcar la casilla de confirmación
+administrator.announcement.form.error.spam = El texto se considera spam
+administrator.announcement.form.error.confirmation = Debe marcar la casilla de confirmación

@@ -18,10 +18,6 @@ public class InventorPatronageListProposedTest extends TestHarness {
 		
 		super.signIn("inventor1", "inventor1");
 
-		// TODO this update class doesn't exist anymore. We have accept/deny services
-		// Instead. However, make sure to ask the test-related questions we had in the
-		// next follow up
-
 		super.clickOnMenu("Inventor", "List my proposed patronages");
 		super.checkListingExists();
 		super.sortListing(0, "asc");
