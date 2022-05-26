@@ -28,8 +28,8 @@ public class InventorPatronageReportCreateService implements AbstractCreateServi
 		final int patronageId = request.getModel().getInteger("masterId");
 		final Patronage patronage = this.repository.findOnePatronageById(patronageId);
 		final int patronageInventorId = patronage.getInventor().getId();
-		
-		return inventorId == patronageInventorId && !patronage.isDraftMode(); 
+
+		return inventorId == patronageInventorId && !patronage.isDraftMode();
 	}
 
 	@Override
@@ -73,7 +73,7 @@ public class InventorPatronageReportCreateService implements AbstractCreateServi
 		int numberOfReports;
 		String sequenceNumber;
 		Date creationTime;
-		
+
 		masterId = request.getModel().getInteger("masterId");
 		patronage = this.repository.findOnePatronageById(masterId);
 		numberOfReports = this.repository.countPatronageReportsInPatronageById(patronage.getId());
@@ -105,7 +105,13 @@ public class InventorPatronageReportCreateService implements AbstractCreateServi
 		assert request != null;
 		assert entity != null;
 
-		// TODO should we update creationTime here? It has to be in the instantiate at least for it to work. We could re-assign the variable here to the current time if we wanted to make it more precise
+		// Update the creationTime to make it the moment the user actually pressed the
+		// "Create" button. It had to be set on the instantiate method(), otherwise the
+		// submit button would do nothing, even if we set the date here too. There are
+		// no relevant debug messages either
+		final Date creationTime = new Date(System.currentTimeMillis() - 1);
+		entity.setCreationTime(creationTime);
+
 		this.repository.save(entity);
 	}
 }
