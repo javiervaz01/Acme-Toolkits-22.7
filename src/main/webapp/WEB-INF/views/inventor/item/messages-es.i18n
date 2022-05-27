@@ -23,6 +23,8 @@ inventor.item.form.button.create = Crear
 inventor.item.form.button.update = Actualizar
 inventor.item.form.button.delete = Eliminar
 inventor.item.form.button.publish = Publicar
+inventor.item.form.button.see-chimpum = Ver chimpum
+inventor.item.form.button.create-chimpum = Crear chimpum
 
 inventor.item.form.error.duplicated = Ya existe un artículo con el mismo código
 inventor.item.form.error.negative-price = El precio del artículo tiene que ser positivo

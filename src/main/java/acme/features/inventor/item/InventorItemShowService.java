@@ -56,7 +56,7 @@ public class InventorItemShowService implements AbstractShowService<Inventor, It
 		assert model != null;
 
 		request.unbind(entity, model, "name", "code", "technology", "description", "retailPrice", "info", "type",
-				"draftMode");
+				"draftMode","chimpum");
 
 		final Money exchange = this.exchangeService.getExchange(entity.getRetailPrice());
 		model.setAttribute("exchange", exchange);

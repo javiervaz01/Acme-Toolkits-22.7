@@ -1,0 +1,28 @@
+inventor.chimpum.list.label.code = Code
+inventor.chimpum.list.label.creationDate = Creation date
+inventor.chimpum.list.label.title = Title
+inventor.chimpum.list.label.startDate = Start date
+inventor.chimpum.list.label.endDate = End date
+inventor.chimpum.list.label.budget = Budget
+
+inventor.item.list.button.create = Create
+
+inventor.chimpum.form.label.code = Code
+inventor.chimpum.form.label.creationDate = Creation date
+inventor.chimpum.form.label.title = Title
+inventor.chimpum.form.label.description = Description
+inventor.chimpum.form.label.startDate = Start date
+inventor.chimpum.form.label.endDate = End date
+inventor.chimpum.form.label.budget = Budget
+inventor.chimpum.form.label.exchange = Exchange
+inventor.chimpum.form.label.info = Info
+inventor.chimpum.form.label.item = Item
+
+inventor.chimpum.form.button.update = Update
+inventor.chimpum.form.button.delete = Delete
+inventor.chimpum.form.button.create = Create
+
+inventor.chimpum.form.error.duplicated = There already exists a chimpum with that code
+inventor.chimpum.form.error.negative-price = The budget must be positive
+inventor.chimpum.form.error.spam = The text is considered spam
+inventor.chimpum.form.error.not-accepted-currency = The system does not support this currency
