@@ -31,7 +31,7 @@ public class Chimpum extends AbstractEntity {
 
 	// TODO created automatically from creationDate in the createService
 	@NotNull
-	@Pattern(regexp = "REGEX") // dd/mm/yy
+	@Pattern(regexp = "^[A-Z]{3}-[0-9]{3}(-[A-Z])?:\\d{4}/\\d{2}/\\d{2}$") // AAA-000(-0):yyyy/mm/dd
 	protected String code;
 
 	@NotNull

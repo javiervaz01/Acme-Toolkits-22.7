@@ -67,6 +67,6 @@ public class Item extends AbstractEntity {
 	protected Inventor inventor;
 
 	@Valid
-	@ManyToOne(optional = false) // TODO or OneToOne?
+	@ManyToOne(optional = true) // TODO or OneToOne?
 	protected Chimpum chimpum;
 }
