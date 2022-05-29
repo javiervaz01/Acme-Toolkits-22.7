@@ -11,8 +11,3 @@
 	<acme:list-column code="inventor.chimpum.list.label.endDate" path="endDate" width="10%"/>
 	<acme:list-column code="inventor.chimpum.list.label.budget" path="budget" width="10%"/>
 </acme:list>
-
-
-<acme:button code="inventor.item.list.button.create" action="/inventor/chimpum/create"/>
-
-

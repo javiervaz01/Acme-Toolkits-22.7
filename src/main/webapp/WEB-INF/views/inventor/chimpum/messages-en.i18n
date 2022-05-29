@@ -24,5 +24,6 @@ inventor.chimpum.form.button.create = Create
 
 inventor.chimpum.form.error.duplicated = There already exists a chimpum with that code
 inventor.chimpum.form.error.negative-price = The budget must be positive
-inventor.chimpum.form.error.spam = The text is considered spam
 inventor.chimpum.form.error.not-accepted-currency = The system does not support this currency
+inventor.chimpum.form.error.start-date-too-early = The chimpum must start, at least, one month after its creation
+inventor.chimpum.form.error.end-date-too-early = The chimpum must end, at least, one week after it starts

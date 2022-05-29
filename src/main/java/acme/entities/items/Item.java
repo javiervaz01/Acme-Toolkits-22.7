@@ -68,6 +68,6 @@ public class Item extends AbstractEntity {
 	protected Inventor inventor;
 
 	@Valid
-	@OneToOne(optional = true) // TODO or OneToOne?
+	@OneToOne(optional = true)
 	protected Chimpum chimpum;
 }

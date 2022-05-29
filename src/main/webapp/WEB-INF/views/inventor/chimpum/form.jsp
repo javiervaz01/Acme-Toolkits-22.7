@@ -4,18 +4,16 @@
 <%@taglib prefix="acme" uri="urn:jsptagdir:/WEB-INF/tags"%>
 
 <acme:form>
-	<acme:input-textbox code="inventor.chimpum.form.label.code" path="code"  placeholder="ABC-123-D:yyyy/mm/dd"/>
-	<jstl:choose>
-	<jstl:when test="${command == 'create'}">
+	<jstl:if test="${command != 'create'}">
+		<acme:input-textbox code="inventor.chimpum.form.label.code" path="code"  placeholder="yy/mm/dd" readonly="true"/>
 		<acme:input-textbox code="inventor.chimpum.form.label.creationDate" path="creationDate" readonly="true"/>
-	</jstl:when>
-	</jstl:choose>
+	</jstl:if>
 	
 	<acme:input-textbox code="inventor.chimpum.form.label.title" path="title" />
 	<acme:input-textarea code="inventor.chimpum.form.label.description" path="description" />
 	<acme:input-moment code="inventor.chimpum.form.label.startDate" path="startDate" />
 	<acme:input-moment code="inventor.chimpum.form.label.endDate" path="endDate"/>
-	<acme:input-textbox code="inventor.chimpum.form.label.budget" path="budget" />
+	<acme:input-money code="inventor.chimpum.form.label.budget" path="budget" />
 
 	<jstl:choose>
 			<jstl:when test="${acme:anyOf(command, 'show, update, delete')}">
@@ -34,7 +32,7 @@
 			
 		</jstl:when>
 		<jstl:when test="${command == 'create'}">
-			<acme:submit code="inventor.chimpum.form.button.create" action="/inventor/chimpum/create"/>
+			<acme:submit code="inventor.chimpum.form.button.create" action="/inventor/chimpum/create?masterId=${masterId}"/>
 		</jstl:when>
 	</jstl:choose>		
 </acme:form>

@@ -33,11 +33,11 @@
 			<acme:submit code="inventor.item.form.button.create" action="/inventor/item/create"/>
 		</jstl:when>
 		
-		<jstl:when test="${type == 'COMPONENT' && chimpum !=null }">
+		<jstl:when test="${type == 'COMPONENT' && chimpum != null }">
 			<acme:button code="inventor.item.form.button.see-chimpum" action="/inventor/chimpum/show?id=${chimpum.id}"/>
 		</jstl:when>
-		<jstl:when test="${type == 'COMPONENT' && chimpum ==null }">
-			<acme:button code="inventor.item.form.button.create-chimpum" action="/inventor/chimpum/create"/>
+		<jstl:when test="${type == 'COMPONENT' && chimpum == null }">
+			<acme:button code="inventor.item.form.button.create-chimpum" action="/inventor/chimpum/create?masterId=${id}"/>
 		</jstl:when>
 	</jstl:choose>		
 </acme:form>

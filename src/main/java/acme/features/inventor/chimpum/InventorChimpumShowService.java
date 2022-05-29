@@ -13,35 +13,33 @@ import acme.framework.services.AbstractShowService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorChimpumShowService implements AbstractShowService<Inventor, Chimpum>{
-	
+public class InventorChimpumShowService implements AbstractShowService<Inventor, Chimpum> {
+
 	@Autowired
 	InventorChimpumRepository repository;
-	
+
 	@Autowired
 	protected ExchangeService exchangeService;
 
 	@Override
 	public boolean authorise(final Request<Chimpum> request) {
 		assert request != null;
-		
-		final int inventorId;
-		final Chimpum chimpum;
-		
-		chimpum = this.repository.findOne(request.getModel().getInteger("id"));
-		
+
+		int inventorId;
+		int chimpumId;
+		Item item;
+
+		chimpumId = request.getModel().getInteger("id");
+		item = this.repository.findOneItemByChimpumId(chimpumId);
 		inventorId = request.getPrincipal().getActiveRoleId();
-		
-		
-		
-		return chimpum.getInventor().getId() == inventorId;
+
+		return item.getInventor().getId() == inventorId;
 	}
 
 	@Override
 	public Chimpum findOne(final Request<Chimpum> request) {
 		assert request != null;
-		
-		
+
 		return this.repository.findOne(request.getModel().getInteger("id"));
 	}
 
@@ -50,16 +48,17 @@ public class InventorChimpumShowService implements AbstractShowService<Inventor,
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		
-		request.unbind(entity, model, "code", "creationDate", "title", "description", "startDate","endDate","budget","info");
-		
-		final Item item = this.repository.findItemByChimpum(entity.getId());
+
+		request.unbind(entity, model, "code", "creationDate", "title", "description", "startDate", "endDate", "budget",
+				"info");
+
+		final Item item = this.repository.findOneItemByChimpumId(entity.getId());
 		final String itemName = item.getName();
 		model.setAttribute("item", itemName);
 
 		final Money exchange = this.exchangeService.getExchange(entity.getBudget());
 		model.setAttribute("exchange", exchange);
-		
+
 	}
 
 }

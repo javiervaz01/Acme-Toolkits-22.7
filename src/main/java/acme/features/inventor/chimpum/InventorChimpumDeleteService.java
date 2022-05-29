@@ -12,8 +12,8 @@ import acme.framework.services.AbstractDeleteService;
 import acme.roles.Inventor;
 
 @Service
-public class InventorChimpumDeleteService implements AbstractDeleteService<Inventor, Chimpum>{
-	
+public class InventorChimpumDeleteService implements AbstractDeleteService<Inventor, Chimpum> {
+
 	@Autowired
 	InventorChimpumRepository repository;
 
@@ -23,12 +23,11 @@ public class InventorChimpumDeleteService implements AbstractDeleteService<Inven
 
 		boolean result;
 		int id;
-		final Chimpum chimpum;
+		Item item;
 
 		id = request.getModel().getInteger("id");
-		chimpum = this.repository.findOne(id);
-
-		result = (request.isPrincipal(chimpum.getInventor()));
+		item = this.repository.findOneItemByChimpumId(id);
+		result = (request.isPrincipal(item.getInventor()));
 
 		return result;
 
@@ -39,9 +38,10 @@ public class InventorChimpumDeleteService implements AbstractDeleteService<Inven
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		
-		request.bind(entity, errors, "code", "creationDate", "title", "description", "startDate","endDate","budget","info");
-		
+
+		request.bind(entity, errors, "code", "creationDate", "title", "description", "startDate", "endDate", "budget",
+				"info");
+
 	}
 
 	@Override
@@ -49,9 +49,10 @@ public class InventorChimpumDeleteService implements AbstractDeleteService<Inven
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		
-		request.unbind(entity, model, "code", "creationDate", "title", "description", "startDate","endDate","budget","info");
-		
+
+		request.unbind(entity, model, "code", "creationDate", "title", "description", "startDate", "endDate", "budget",
+				"info");
+
 	}
 
 	@Override
@@ -72,21 +73,19 @@ public class InventorChimpumDeleteService implements AbstractDeleteService<Inven
 		assert request != null;
 		assert entity != null;
 		assert errors != null;
-		
+
 	}
 
 	@Override
 	public void delete(final Request<Chimpum> request, final Chimpum entity) {
 		assert request != null;
 		assert entity != null;
-		
-		final Item item;
-		item = this.repository.findItemByChimpum(entity.getId());
-		item.setChimpum(null);
-		this.repository.save(item);
-		
-		this.repository.delete(entity);
-		
-	}
 
+		final Item item;
+		item = this.repository.findOneItemByChimpumId(entity.getId());
+		item.setChimpum(null);
+
+		this.repository.save(item);
+		this.repository.delete(entity);
+	}
 }
