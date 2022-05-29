@@ -53,12 +53,11 @@ public class InventorChimpumShowService implements AbstractShowService<Inventor,
 				"info");
 
 		final Item item = this.repository.findOneItemByChimpumId(entity.getId());
-		final String itemName = item.getName();
-		model.setAttribute("item", itemName);
+		model.setAttribute("itemName", item.getName());
+		model.setAttribute("itemId", item.getId());
 
 		final Money exchange = this.exchangeService.getExchange(entity.getBudget());
 		model.setAttribute("exchange", exchange);
-
 	}
 
 }

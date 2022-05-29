@@ -164,3 +164,28 @@
     	</tr>
 	</jstl:forEach>
 </table>
+
+<h3>
+	<acme:message code="administrator.dashboard.form.title.chimpum"/>
+</h3>
+<acme:message code="administrator.dashboard.form.chimpum"/>
+<acme:print value="${ratioOfChimpums}%"/>
+
+<table class="table table-sm">
+	<tr>
+		<th><acme:message code="administrator.dashboard.form.label.currency"/></th>
+		<th><acme:message code="administrator.dashboard.form.label.average"/></th>
+		<th><acme:message code="administrator.dashboard.form.label.deviation"/></th>
+		<th><acme:message code="administrator.dashboard.form.label.min"/></th>
+		<th><acme:message code="administrator.dashboard.form.label.max"/></th>
+	</tr>
+	<jstl:forEach items="${statsChimpums}" var="var">
+    	<tr>
+     		<td><jstl:out value="${var.currency}" /></td>
+			<td><acme:format value="${var.average}" format="{0,number,0.00}"/></td> 
+     		<td><acme:format value="${var.deviation}" format="{0,number,0.00}"/></td>
+     		<td><acme:format value="${var.min}" format="{0,number,0.00}"/></td>
+     		<td><acme:format value="${var.max}" format="{0,number,0.00}"/></td>
+    	</tr>
+	</jstl:forEach>
+</table>

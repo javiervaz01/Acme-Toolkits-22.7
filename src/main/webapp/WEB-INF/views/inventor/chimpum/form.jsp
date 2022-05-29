@@ -22,14 +22,13 @@
 	</jstl:choose>		
 	
 	<acme:input-url code="inventor.chimpum.form.label.info" path="info"/>
-	<acme:input-textbox code="inventor.chimpum.form.label.item" path="item" readonly="true"/>
-
+	<acme:input-textbox code="inventor.chimpum.form.label.item" path="itemName" readonly="true"/>
 
 	<jstl:choose>
 		<jstl:when test="${acme:anyOf(command, 'show, update, delete, publish')}">
 			<acme:submit code="inventor.chimpum.form.button.update" action="/inventor/chimpum/update"/>
 			<acme:submit code="inventor.chimpum.form.button.delete" action="/inventor/chimpum/delete"/>
-			
+			<acme:button code="inventor.chimpum.form.button.item" action="/inventor/item/show?id=${itemId}"/>
 		</jstl:when>
 		<jstl:when test="${command == 'create'}">
 			<acme:submit code="inventor.chimpum.form.button.create" action="/inventor/chimpum/create?masterId=${masterId}"/>

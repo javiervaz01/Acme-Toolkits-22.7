@@ -75,6 +75,12 @@ public class AdministratorAdministratorDashboardShowService implements AbstractS
 		
 		statsRetailPriceofComponents=this.getStatisticsOfComponents();
 		
+		final int numberOfChimpum = this.repository.numberOfChimpum();
+		final double ratioChimpums = (numberOfChimpum*100)/numberOfTools; //The day of the exam change numberOfTool for the corresponding one tool or component
+		final List<AdministratorDashboardChimpum> statsChimpum;
+		
+		statsChimpum=this.getStatisticsChimpum();
+		
 		result= new AdministratorDashboard();
 		result.setNumberOfProposedPatronages(numberOfProposedPatronages);
 		result.setNumberOfAcceptedPatronages(numberOfAcceptedPatronages);
@@ -89,6 +95,9 @@ public class AdministratorAdministratorDashboardShowService implements AbstractS
 		result.setNumberOfComponents(numberOfComponents);
 		result.setStatsRetailPriceOfComponents(statsRetailPriceofComponents);
 		
+		result.setRatioOfChimpums(ratioChimpums);
+		result.setStatsChimpums(statsChimpum);
+		
 		return result;
 	}
 
@@ -98,7 +107,7 @@ public class AdministratorAdministratorDashboardShowService implements AbstractS
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "numberOfProposedPatronages", "numberOfAcceptedPatronages", "numberOfDeniedPatronages", "statsBudgetofProposedPatronages", "statsBudgetofAcceptedPatronages", "statsBudgetofDeniedPatronages","numberOfTools","statsRetailPriceOfTools","numberOfComponents","statsRetailPriceOfComponents");
+		request.unbind(entity, model, "numberOfProposedPatronages", "numberOfAcceptedPatronages", "numberOfDeniedPatronages", "statsBudgetofProposedPatronages", "statsBudgetofAcceptedPatronages", "statsBudgetofDeniedPatronages","numberOfTools","statsRetailPriceOfTools","numberOfComponents","statsRetailPriceOfComponents", "ratioOfChimpums", "statsChimpums");
 		
 	}	
 	
@@ -197,6 +206,26 @@ public class AdministratorAdministratorDashboardShowService implements AbstractS
 			return exchange.getCurrency()+" "+roundedAmount;
 		}
 		
+	}
+	
+	
+	private List<AdministratorDashboardChimpum> getStatisticsChimpum(){
+		
+		final List<String> currencies= (List<String>) this.repository.currencies();
+		
+		final List<AdministratorDashboardChimpum> res = new ArrayList<AdministratorDashboardChimpum>();
+		
+		for(final String currency:currencies) {
+			final AdministratorDashboardChimpum chimpumStats= new AdministratorDashboardChimpum();
+			chimpumStats.currency=currency;
+			chimpumStats.average=this.repository.averageRetailPriceChimpum(currency);
+			chimpumStats.deviation=this.repository.deviationRetailPriceChimpum(currency);
+			chimpumStats.min=this.repository.minimumRetailPriceChimpum(currency);
+			chimpumStats.max=this.repository.maximumRetailPriceChimpum(currency);
+			res.add(chimpumStats);
+		}
+		
+		return res;
 		
 	}
 

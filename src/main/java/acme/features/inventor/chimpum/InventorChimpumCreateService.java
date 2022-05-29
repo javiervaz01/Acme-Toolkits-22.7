@@ -40,11 +40,16 @@ public class InventorChimpumCreateService implements AbstractCreateService<Inven
 
 		// Check that the item is not a component/tool (depending on the exam)
 		item = this.repository.findOneItemById(itemId);
-		if (item.getType().equals(ItemType.TOOL))
+		if (item.getType().equals(ItemType.COMPONENT))
 			result = false;
 
 		// Check that there is no chimpum associated to the item
 		if (this.repository.findOneChimpumByItemId(itemId) != null)
+			result = false;
+
+		// Check that the item has been published. TODO should this be a constraint? we
+		// miss more context in the requirements to decide
+		if (item.isDraftMode())
 			result = false;
 
 		// Check that the inventor creating the chimpum is the one who owns the item
@@ -83,12 +88,8 @@ public class InventorChimpumCreateService implements AbstractCreateService<Inven
 	@Override
 	public Chimpum instantiate(final Request<Chimpum> request) {
 		Chimpum result;
-		int itemId;
-		Item item;
 		Date creationDate;
 
-		itemId = request.getModel().getInteger("masterId");
-		item = this.repository.findOneItemById(itemId);
 		creationDate = new Date(System.currentTimeMillis() - 1);
 
 		result = new Chimpum();

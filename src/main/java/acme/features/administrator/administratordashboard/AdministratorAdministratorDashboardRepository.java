@@ -67,6 +67,21 @@ public interface AdministratorAdministratorDashboardRepository extends AbstractR
 	@Query("select max(p.budget.amount) from Patronage p where p.status = :status and p.budget.currency = :currency ")
 	Double maximumPatronage(Status status,String currency);
 
+	
+	@Query("select count(i) from Item i where i.chimpum != null")
+	int numberOfChimpum();
+	
+	@Query("select avg(c.budget.amount) from Chimpum c where c.budget.currency = :currency")
+	Double averageRetailPriceChimpum(String currency);
+	
+	@Query("select stddev(c.budget.amount) from Chimpum c where c.budget.currency = :currency")
+	Double deviationRetailPriceChimpum(String currency);
+	
+	@Query("select min(c.budget.amount) from Chimpum c where c.budget.currency = :currency")
+	Double minimumRetailPriceChimpum(String currency);
+	
+	@Query("select max(c.budget.amount) from Chimpum c where c.budget.currency = :currency")
+	Double maximumRetailPriceChimpum(String currency);
 
 }
 

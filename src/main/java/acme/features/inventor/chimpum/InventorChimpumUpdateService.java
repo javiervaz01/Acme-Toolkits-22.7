@@ -50,15 +50,12 @@ public class InventorChimpumUpdateService implements AbstractUpdateService<Inven
 		request.unbind(entity, model, "code", "creationDate", "title", "description", "startDate", "endDate", "budget",
 				"info");
 
-		int chimpumId;
 		Item item;
-		String itemName;
 
-		chimpumId = request.getModel().getInteger("id");
-		item = this.repository.findOneItemByChimpumId(chimpumId);
-		itemName = item.getName();
+		item = this.repository.findOneItemByChimpumId(entity.getId());
 
-		model.setAttribute("item", itemName);
+		model.setAttribute("itemName", item.getName());
+		model.setAttribute("itemId", item.getId());
 	}
 
 	@Override
