@@ -14,6 +14,7 @@ package acme.forms.administrator;
 import java.io.Serializable;
 import java.util.List;
 
+import acme.features.administrator.administratordashboard.AdministratorDashboardChimpum;
 import acme.features.administrator.administratordashboard.AdministratorDashboardComponentItem;
 import acme.features.administrator.administratordashboard.AdministratorDashboardItem;
 import lombok.Getter;
@@ -65,6 +66,10 @@ public class AdministratorDashboard implements Serializable {
 	List<AdministratorDashboardItem> statsBudgetofAcceptedPatronages;
 	List<AdministratorDashboardItem> statsBudgetofDeniedPatronages;
 
+	
+	double ratioOfChimpums;
+	List<AdministratorDashboardChimpum> statsChimpums;
+	
 	// Derived attributes -----------------------------------------------------
 
 	// Relationships ----------------------------------------------------------
