@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.components.ExchangeService;
+import acme.entities.chimpums.Chimpum;
 import acme.entities.items.Item;
 import acme.framework.components.models.Model;
 import acme.framework.controllers.Request;
@@ -58,7 +59,17 @@ public class InventorItemShowService implements AbstractShowService<Inventor, It
 		request.unbind(entity, model, "name", "code", "technology", "description", "retailPrice", "info", "type",
 				"draftMode");
 
-		final Money exchange = this.exchangeService.getExchange(entity.getRetailPrice());
+		int id;
+		Money exchange;
+		Chimpum chimpum;
+
+		id = request.getModel().getInteger("id");
+		exchange = this.exchangeService.getExchange(entity.getRetailPrice());
+		chimpum = this.repository.findOneChimpumByItemId(id);
+
+		model.setAttribute("id", id);
 		model.setAttribute("exchange", exchange);
+		model.setAttribute("chimpum", chimpum);
+
 	}
 }

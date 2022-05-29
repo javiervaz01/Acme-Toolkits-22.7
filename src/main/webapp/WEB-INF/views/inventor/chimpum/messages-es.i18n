@@ -1,0 +1,30 @@
+inventor.chimpum.list.label.code = Código
+inventor.chimpum.list.label.creationDate = Fecha de creación
+inventor.chimpum.list.label.title = Título
+inventor.chimpum.list.label.startDate = Fecha de comienzo
+inventor.chimpum.list.label.endDate = Fecha de fin
+inventor.chimpum.list.label.budget = Presupuesto
+
+inventor.item.list.button.create = Crear
+
+inventor.chimpum.form.label.code = Código
+inventor.chimpum.form.label.creationDate = Fecha de creación
+inventor.chimpum.form.label.title = Título
+inventor.chimpum.form.label.description = Descripción
+inventor.chimpum.form.label.startDate = Fecha de comienzo
+inventor.chimpum.form.label.endDate = Fecha de fin
+inventor.chimpum.form.label.budget = Presupuesto
+inventor.chimpum.form.label.exchange = Cambio
+inventor.chimpum.form.label.info = Información
+inventor.chimpum.form.label.item = Item
+
+inventor.chimpum.form.button.update = Actualizar
+inventor.chimpum.form.button.delete = Eliminar
+inventor.chimpum.form.button.create = Crear
+inventor.chimpum.form.button.item = Artículo
+
+inventor.chimpum.form.error.duplicated = Ya existe un chimpum con el mismo código
+inventor.chimpum.form.error.negative-price = El presupuesto del chimpum tiene que ser positivo
+inventor.chimpum.form.error.not-accepted-currency = Esta divisa no está soportada por el sistema
+inventor.chimpum.form.error.start-date-too-early = El chimpum debe comenzar, al menos, un mes despues de su creación
+inventor.chimpum.form.error.end-date-too-early = The chimpum debe terminar, al menos, una semana despues de empezar

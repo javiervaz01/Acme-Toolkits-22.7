@@ -43,7 +43,7 @@ public class PatronInventorShowService implements AbstractShowService<Patron, In
 		assert entity != null;
 		assert model != null;
 		
-		request.unbind(entity, model, "name", "surname", "email");
+		request.unbind(entity, model);
 		final String email = entity.getUserAccount().getIdentity().getEmail();
 		final String name = entity.getUserAccount().getIdentity().getName();
 		final String surname = entity.getUserAccount().getIdentity().getSurname();

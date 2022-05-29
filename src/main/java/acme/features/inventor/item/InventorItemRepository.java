@@ -5,6 +5,7 @@ import java.util.Collection;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import acme.entities.chimpums.Chimpum;
 import acme.entities.items.Item;
 import acme.entities.quantities.Quantity;
 import acme.entities.toolkits.Toolkit;
@@ -43,4 +44,7 @@ public interface InventorItemRepository extends AbstractRepository {
 
 	@Query("select count(sc) > 0 from SystemConfiguration sc where sc.acceptedCurrencies LIKE %:currency%")
 	boolean isAcceptedCurrency(String currency);
+
+	@Query("select i.chimpum from Item i where i.id = :id")
+	Chimpum findOneChimpumByItemId(int id);
 }

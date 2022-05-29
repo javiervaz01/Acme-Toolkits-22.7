@@ -31,7 +31,7 @@ public class Chimpum extends AbstractEntity {
 
 	// TODO created automatically from creationDate in the createService
 	@NotNull
-	@Pattern(regexp = "^[A-Z]{3}-[0-9]{3}(-[A-Z])?:\\d{4}/\\d{2}/\\d{2}$") // AAA-000(-0):yyyy/mm/dd
+	@Pattern(regexp = "^\\d{2}/\\d{2}/\\d{2}$") // Change also in the create service
 	protected String code;
 
 	@NotNull
@@ -47,23 +47,17 @@ public class Chimpum extends AbstractEntity {
 	@Length(max = 255)
 	protected String description;
 
-	// TODO implement custom validations for Date
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date startDate;
 
-	// TODO implement custom validations for Date
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date endDate;
 
-	// TODO implement custom validations for Money
 	@NotNull
 	protected Money budget;
 
 	@URL
 	protected String info;
-
-	// Relationships ----------------------------------------------------------
-
 }

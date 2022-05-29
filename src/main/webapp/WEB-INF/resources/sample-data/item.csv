@@ -65,25 +65,25 @@ item-63,Hammer-63,ABC-120-S,HeidiSQL,It is a well known tool,EUR 970.85,http://w
 item-64,Hammer-64,ABC-121-S,Postgresql,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01,null
 item-65,Hammer-65,ABC-122-S,Blockchain,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01,null
 item-66,Hammer-66,ABC-123-S,Big Data,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01,chimpum-01
-item-67,Hammer-67,ABC-124-S,"Dies ist eine Komponente, deren Name l�nger als 100 Buchstaben sein muss und sehr wichtig ist ......",It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01,chimpum-01
-item-68,Hammer-68,ABC-125-Z,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01,chimpum-01
-item-69,Hammer-69,ABC-109,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01,chimpum-01
-item-70,Hammer-70,ABC-111-F,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01,chimpum-01
-item-71,Hammer-71,ABC-112,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01,chimpum-01
-item-72,Hammer-72,AWC-003,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01,chimpum-01
-item-73,Hammer-73,AWC-702-S,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01,chimpum-01
-item-74,センサー,AZA-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01,chimpum-01
-item-75,αισθητήρας,AZB-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01,chimpum-01
-item-76,Toolbox,AZC-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01,chimpum-01
-item-77,a,AZD-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01,chimpum-01
-item-78,Διερμηνέας,AZE-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01,chimpum-01
-item-79,"Dies ist eine Komponente, deren Name l�nger als 100 Buchstaben sein muss und sehr wichtig ist ......",AZF-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01,chimpum-01
-item-80,Hammer-80,ACC-109-K,Adobe,It is a well known tool,EUR 970.85,http://www.acme.com/a?b,TOOL,TRUE,inventor-01,chimpum-01
-item-81,Hammer-81,AZG-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.acme.com/a?b,TOOL,FALSE,inventor-02,chimpum-01
-item-82,Hammer-82,AZH-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.acme.com/a?b,TOOL,FALSE,inventor-03,chimpum-01
-item-83,Hammer-83,AZI-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.acme.com/a?b,TOOL,FALSE,inventor-04,chimpum-01
-item-84,Hammer-84,AZJ-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.acme.com/a?b,TOOL,FALSE,inventor-05,chimpum-01
-item-85,Hammer-85,AZK-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.acme.com/a?b,TOOL,FALSE,inventor-06,chimpum-01
-item-86,Hammer-86,AZL-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.acme.com/a?b,TOOL,FALSE,inventor-07,chimpum-01
+item-67,Hammer-67,ABC-124-S,"Dies ist eine Komponente, deren Name l�nger als 100 Buchstaben sein muss und sehr wichtig ist ......",It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01,null
+item-68,Hammer-68,ABC-125-Z,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01,chimpum-02
+item-69,Hammer-69,ABC-109,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01,chimpum-03
+item-70,Hammer-70,ABC-111-F,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01,chimpum-04
+item-71,Hammer-71,ABC-112,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01,chimpum-05
+item-72,Hammer-72,AWC-003,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01,chimpum-06
+item-73,Hammer-73,AWC-702-S,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01,chimpum-07
+item-74,センサー,AZA-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01,chimpum-08
+item-75,αισθητήρας,AZB-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01,chimpum-09
+item-76,Toolbox,AZC-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01,chimpum-10
+item-77,a,AZD-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01,chimpum-11
+item-78,Διερμηνέας,AZE-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01,chimpum-12
+item-79,"Dies ist eine Komponente, deren Name l�nger als 100 Buchstaben sein muss und sehr wichtig ist ......",AZF-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,TOOL,FALSE,inventor-01,null
+item-80,Hammer-80,ACC-109-K,Adobe,It is a well known tool,EUR 970.85,http://www.acme.com/a?b,TOOL,TRUE,inventor-01,chimpum-13
+item-81,Hammer-81,AZG-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.acme.com/a?b,TOOL,FALSE,inventor-02,chimpum-14
+item-82,Hammer-82,AZH-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.acme.com/a?b,TOOL,FALSE,inventor-03,chimpum-15
+item-83,Hammer-83,AZI-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.acme.com/a?b,TOOL,FALSE,inventor-04,chimpum-16
+item-84,Hammer-84,AZJ-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.acme.com/a?b,TOOL,FALSE,inventor-05,chimpum-17
+item-85,Hammer-85,AZK-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.acme.com/a?b,TOOL,FALSE,inventor-06,chimpum-18
+item-86,Hammer-86,AZL-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.acme.com/a?b,TOOL,FALSE,inventor-07,chimpum-19
 item-87,ComponentInPounds,IIP-000,MrBritish,It is a well known tool,GBP 99.99,,COMPONENT,FALSE,inventor-01,null
 item-88,ToolInDollars,TID-999-Z,MrAmerica,It is a well known tool,USD 1.00,,TOOL,FALSE,inventor-01,
