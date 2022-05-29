@@ -35,7 +35,7 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 		assert entity != null;
 		assert errors != null;
 
-		request.bind(entity, errors, "moment", "title", "body", "isCritical", "info");
+		request.bind(entity, errors, "title", "body", "isCritical", "info");
 
 	}
 
@@ -54,9 +54,12 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 		assert request != null;
 
 		Announcement result;
-
+		Date moment;
+		moment = new Date(System.currentTimeMillis() - 1);
+		
 		result = new Announcement();
-
+		result.setMoment(moment);
+		
 		return result;
 	}
 
@@ -93,13 +96,11 @@ public class AdministratorAnnouncementCreateService implements AbstractCreateSer
 		assert request != null;
 		assert entity != null;
 
-		Date moment;
 		Boolean critical;
 
 		critical = request.getModel().getBoolean("isCritical");
 
-		moment = new Date(System.currentTimeMillis() - 1);
-		entity.setMoment(moment);
+		
 		entity.setCritical(critical);
 		this.repository.save(entity);
 

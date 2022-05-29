@@ -47,8 +47,14 @@ public class AuthenticatedAnnouncementsShowTest extends TestHarness {
 	public void hackingTest() {
 		// As the framework doesn´t support this hacking feature we will have to perform this manually
 		// 1) Start by initiating the Acme toolkits project
-		// 2) Navigate to this URL /authenticated/announcement/show?id=373
-		// 3) Check that a panic happens
+		// 2) Log in as an administrator
+		// 3) Go to the administrator menu and click "Create announcement"
+		// 4) Fill the creation form and create the announcement
+		// 5) Go to the authenticated menu and select "List recent announcements"
+		// 6) Click on your new announcement and copy the id from the link of the page "/authenticated/announcement/show?id=XXX" (XXX should be the id of the announcement)
+		// 7) Log out
+		// 8) Navigate to this URL /authenticated/announcement/show?id=XXX (XXX should be the id of the announcement)
+		// 9) Check that a panic happens
 	}
 
 	// Ancillary methods ------------------------------------------------------
