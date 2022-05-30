@@ -29,9 +29,11 @@ public class InventorChimpumShowTest extends TestHarness {
 		super.checkInputBoxHasValue("code", code);
 		super.checkInputBoxHasValue("creationDate", creationDate);
 		super.checkInputBoxHasValue("title", title);
+		super.checkInputBoxHasValue("description", description);
 		super.checkInputBoxHasValue("startDate", startDate);
 		super.checkInputBoxHasValue("endDate", endDate);
 		super.checkInputBoxHasValue("budget", budget);
+		super.checkInputBoxHasValue("info", info);
 		super.checkInputBoxHasValue("itemName", itemName);
 
 		
