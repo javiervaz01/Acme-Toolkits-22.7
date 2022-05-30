@@ -53,7 +53,7 @@ master.menu.inventor.patronage.list-proposed = List my proposed patronages
 master.menu.inventor.patronage-report.list = List my patronage reports
 master.menu.inventor.toolkit.list = List my toolkits
 master.menu.inventor.item.list = List my items
-master.menu.inventor.chimpum.list = List my items' chimpums
+master.menu.inventor.chimpum.list = List the chimpums of my items
 
 # master.menu.patron ########################################################
 
