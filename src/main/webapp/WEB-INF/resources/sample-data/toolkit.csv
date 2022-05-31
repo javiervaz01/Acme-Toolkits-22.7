@@ -1,11 +1,11 @@
 key,code,title,description,assembly-notes,link,draft-mode,key:inventor
-toolkit-01,AAA-000,Toolkit example-01,This is an example description,This is an example of a toolkit assembly note,http://www.example.com,false,inventor-01
-toolkit-02,HHH-000-B,Toolkit example-02,".",This is an assembly note example,http://www.example.com,false,inventor-01
-toolkit-03,SSS-999,Toolkit example-03,This is an example description,This is an assembly note example,http://www.example.com,false,inventor-01
-toolkit-04,SSS-999-C,Toolkit example-04,".",This is an assembly note example,http://www.example.com,false,inventor-01
-toolkit-05,SSS-000,Toolkit example-05,This is an example description,This is an assembly note example,http://www.example.com,false,inventor-01
-toolkit-06,SSS-999-D,Toolkit example-06,".",This is an assembly note example,http://www.example.com,false,inventor-01
-toolkit-07,SSS-222-D,Toolkit example-07,This is an example description,This is an assembly note example,http://www.example.com,false,inventor-02
+toolkit-01,AAA-000,Toolkit example 01,This is an example description,This is an example of a toolkit assembly note,http://www.example.com,false,inventor-01
+toolkit-02,HHH-000-B,Toolkit example 02,.,This is an assembly note example,http://www.example.com,false,inventor-01
+toolkit-03,SSS-999,Toolkit example 03,This is an example description,This is an assembly note example,http://www.example.com,false,inventor-01
+toolkit-04,SSS-999-C,Toolkit example 04,.,This is an assembly note example,http://www.example.com,false,inventor-01
+toolkit-05,SSS-000,Toolkit example 05,This is an example description,This is an assembly note example,http://www.example.com,false,inventor-01
+toolkit-06,SSS-999-D,Toolkit example 06,.,This is an assembly note example,http://www.example.com,false,inventor-01
+toolkit-07,SSS-222-D,Toolkit example 07,This is an example description,This is an assembly note example,http://www.example.com,false,inventor-02
 toolkit-08,AAA-000-A,This is an example of a toolkit title which has 100 characters. This is an example of a toolkit titl,This is an example description,This is an assembly note example,http://www.example.com,true,inventor-03
 toolkit-09,AAA-000-B,Ejemplo de toolkit,This is an example description,This is an example of a toolkit assembly note,http://www.example.com,true,inventor-04
 toolkit-10,AAA-000-C,Παράδειγμα εργαλειοθήκης,This is an example description,This is an example of a toolkit assembly note,http://www.example.com,true,inventor-05
@@ -14,29 +14,29 @@ toolkit-12,AAA-000-E,Ví dụ về bộ công cụ,This is an example descriptio
 toolkit-13,AAA-000-F,Пример за инструментариум,This is an example description,This is an example of a toolkit assembly note,http://www.example.com,true,inventor-08
 toolkit-14,AAA-000-G,Գործիքակազմի օրինակ,This is an example description,This is an example of a toolkit assembly note,http://www.example.com,true,inventor-09
 toolkit-15,AAA-000-H,ინსტრუმენტთა ნაკრების მაგალითი,This is an example description,This is an example of a toolkit assembly note,http://www.example.com,true,inventor-10
-toolkit-16,AAA-000-I,툴킷 예시,This is an example description,".",http://www.example.com,true,inventor-11
-toolkit-17,AAA-000-J,Toolkit example-17,This is an example of a toolkit description which has 255 characters. This is an example of a toolkit description which has 255 characters. This is an example of a toolkit description which has 255 characters. This is an example of a toolkit description w,This is an assembly note example,http://www.example.com,true,inventor-12
-toolkit-18,AAA-000-K,Toolkit example-18,Esta es una descripción de ejemplo,".",http://www.example.com,true,inventor-12
-toolkit-19,AAA-000-L,Toolkit example-19,Αυτό είναι ένα παράδειγμα περιγραφής,This is an example of a toolkit assembly note,http://www.example.com,true,inventor-13
-toolkit-20,AAA-000-M,Toolkit example-20,これは説明の例です,This is an example of a toolkit assembly note,http://www.example.com,true,inventor-14
-toolkit-21,AAA-000-N,Toolkit example-21,Đây là một mô tả ví dụ,".",http://www.example.com,true,inventor-15
-toolkit-22,AAA-000-O,Toolkit example-22,Това е примерно описание,This is an example of a toolkit assembly note,http://www.example.com,true,inventor-16
-toolkit-23,AAA-000-P,Toolkit example-23,Սա նկարագրության օրինակ է,This is an example of a toolkit assembly note,http://www.example.com,true,inventor-17
-toolkit-24,AAA-000-Q,Toolkit example-24,ეს არის მაგალითის აღწერა,This is an example of a toolkit assembly note,http://www.example.com,true,inventor-18
-toolkit-25,AAA-000-R,Toolkit example-25,설명 예시입니다,This is an example of a toolkit assembly note,http://www.example.com,true,inventor-01
-toolkit-26,AAA-000-S,Toolkit example-26,This is an example description,This is an example of a toolkit assembly note which has 255 characters. This is an example of a toolkit assembly note which has 255 characters. This is an example of a toolkit assembly note which has 255 characters. This is an example of a toolkit assembl,http://www.example.com,true,inventor-01
-toolkit-27,AAA-000-T,Toolkit example-27,This is an example description,Esto es un ejemplo de nota de ensamblado de un toolkit,http://www.example.com,true,inventor-01
-toolkit-28,AAA-000-U,Toolkit example-28,This is an example description,Αυτό είναι ένα παράδειγμα σημείωσης συναρμολόγησης εργαλειοθήκης,http://www.example.com,true,inventor-01
-toolkit-29,AAA-000-V,Toolkit example-29,This is an example description,これは、ツールキットアセンブリノートの例です,http://www.example.com,true,inventor-01
-toolkit-30,AAA-000-W,Toolkit example-30,".",Đây là một ví dụ về ghi chú lắp ráp bộ công cụ,http://www.example.com,true,inventor-01
-toolkit-31,AAA-000-X,Toolkit example-31,".",Това е пример за бележка за сглобяване на комплекта от инструменти,http://www.example.com,true,inventor-01
-toolkit-32,AAA-000-Y,Toolkit example-32,".",Սա գործիքակազմի հավաքման նշումի օրինակ է,http://www.example.com,true,inventor-01
-toolkit-33,AAA-000-Z,Toolkit example-33,This is an example description,ეს არის ინსტრუმენტთა ნაკრების შეკრების ჩანაწერის მაგალითი,http://www.example.com,true,inventor-01
-toolkit-34,AAA-111-A,Toolkit example-34,This is an example description,이것은 툴킷 어셈블리 노트의 예입니다,http://www.example.com,true,inventor-01
-toolkit-35,AAA-111-B,Toolkit example-35,This is an example description,This is an example of a toolkit assembly note,http://www.example.com,true,inventor-01
-toolkit-36,AAA-111-C,Toolkit example-36,This is an example description,This is an example of a toolkit assembly note,null,true,inventor-01
-toolkit-37,AAA-111-D,Toolkit example-37,This is an example description,".",http://www.acme.com/a?b,true,inventor-01
-toolkit-38,AAA-111-E,Toolkit example-38,This is an example description,This is an example of a toolkit assembly note,https://www.acme.com/a/b,true,inventor-01
-toolkit-39,AAA-111-F,Toolkit example-39,This is an example description,This is an example of a toolkit assembly note,http://a.b/c?d&e,true,inventor-01
-toolkit-40,AAA-111-G,Toolkit example-40,This is an example description,".",ftp://user:pass@acme.org,true,inventor-01
-toolkit-41,AAA-111-H,Toolkit without URL,This is a toolkit without URL,".","",false,inventor-01
+toolkit-16,AAA-000-I,툴킷 예시,This is an example description,.,http://www.example.com,true,inventor-11
+toolkit-17,AAA-000-J,Toolkit example 17,This is an example of a toolkit description which has 255 characters. This is an example of a toolkit description which has 255 characters. This is an example of a toolkit description which has 255 characters. This is an example of a toolkit description w,This is an assembly note example,http://www.example.com,true,inventor-12
+toolkit-18,AAA-000-K,Toolkit example 18,Esta es una descripción de ejemplo,.,http://www.example.com,true,inventor-12
+toolkit-19,AAA-000-L,Toolkit example 19,Αυτό είναι ένα παράδειγμα περιγραφής,This is an example of a toolkit assembly note,http://www.example.com,true,inventor-13
+toolkit-20,AAA-000-M,Toolkit example 20,これは説明の例です,This is an example of a toolkit assembly note,http://www.example.com,true,inventor-14
+toolkit-21,AAA-000-N,Toolkit example 21,Đây là một mô tả ví dụ,.,http://www.example.com,true,inventor-15
+toolkit-22,AAA-000-O,Toolkit example 22,Това е примерно описание,This is an example of a toolkit assembly note,http://www.example.com,true,inventor-16
+toolkit-23,AAA-000-P,Toolkit example 23,Սա նկարագրության օրինակ է,This is an example of a toolkit assembly note,http://www.example.com,true,inventor-17
+toolkit-24,AAA-000-Q,Toolkit example 24,ეს არის მაგალითის აღწერა,This is an example of a toolkit assembly note,http://www.example.com,true,inventor-18
+toolkit-25,AAA-000-R,Toolkit example 25,설명 예시입니다,This is an example of a toolkit assembly note,http://www.example.com,true,inventor-01
+toolkit-26,AAA-000-S,Toolkit example 26,This is an example description,This is an example of a toolkit assembly note which has 255 characters. This is an example of a toolkit assembly note which has 255 characters. This is an example of a toolkit assembly note which has 255 characters. This is an example of a toolkit assembl,http://www.example.com,true,inventor-01
+toolkit-27,AAA-000-T,Toolkit example 27,This is an example description,Esto es un ejemplo de nota de ensamblado de un toolkit,http://www.example.com,true,inventor-01
+toolkit-28,AAA-000-U,Toolkit example 28,This is an example description,Αυτό είναι ένα παράδειγμα σημείωσης συναρμολόγησης εργαλειοθήκης,http://www.example.com,true,inventor-01
+toolkit-29,AAA-000-V,Toolkit example 29,This is an example description,これは、ツールキットアセンブリノートの例です,http://www.example.com,true,inventor-01
+toolkit-30,AAA-000-W,Toolkit example 30,.,Đây là một ví dụ về ghi chú lắp ráp bộ công cụ,http://www.example.com,true,inventor-01
+toolkit-31,AAA-000-X,Toolkit example 31,.,Това е пример за бележка за сглобяване на комплекта от инструменти,http://www.example.com,true,inventor-01
+toolkit-32,AAA-000-Y,Toolkit example 32,.,Սա գործիքակազմի հավաքման նշումի օրինակ է,http://www.example.com,true,inventor-01
+toolkit-33,AAA-000-Z,Toolkit example 33,This is an example description,ეს არის ინსტრუმენტთა ნაკრების შეკრების ჩანაწერის მაგალითი,http://www.example.com,true,inventor-01
+toolkit-34,AAA-111-A,Toolkit example 34,This is an example description,이것은 툴킷 어셈블리 노트의 예입니다,http://www.example.com,true,inventor-01
+toolkit-35,AAA-111-B,Toolkit example 35,This is an example description,This is an example of a toolkit assembly note,http://www.example.com,true,inventor-01
+toolkit-36,AAA-111-C,Toolkit example 36,This is an example description,This is an example of a toolkit assembly note,null,true,inventor-01
+toolkit-37,AAA-111-D,Toolkit example 37,This is an example description,.,http://www.acme.com/a?b,true,inventor-01
+toolkit-38,AAA-111-E,Toolkit example 38,This is an example description,This is an example of a toolkit assembly note,https://www.acme.com/a/b,true,inventor-01
+toolkit-39,AAA-111-F,Toolkit example 39,This is an example description,This is an example of a toolkit assembly note,http://a.b/c?d&e,true,inventor-01
+toolkit-40,AAA-111-G,Toolkit example 40,This is an example description,.,ftp://user:pass@acme.org,true,inventor-01
+toolkit-41,AAA-111-H,Toolkit without URL,This is a toolkit without URL,.,,false,inventor-01

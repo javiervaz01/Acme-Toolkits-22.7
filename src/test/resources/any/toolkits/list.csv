@@ -1,6 +1,6 @@
 key,code,title,description,assembly-notes,link,retail-price
-0,AAA-000,Toolkit example,This is an example description,This is an example of a toolkit assembly note,http://www.example.com,EUR 970.85
-1,HHH-000-B,Toolkit example,.,This is an assembly note example,http://www.example.com,"EUR 970,850.00"
-2,SSS-000,Toolkit example,This is an example description,This is an assembly note example,http://www.example.com,"EUR 5,825.10"
-3,SSS-222-D,Toolkit example,This is an example description,This is an assembly note example,http://www.example.com,"EUR 24,621.25"
-4,SSS-999,Toolkit example,This is an example description,This is an assembly note example,http://www.example.com,"EUR 969,879.15"
+0,AAA-000,Toolkit example 01,This is an example description,This is an example of a toolkit assembly note,http://www.example.com,EUR 970.85
+1,AAA-111-H,Toolkit without URL,This is a toolkit without URL,.,,"0.00"
+2,HHH-000-B,Toolkit example 02,.,This is an assembly note example,http://www.example.com,"EUR 970,850.00"
+3,SSS-000,Toolkit example 05,This is an example description,This is an assembly note example,http://www.example.com,"EUR 5,825.10"
+4,SSS-222-D,Toolkit example 07,This is an example description,This is an assembly note example,http://www.example.com,"EUR 24,621.25"
