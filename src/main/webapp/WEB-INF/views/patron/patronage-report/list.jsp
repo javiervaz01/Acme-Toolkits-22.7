@@ -10,4 +10,6 @@
 	<acme:list-column code="patron.patronage-report.list.label.info" path="info"/>
 </acme:list>
 
-<acme:button code="patron.patronage-report.list.button.create" action="/patron/patronage-report/create?masterId=${masterId}"/>
+<jstl:if test="${masterId != null}">
+	<acme:button code="patron.patronage-report.list.button.create" action="/patron/patronage-report/create?masterId=${masterId}"/>
+</jstl:if>
