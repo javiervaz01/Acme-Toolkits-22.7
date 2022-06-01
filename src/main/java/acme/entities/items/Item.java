@@ -46,6 +46,7 @@ public class Item extends AbstractEntity {
 	protected String description;
 
 	@NotNull
+	@Valid
 	protected Money retailPrice;
 
 	@URL
