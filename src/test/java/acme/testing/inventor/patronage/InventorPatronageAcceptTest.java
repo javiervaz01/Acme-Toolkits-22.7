@@ -33,11 +33,13 @@ public class InventorPatronageAcceptTest extends TestHarness {
 		
 		super.clickOnMenu("Inventor", "List my patronages");
 		
-		super.checkColumnHasValue(recordIndex, 0, status);
-		super.checkColumnHasValue(recordIndex, 1, code);
-		super.checkColumnHasValue(recordIndex, 2, budget);
+		super.sortListing(0, "asc");
 		
-		super.clickOnListingRecord(recordIndex);
+		super.checkColumnHasValue(1, 0, status);
+		super.checkColumnHasValue(1, 1, code);
+		super.checkColumnHasValue(1, 2, budget);
+		
+		super.clickOnListingRecord(1);
 		super.checkFormExists();
 		
 		super.checkInputBoxHasValue("status", "ACCEPTED");

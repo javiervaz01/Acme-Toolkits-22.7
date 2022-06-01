@@ -35,11 +35,11 @@ public class InventorPatronageDenyTest extends TestHarness {
 		
 		super.sortListing(0, "desc");
 		
-		super.checkColumnHasValue(2, 0, status);
-		super.checkColumnHasValue(2, 1, code);
-		super.checkColumnHasValue(2, 2, budget);
+		super.checkColumnHasValue(1, 0, status);
+		super.checkColumnHasValue(1, 1, code);
+		super.checkColumnHasValue(1, 2, budget);
 		
-		super.clickOnListingRecord(2);
+		super.clickOnListingRecord(1);
 		super.checkFormExists();
 		
 		super.checkInputBoxHasValue("status", "DENIED");

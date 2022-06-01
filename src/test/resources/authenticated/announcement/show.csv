@@ -1,4 +1,4 @@
 record-index,moment,title,body,is-critical,info
-0,2022/05/19 15:09,Acme Toolkits new version,"A new version of acme toolkits is avalable to the users, please inform us of any errors found",Yes,
-1,2022/05/19 15:09,Full money exchange in all pages,All money amount will be shown with a new field with the default currency,Yes,http://www.example.com
-2,2022/05/19 15:09,Server Testing session,On the day 21/05/2022 from 1:00 pm to 3:00 pm the server will be down do to management issues,No,ftp://user:pass@acme.org
+0,2022/05/19 15:09,Acme Toolkits new version,"A new version of acme toolkits is available to the users, please inform us of any errors found",true,
+1,2022/05/19 15:09,Full money exchange in all pages,All money amount will be shown with a new field with the default currency,true,http://www.example.com
+2,2022/05/19 15:09,Server Testing session,On the day 21/05/2022 from 1:00 pm to 3:00 pm the server will be down do to management issues,false,ftp://user:pass@acme.org
