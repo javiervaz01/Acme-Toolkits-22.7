@@ -20,7 +20,7 @@ public class AnyItemShowTest extends TestHarness {
 
 		super.clickOnMenu("Any", "List items");
 		super.checkListingExists();
-		super.sortListing(0, "asc");
+		super.sortListing(1, "asc");
 
 
 		super.checkColumnHasValue(key, 0, name);

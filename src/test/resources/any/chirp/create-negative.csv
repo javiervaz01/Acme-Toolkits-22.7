@@ -1,8 +1,0 @@
-title,author,body,email
-,Anonymous,This is an example of a new chirp body,example@example.com
-This is a new chirp,,This is an example of a new chirp body,example@example.com
-This is a new chirp,Anonymous,,example@example.com
-This is a new chirp,Anonymous,This is an example of a new chirp body,badFormatEmail
-This is a really long title lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem,Anonymous,This is an example of a new chirp body,example@example.com
-This is a new chirp,This is a really long name for an author lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem,This is an example of a new chirp body,example@example.com
-This is a new chirp,Anonymous,This is a really long description of a chirp lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ,example@example.com

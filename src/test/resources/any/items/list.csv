@@ -1,6 +1,6 @@
 key,name,code,technology,description,retail-price,info,type
-0,??????????,AZE-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,Tool
-1,a,AZD-108-S,Adobe,It is a well known tool,EUR 970.85,http://www.example.org,Tool
-2,Sensor,ABC-108-C,Adobe,It is a well known component,EUR 970.85,http://happybirthday.com,Component
-3,Sensor,ABC-108-D,Adobe,It is a well known component,EUR 970.85,http://www.sample-app.com,Component
-4,Sensor,ABC-108-A,Adobe,It is a well known component,EUR 970.85,,Component
+0,Sensor-15,ABC-102,Adobe,a,EUR 970.85,http://www.example.org,COMPONENT
+1,Sensor-26,ABC-108,Adobe,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT
+2,Sensor-01,ABC-108-A,Adobe,It is a well known component,EUR 970.85,,COMPONENT
+3,Sensor-02,ABC-108-B,Adobe,It is a well known component,EUR 970.85,http://www.example.org,COMPONENT
+4,Sensor-03,ABC-108-C,Adobe,It is a well known component,EUR 970.85,http://happybirthday.com,COMPONENT

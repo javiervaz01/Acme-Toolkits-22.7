@@ -10,7 +10,7 @@
 	<acme:input-textarea code="authenticated.announcement.form.label.body" path="body"/>
 	<acme:input-select code="authenticated.announcement.form.label.is-critical" path="isCritical">
 			<acme:input-option code="authenticated.announcement.form.label.is-critical.true" value="true" selected="${isCritical}"/>
-			<acme:input-option code="authenticated.announcement.form.label.is-critical.false" value="true" selected="${!isCritical}"/>
+			<acme:input-option code="authenticated.announcement.form.label.is-critical.false" value="false" selected="${!isCritical}"/>
 	</acme:input-select>
 	<acme:input-url code="authenticated.announcement.form.label.info" path="info"/>
 </acme:form>
