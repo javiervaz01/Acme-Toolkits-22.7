@@ -36,16 +36,16 @@ public interface AdministratorAdministratorDashboardRepository extends AbstractR
 	int numberOfTools();
 
 	@Query("select avg(i.retailPrice.amount) from Item i where i.type = 1 and i.retailPrice.currency = :currency ")
-	double averageRetailPriceOfTools(String currency);
+	Double averageRetailPriceOfTools(String currency);
 
 	@Query("select stddev(i.retailPrice.amount) from Item i where i.type = 1 and i.retailPrice.currency = :currency ")
-	double deviationRetailPriceOfTools(String currency);
+	Double deviationRetailPriceOfTools(String currency);
 
 	@Query("select min(i.retailPrice.amount) from Item i where i.type = 1 and i.retailPrice.currency = :currency ")
-	double minimumRetailPriceOfTools(String currency);
+	Double minimumRetailPriceOfTools(String currency);
 
 	@Query("select max(i.retailPrice.amount) from Item i where i.type = 1 and i.retailPrice.currency = :currency ")
-	double maximumRetailPriceOfTools(String currency);
+	Double maximumRetailPriceOfTools(String currency);
 
 
 
