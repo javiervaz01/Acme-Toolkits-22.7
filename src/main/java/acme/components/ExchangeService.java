@@ -2,7 +2,9 @@ package acme.components;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
+import org.assertj.core.util.Arrays;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -22,6 +24,11 @@ public class ExchangeService {
 		final String systemCurrency = this.repository.getSystemConfiguration().getCurrency();
 
 		return budget.getCurrency().equals(systemCurrency) ? budget : this.getInSystemCurrency(budget);
+	}
+	
+	public List<Object> getAceptedCurrencyList(){
+		final String[] coins= this.repository.getSystemConfiguration().getAcceptedCurrencies().split(",");
+		return Arrays.asList(coins);
 	}
 
 	private Money getInSystemCurrency(final Money budget) {
