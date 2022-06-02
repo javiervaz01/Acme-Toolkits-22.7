@@ -1,20 +1,7 @@
-# README.txt
-#
-# Copyright (C) 2012-2022 Rafael Corchuelo.
-#
-# In keeping with the traditional purpose of furthering education and research, it is
-# the policy of the copyright owner to permit non-commercial use and redistribution of
-# this software. It has been tested carefully, but it is not guaranteed for any particular
-# purposes.  The copyright owner does not offer any warranties or representations, nor do
-# they accept any liabilities with respect to them.
+# Acme Toolkits
 
-This is a starter project.  It is intended to be a core learning asset for the students
-who have enrolled the Design and Testing subject of the Software Engineering curriculum of the 
-University of Sevilla.  This project helps them start working on their new information system 
-projects.
+This is the Acme-Toolkits project made by the D&T2 students from group E8.01
 
-To get this project up and running, please follow the appropriate guideline, taking into 
-account that you must link Acme-Framework-22.1 excluding the following resources:
+To get this project up and running, please follow the appropriate guideline. As provided in the starter projects, the latest version of the framework (22.7) is already linked to the project, following the appropiate procedure explained in the "S02 – Getting ready (Laboratory)" from "L01 - Introduction".
 
-- **/fragments/**
- 
+![](https://i.imgur.com/zDWZNWd.png)
