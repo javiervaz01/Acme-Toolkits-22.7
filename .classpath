@@ -62,5 +62,6 @@
 			<attribute name="optional" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry combineaccessrules="false" kind="src" path="/Acme-Framework-22.7"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
